@@ -7,3 +7,5 @@ export interface INews {
   category: string
   isVideo: boolean
 }
+export const buttonVariants = ['primary', 'secondary'] as const
+export type ButtonVariants = (typeof buttonVariants)[number]
