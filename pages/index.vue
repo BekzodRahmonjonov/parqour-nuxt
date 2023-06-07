@@ -13,6 +13,7 @@
     <div class="flex">
       <CardsSpecialReports />
     </div>
+    <SectionReports :data="reportsData" />
     <CommonSectionWrapper class="mt-6" />
     <CommonSectionWrapper class="mt-6" is-centered />
     <CommonSectionWrapper class="mt-6">
@@ -21,4 +22,6 @@
   </div>
 </template>
 
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import {  reportsData } from '@/data'
+</script>
