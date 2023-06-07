@@ -6,7 +6,7 @@ export default defineNuxtConfig({
       title: 'Nuxt3 project',
     },
   },
-  css: ['~/assets/style.css'],
+  css: ['~/assets/style.css', '~/assets/icomoon/style.css'],
   modules: [
     '@nuxtjs/tailwindcss',
     [

@@ -33,10 +33,11 @@ export default <Partial<Config>>{
         },
       },
     },
-      lineHeight: {
-        136: '136%',
-        14: '14px',
-      },
+    lineHeight: {
+      136: '136%',
+      14: '14px',
+      20: '20px',
+    },
   },
   plugins: [],
 }

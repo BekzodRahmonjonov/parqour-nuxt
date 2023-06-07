@@ -157,7 +157,7 @@ const textStyle = computed(() => {
 
 /*Primary*/
 .s-button-primary {
-  @apply text-white bg-red hover:bg-[#C72727];
+  @apply text-white bg-blue hover:bg-[#C72727];
 }
 
 /* Secondary */
