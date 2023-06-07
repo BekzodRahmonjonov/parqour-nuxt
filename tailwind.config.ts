@@ -24,6 +24,7 @@ export default <Partial<Config>>{
         },
         white: {
           DEFAULT: '#ffffff',
+          100: '#F5F6F9',
         },
         gray: {
           DEFAULT: '#B8BABE',
@@ -39,6 +40,7 @@ export default <Partial<Config>>{
       130: '130%',
       120: '120%',
       14: '14px',
+      20: '20px',
     },
   },
   plugins: [],
