@@ -16,11 +16,27 @@ export default <Partial<Config>>{
   theme: {
     extend: {
       colors: {
+        blue: {
+          100: '#A2BCDE',
+          200: '#52618F',
+          700: '#191F2E',
+        },
+        white: {
+          DEFAULT: '#ffffff',
+        },
         gray: {
-          100: '#a2bcde29',
+          DEFAULT: '#B8BABE',
+          100: '#D1D2D5',
+          200: '#919299',
+          300: '#E5E7EE',
+          400: '#a2bcde29',
         },
       },
     },
+      lineHeight: {
+        136: '136%',
+        14: '14px',
+      },
   },
   plugins: [],
 }
