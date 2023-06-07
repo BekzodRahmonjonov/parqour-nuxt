@@ -1,6 +1,6 @@
 <template>
   <div
-    class="w-full aspect-video md:h-[466px] rounded-lg relative overflow-hidden"
+    class="w-full aspect-video lg:h-[466px] rounded-lg relative overflow-hidden"
   >
     <img :src="card?.image" alt="news" class="w-full h-full object-cover" />
     <div class="linear-bg-news absolute w-full h-full inset-0" />

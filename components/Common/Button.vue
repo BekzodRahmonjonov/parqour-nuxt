@@ -154,14 +154,4 @@ const textStyle = computed(() => {
     transform: rotate(360deg);
   }
 }
-
-/*Primary*/
-.s-button-primary {
-  @apply text-white bg-red hover:bg-[#C72727];
-}
-
-/* Secondary */
-.s-button-secondary {
-  @apply text-white bg-[#2C2E3E]  hover:bg-[#181A2A];
-}
 </style>
