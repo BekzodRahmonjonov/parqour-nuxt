@@ -2,7 +2,7 @@
   <div class="container">
     <div class="grid grid-cols-12 gap-8 pt-[120px]">
       <div class="col-span-8">
-        <CardsMainSwiper :card="mainSwiperData[0]" />
+        <SectionsMainSwiper />
       </div>
       <div class="col-span-4">Div-2</div>
     </div>

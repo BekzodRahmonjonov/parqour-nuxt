@@ -1,0 +1,90 @@
+<template>
+  <div class="relative">
+    <div class="absolute top-6 right-6 z-[2]">
+      <div class="flex-y-center gap-2">
+        <button
+          class="main-button-prev bg-blue-200/[24%] w-7 h-7 rounded flex-center transition-300 hover:bg-blue-200/100 active:scale-90"
+        >
+          <i class="icon-arrow-left text-white" />
+        </button>
+        <button
+          class="main-button-next bg-blue-200/[24%] w-7 h-7 rounded flex-center transition-300 hover:bg-blue-200/100 active:scale-90"
+        >
+          <i class="icon-arrow-right text-white" />
+        </button>
+      </div>
+    </div>
+    <Swiper
+      v-bind="settings"
+      @swiper="onInit"
+      @activeIndexChange="sliderChange"
+    >
+      <SwiperSlide v-for="(card, index) in mainSwiperData" :key="index">
+        <CardsMainSwiper v-bind="{ card }" />
+      </SwiperSlide>
+    </Swiper>
+    <div class="flex-y-center gap-1 absolute z-[2] bottom-6 right-6">
+      <div
+        v-for="(pagination, index) in mainSwiperData"
+        :key="index"
+        class="w-full h-0.5 bg-blue-200/20 w-16 rounded-lg"
+      >
+        <div
+          class="bg-blue-200 h-0.5 w-0"
+          :class="{ 'animation-fill': index === activeIndex }"
+        />
+      </div>
+    </div>
+  </div>
+</template>
+
+<script setup lang="ts">
+import 'swiper/css'
+
+import { Autoplay, Navigation } from 'swiper'
+import { Swiper, SwiperSlide } from 'swiper/vue'
+
+import { mainSwiperData } from '~/data'
+
+const activeIndex = ref(0)
+
+const settings = {
+  grabCursor: true,
+  spaceBetween: 16,
+  loop: true,
+  autoplay: {
+    delay: 5000,
+    disableOnInteraction: false,
+  },
+  navigation: {
+    prevEl: '.main-button-prev',
+    nextEl: '.main-button-next',
+  },
+  modules: [Navigation, Autoplay],
+}
+
+const imageSlider = ref()
+
+function sliderChange(e: any) {
+  activeIndex.value = e?.realIndex
+}
+
+function onInit(swiper: any) {
+  imageSlider.value = swiper
+}
+</script>
+
+<style scoped>
+.animation-fill {
+  animation: fill 5s linear forwards;
+}
+
+@keyframes fill {
+  0% {
+    width: 0;
+  }
+  100% {
+    width: 100%;
+  }
+}
+</style>
