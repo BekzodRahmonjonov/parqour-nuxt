@@ -2,11 +2,13 @@
   <div class="container">
     <div class="grid grid-cols-12 gap-8 pt-[120px]">
       <div class="col-span-8">
-        <CardsMainSwiper />
+        <CardsMainSwiper :card="mainSwiperData[0]" />
       </div>
       <div class="col-span-4">Div-2</div>
     </div>
   </div>
 </template>
 
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import { mainSwiperData } from '@/data'
+</script>

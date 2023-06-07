@@ -10,9 +10,7 @@
 html{
     scroll-behavior: smooth;
 }
-pre{
-    color: white;
-}
+
 .container {
     @apply mx-auto px-4;
 }
