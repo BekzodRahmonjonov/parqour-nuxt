@@ -1,6 +1,6 @@
 <template>
-  <div class="container">
-    <div class="grid grid-cols-12 gap-8 pt-[120px]">
+  <div class="container pt-[120px]">
+    <div class="sm:grid grid-cols-12 gap-8">
       <div class="col-span-8">
         <SectionsMainSwiper />
       </div>
@@ -9,6 +9,8 @@
     <div class="flex">
       <CardsSpecialReports />
     </div>
+    <div class="h-6"></div>
+    <CommonSectionWrapper />
   </div>
 </template>
 

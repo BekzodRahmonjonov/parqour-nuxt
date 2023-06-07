@@ -19,6 +19,7 @@ export default <Partial<Config>>{
         blue: {
           100: '#A2BCDE',
           200: '#52618F',
+          600: '#2C3752',
           700: '#191F2E',
         },
         white: {
@@ -33,10 +34,12 @@ export default <Partial<Config>>{
         },
       },
     },
-      lineHeight: {
-        136: '136%',
-        14: '14px',
-      },
+    lineHeight: {
+      136: '136%',
+      130: '130%',
+      120: '120%',
+      14: '14px',
+    },
   },
   plugins: [],
 }

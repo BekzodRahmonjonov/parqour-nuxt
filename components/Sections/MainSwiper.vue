@@ -1,6 +1,6 @@
 <template>
   <div class="relative">
-    <div class="absolute top-6 right-6 z-[2]">
+    <div class="absolute hidden sm:block top-6 right-6 z-[2]">
       <div class="flex-y-center gap-2">
         <button
           class="main-button-prev bg-blue-200/[24%] w-7 h-7 rounded flex-center transition-300 hover:bg-blue-200/100 active:scale-90"
@@ -27,10 +27,10 @@
       <div
         v-for="(pagination, index) in mainSwiperData"
         :key="index"
-        class="w-full h-0.5 bg-blue-200/20 w-16 rounded-lg"
+        class="h-0.5 bg-blue-100/20 w-6 sm:w-16 rounded-lg"
       >
         <div
-          class="bg-blue-200 h-0.5 w-0"
+          class="bg-blue-100 h-0.5 w-0"
           :class="{ 'animation-fill': index === activeIndex }"
         />
       </div>
