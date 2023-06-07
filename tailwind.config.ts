@@ -14,7 +14,13 @@ export default <Partial<Config>>{
     './error.vue',
   ],
   theme: {
-    extend: {}
+    extend: {
+      colors: {
+        gray: {
+          100: '#a2bcde29',
+        },
+      },
+    },
   },
   plugins: [],
 }
