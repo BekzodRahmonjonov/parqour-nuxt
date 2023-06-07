@@ -1,4 +1,8 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
+import en from './locales/en.json'
+import ru from './locales/ru.json'
+import uz from './locales/uz.json'
+
 export default defineNuxtConfig({
   ssr: true,
   app: {
@@ -6,8 +10,10 @@ export default defineNuxtConfig({
       title: 'Nuxt3 project',
     },
   },
-  css: ['~/assets/style.css'],
+  css: ['/assets/style.css', '/assets/icomoon/style.css'],
   modules: [
+    '@vueuse/nuxt',
+    '@nuxtjs/i18n',
     '@nuxtjs/tailwindcss',
     [
       '@pinia/nuxt',
@@ -20,6 +26,26 @@ export default defineNuxtConfig({
       },
     ],
   ],
+  i18n: {
+    locales: ['ru', 'uz', 'en'],
+    defaultLocale: 'ru',
+    vueI18n: {
+      fallbackLocale: 'ru',
+      messages: {
+        ru,
+        uz,
+        en,
+      },
+    },
+    // vueI18n: './i18n.config.ts', // if you are using custom path, default
+    detectBrowserLanguage: {
+      useCookie: true,
+      cookieKey: 'i18n_redirected',
+      redirectOn: 'root', // recommended
+      alwaysRedirect: true,
+    },
+  },
+
   nitro: {
     serveStatic: true,
   },
