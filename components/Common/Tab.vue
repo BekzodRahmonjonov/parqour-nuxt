@@ -1,10 +1,10 @@
 <template>
   <div
-    class="main-tab relative bg-white/12 flex w-max transition-200 border-b border-solid border-gray-300"
+    class="main-tab relative bg-white/12 flex w-max transition-200 border-b border-solid border-gray-300 dark:border-gray-300/10"
   >
     <div
       :class="activeClass"
-      class="absolute h-px bg-blue-200 w-full -bottom-px transition-200 text-dark"
+      class="absolute h-px bg-blue-200 w-full -bottom-px transition-200 dark:bg-white"
       :style="{ width: `${active.width}`, left: `${active.left}px` }"
     ></div>
     <button
@@ -13,9 +13,11 @@
       :key="idx"
       :class="[
         itemClass,
-        modelValue === tab.value ? 'text-blue-200' : 'text-gray',
+        modelValue === tab.value
+          ? 'text-blue-200 dark:text-white'
+          : 'text-gray dark:text-blue-100',
       ]"
-      class="tabs pt-4 pb-[18px] transition-200 w-full text-lg font-medium z-10 hover:text-blue-200 font-medium tabs"
+      class="tabs pt-4 pb-[18px] transition-200 w-full text-lg font-medium z-10 hover:text-blue-200 dark:hover:text-white font-medium tabs"
       @click="pick(tab.value, $event)"
     >
       {{ tab.label }}

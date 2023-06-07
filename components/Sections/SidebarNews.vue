@@ -4,7 +4,16 @@
 
     <Transition name="fade" mode="out-in">
       <div :key="active" class="mt-4">
-        <CommonNewsBlock :list="popularNews" />
+        <CommonNewsBlock
+          v-if="active === 'popular'"
+          :list="popularNews"
+          :button-text="$t('all_popular')"
+        />
+        <CommonNewsBlock
+          v-if="active === 'discussed'"
+          :list="popularNews"
+          :button-text="$t('all_discussed')"
+        />
       </div>
     </Transition>
   </div>
@@ -13,16 +22,17 @@
 <script setup lang="ts">
 import { popularNews } from '~/data'
 
-const active = ref('value')
+const active = ref('popular')
+const { t } = useI18n()
 
 const tabs = [
   {
-    label: 'label',
-    value: 'value',
+    label: t('popular'),
+    value: 'popular',
   },
   {
-    label: 'label 2',
-    value: 'value2',
+    label: t('discussed'),
+    value: 'discussed',
   },
 ]
 </script>

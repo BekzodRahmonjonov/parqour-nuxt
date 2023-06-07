@@ -4,7 +4,9 @@
       <div class="col-span-8">
         <SectionsMainSwiper />
       </div>
-      <div class="col-span-4 bg-white-400 rounded-lg">
+      <div
+        class="col-span-4 bg-white-400 dark:bg-blue-100/[16%] transition-300 rounded-lg"
+      >
         <SectionsSidebarNews />
       </div>
     </div>

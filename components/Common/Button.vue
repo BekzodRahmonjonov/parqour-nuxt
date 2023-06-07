@@ -1,7 +1,7 @@
 <template>
   <button
     v-bind="{ disabled, type }"
-    class="transition-300 rounded-lg py-4 px-3 flex-center cursor-pointer relative group disabled:bg-grey-light disabled:hover:bg-grey-light disabled:text-dark/40 outline-none"
+    class="inline-block transition-300 rounded px-5 py-2 flex-center cursor-pointer relative group disabled:bg-grey-light disabled:hover:bg-grey-light disabled:text-dark/40 outline-none"
     :style="{ '--box-shadow': shadowColor, '--spinnerColor': spinnerColor }"
     :class="[
       buttonClass,
@@ -79,8 +79,15 @@ const props = withDefaults(defineProps<Props>(), {
   loading: false,
   variant: 'primary',
 })
+const variants = computed<{ [key in Props['variant']]: string }>(() => ({
+  primary: 's-button-primary',
+  secondary: 's-button-secondary dark:bg-blue-100/[16%]',
+  'primary-dark': 's-button-primary-dark',
+  danger: 's-button-danger',
+  'danger-outline': 's-button-danger-outline',
+}))
 
-const buttonVariantClass = computed(() => `s-button-${props.variant}`)
+const buttonVariantClass = computed<string>(() => variants.value[props.variant])
 
 // ******* EMITS *******
 interface Emits {
@@ -153,5 +160,19 @@ const textStyle = computed(() => {
     stroke-dashoffset: -124; */
     transform: rotate(360deg);
   }
+}
+
+/*Primary*/
+.s-button-primary {
+  @apply text-[#2C3752] bg-[#A2BCDE];
+}
+
+/* Secondary */
+.s-button-secondary {
+  @apply text-[#2C3752] bg-[#52618F1A];
+}
+
+.s-button-primary-dark {
+  @apply text-white bg-blue-200;
 }
 </style>

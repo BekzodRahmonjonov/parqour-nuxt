@@ -13,5 +13,5 @@ export interface ITabItem {
   value: string
 }
 
-export const buttonVariants = ['primary', 'secondary'] as const
+export const buttonVariants = ['primary', 'secondary', 'primary-dark'] as const
 export type ButtonVariants = (typeof buttonVariants)[number]
