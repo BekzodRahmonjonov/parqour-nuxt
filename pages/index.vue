@@ -6,6 +6,9 @@
       </div>
       <div class="col-span-4">Div-2</div>
     </div>
+    <div class="flex">
+      <CardsSpecialReports />
+    </div>
   </div>
 </template>
 
