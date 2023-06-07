@@ -9,8 +9,11 @@
     <div class="flex">
       <CardsSpecialReports />
     </div>
-    <div class="h-6"></div>
-    <CommonSectionWrapper />
+    <CommonSectionWrapper class="mt-6" />
+    <CommonSectionWrapper class="mt-6" is-centered />
+    <CommonSectionWrapper class="mt-6">
+      <template #actions> Actions </template>
+    </CommonSectionWrapper>
   </div>
 </template>
 
