@@ -1,7 +1,7 @@
 <template>
   <NuxtLink
     to="/"
-    class="cursor-pointer flex gap-6 group border-b border-solid border-white-200 dark:border-blue-200/20 lg:border-transparent pb-3 lg:pb-0 last:border-b-[0px]"
+    class="cursor-pointer flex gap-6 group border-b border-solid border-white-200 dark:border-blue-200/20 lg:!border-transparent pb-3 lg:pb-0"
   >
     <div
       class="w-[80px] lg:w-[100px] h-[80px] lg:h-[100px] rounded relative overflow-hidden shrink-0"

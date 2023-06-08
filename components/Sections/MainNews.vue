@@ -1,6 +1,6 @@
 <template>
   <div class="container">
-    <div class="lg:grid grid-cols-12 gap-8 mb-10">
+    <div class="lg:grid grid-cols-12 gap-8">
       <div class="col-span-8">
         <SectionsMainSwiper />
         <div class="mt-8 flex flex-col gap-3 lg:gap-6">
@@ -19,6 +19,7 @@
               v-for="(card, index) in newsData.slice(2, 4)"
               v-bind="{ card }"
               :key="index"
+              class="last:border-b-[0px]"
             />
           </div>
         </div>
