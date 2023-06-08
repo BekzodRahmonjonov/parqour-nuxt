@@ -24,8 +24,9 @@ export default <Partial<Config>>{
         },
         white: {
           DEFAULT: '#ffffff',
-          400: '#F5F6F9',
           100: '#F5F6F9',
+          200: '#D9D9D9',
+          400: '#F5F6F9',
         },
         gray: {
           DEFAULT: '#B8BABE',
@@ -43,6 +44,7 @@ export default <Partial<Config>>{
       136: '136%',
       130: '130%',
       120: '120%',
+      126: '126%',
       14: '14px',
       20: '20px',
     },

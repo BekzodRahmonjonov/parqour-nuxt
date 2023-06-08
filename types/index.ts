@@ -6,6 +6,15 @@ export interface INews {
   image: string
   category?: string
   isVideo?: boolean
+  isVerified?: boolean
+  comments?: number
+}
+
+export interface IAuthor {
+  id: number
+  title: string
+  author: string
+  image: string
 }
 
 export interface ITabItem {

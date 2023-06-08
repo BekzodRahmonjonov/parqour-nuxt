@@ -10,7 +10,7 @@
       />
     </div>
     <div
-      class="news-side-bg-linear absolute bottom-0 w-full h-[100px] pointer-events-none"
+      class="absolute bottom-0 w-full h-[100px] pointer-events-none transition-300 news-side-bg-linear"
     />
     <div class="w-full absolute bottom-0 z-[1] p-5">
       <CommonButton variant="primary-dark" class="w-full group px-0">
@@ -26,6 +26,8 @@
 </template>
 
 <script setup lang="ts">
+import { useColorMode } from '@vueuse/core'
+
 import { INews } from '~/types'
 
 interface Props {
@@ -57,6 +59,14 @@ defineProps<Props>()
     180deg,
     rgba(245, 246, 249, 0) 0%,
     rgba(245, 246, 249, 0.94) 48.66%
+  );
+}
+
+html.dark .news-side-bg-linear {
+  background: linear-gradient(
+    180deg,
+    rgba(47, 56, 75, 0) 0%,
+    rgba(47, 56, 75, 0.94) 48.66%
   );
 }
 </style>
