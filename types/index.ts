@@ -1,11 +1,17 @@
 export interface INews {
-  id: number
+  id?: number
   title: string
   date: string
   views: number
   image: string
-  category: string
-  isVideo: boolean
+  category?: string
+  isVideo?: boolean
 }
-export const buttonVariants = ['primary', 'secondary'] as const
+
+export interface ITabItem {
+  label: string
+  value: string
+}
+
+export const buttonVariants = ['primary', 'secondary', 'primary-dark'] as const
 export type ButtonVariants = (typeof buttonVariants)[number]

@@ -3,7 +3,9 @@
     :class="isCentered ? 'flex-y-center gap-6' : 'flex-center-between gap-4'"
   >
     <div v-if="isCentered" class="linear-section-wrapper w-full h-px" />
-    <p class="text-base sm:text-2xl leading-130 font-bold text-blue-600">
+    <p
+      class="text-base sm:text-2xl leading-130 font-bold text-blue-600 dark:text-white transition-300"
+    >
       {{ title }}
     </p>
     <div class="linear-section-wrapper w-full h-px" />
@@ -11,7 +13,7 @@
     <slot v-if="!isCentered" name="actions">
       <NuxtLink
         :to="allLink"
-        class="flex-y-center gap-1.5 transition-200 hover:text-blue-100 group text-xs sm:text-lg text-blue-200 font-medium leading-120"
+        class="flex-y-center gap-1.5 transition-200 hover:text-blue-100 group text-xs sm:text-lg text-blue-200 dark:text-blue-100 font-medium leading-120"
       >
         {{ allTitle }}
         <i
@@ -42,7 +44,7 @@ withDefaults(defineProps<Props>(), {
   background: linear-gradient(
     90deg,
     rgba(162, 188, 222, 0.1) 0%,
-    #a2bcde 51.67%,
+    rgba(162, 188, 222, 0.4) 51.67%,
     rgba(162, 188, 222, 0.1) 100%
   );
 }
