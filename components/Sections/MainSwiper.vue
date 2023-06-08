@@ -27,7 +27,7 @@
       <div
         v-for="(pagination, index) in mainSwiperData"
         :key="index"
-        class="h-0.5 bg-blue-100/20 w-6 md:w-16 rounded-lg"
+        class="h-0.5 bg-blue-100/20 w-6 md:w-16 rounded-lg relative overflow-hidden"
       >
         <div
           class="bg-blue-100 h-0.5 w-0"
