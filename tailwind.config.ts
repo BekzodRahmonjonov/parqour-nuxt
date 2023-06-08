@@ -33,6 +33,9 @@ export default <Partial<Config>>{
           300: '#E5E7EE',
           400: '#a2bcde29',
         },
+        green: {
+          DEFAULT: '#51B334',
+        },
       },
     },
     lineHeight: {
@@ -41,6 +44,9 @@ export default <Partial<Config>>{
       120: '120%',
       14: '14px',
       20: '20px',
+    },
+    boxShadow: {
+      sm: '0px 2px 24px rgba(25, 31, 46, 0.24)',
     },
   },
   plugins: [],
