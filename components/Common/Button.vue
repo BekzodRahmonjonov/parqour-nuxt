@@ -61,7 +61,7 @@ interface Props {
   loading?: boolean
   type?: string
   variant?: ButtonVariants
-  icon?: string
+  icon?: boolean
   iconClass?: string
   buttonClass?: string
   suffix?: boolean
