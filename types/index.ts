@@ -12,6 +12,11 @@ export interface ITabItem {
   label: string
   value: string
 }
+export interface INavigation {
+  icon: string
+  title: string
+  url: string
+}
 
 export const buttonVariants = ['primary', 'secondary', 'primary-dark'] as const
 export type ButtonVariants = (typeof buttonVariants)[number]

@@ -146,3 +146,30 @@ export const reportsData = [
     views: 12551,
   },
 ]
+export const navigationData = [
+  {
+    icon: 'icon-home',
+    title: 'Главная',
+    url: '/',
+  },
+  {
+    icon: 'icon-bolt',
+    title: 'Популряное',
+    url: '/#',
+  },
+  {
+    icon: 'icon-pen',
+    title: 'Мнения',
+    url: '/#',
+  },
+  {
+    icon: 'icon-document',
+    title: 'Спецрепортажи',
+    url: '/#',
+  },
+  {
+    icon: 'icon-gallery',
+    title: 'Фоторепортажи',
+    url: '/#',
+  },
+]
