@@ -1,5 +1,7 @@
 {
   "hello": "Salom",
   "news": "Yangilik",
-  "login": "Kirish"
+  "login": "Kirish",
+  "special_reports": "Спецрепортажи",
+  "all": "Barchasi"
 }

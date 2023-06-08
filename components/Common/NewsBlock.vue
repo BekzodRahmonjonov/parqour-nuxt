@@ -1,7 +1,7 @@
 <template>
   <div class="relative">
     <div
-      class="h-[674px] relative px-6 pb-[70px] flex flex-col gap-3 overflow-y-auto mini-scroll-sidebar overflow-x-hidden"
+      class="h-[674px] relative px-3 lg:px-6 pb-[70px] flex flex-col gap-3 overflow-y-auto mini-scroll-sidebar overflow-x-hidden"
     >
       <CardsSideNews
         v-for="(card, index) in list"
@@ -10,9 +10,9 @@
       />
     </div>
     <div
-      class="news-side-bg-linear absolute bottom-0 w-full h-[100px] pointer-events-none"
+      class="absolute bottom-0 w-full h-[100px] pointer-events-none transition-300 news-side-bg-linear"
     />
-    <div class="w-full absolute bottom-0 z-[1] p-5">
+    <div class="w-full absolute bottom-0 z-[1] p-3 lg:p-5">
       <CommonButton variant="primary-dark" class="w-full group px-0">
         <div class="flex-center-between w-full pl-4 pr-2.5">
           <p>{{ buttonText }}</p>
@@ -26,6 +26,8 @@
 </template>
 
 <script setup lang="ts">
+import { useColorMode } from '@vueuse/core'
+
 import { INews } from '~/types'
 
 interface Props {
@@ -57,6 +59,14 @@ defineProps<Props>()
     180deg,
     rgba(245, 246, 249, 0) 0%,
     rgba(245, 246, 249, 0.94) 48.66%
+  );
+}
+
+html.dark .news-side-bg-linear {
+  background: linear-gradient(
+    180deg,
+    rgba(47, 56, 75, 0) 0%,
+    rgba(47, 56, 75, 0.94) 48.66%
   );
 }
 </style>
