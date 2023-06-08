@@ -146,3 +146,4 @@ export const reportsData = [
     views: 12551,
   },
 ]
+export const podcastTags = ['#Короткие', '#Подкасты']

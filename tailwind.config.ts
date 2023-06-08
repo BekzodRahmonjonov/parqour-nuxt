@@ -14,6 +14,11 @@ export default <Partial<Config>>{
     './error.vue',
   ],
   theme: {
+    container: {
+      center: true,
+      padding: '1rem',
+      screens: ['1224px']
+    },
     extend: {
       colors: {
         blue: {
@@ -21,6 +26,7 @@ export default <Partial<Config>>{
           200: '#52618F',
           600: '#2C3752',
           700: '#191F2E',
+          900: '#0E1118',
         },
         white: {
           DEFAULT: '#ffffff',
@@ -30,6 +36,7 @@ export default <Partial<Config>>{
         gray: {
           DEFAULT: '#B8BABE',
           100: '#D1D2D5',
+          150: "#F1F2F6",
           200: '#919299',
           300: '#E5E7EE',
           400: '#a2bcde29',
@@ -43,6 +50,7 @@ export default <Partial<Config>>{
       136: '136%',
       130: '130%',
       120: '120%',
+      125: '125%',
       14: '14px',
       20: '20px',
     },
