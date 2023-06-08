@@ -13,8 +13,9 @@
               />
               <span
                 class="text-sm font-medium leading-20 transition-200 dark:text-white"
-                >Новость</span
               >
+                {{ $t('news') }}
+              </span>
             </CommonButton>
           </NuxtLink>
           <NuxtLink to="/">
@@ -22,7 +23,9 @@
               <span
                 class="relative inline-block icon-login text-lg font-medium mr-2 leading-20"
               />
-              <span class="text-sm font-medium leading-20">Вход</span>
+              <span class="text-sm font-medium leading-20">
+                {{ $t('login') }}
+              </span>
             </CommonButton>
           </NuxtLink>
         </div>
