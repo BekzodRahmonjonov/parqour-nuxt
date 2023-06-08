@@ -10,7 +10,7 @@
     />
     <span
       class="absolute w-[14px] h-[14px] rounded-full top-0.5 bg-blue-200 left-0.5 transition-200 dark:bg-white"
-      :class="value ? 'translate-x-5' : 'translate-x-0'"
+      :class="!value ? 'translate-x-5' : 'translate-x-0'"
     />
   </label>
 </template>
