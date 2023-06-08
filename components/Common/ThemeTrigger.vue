@@ -3,7 +3,7 @@
     <span
       class="icon-sun text-xl text-blue-200 transition-200 dark:text-gray-200"
     />
-    <FormToggle :model-value="isDark" @input="toggleDark" />
+    <FormToggle v-model="theme" @input="toggleTheme" />
     <span
       class="icon-moon text-xl text-blue-100 transition-200 dark:text-white"
     />
@@ -11,10 +11,14 @@
 </template>
 
 <script setup lang="ts">
-import { useDark, useToggle } from '@vueuse/core'
+import { useTheme } from '~/store/theme'
 
-const isDark = useDark()
-const toggleDark = useToggle(isDark)
+const themeStore = useTheme()
+const theme = ref(false)
+const toggleTheme = (value: boolean) => {
+  theme.value = value
+  themeStore.changeTheme()
+}
 </script>
 
 <style scoped></style>

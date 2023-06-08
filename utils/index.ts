@@ -15,3 +15,30 @@ export function formatNumberWithSpaces(number: number) {
 
   return formattedIntegerPart + decimalPart
 }
+
+const timeouts = {}
+
+const cTimeout = (key = 'key') => {
+  if (timeouts[key]) {
+    clearTimeout(timeouts[key])
+    timeouts[key] = undefined
+  }
+}
+
+export const debounce = (key = 'key', fn = () => {}, timeout = 500) => {
+  const sTimeout = (key, fn, timeout) => {
+    cTimeout(key)
+
+    timeouts[key] = setTimeout(() => {
+      try {
+        fn()
+      } catch (e) {
+        console.log(e)
+      }
+
+      timeouts[key] = undefined
+    }, timeout)
+  }
+
+  return sTimeout(key, fn, timeout)
+}

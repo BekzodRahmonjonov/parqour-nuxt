@@ -48,6 +48,9 @@ export default <Partial<Config>>{
       14: '14px',
       20: '20px',
     },
+    boxShadow: {
+      sm: '0px 2px 24px rgba(25, 31, 46, 0.24)',
+    },
   },
   plugins: [],
 }

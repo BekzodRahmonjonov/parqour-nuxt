@@ -1,5 +1,4 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
-import en from './locales/en.json'
 import ru from './locales/ru.json'
 import uz from './locales/uz.json'
 
@@ -27,14 +26,13 @@ export default defineNuxtConfig({
     ],
   ],
   i18n: {
-    locales: ['ru', 'uz', 'en'],
+    locales: ['ru', 'uz'],
     defaultLocale: 'ru',
     vueI18n: {
       fallbackLocale: 'ru',
       messages: {
         ru,
         uz,
-        en,
       },
     },
     // vueI18n: './i18n.config.ts', // if you are using custom path, default
