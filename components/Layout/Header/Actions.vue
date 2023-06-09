@@ -1,5 +1,7 @@
 <template>
-  <div class="bg-white-100 py-[10px] dark:bg-blue-700 transition-200">
+  <div
+    class="bg-white-100 py-[10px] dark:bg-blue-700 transition-200 border-b-[0.5px] border-solid border-blue-200/10"
+  >
     <div class="container flex-y-center justify-between">
       <CommonThemeTrigger />
       <div class="flex-y-center space-x-3">
