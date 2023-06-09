@@ -44,3 +44,11 @@ export interface IPodcast {
   created_at: Date | string
   typeTitle: string
 }
+
+export interface IInterview {
+  image: string
+  type: string
+  title: string
+  created_at: Date | string
+  typeTitle: string
+}

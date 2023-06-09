@@ -313,6 +313,7 @@ export const authorsData = [
   },
 ]
 export const podcastTags = ['#Короткие', '#Подкасты']
+export const interviewTags = ['#Общество', '#Политика', '#Образоание']
 
 export const latestData = [
   {
@@ -375,28 +376,28 @@ export const podcasts: IPodcast[] = [
     image: '/images/podcasts/image.png',
     type: 'audio',
     title: 'Почему в Узбекистане не работает система образования?',
-    created_at: '2021-01-01',
+    created_at: '2023-06-07',
     typeTitle: 'Подкасты'
   },
   {
     image: '/images/podcasts/image1.png',
     type: 'video',
     title: 'Почему в Узбекистане не работает система образования?',
-    created_at: '2021-01-01',
+    created_at: '2023-05-28',
     typeTitle: 'Подкасты'
   },
   {
     image: '/images/podcasts/image7.png',
     type: 'audio',
     title: 'Почему в Узбекистане не работает система образования?',
-    created_at: '2021-01-01',
+    created_at: '2023-05-01',
     typeTitle: 'Подкасты'
   },
   {
     image: '/images/podcasts/image2.png',
     type: 'audio',
     title: 'Почему в Узбекистане не работает система образования?',
-    created_at: '2021-01-01',
+    created_at: '2022-11-01',
     typeTitle: 'Подкасты'
   },
   {

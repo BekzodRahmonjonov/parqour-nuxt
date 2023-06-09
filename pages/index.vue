@@ -6,7 +6,8 @@
     <CommonAdBanner image="/images/ad/ad.png" />
     <SectionsAuthor class="my-6 lg:my-10" />
     <SectionsReports :data="reportsData" />
-    <SectionsPodcasts class="py-14"/>
+    <SectionsPodcasts class="my-10"/>
+    <SectionsInterviews class="py-10" />
   </div>
 </template>
 
