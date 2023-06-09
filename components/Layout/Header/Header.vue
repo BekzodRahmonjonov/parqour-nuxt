@@ -20,6 +20,18 @@ const menuTrigger = ref(false)
 const showMenu = () => {
   menuTrigger.value = !menuTrigger.value
 }
+
+watch(
+  () => menuTrigger?.value,
+  (value) => {
+    const body = document.body
+    if (value) {
+      body.style.overflow = 'hidden'
+    } else {
+      body.style.overflow = 'auto'
+    }
+  }
+)
 </script>
 
 <style scoped></style>

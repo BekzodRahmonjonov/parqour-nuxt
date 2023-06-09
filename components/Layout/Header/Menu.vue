@@ -1,6 +1,5 @@
 <template>
   <div
-    v-if="true"
     class="absolute left-0 top-0 w-full h-screen bg-white z-20 transition-200 dark:bg-blue-700 overflow-y-auto"
   >
     <div class="h-full pt-[233.9px] pb-16 min-h-[800px]">
@@ -78,13 +77,6 @@ import {
   navigationData,
   socialsData,
 } from '~/data'
-
-onMounted(() => {
-  if (process.client) {
-    const body = document.body
-    body.style.overflow = 'hidden'
-  }
-})
 </script>
 <style>
 .linear-section-wrapper {
