@@ -17,7 +17,7 @@ export default <Partial<Config>>{
     container: {
       center: true,
       padding: '1rem',
-      screens: ['1224px']
+      screens: ['1224px'],
     },
     extend: {
       colors: {
@@ -32,18 +32,22 @@ export default <Partial<Config>>{
           DEFAULT: '#ffffff',
           100: '#F5F6F9',
           200: '#D9D9D9',
+          300: '#ECF2F8',
           400: '#F5F6F9',
         },
         gray: {
           DEFAULT: '#B8BABE',
           100: '#D1D2D5',
-          150: "#F1F2F6",
+          150: '#F1F2F6',
           200: '#919299',
           300: '#E5E7EE',
           400: '#a2bcde29',
         },
         green: {
           DEFAULT: '#51B334',
+        },
+        red: {
+          DEFAULT: '#D50404',
         },
       },
     },
@@ -54,6 +58,7 @@ export default <Partial<Config>>{
       126: '126%',
       125: '125%',
       14: '14px',
+      16: '16px',
       20: '20px',
     },
     boxShadow: {

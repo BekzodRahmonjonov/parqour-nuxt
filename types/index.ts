@@ -10,6 +10,13 @@ export interface INews {
   comments?: number
 }
 
+export interface ILatest {
+  id?: number
+  title?: string
+  date: string
+  time: string
+}
+
 export interface IAuthor {
   id: number
   title: string
