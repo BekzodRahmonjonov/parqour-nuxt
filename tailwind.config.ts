@@ -48,6 +48,7 @@ export default <Partial<Config>>{
         },
         red: {
           DEFAULT: '#D50404',
+          light: '#FFEDF0',
         },
       },
     },

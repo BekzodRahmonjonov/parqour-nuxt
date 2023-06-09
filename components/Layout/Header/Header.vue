@@ -5,6 +5,7 @@
       <LayoutHeaderMain />
       <LayoutHeaderNavigation />
     </div>
+    <LayoutHeaderBreakingNews />
   </header>
 </template>
 
