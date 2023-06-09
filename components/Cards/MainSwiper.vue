@@ -1,9 +1,14 @@
 <template>
   <div
-    class="w-full aspect-video lg:h-[466px] rounded-lg relative overflow-hidden"
+    class="w-full aspect-video lg:h-[466px] rounded-lg relative overflow-hidden group"
   >
     <img :src="card?.image" alt="news" class="w-full h-full object-cover" />
-    <div class="linear-bg-news absolute w-full h-full inset-0" />
+    <div
+      class="linear-bg-news absolute w-full h-full inset-0 transition-200 group-hover:opacity-0"
+    />
+    <div
+      class="linear-bg-news-blue absolute w-full h-full inset-0 opacity-0 transition-300 group-hover:opacity-100"
+    />
     <div class="absolute w-full h-full inset-0 z-[1] flex items-end">
       <div class="p-6">
         <p class="text-xs sm:text-sm leading-5 text-white font-normal">
@@ -42,6 +47,14 @@ defineProps<Props>()
     180deg,
     rgba(57, 68, 102, 0) 0%,
     rgba(28, 34, 52, 0.92) 70.19%
+  );
+}
+
+.linear-bg-news-blue {
+  background: linear-gradient(
+    180deg,
+    rgba(82, 97, 143, 0) 0%,
+    rgba(82, 97, 143, 0.92) 70.19%
   );
 }
 </style>

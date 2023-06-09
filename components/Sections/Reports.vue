@@ -5,9 +5,24 @@
         :title="$t('special_reports')"
         :all-link="'/special-reports'"
         :all-title="$t('all')"
-        :dark-title="true"
+        dark-title
         class="mb-5 md:mb-4"
-      />
+      >
+        <template #actions>
+          <div class="flex-y-center gap-1">
+            <button
+              class="button-report-prev w-7 h-7 rounded-full border border-solid border-blue-100/30 flex-center hover:border-blue-100 transition-200"
+            >
+              <i class="icon-arrow-left text-blue-100" />
+            </button>
+            <button
+              class="button-report-next w-7 h-7 rounded-full border border-solid border-blue-100/30 flex-center hover:border-blue-100 transition-200"
+            >
+              <i class="icon-arrow-right text-blue-100" />
+            </button>
+          </div>
+        </template>
+      </CommonSectionWrapper>
     </div>
     <div class="hidden md:block">
       <Swiper v-bind="settings">
@@ -35,12 +50,18 @@
 <script setup lang="ts">
 import 'swiper/css'
 
+import { Navigation } from 'swiper'
 import { Swiper, SwiperSlide } from 'swiper/vue'
 
 const settings = {
   slidesPerView: 'auto',
   spaceBetween: 44,
   loop: true,
+  navigation: {
+    prevEl: '.button-report-prev',
+    nextEl: '.button-report-next',
+  },
+  modules: [Navigation],
 }
 
 interface Props {

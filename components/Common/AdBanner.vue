@@ -6,7 +6,7 @@
 
     <div class="w-full flex items-center justify-end mt-3">
       <p
-        class="text-blue-200 transition-300 bg-blue-100/[16%] px-3 py-[7px] rounded-full text-xs sm:text-sm leading-126 font-medium transition-300 text-blue-200 dark:text-blue-100"
+        class="text-blue-200 transition-200 bg-blue-100/[16%] px-3 py-[7px] rounded-full text-xs sm:text-sm leading-126 font-medium transition-200 text-blue-200 dark:text-blue-100"
       >
         {{ $t('add_message') }}
       </p>

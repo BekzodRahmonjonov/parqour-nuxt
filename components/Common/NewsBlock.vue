@@ -1,7 +1,7 @@
 <template>
   <div class="relative">
     <div
-      class="h-[674px] relative px-3 lg:px-6 pb-[70px] flex flex-col gap-3 overflow-y-auto mini-scroll-sidebar overflow-x-hidden"
+      class="h-[674px] relative pb-[70px] flex flex-col overflow-y-auto mini-scroll-sidebar overflow-x-hidden"
     >
       <CardsSideNews
         v-for="(card, index) in list"
@@ -10,7 +10,7 @@
       />
     </div>
     <div
-      class="absolute bottom-0 w-full h-[100px] pointer-events-none transition-300 news-side-bg-linear"
+      class="absolute bottom-0 w-full h-[100px] pointer-events-none transition-200 news-side-bg-linear"
     />
     <div class="w-full absolute bottom-0 z-[1] p-3 lg:p-5">
       <CommonButton variant="primary-dark" class="w-full group px-0">

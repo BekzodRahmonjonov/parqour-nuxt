@@ -47,8 +47,23 @@ export interface IPodcast {
 
 export interface IInterview {
   image: string
-  type: string
+  views_count: number
   title: string
   created_at: Date | string
-  typeTitle: string
+  with_whom: string
+}
+export interface IColony {
+  id: number
+  title: string
+  image: string
+  description: string
+  created_at: Date | string
+  views_count: number
+  userName: string
+}
+
+export interface ISocial {
+  icon: string
+  subscribe: number
+  title: string
 }

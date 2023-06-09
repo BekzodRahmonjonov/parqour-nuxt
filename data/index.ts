@@ -1,4 +1,4 @@
-import { IPodcast } from '~/types'
+import {IColony, IInterview, IPodcast} from "~/types";
 
 export const mainSwiperData = [
   {
@@ -515,6 +515,119 @@ export const podcasts: IPodcast[] = [
     created_at: '2021-01-01',
     typeTitle: 'Подкасты',
   },
+]
+
+export const socials = [
+  {
+    title: 'YOUTUBE',
+    subscribe: 15251,
+    icon: 'icon-youtube',
+  },
+  {
+    title: 'telegram',
+    subscribe: 142340,
+    icon: 'icon-telegram',
+  },
+  {
+    title: 'Instagram',
+    subscribe: 1520214,
+    icon: 'icon-instagram',
+  },
+  {
+    title: 'FACEBOOK',
+    subscribe: 310251,
+    icon: 'icon-facebook',
+  },
+
+  {
+    title: 'VK',
+    subscribe: 210652,
+    icon: 'icon-vk',
+  },
+  {
+    title: 'OK.RU',
+    subscribe: 1520214,
+    icon: 'icon-odno',
+  },
+  {
+    title: 'TWITTER',
+    subscribe: 621024,
+    icon: 'icon-twitter',
+  },
+  {
+    title: 'FEED',
+    subscribe: 15921,
+    icon: 'icon-network',
+  },
+]
+
+export const interviews: IInterview[] = [
+  {
+    image: '/images/interviews/image1.png',
+    title: 'Почему в Узбекистане не работает система образования?',
+    created_at: '2023-06-07',
+    with_whom: 'с Шерматовым',
+    views_count: 1234,
+  },
+  {
+    image: '/images/interviews/image2.png',
+    title: 'Почему в Узбекистане не работает система образования?',
+    created_at: '2023-05-28',
+    with_whom: 'с кушербаевым',
+    views_count: 1234,
+  },
+  {
+    image: '/images/interviews/image3.png',
+    title: 'Почему в Узбекистане не работает система образования?',
+    created_at: '2023-05-01',
+    with_whom: 'с лебедевым',
+    views_count: 1234,
+  },
+  {
+    image: '/images/interviews/image4.png',
+    title: 'Почему в Узбекистане не работает система образования?',
+    created_at: '2022-11-01',
+    with_whom: 'с ЛОЛОЙ',
+    views_count: 1234,
+  },
+]
+export const columns: IColony[] = [
+  {
+    id: 1,
+    title: 'Почему в Узбекистане не работает система образования?',
+    image: '/images/articles/image1.png',
+    description: 'В Узбекистане не работает система образования?',
+    created_at: '2023-06-07',
+    views_count: 1234,
+    userName: 'Абдулла',
+  },
+  {
+    id: 2,
+    title: 'Почему в Узбекистане не работает система образования?',
+    image: '/images/articles/image1.png',
+    description: '«Что случилось» — новостной подкаст «Медузы». Это вечернее шоу, которое выходит каждый день, кроме выходных. Мы не пытаемся рассказывать обо всех...',
+    created_at: '2023-06-07',
+    views_count: 1234,
+    userName: 'Абдулла',
+  },
+  {
+    id: 3,
+    title: 'Почему в Узбекистане не работает система образования?',
+    image: '/images/articles/image1.png',
+    description: 'В Узбекистане не работает система образования?',
+    created_at: '2023-06-07',
+    views_count: 1234,
+    userName: 'Абдулла',
+  },
+  {
+    id: 4,
+    title: 'Почему в Узбекистане не работает система образования?',
+    image: '/images/articles/image1.png',
+    description: 'В Узбекистане не работает система образования?',
+    created_at: '2023-06-07',
+    views_count: 1234,
+    userName: 'Абдулла',
+  }
 ]
 
 export const searchContent = [
