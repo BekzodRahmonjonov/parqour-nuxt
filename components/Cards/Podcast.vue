@@ -1,10 +1,10 @@
 <template>
-  <div class="rounded-md bg-gray-150 w-full h-full relative max-h-[296px]">
+  <div class="rounded-md bg-gray-150 w-full h-full relative max-h-[296px] group transition-200 cursor-pointer hover:-translate-y-1">
     <img :src="data.image"
          alt="podcast_image"
-         class="w-full h-full object-cover rounded-md aspect-auto relative z-0"
+         class="w-full h-full object-cover rounded-md aspect-auto relative z-0 box transition-200"
     >
-    <div class="absolute z-10 w-full h-full podcast-overlay top-0 rounded-md p-4 flex flex-col justify-between items-end">
+    <div class="transition-200 absolute z-10 box w-full h-full podcast-overlay border-0 border-transparent top-0 rounded-md p-4 flex flex-col justify-between items-end">
       <div class="bg-blue-700/40 px-2.5 py-1.5 rounded w-fit flex-center">
         <span class="text-white text-xs font-medium leading-130"> {{ data.typeTitle }} </span>
         <span class="w-1 h-1 rounded-full bg-gray-100 mx-1.5"></span>

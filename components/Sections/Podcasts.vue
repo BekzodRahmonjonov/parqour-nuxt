@@ -5,7 +5,7 @@
         <CommonTags v-bind="{ loading, tags: podcastTags }" />
       </template>
     </CommonSectionWrapper>
-    <div class="grid grid-cols-12 gap-x-8 gap-y-6 mt-7">
+    <div class="grid grid-cols-12 sm:gap-x-8 gap-y-6 mt-7">
       <client-only>
         <CardsPodcast
             v-for="(item, index) in podcasts"
