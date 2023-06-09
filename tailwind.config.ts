@@ -58,6 +58,7 @@ export default <Partial<Config>>{
       126: '126%',
       125: '125%',
       14: '14px',
+      16: '16px',
       20: '20px',
     },
     boxShadow: {
