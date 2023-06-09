@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div v-if="false">
     <button
       class="absolute top-[196px] left-0 border border-solid border-blue-100 rounded-r-lg z-[12] border-l-[0px] p-4 flex flex-col gap-4 transition-300 dark:bg-blue-100/[16%]"
     >
