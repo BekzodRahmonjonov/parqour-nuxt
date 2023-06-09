@@ -64,7 +64,9 @@ interface Props {
   }[]
   wrapperClass?: string
 }
-const props = defineProps<Props>()
+const props = withDefaults(defineProps<Props>(), {
+  searchTrigger: true,
+})
 interface Emits {
   (e: 'handleUpdateSearch', value: string): void
   (e: 'clear'): void

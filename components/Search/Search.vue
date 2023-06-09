@@ -2,10 +2,14 @@
   <div class="w-full flex items-center">
     <SearchWrapper
       :search="search"
-      :search-trigger="searchTrigger"
       :search-content="searchContent"
       @handleUpdateSearch="handleUpdateSearch"
       @clear="clear"
+    />
+    <button
+      class="text-2xl text-blue-200 transition-200 hover:text-blue-100 lg:hidden"
+      :class="[searchTrigger ? 'icon-close' : 'icon-magnifer']"
+      @click="handleShowSearch"
     />
   </div>
 </template>
@@ -16,7 +20,7 @@ import { ref } from 'vue'
 import { searchContent } from '~/data/index'
 
 const search = ref('')
-const searchTrigger = ref(true)
+const searchTrigger = ref(false)
 
 const handleShowSearch = () => {
   search.value = ''
