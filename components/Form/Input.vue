@@ -1,6 +1,6 @@
 <template>
   <div
-    class="relative inline-flex items-center transition-300 relative rounded-lg border overflow-hidden w-full px-4 py-3 group focus-within:border-white/70 bg-white/10 border-white/20 input-backdrop"
+    class="relative inline-flex items-center transition-300 relative rounded overflow-hidden w-full px-4 py-3 group !bg-blue-200/10"
     :class="[{ '!border-red': error }]"
   >
     <span :class="[prefixClass]" class="flex-center">
@@ -22,7 +22,7 @@
       ref="Input"
       :value="modelValue"
       :class="[inputClass]"
-      class="w-full font-medium leading-130 text-base placeholder:text-base placeholder:font-normal bg-transparent flex-grow outline-none text-white placeholder:text-white/20"
+      class="w-full font-normal leading-16 text-sm placeholder:text-sm placeholder:font-normal bg-transparent flex-grow outline-none text-blue-200 dark:text-blue-100 dark:placeholder:text-blue-100/50 placeholder:text-blue-200/50"
       @keyup.enter="handleEnter"
       @input="handleInput"
       @blur="$emit('blur')"
@@ -110,20 +110,5 @@ input::-webkit-inner-spin-button {
 /* Firefox */
 input[type='number'] {
   -moz-appearance: textfield;
-}
-</style>
-<style scoped>
-/* slightly transparent fallback */
-.input-backdrop {
-  background-color: rgba(7, 9, 28, 0.12);
-}
-
-/* if backdrop support: very transparent and blurred */
-@supports ((-webkit-backdrop-filter: none) or (backdrop-filter: none)) {
-  .input-backdrop {
-    background-color: rgba(7, 9, 28, 0.12);
-    -webkit-backdrop-filter: blur(20px);
-    backdrop-filter: blur(20px);
-  }
 }
 </style>
