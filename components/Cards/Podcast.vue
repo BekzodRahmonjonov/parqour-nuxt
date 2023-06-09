@@ -1,5 +1,5 @@
 <template>
-  <div class="rounded-md bg-gray-150 w-full h-full relative max-h-[296px] group transition-200 cursor-pointer hover:-translate-y-1">
+  <div class="rounded-md bg-gray-150 w-full h-full relative max-h-[296px] group transition-200 cursor-pointer hover:-translate-y-1 hover:shadow-cyan-500/50">
     <img :src="data.image"
          alt="podcast_image"
          class="w-full h-full object-cover rounded-md aspect-auto relative z-0 box transition-200"
@@ -14,7 +14,7 @@
         <div class="flex-y-center mb-3">
           <p class="text-white font-medium text-sm leading-5"> <i class="icon-eye text-white text-lg mr-1"></i> {{ formatNumberWithSpaces(12344) }} </p>
           <span class="w-1 h-1 rounded-full bg-gray-100 mx-1.5"></span>
-          <p class="text-white font-medium text-sm leading-5"> {{ dayjs(data.created_at).format('DD.MM.YYYY') }} </p>
+          <p class="text-white font-medium text-sm leading-5"> {{ getTimeText(data.created_at, $t) }} </p>
         </div>
         <p class="text-white line-clamp-2 text-base font-medium leading-130"> {{ data.title }} </p>
       </div>
@@ -24,6 +24,7 @@
 <script setup lang="ts">
 import { IPodcast } from "~/types";
 import dayjs from "dayjs";
+import {getTimeText} from "../../helpers";
 interface Props {
   data: IPodcast
 }
