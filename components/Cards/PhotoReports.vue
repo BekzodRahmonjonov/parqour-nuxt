@@ -1,7 +1,7 @@
 <template>
-  <NuxtLink to="/" class="transition-200 bg-white-700 rounded-lg px-4 py-5 relative flex-y-center hover:bg-white-900">
+  <NuxtLink to="/" class="transition-200 bg-white-700 dark:bg-blue-100/[16%] rounded-lg px-4 py-5 relative flex-y-center hover:bg-white-900 dark:hover:bg-blue-100/[16%]">
     <div class="flex flex-col justify-between h-full grow">
-      <h2 class="line-clamp-3 text-blue-700 text-sm leading-136 font-bold mb-10">В Яккасарайском районе столицы возведут новый парк отдыха</h2>
+      <h2 class="transition-200 line-clamp-3 text-blue-700 dark:text-white text-sm leading-136 font-bold mb-10">В Яккасарайском районе столицы возведут новый парк отдыха</h2>
       <p class="text-sm text-blue-200 font-medium">
         <i class="icon-gallery text-gray text-sm"></i>
         {{ formatNumberWithSpaces(22) }}

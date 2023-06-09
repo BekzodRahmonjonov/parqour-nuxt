@@ -6,7 +6,7 @@
         :all-title="$t('all')"
         class="mb-5 md:mb-4"
     />
-    <div class="flex justify-between gap-[60px] pr-10">
+    <div class="flex lg:justify-between justify-center lg:flex-nowrap flex-wrap gap-[60px] pr-10">
       <CardsPhotoReports v-for="(item, index) in 3" :key="index" />
     </div>
   </div>
