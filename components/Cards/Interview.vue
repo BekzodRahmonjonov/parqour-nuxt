@@ -1,0 +1,36 @@
+<template>
+  <div>
+    <div class="rounded relative">
+      <img src="https://picsum.photos/300/300" alt="" class="aspect-video w-full h-full object-cover rounded">
+      <div class="absolute w-full h-full top-0 pt-4 pb-3 flex flex-col justify-between">
+        <div class="px-2 py-1 inline-flex items-center bg-blue-700/40 backdrop-blur-sm w-fit">
+          <i class="icon-play text-white text-lg mr-3"></i>
+          <p class="text-white text-sm font-medium"> 15:04</p>
+        </div>
+        <div class="interview-card-bg px-5 py-3 text-white font-bold">
+          <h3 class="text-lg uppercase">интервью</h3>
+          <p class="text-sm uppercase">с Шерматовым</p>
+        </div>
+      </div>
+    </div>
+    <p class="text-xs text-blue-700 leading-5 transition-200 dark:text-white mt-4 mb-1">{{ '27 ноя 2022, 20:00' }}</p>
+    <p class="text-base font-bold text-blue-700 line-clamp-2 transition-200 dark:text-white leading-136">Министр ИТ и коммуникаций поделился со своими мысля...</p>
+    <p class="mt-4 text-blue-200 transition-200 dark:text-blue-100 text-xs font-medium flex-y-center">
+      <i class="icon-eye text-blue-200 transition-200 dark:text-blue-100 mr-0.5"></i>
+      {{  formatNumberWithSpaces(1234) }}
+    </p>
+  </div>
+</template>
+<script setup lang="ts">
+import { IInterview } from "~/types";
+
+interface Props {
+  data: IInterview
+}
+defineProps<Props>()
+</script>
+<style>
+.interview-card-bg {
+  background: linear-gradient(89.54deg, #7CA7DE 0.39%, rgba(82, 97, 143, 0) 97.44%);
+}
+</style>
