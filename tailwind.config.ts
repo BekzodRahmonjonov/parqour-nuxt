@@ -37,6 +37,7 @@ export default <Partial<Config>>{
           400: '#F5F6F9',
           700: '#F5F5F8',
           800: '#F0F4F9',
+          500: '#EEF0F4',
           900: '#F0F0F5',
         },
         gray: {

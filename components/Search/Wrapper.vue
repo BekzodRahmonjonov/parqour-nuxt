@@ -5,7 +5,7 @@
       class="transition-200 !p-[10px]"
       :placeholder="$t('search')"
       :class="[searchTrigger ? 'opacity-100' : 'opacity-0']"
-      input-class="pl-2 mt-0.5"
+      input-class="pl-2 mt-0.5 dark:text-white"
       prefix-class="leading-130"
       :focus="searchTrigger"
       @update:modelValue="handleUpdateSearch"
@@ -28,7 +28,7 @@
     <Transition name="fade" mode="out-in">
       <div v-if="searchTrigger && search" class="relative w-full">
         <div
-          class="absolute top-3 left-0 w-full border border-solid border-white/20 rounded-lg w-auto h-auto z-50 z-50 shadow-md"
+          class="absolute top-3 left-0 w-full transition-200 bg-white dark:bg-blue-600 border border-solid border-white-500 dark:border-blue-200 rounded w-auto h-auto max-h-[320px] overflow-y-auto z-50 z-50 shadow-sm"
         >
           <template v-if="searchContent?.length > 0">
             <ul class="list">
@@ -38,6 +38,7 @@
                 :search="search"
                 :slug="value?.slug"
                 :title="value?.title"
+                :image="value?.img"
                 :breadcrumb="value?.region"
               />
             </ul>
@@ -90,10 +91,10 @@ const handleUpdateSearch = (value: string) => {
   transition: all 0.2s ease-in-out;
 }
 .list li a {
-  padding: 12px 16px !important;
+  padding: 10px 10px 10px 0 !important;
 }
 .list li:first-child {
-  border-radius: 12px 12px 0 0;
+  border-radius: 4px 4px 0 0;
 }
 
 .list li:last-child {
@@ -104,13 +105,13 @@ const handleUpdateSearch = (value: string) => {
   background-color: rgba(118, 129, 148, 0.11);
 }
 
-.list li:not(:last-child)::before {
-  content: '';
-  position: absolute;
-  right: 0;
-  bottom: 0;
-  width: calc(100% - 16px);
-  height: 1px;
-  background-color: rgba(255, 255, 255, 0.08);
-}
+/*.list li:not(:last-child)::before {*/
+/*  content: '';*/
+/*  position: absolute;*/
+/*  right: 0;*/
+/*  bottom: 0;*/
+/*  width: calc(100% - 16px);*/
+/*  height: 1px;*/
+/*  background-color: #eef0f4;*/
+/*}*/
 </style>

@@ -1,7 +1,7 @@
 <template>
   <div>
     <div class="container">
-      <CommonSectionWrapper class="mt-6" />
+      <CommonSectionWrapper :title="$t('articles_author')" />
 
       <div class="flex flex-col md:grid grid-cols-12 gap-6 mt-6">
         <CardsAuthor
