@@ -1,8 +1,8 @@
 <template>
   <div class="flex-y-center gap-4">
-    <div v-for="(item, index) in tags" :key="index" class="flex-center rounded text-blue-200 dark:text-blue-100 sm:text-base text-xs leading-125 py-1 px-2 bg-gray-150 dark:bg-gray-150/10 cursor-pointer transition-200">
+    <NuxtLink to="/" v-for="(item, index) in tags" :key="index" class="flex-center rounded text-blue-200 dark:text-blue-100 sm:text-base text-xs leading-125 py-1 px-2 bg-gray-150 dark:bg-gray-150/10 cursor-pointer transition-200 hover:bg-gray-500 dark:hover:bg-blue-800">
       {{ item }}
-    </div>
+    </NuxtLink>
   </div>
 </template>
 <script setup lang="ts">
