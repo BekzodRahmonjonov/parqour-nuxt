@@ -9,7 +9,9 @@
         </button>
         <NavigationWrapper :navigations="navigationData" />
       </div>
-      <div></div>
+      <div class="w-full max-w-[376px]">
+        <Search />
+      </div>
     </div>
   </div>
 </template>

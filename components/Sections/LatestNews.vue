@@ -100,7 +100,7 @@ const isNextMonth = ref(false)
 onMounted(() => {
   if (process.client) {
     const body = document.body
-    body.style.overflow = 'hidden'
+    // body.style.overflow = 'hidden'
   }
 })
 
