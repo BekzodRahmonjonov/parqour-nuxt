@@ -34,7 +34,7 @@
         </div>
 
         <p
-          class="text-sm sm:text-base leading-136 font-bold text-blue-700 mt-3 dark:text-white transition-300 line-clamp-3 group-hover:text-blue-200 dark:group-hover:text-blue-100"
+          class="text-sm sm:text-base leading-136 font-bold text-blue-700 mt-3 dark:text-white transition-300 line-clamp-3 group-hover:text-blue-200 dark:group-hover:text-white"
         >
           {{ card?.title }}
           <i

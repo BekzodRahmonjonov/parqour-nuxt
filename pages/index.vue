@@ -7,7 +7,8 @@
     <SectionsAuthor class="my-6 lg:my-10" />
     <SectionsReports :data="reportsData" />
     <SectionsPodcasts class="my-10"/>
-    <SectionsInterviews class="py-10" />
+    <SectionsInterviews class="my-10" />
+    <SectionsColumns class="py-10" />
   </div>
 </template>
 
