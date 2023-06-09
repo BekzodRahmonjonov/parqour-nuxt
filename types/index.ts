@@ -61,3 +61,9 @@ export interface IColony {
   views_count: number
   userName: string
 }
+
+export interface ISocial {
+  icon: string
+  subscribe: number
+  title: string
+}

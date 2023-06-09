@@ -9,6 +9,9 @@
     <SectionsPodcasts class="my-10"/>
     <SectionsInterviews class="my-10" />
     <SectionsColumns class="pb-10" />
+    <SectionsPodcasts class="my-10" />
+    <SectionsInterviews class="py-10" />
+    <SectionsSocial class="my-10" />
   </div>
 </template>
 
