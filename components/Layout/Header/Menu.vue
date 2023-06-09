@@ -1,10 +1,10 @@
 <template>
   <div
     v-if="true"
-    class="absolute top-[233.9px] left-0 w-full h-[80vh] bg-white z-20 transition-200 dark:bg-blue-700"
+    class="absolute left-0 top-0 w-full h-screen bg-white z-20 transition-200 dark:bg-blue-700 overflow-y-auto"
   >
-    <div class="h-full py-16">
-      <div class="relative container h-full flex flex-col overflow-y-auto">
+    <div class="h-full pt-[233.9px] pb-16 min-h-[800px]">
+      <div class="relative container h-full flex flex-col">
         <div class="relative h-full flex-y-center justify-center py-16">
           <div class="flex items-stretch">
             <div class="inline-flex flex-col space-y-4">
