@@ -2,7 +2,7 @@
   <div
     class="pb-8 border-b border-solid border-white-300 dark:border-blue-200/20 flex items-start gap-3"
   >
-    <div class="flex-y-center">
+    <div class="hidden md:flex items-center">
       <div
         class="flex-center bg-blue-100 w-3 h-3 rounded-full bullet-shadow dark:bg-blue-100 transition-300"
       >
@@ -23,13 +23,40 @@
     </div>
 
     <div>
-      <div class="p-2 bg-blue-100/[16%] rounded-full inline-flex items-center">
-        <i class="icon-bolt text-xs dark:text-blue-100" />
-        <p
-          class="text-blue-200 dark:text-blue-100 text-sm leading-126 font-semibold"
+      <div class="flex-y-center gap-3">
+        <div class="flex-y-center md:hidden">
+          <div
+            class="flex-center bg-blue-100 w-3 h-3 rounded-full bullet-shadow dark:bg-blue-100 transition-300"
+          >
+            <div
+              class="w-1.5 h-1.5 rounded-full bg-white transition-300 dark:bg-blue-900"
+            />
+          </div>
+          <div
+            class="w-5 h-px bg-white-300 ml-1 transition-300 dark:bg-blue-600"
+          />
+          <div
+            class="py-[7px] rounded-full border border-solid border-white-300 px-4 dark:border-blue-600 transition-300"
+          >
+            <p
+              class="text-sm leading-130 font-semibold dark:text-white transition-300"
+            >
+              {{ card?.time }}
+            </p>
+          </div>
+        </div>
+        <div
+          class="p-2 bg-blue-100/[16%] rounded-full inline-flex items-center"
         >
-          {{ $t('news') }}
-        </p>
+          <i
+            class="icon-bolt text-xs text-dark-200 transition-200 dark:text-blue-100"
+          />
+          <p
+            class="text-blue-200 dark:text-blue-100 text-sm leading-126 font-semibold"
+          >
+            {{ $t('news') }}
+          </p>
+        </div>
       </div>
 
       <p
