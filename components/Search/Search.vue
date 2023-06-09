@@ -3,7 +3,7 @@
     <SearchWrapper
       :search="search"
       :search-trigger="searchTrigger"
-      :search-content="!searchContent"
+      :search-content="searchContent"
       @handleUpdateSearch="handleUpdateSearch"
       @clear="clear"
     />
@@ -25,7 +25,7 @@ const handleShowSearch = () => {
 const clear = () => {
   search.value = ''
 }
-const handleUpdateSearch = async (value: string) => {
+const handleUpdateSearch = (value: string) => {
   search.value = value
 }
 </script>
