@@ -4,7 +4,7 @@
     class="pb-3 border-b border-solid border-gray-300 last:border-b-[0px] group dark:border-gray-300/10"
   >
     <p
-      class="text-blue-200 text-xs leading-140 font-medium text-xs mb-1 transition-300 dark:text-white"
+      class="text-blue-200 text-xs leading-140 font-medium text-xs mb-1 transition-200 dark:text-white"
     >
       {{ card?.date }}
     </p>
@@ -14,7 +14,7 @@
       {{ card?.title }}
       <i
         v-if="card?.isVideo"
-        class="icon-play-circle text-blue-200 dark:text-white transition-300 inline-block -mb-1 translate-y-0.5"
+        class="icon-play-circle text-blue-200 dark:text-white transition-200 inline-block -mb-1 translate-y-0.5"
       />
     </p>
   </NuxtLink>

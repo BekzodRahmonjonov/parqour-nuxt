@@ -1,7 +1,7 @@
 <template>
   <NuxtLink
     to="/"
-    class="border-b last:border-b-[0px] sm:last:border-b sm:border border-solid border-blue-200/20 sm:rounded-lg relative overflow-hidden transition-300 hover:bg-white-100 dark:hover:bg-blue-200/20 hover:border-transparent group flex items-center sm:items-start flex-row sm:flex-col flex-row-reverse gap-2 sm:gap-0 justify-between"
+    class="border-b last:border-b-[0px] sm:last:border-b sm:border border-solid border-blue-200/20 sm:rounded-lg relative overflow-hidden transition-200 hover:bg-white-100 dark:hover:bg-blue-200/20 hover:border-transparent group flex items-center sm:items-start flex-row sm:flex-col flex-row-reverse gap-2 sm:gap-0 justify-between"
   >
     <div class="shrink-0 sm:w-full">
       <div
@@ -21,25 +21,25 @@
       <div>
         <div class="flex-y-center gap-4">
           <p
-            class="border border-solid border-blue-100 rounded-md px-2 py-0.5 text-[10px] sm:text-xs leading-5 font-medium text-blue-200 dark:text-blue-100 transition-300"
+            class="border border-solid border-blue-100 rounded-md px-2 py-0.5 text-[10px] sm:text-xs leading-5 font-medium text-blue-200 dark:text-blue-100 transition-200"
           >
             {{ card?.category }}
           </p>
 
           <p
-            class="text-[10px] sm:text-xs leading-5 text-blue-600 dark:text-blue-100 transition-300 font-medium"
+            class="text-[10px] sm:text-xs leading-5 text-blue-600 dark:text-blue-100 transition-200 font-medium"
           >
             {{ dayjs(card?.date).format('DD.MM.YYYY') }}
           </p>
         </div>
 
         <p
-          class="text-sm sm:text-base leading-136 font-bold text-blue-700 mt-3 dark:text-white transition-300 line-clamp-3 group-hover:text-blue-200 dark:group-hover:text-white"
+          class="text-sm sm:text-base leading-136 font-bold text-blue-700 mt-3 dark:text-white transition-200 line-clamp-3 group-hover:text-blue-200 dark:group-hover:text-white"
         >
           {{ card?.title }}
           <i
             v-if="card?.isVideo"
-            class="icon-play-circle text-blue-200 dark:text-white transition-300 inline-block -mb-1 translate-y-0.5"
+            class="icon-play-circle text-blue-200 dark:text-white transition-200 inline-block -mb-1 translate-y-0.5"
           />
           <i
             v-if="card?.isVerified"
@@ -50,7 +50,7 @@
 
       <div class="sm:mt-4 flex-y-center gap-3 sm:gap-5">
         <p
-          class="transition-300 line-clamp-2 flex-y-center gap-1 text-xs sm:text-sm leading-14 font-medium text-blue-200 dark:text-white"
+          class="transition-200 line-clamp-2 flex-y-center gap-1 text-xs sm:text-sm leading-14 font-medium text-blue-200 dark:text-white"
         >
           <i class="icon-eye font-normal" />
           {{ formatNumberWithSpaces(card?.views) }}
@@ -58,7 +58,7 @@
 
         <p
           v-if="card?.comments"
-          class="transition-300 line-clamp-2 flex-y-center gap-1 text-xs sm:text-sm leading-14 font-medium text-green"
+          class="transition-200 line-clamp-2 flex-y-center gap-1 text-xs sm:text-sm leading-14 font-medium text-green"
         >
           <i class="icon-chat font-normal" />
           {{ formatNumberWithSpaces(card?.comments) }}

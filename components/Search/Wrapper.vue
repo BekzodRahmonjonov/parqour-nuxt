@@ -2,7 +2,7 @@
   <div class="w-full">
     <FormInput
       :model-value="search"
-      class="transition-300 !p-[10px]"
+      class="transition-200 !p-[10px]"
       :placeholder="$t('search')"
       :class="[searchTrigger ? 'opacity-100' : 'opacity-0']"
       input-class="pl-2 mt-0.5"
@@ -18,7 +18,7 @@
       <template #suffix>
         <button
           :class="{ '!opacity-100 !visible': search?.length }"
-          class="inline-block py-1 px-2 text-sm leading-120 rounded-md bg-blue-200 hover:bg-blue-100 dark:bg-white/[0.06] dark:hover:bg-blue-100 text-white transition-300 opacity-0 invisible"
+          class="inline-block py-1 px-2 text-sm leading-120 rounded-md bg-blue-200 hover:bg-blue-100 dark:bg-white/[0.06] dark:hover:bg-blue-100 text-white transition-200 opacity-0 invisible"
           @click="clear"
         >
           {{ $t('clear') }}

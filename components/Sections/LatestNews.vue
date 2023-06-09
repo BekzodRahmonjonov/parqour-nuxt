@@ -1,13 +1,13 @@
 <template>
   <div>
     <button
-      class="absolute top-[268px] left-0 border border-solid border-blue-100 rounded-r-lg z-[12] border-l-[0px] p-4 hidden lg:flex flex-col gap-4 transition-300 dark:bg-blue-100/[16%] dark:border-transparent"
+      class="absolute top-[268px] left-0 border border-solid border-blue-100 rounded-r-lg z-[12] border-l-[0px] p-4 hidden lg:flex flex-col gap-4 transition-200 dark:bg-blue-100/[16%] dark:border-transparent"
       :class="{ 'bg-blue-200 ': isOpen }"
       @click="isOpen = !isOpen"
     >
       <i class="icon-bell text-blue-100 text-2xl" />
       <p
-        class="text-base leading-130 font-medium text-blue-200 vertical-text transition-300 dark:text-blue-100"
+        class="text-base leading-130 font-medium text-blue-200 vertical-text transition-200 dark:text-blue-100"
         :class="{ '!text-blue-100': isOpen }"
       >
         Something
@@ -44,7 +44,7 @@
       <div
         v-if="isOpen"
         id="news-content"
-        class="fixed inset-0 bg-white z-[11] h-screen overflow-y-scroll pt-[260px] transition-300 dark:bg-blue-700"
+        class="fixed inset-0 bg-white z-[11] h-screen overflow-y-scroll pt-[260px] transition-200 dark:bg-blue-700"
       >
         <div class="w-full max-w-[990px] mx-auto px-4 pt-4">
           <div>

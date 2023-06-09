@@ -1,8 +1,8 @@
 <template>
-  <NuxtLink to="/" class="transition-200 hover:-translate-y-1">
+  <NuxtLink to="/" class="transition-200 group">
     <div class="rounded relative">
       <img :src="data.image" alt="" class="aspect-video w-full h-full object-cover rounded">
-      <div class="absolute w-full h-full top-0 pt-4 pb-3 flex flex-col justify-between">
+      <div class="absolute w-full h-full top-0 pt-4 pb-3 bg-transparent group-hover:bg-blue-200/[36%] rounded transition-200 flex flex-col justify-between">
         <div class="px-2 py-1 inline-flex items-center bg-blue-700/40 backdrop-blur-sm w-fit">
           <i class="icon-play text-white text-lg"></i>
           <p class="text-white text-sm font-medium ml-3"> 15:04</p>
@@ -14,7 +14,7 @@
       </div>
     </div>
     <p class="text-xs text-blue-700 leading-5 transition-200 dark:text-white mt-4 mb-1">{{ '27 ноя 2022, 20:00' }}</p>
-    <p class="text-base font-bold text-blue-700 line-clamp-2 transition-200 dark:text-white leading-136"> {{ data.title }} </p>
+    <p class="text-base font-bold text-blue-700 line-clamp-2 transition-200 dark:text-white leading-136 group-hover:text-blue-200 dark:group-hover:text-blue-100"> {{ data.title }} </p>
     <p class="mt-4 text-blue-200 transition-200 dark:text-blue-100 text-xs font-medium flex-y-center">
       <i class="icon-eye text-blue-200 transition-200 dark:text-blue-100 mr-0.5"></i>
       {{  formatNumberWithSpaces(1234) }}

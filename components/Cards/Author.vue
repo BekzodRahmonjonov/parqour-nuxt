@@ -1,7 +1,7 @@
 <template>
   <NuxtLink
     to="/"
-    class="rounded-lg md:rounded-xl flex flex-col relative overflow-hidden bg-blue-700 border border-solid border-transparent dark:border-blue-200/20 transition-300 group"
+    class="rounded-lg md:rounded-xl flex flex-col relative overflow-hidden bg-blue-700 border border-solid border-transparent dark:border-blue-200/20 transition-200 group"
   >
     <div>
       <div class="aspect-video">
@@ -15,7 +15,7 @@
 
     <div class="p-3 p-4 lg:p-6 h-full flex flex-col justify-between">
       <p
-        class="text-sm lg:text-base leading-136 font-bold text-white group-hover:text-blue-100 transition-300"
+        class="text-sm lg:text-base leading-136 font-bold text-white group-hover:text-blue-100 transition-200"
         :class="{ 'md:text-lg lg:text-2xl': isHalf }"
       >
         {{ card?.title }}
