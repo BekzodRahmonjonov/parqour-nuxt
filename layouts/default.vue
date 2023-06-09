@@ -4,5 +4,6 @@
     <div class="pt-[233.9px]">
       <slot />
     </div>
+    <LayoutFooter />
   </div>
 </template>
