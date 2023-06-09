@@ -14,7 +14,7 @@
 import { useTheme } from '~/store/theme'
 
 const themeStore = useTheme()
-const theme = ref(false)
+const theme = ref(themeStore.theme !== 'dark')
 const toggleTheme = (value: boolean) => {
   theme.value = value
   themeStore.changeTheme()
