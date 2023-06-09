@@ -36,3 +36,11 @@ export interface INavigation {
 
 export const buttonVariants = ['primary', 'secondary', 'primary-dark'] as const
 export type ButtonVariants = (typeof buttonVariants)[number]
+
+export interface IPodcast {
+  image: string
+  type: string
+  title: string
+  created_at: Date | string
+  typeTitle: string
+}

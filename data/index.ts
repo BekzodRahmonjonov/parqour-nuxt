@@ -1,3 +1,5 @@
+import {IPodcast} from "~/types";
+
 export const mainSwiperData = [
   {
     date: '2023-06-07',
@@ -366,5 +368,63 @@ export const latestData = [
     time: '23:23',
     title:
       '«Это абсолютно необоснованные слова» — Шавкат Мирзиёев о введении подоходного налога для мигрантов',
+  },
+]
+export const podcasts: IPodcast[] = [
+  {
+    image: '/images/podcasts/image.png',
+    type: 'audio',
+    title: 'Почему в Узбекистане не работает система образования?',
+    created_at: '2021-01-01',
+    typeTitle: 'Подкасты'
+  },
+  {
+    image: '/images/podcasts/image1.png',
+    type: 'video',
+    title: 'Почему в Узбекистане не работает система образования?',
+    created_at: '2021-01-01',
+    typeTitle: 'Подкасты'
+  },
+  {
+    image: '/images/podcasts/image7.png',
+    type: 'audio',
+    title: 'Почему в Узбекистане не работает система образования?',
+    created_at: '2021-01-01',
+    typeTitle: 'Подкасты'
+  },
+  {
+    image: '/images/podcasts/image2.png',
+    type: 'audio',
+    title: 'Почему в Узбекистане не работает система образования?',
+    created_at: '2021-01-01',
+    typeTitle: 'Подкасты'
+  },
+  {
+    image: '/images/podcasts/image3.png',
+    type: 'audio',
+    title: 'Почему в Узбекистане не работает система образования?',
+    created_at: '2021-01-01',
+    typeTitle: 'Подкасты'
+  },
+  {
+    image: '/images/podcasts/image4.png',
+    type: 'audio',
+    title: 'Почему в Узбекистане не работает система образования?',
+    created_at: '2021-01-01',
+    typeTitle: 'Подкасты'
+  },
+  {
+    image: '/images/podcasts/image5.png',
+    type: 'audio',
+    title: 'Почему в Узбекистане не работает система образования?',
+    created_at: '2021-01-01',
+    typeTitle: 'Подкасты'
+  },
+  {
+    image: '/images/podcasts/image6.png',
+    type: 'audio',
+    title: 'Почему в Узбекистане не работает система образования?',
+    created_at: '2021-01-01',
+    typeTitle: 'Подкасты'
   },
 ]
