@@ -1,16 +1,23 @@
 <template>
-  <div class="bg-white flex-y-center">
+  <div class="bg-white flex-y-center transition-200 dark:bg-blue-700">
     <div
-      class="flex-shrink-0 bg-red-light py-[14px] pr-[11px] pl-5 inline-flex items-center space-x-2"
+      class="flex-shrink-0 transition-200 bg-red-light dark:bg-red-700 py-[14px] pr-[11px] pl-5 inline-flex items-center space-x-2"
     >
-      <span class="icon-bolt text-red text-2xl" />
-      <span class="text-red text-base font-medium leading-20">
-        Срочная новость
+      <span
+        class="icon-bolt text-red text-2xl transition-200 dark:text-red-100"
+      />
+      <span
+        class="text-red transition-200 dark:text-red-100 text-base font-medium leading-20"
+      >
+        {{ $t('beaking_news') }}
       </span>
     </div>
-    <div class="w-full relative">
+    <div class="w-full h-full relative">
       <div
-        class="absolute left-0 top-0 h-full w-[115px] custom-gradient pointer-events-none z-10"
+        class="absolute left-0 top-0 h-full w-[115px] custom-gradient transition-200 opacity-100 dark:!opacity-0 pointer-events-none z-10"
+      />
+      <div
+        class="absolute left-0 top-0 h-full w-[115px] custom-gradient-dark transition-200 opacity-0 dark:opacity-100 pointer-events-none z-10"
       />
       <div class="marquee">
         <div aria-hidden="true" class="marquee__group_left space-x-3">
@@ -22,7 +29,9 @@
             <div
               class="relative flex-shrink-0 w-[6px] h-[6px] rounded-full bg-red"
             />
-            <p class="text-base text-blue-600 font-medium leading-136">
+            <p
+              class="text-base text-blue-600 font-medium leading-136 transition-200 hover:text-red-100 dark:text-blue-100 dark:hover:text-white"
+            >
               «Это абсолютно необоснованные слова» — Шавкат Мирзиёев о введении
               подоходного налога для мигрантов
             </p>
@@ -60,6 +69,9 @@ function generateItem(arr) {
     #ffffff 2.58%,
     rgba(255, 255, 255, 0) 100%
   );
+}
+.custom-gradient-dark {
+  background: linear-gradient(90deg, #191f2e 2.58%, rgba(25, 31, 46, 0) 100%);
 }
 .marquee {
   display: flex;

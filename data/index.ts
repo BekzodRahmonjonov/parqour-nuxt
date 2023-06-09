@@ -371,6 +371,93 @@ export const latestData = [
       '«Это абсолютно необоснованные слова» — Шавкат Мирзиёев о введении подоходного налога для мигрантов',
   },
 ]
+
+export const socialsData = [
+  {
+    icon: 'instagram',
+    url: '#',
+  },
+  {
+    icon: 'telegram',
+    url: '#',
+  },
+  {
+    icon: 'facebook',
+    url: '#',
+  },
+  {
+    icon: 'youtube',
+    url: '#',
+  },
+  {
+    icon: 'vk',
+    url: '#',
+  },
+  {
+    icon: 'twitter',
+    url: '#',
+  },
+  {
+    icon: 'network',
+    url: '#',
+  },
+  {
+    icon: 'odno',
+    url: '#',
+  },
+]
+
+export const headerBottomMenuData = [
+  {
+    title: 'Реклама на сайте',
+    url: '/advertising',
+  },
+  {
+    title: 'Контакты',
+    url: '/contact',
+  },
+  {
+    title: 'Использование материалов',
+    url: '/materials',
+  },
+]
+export const headerMainMenuData = [
+  {
+    title: 'Общество',
+    url: '/advertising',
+    icon: 'users',
+  },
+  {
+    title: 'Происшествия',
+    url: '/contact',
+    icon: 'calendar',
+  },
+  {
+    title: 'Экономика',
+    url: '/materials',
+    icon: 'banknote',
+  },
+  {
+    title: 'Интервью',
+    url: '/materials',
+    icon: 'microphone-center',
+  },
+  {
+    title: 'Спорт',
+    url: '/materials',
+    icon: 'football',
+  },
+  {
+    title: 'Назначения',
+    url: '/materials',
+    icon: 'pen',
+  },
+  {
+    title: 'Культура',
+    url: '/materials',
+    icon: 'filters',
+  },
+]
 export const podcasts: IPodcast[] = [
   {
     image: '/images/podcasts/image.png',
