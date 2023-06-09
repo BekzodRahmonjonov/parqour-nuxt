@@ -1,4 +1,4 @@
-import {IPodcast} from "~/types";
+import { IPodcast } from '~/types'
 
 export const mainSwiperData = [
   {
@@ -464,55 +464,106 @@ export const podcasts: IPodcast[] = [
     type: 'audio',
     title: 'Почему в Узбекистане не работает система образования?',
     created_at: '2023-06-07',
-    typeTitle: 'Подкасты'
+    typeTitle: 'Подкасты',
   },
   {
     image: '/images/podcasts/image1.png',
     type: 'video',
     title: 'Почему в Узбекистане не работает система образования?',
     created_at: '2023-05-28',
-    typeTitle: 'Подкасты'
+    typeTitle: 'Подкасты',
   },
   {
     image: '/images/podcasts/image7.png',
     type: 'audio',
     title: 'Почему в Узбекистане не работает система образования?',
     created_at: '2023-05-01',
-    typeTitle: 'Подкасты'
+    typeTitle: 'Подкасты',
   },
   {
     image: '/images/podcasts/image2.png',
     type: 'audio',
     title: 'Почему в Узбекистане не работает система образования?',
     created_at: '2022-11-01',
-    typeTitle: 'Подкасты'
+    typeTitle: 'Подкасты',
   },
   {
     image: '/images/podcasts/image3.png',
     type: 'audio',
     title: 'Почему в Узбекистане не работает система образования?',
     created_at: '2021-01-01',
-    typeTitle: 'Подкасты'
+    typeTitle: 'Подкасты',
   },
   {
     image: '/images/podcasts/image4.png',
     type: 'audio',
     title: 'Почему в Узбекистане не работает система образования?',
     created_at: '2021-01-01',
-    typeTitle: 'Подкасты'
+    typeTitle: 'Подкасты',
   },
   {
     image: '/images/podcasts/image5.png',
     type: 'audio',
     title: 'Почему в Узбекистане не работает система образования?',
     created_at: '2021-01-01',
-    typeTitle: 'Подкасты'
+    typeTitle: 'Подкасты',
   },
   {
     image: '/images/podcasts/image6.png',
     type: 'audio',
     title: 'Почему в Узбекистане не работает система образования?',
     created_at: '2021-01-01',
-    typeTitle: 'Подкасты'
+    typeTitle: 'Подкасты',
+  },
+]
+
+export const searchContent = [
+  {
+    title:
+      'Узбекистан и Кыргызстан подписали пакет соглашений на сумму более $1,6 млрд — список',
+    img: 'https://picsum.photos/seed/picsum/200/300',
+    slug: '/#',
+  },
+  {
+    title:
+      'Узбекистан и Кыргызстан подписали пакет соглашений на сумму более $1,6 млрд — список',
+    img: 'https://picsum.photos/seed/picsum/200/300',
+    slug: '/#',
+  },
+  {
+    title:
+      'Узбекистан и Кыргызстан подписали пакет соглашений на сумму более $1,6 млрд — список',
+    img: 'https://picsum.photos/seed/picsum/200/300',
+    slug: '/#',
+  },
+  {
+    title:
+      'Узбекистан и Кыргызстан подписали пакет соглашений на сумму более $1,6 млрд — список',
+    img: 'https://picsum.photos/seed/picsum/200/300',
+    slug: '/#',
+  },
+  {
+    title:
+      'Узбекистан и Кыргызстан подписали пакет соглашений на сумму более $1,6 млрд — список',
+    img: 'https://picsum.photos/seed/picsum/200/300',
+    slug: '/#',
+  },
+  {
+    title:
+      'Узбекистан и Кыргызстан подписали пакет соглашений на сумму более $1,6 млрд — список',
+    img: 'https://picsum.photos/seed/picsum/200/300',
+    slug: '/#',
+  },
+  {
+    title:
+      'Узбекистан и Кыргызстан подписали пакет соглашений на сумму более $1,6 млрд — список',
+    img: 'https://picsum.photos/seed/picsum/200/300',
+    slug: '/#',
+  },
+  {
+    title:
+      'Узбекистан и Кыргызстан подписали пакет соглашений на сумму более $1,6 млрд — список',
+    img: 'https://picsum.photos/seed/picsum/200/300',
+    slug: '/#',
   },
 ]

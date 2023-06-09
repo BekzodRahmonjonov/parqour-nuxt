@@ -3,20 +3,17 @@
     <SearchWrapper
       :search="search"
       :search-trigger="searchTrigger"
-      :search-content="[]"
+      :search-content="!searchContent"
       @handleUpdateSearch="handleUpdateSearch"
       @clear="clear"
-    />
-    <button
-      class="text-2xl text-white transition-all duration-150 hover:text-white/40"
-      :class="[searchTrigger ? 'icon-xmark' : 'icon-search']"
-      @click="handleShowSearch"
     />
   </div>
 </template>
 
 <script setup lang="ts">
 import { ref } from 'vue'
+
+import { searchContent } from '~/data/index'
 
 const search = ref('')
 const searchTrigger = ref(true)
