@@ -81,7 +81,7 @@ const props = withDefaults(defineProps<Props>(), {
 })
 const variants = computed<{ [key in Props['variant']]: string }>(() => ({
   primary: 's-button-primary',
-  secondary: 's-button-secondary dark:bg-blue-100/[16%]',
+  secondary: 's-button-secondary dark:bg-blue-100/[16%] dark:text-white',
   'primary-dark': 's-button-primary-dark',
   danger: 's-button-danger',
   'danger-outline': 's-button-danger-outline',

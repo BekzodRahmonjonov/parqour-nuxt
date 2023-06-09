@@ -6,7 +6,7 @@ export default defineNuxtConfig({
   ssr: true,
   app: {
     head: {
-      title: 'Nuxt3 project',
+      title: 'Uz News',
     },
   },
   css: ['/assets/style.css', '/assets/icomoon/style.css'],
