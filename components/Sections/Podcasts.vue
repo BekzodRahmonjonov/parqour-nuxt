@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="container">
     <CommonSectionWrapper :title="$t('podcasts')">
       <template #actions>
         <CommonTags v-bind="{ loading, tags: podcastTags }" />
