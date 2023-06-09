@@ -52,3 +52,9 @@ export interface IInterview {
   created_at: Date | string
   typeTitle: string
 }
+
+export interface ISocial {
+  icon: string
+  subscribe: number
+  title: string
+}

@@ -1,7 +1,7 @@
 <template>
   <div class="relative">
     <div
-      class="h-[674px] relative px-3 lg:px-6 pb-[70px] flex flex-col gap-3 overflow-y-auto mini-scroll-sidebar overflow-x-hidden"
+      class="h-[674px] relative pb-[70px] flex flex-col overflow-y-auto mini-scroll-sidebar overflow-x-hidden"
     >
       <CardsSideNews
         v-for="(card, index) in list"

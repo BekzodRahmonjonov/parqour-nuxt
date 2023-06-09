@@ -2,7 +2,7 @@
   <footer class="bg-blue-700">
     <div class="container">
       <div
-        class="flex-center-between pt-10 pb-6 border-b border-solid border-blue-600 flex-col md:flex-row gap-4"
+        class="flex justify-between pt-10 pb-6 border-b border-solid items-start md:items-center border-blue-600 flex-col md:flex-row gap-4"
       >
         <div class="flex-y-center gap-3">
           <NuxtLink to="/">
@@ -14,9 +14,10 @@
           </div>
         </div>
 
-        <div :key="index" class="flex-y-center gap-8">
+        <div class="flex-y-center gap-8">
           <NuxtLink
             v-for="(link, index) in menu"
+            :key="index"
             to="/"
             class="text-base leading-5 font-medium text-white transition-200 hover:text-blue-100"
           >
@@ -25,8 +26,10 @@
         </div>
       </div>
 
-      <div class="flex-center-between py-8 flex-col lg:flex-row gap-5">
-        <div>
+      <div
+        class="flex items-start md:items-center justify-between py-8 flex-col lg:flex-row gap-5"
+      >
+        <div class="hidden md:block">
           <p
             class="text-sm leading-140 text-white font-normal lg:max-w-[70%] text-center"
           >
@@ -40,7 +43,7 @@
             <span class="font-bold text-blue-100 ml-1">CTRL + ENTER</span>
           </p>
         </div>
-        <div class="flex-y-center gap-4 flex-col md:flex-row">
+        <div class="flex items-start md:item-start gap-4 flex-col md:flex-row">
           <div
             v-for="(item, index) in about"
             :key="index"
@@ -49,7 +52,7 @@
             <p class="text-base text-white leading-5 font-medium">
               {{ item?.name }}
             </p>
-            <p class="text-xs leading-[14px] font-normal text-blue-100">
+            <p class="text-xs leading-[14px] font-normal text-blue-100 mt-0.5">
               {{ item?.subtitle }}
             </p>
           </div>
@@ -58,7 +61,7 @@
     </div>
     <div class="py-4 border-t border-solid border-blue-600">
       <div
-        class="container flex-center-between flex-col md:flex-row gap-5 flex-col-reverse"
+        class="container flex items-start md:items-center justify-between flex-col md:flex-row gap-5"
       >
         <p class="text-sm leading-140 text-blue-100 font-normal">
           © 2015-2023 UzNews.uz
