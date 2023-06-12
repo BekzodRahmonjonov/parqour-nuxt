@@ -18,7 +18,7 @@
         class="text-sm lg:text-base leading-136 font-bold text-white group-hover:text-blue-100 transition-200"
         :class="{ 'md:text-lg lg:text-2xl': isHalf }"
       >
-        {{ card?.title }}
+        {{ card?.title }}asdasd
       </p>
 
       <p
