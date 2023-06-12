@@ -1,11 +1,14 @@
 <template>
-  <div class="bg-white h-[100vh] w-full bg-opacity-80">
-    <div v-if="showPush" class="py-[100px] relative flex">
+  <div
+    v-if="showPush"
+    class="fixed top-0 left-0 h-screen w-full bg-[#191F2ECC] z-50 flex items-center justify-center"
+  >
+    <div class="py-[100px] relative flex">
       <div
         class="relative mx-auto max-w-[450px] flex flex-col items-center bg-[white] p-7 rounded-xl"
       >
         <div
-          class="absolute -top-8 -right-8 hover:cursor-pointer"
+          class="absolute -top-8 -right-8 hover:cursor-pointer z-100"
           @click="closePush()"
         >
           <i class="icon icon-close text-3xl text-[#A2BCDE]"></i>
@@ -82,8 +85,26 @@
     </div>
   </div>
 </template>
+
 <script setup lang="ts">
-const showPush = ref(true)
+const showPush = ref(false)
+
+onMounted(() => {
+  const PushMessage = localStorage.getItem('PushMessage')
+
+  if (!PushMessage) {
+    showPush.value = true
+    localStorage.setItem('PushMessage', 'true')
+  }
+
+  watchEffect(() => {
+    if (showPush.value) {
+      document.body.style.overflow = 'hidden'
+    } else {
+      document.body.style.overflow = 'auto'
+    }
+  })
+})
 
 function closePush() {
   showPush.value = false
