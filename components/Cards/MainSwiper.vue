@@ -7,7 +7,7 @@
     <div class="absolute w-full h-full inset-0 z-[1] flex items-end">
       <div class="p-3 sm:p-6">
         <p class="text-xs sm:text-sm leading-5 text-white font-normal">
-          {{ card?.date }}
+          {{ dayjs(card?.date).locale(locale).format('DD MMM YYYY, HH:mm') }}
         </p>
         <p
           class="text-white text-sm sm:text-2xl leading-136 font-bold mt-2 sm:mt-4 mb-3 sm:mb-7 group-hover:text-blue-100 transition-200"
@@ -26,9 +26,12 @@
 </template>
 
 <script setup lang="ts">
+import dayjs from 'dayjs'
+
 import { INews } from '~/types'
 import { formatNumberWithSpaces } from '~/utils'
 
+const { locale } = useI18n()
 interface Props {
   card?: INews
 }

@@ -20,11 +20,13 @@
       />
     </button>
     <button
-      class="absolute top-[268px] left-0 border border-solid border-blue-100 rounded-r-lg z-[12] border-l-[0px] p-4 hidden lg:flex flex-col gap-4 transition-200 bg-white dark:bg-blue-100/[16%] dark:border-transparent"
+      class="absolute top-[268px] left-0 border group border-solid border-blue-100 hover:border-blue-200 dark:hover:border-blue-100 rounded-r-lg z-[12] border-l-[0px] p-4 hidden lg:flex flex-col gap-4 transition-200 bg-white dark:bg-blue-100/[16%] dark:border-transparent"
       :class="{ 'bg-blue-200 ': isOpen }"
       @click="isOpen = !isOpen"
     >
-      <i class="icon-bell text-blue-100 text-2xl" />
+      <i
+        class="icon-bell text-blue-100 text-2xl transition-200 group-hover:text-blue-200 dark:group-hover:text-blue-100"
+      />
       <p
         class="text-base leading-130 font-medium text-blue-200 vertical-text transition-200 dark:text-blue-100"
         :class="{ '!text-blue-100': isOpen }"
