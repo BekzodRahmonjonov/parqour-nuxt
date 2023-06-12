@@ -1,7 +1,26 @@
 <template>
-  <div>
+  <div class="container w-full">
     <button
-      class="absolute top-[268px] left-0 border border-solid border-blue-100 rounded-r-lg z-[12] border-l-[0px] p-4 hidden lg:flex flex-col gap-4 transition-200 dark:bg-blue-100/[16%] dark:border-transparent"
+      class="left-0 border border-solid border-blue-100 w-full mb-3 rounded-lg w-full z-[12] px-4 py-2.5 flex lg:hidden justify-between gap-4 transition-200 dark:bg-blue-100/[16%] dark:border-transparent"
+      :class="{ 'bg-blue-200 ': isOpen }"
+      @click="isOpen = !isOpen"
+    >
+      <div class="flex-y-center gap-2">
+        <i class="icon-bell text-blue-100 text-2xl" />
+        <p
+          class="text-base leading-130 font-medium text-blue-200 transition-200 dark:text-blue-100"
+          :class="{ '!text-blue-100': isOpen }"
+        >
+          {{ $t('lenta_news') }}
+        </p>
+      </div>
+      <i
+        class="icon-double text-blue-100 text-2xl transition-200"
+        :class="{ 'rotate-180': isOpen }"
+      />
+    </button>
+    <button
+      class="absolute top-[268px] left-0 border border-solid border-blue-100 rounded-r-lg z-[12] border-l-[0px] p-4 hidden lg:flex flex-col gap-4 transition-200 bg-white dark:bg-blue-100/[16%] dark:border-transparent"
       :class="{ 'bg-blue-200 ': isOpen }"
       @click="isOpen = !isOpen"
     >
@@ -10,7 +29,7 @@
         class="text-base leading-130 font-medium text-blue-200 vertical-text transition-200 dark:text-blue-100"
         :class="{ '!text-blue-100': isOpen }"
       >
-        Something
+        {{ $t('lenta_news') }}
       </p>
       <i
         class="icon-double text-blue-100 text-2xl transition-200"
@@ -18,7 +37,10 @@
       />
     </button>
     <Transition name="fade">
-      <div v-if="isOpen" class="absolute right-0 top-[282px] z-[12] w-full">
+      <div
+        v-if="isOpen"
+        class="absolute right-0 top-[170px] lg:top-[282px] z-[12] w-full"
+      >
         <div class="container w-full">
           <button
             class="flex-center w-8 md:w-12 h-8 md:h-12 rounded-full bg-blue-900 ml-auto hover:bg-blue-200 transition-200 group active:scale-95"
@@ -44,7 +66,7 @@
       <div
         v-if="isOpen"
         id="news-content"
-        class="fixed inset-0 bg-white z-[11] h-screen overflow-y-scroll pt-[260px] transition-200 dark:bg-blue-700"
+        class="fixed inset-0 bg-white z-[11] h-screen overflow-y-scroll pt-[150px] lg:pt-[260px] transition-200 dark:bg-blue-700"
       >
         <div class="w-full max-w-[990px] mx-auto px-4 pt-4">
           <div>

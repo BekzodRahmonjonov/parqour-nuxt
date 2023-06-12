@@ -10,7 +10,7 @@
       class="linear-bg-news-blue absolute w-full h-full inset-0 opacity-0 transition-300 group-hover:opacity-100"
     />
     <div class="absolute w-full h-full inset-0 z-[1] flex items-end">
-      <div class="p-6">
+      <div class="p-3 sm:p-6">
         <p class="text-xs sm:text-sm leading-5 text-white font-normal">
           {{ card?.date }}
         </p>
