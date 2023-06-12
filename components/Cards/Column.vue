@@ -4,7 +4,7 @@
       <h2 class="line-clamp-1 transition-200 text-lg font-semibold leading-130 group-odd:text-white group-even:text-blue-700 group-odd:group-hover:text-blue-100 group-even:group-hover:text-blue-200"> {{ data.title }} </h2>
       <p class="line-clamp-5 transition-200 text-sm leading-130 group-odd:text-white/80 group-even:text-blue-600 mt-2 mb-[38px] group-odd:group-hover:text-blue-100 group-even:group-hover:text-blue-200"> {{ data.description }} </p>
     </div>
-    <div class="border-t border-t-gray-300 pt-4 flex-y-center mt-auto">
+    <div class="transition-200 border-t border-t-gray-300 group-odd:border-t-white/20 pt-4 flex-y-center mt-auto">
       <img src="https://picsum.photos/100/100" class="w-11 h-11 object-cover rounded-full" alt="">
       <div class="ml-2">
         <h3 class="text-sm font-semibold group-odd:text-white group-even:text-blue-600">Шохрух Бахтияров</h3>

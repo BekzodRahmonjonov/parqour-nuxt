@@ -4,7 +4,7 @@
   >
     <div v-if="isCentered" class="linear-section-wrapper w-full h-px" />
     <p
-      class="text-base sm:text-2xl leading-130 font-bold text-blue-600 dark:text-white transition-200"
+      class="shrink-0 text-base sm:text-2xl leading-130 font-bold text-blue-600 dark:text-white transition-200"
       :class="darkTitle ? 'text-white' : ''"
     >
       {{ title }}
