@@ -6,6 +6,7 @@ export default defineNuxtConfig({
   ssr: true,
   app: {
     head: {
+      link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.svg' }],
       title: 'Uz News',
     },
   },

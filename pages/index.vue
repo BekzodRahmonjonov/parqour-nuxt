@@ -1,5 +1,5 @@
 <template>
-  <div class="pt-16">
+  <div class="pt-8 md:pt-16">
     <SectionsLatestNews />
     <SectionsMainNews />
     <SectionsNews class="py-6 lg:py-10" />
