@@ -182,7 +182,7 @@ export const newsData = [
     date: new Date(),
     title: 'Что происходит с ценами на аренду жилья в Ташкенте',
     author: 'Дарья Пензова',
-    image: '/images/report-3.jpg',
+    image: '/images/news/president.png',
     views: 12551,
     isVideo: false,
     category: 'Экономика',
@@ -194,7 +194,7 @@ export const newsData = [
     date: new Date(),
     title: 'Президент анонсировал новые меры поддержки семейного бизнеса',
     author: 'Дарья Пензова',
-    image: '/images/report-3.jpg',
+    image: '/images/news/nature.png',
     views: 12551,
     isVideo: false,
     category: 'Общество',
@@ -207,7 +207,7 @@ export const newsData = [
     title:
       'В Кашкадарье бывший руководитель фонда Yoshlar - kelajagimiz обвиняется в хищен j dahsljd kaskl djlas',
     author: 'Дарья Пензова',
-    image: '/images/report-3.jpg',
+    image: '/images/news/car.png',
     views: 12551,
     isVideo: false,
     category: 'Криминал',
@@ -219,7 +219,7 @@ export const newsData = [
     date: new Date(),
     title: 'Что происходит с ценами на аренду жилья в Ташкенте',
     author: 'Дарья Пензова',
-    image: '/images/report-3.jpg',
+    image: '/images/news/school.png',
     views: 12551,
     isVideo: true,
     category: 'Экономика',
@@ -231,7 +231,7 @@ export const newsData = [
     date: new Date(),
     title: 'Что происходит с ценами на аренду жилья в Ташкенте',
     author: 'Дарья Пензова',
-    image: '/images/report-3.jpg',
+    image: '/images/news/uzairways.png',
     views: 12551,
     isVideo: false,
     category: 'Экономика',
@@ -243,7 +243,7 @@ export const newsData = [
     date: new Date(),
     title: 'Президент анонсировал новые меры поддержки семейного бизнеса',
     author: 'Дарья Пензова',
-    image: '/images/report-3.jpg',
+    image: '/images/news/singer.png',
     views: 12551,
     isVideo: false,
     category: 'Общество',
@@ -256,7 +256,7 @@ export const newsData = [
     title:
       'В Кашкадарье бывший руководитель фонда Yoshlar - kelajagimiz обвиняется в хищен j dahsljd kaskl djlas',
     author: 'Дарья Пензова',
-    image: '/images/report-3.jpg',
+    image: '/images/news/independent.png',
     views: 12551,
     isVideo: false,
     category: 'Криминал',
@@ -268,7 +268,7 @@ export const newsData = [
     date: new Date(),
     title: 'Что происходит с ценами на аренду жилья в Ташкенте',
     author: 'Дарья Пензова',
-    image: '/images/report-3.jpg',
+    image: '/images/news/covid.png',
     views: 12551,
     isVideo: true,
     category: 'Экономика',
@@ -283,33 +283,33 @@ export const authorsData = [
     title:
       '«Сейчас население переплачивает за некачественное мясо» — российский экспер...',
     author: 'Дарья Пензова',
-    image: '/images/report-1.jpg',
+    image: '/images/news/older.png',
   },
   {
     id: 1,
     title:
       'Татары в Узбекистане: откуда они появились и как повлияли на историю страны',
     author: 'Дарья Пензова',
-    image: '/images/report-1.jpg',
+    image: '/images/news/report.png',
   },
   {
     id: 1,
     title:
       'Узбекистанцы присоединились к мировому флешмобу #сидимдома — #uydaqoldik',
     author: 'Дарья Пензова',
-    image: '/images/report-1.jpg',
+    image: '/images/news/hashtag.png',
   },
   {
     id: 1,
     title: 'Что происходит с ценами на аренду жилья в Ташкенте',
     author: 'Дарья Пензова',
-    image: '/images/report-1.jpg',
+    image: '/images/news/meeting.png',
   },
   {
     id: 1,
     title: 'Что происходит с ценами на аренду жилья в Ташкенте',
     author: 'Дарья Пензова',
-    image: '/images/report-1.jpg',
+    image: '/images/news/family.png',
   },
 ]
 export const podcastTags = ['#Короткие', '#Подкасты']
@@ -595,7 +595,7 @@ export const columns: IColony[] = [
   {
     id: 1,
     title: 'Почему в Узбекистане не работает система образования?',
-    image: '/images/articles/image1.png',
+    image: '/images/news/shoxrux.png',
     description: 'В Узбекистане не работает система образования?',
     created_at: '2023-06-07',
     views_count: 1234,
@@ -604,7 +604,7 @@ export const columns: IColony[] = [
   {
     id: 2,
     title: 'Почему в Узбекистане не работает система образования?',
-    image: '/images/articles/image1.png',
+    image: '/images/news/muhammad.png',
     description:
       '«Что случилось» — новостной подкаст «Медузы». Это вечернее шоу, которое выходит каждый день, кроме выходных. Мы не пытаемся рассказывать обо всех...',
     created_at: '2023-06-07',
@@ -614,7 +614,7 @@ export const columns: IColony[] = [
   {
     id: 3,
     title: 'Почему в Узбекистане не работает система образования?',
-    image: '/images/articles/image1.png',
+    image: '/images/news/jasur.png',
     description: 'В Узбекистане не работает система образования?',
     created_at: '2023-06-07',
     views_count: 1234,
@@ -623,7 +623,7 @@ export const columns: IColony[] = [
   {
     id: 4,
     title: 'Почему в Узбекистане не работает система образования?',
-    image: '/images/articles/image1.png',
+    image: '/images/news/amon.png',
     description: 'В Узбекистане не работает система образования?',
     created_at: '2023-06-07',
     views_count: 1234,
