@@ -1,6 +1,6 @@
 <template>
   <div
-    class="relative flex flex-col justify-between h-[362px] w-full lg:col-span-3 md:col-span-4 sm:col-span-6 col-span-12 rounded hover:-translate-y-2 hover:cursor-pointer duration-300 hover:shadow-m border-2 border-transparent hover:border-[#A2BCDE]"
+    class="relative flex flex-col justify-between h-[362px] w-full lg:col-span-3 md:col-span-4 sm:col-span-6 col-span-12 rounded hover:-translate-y-2 hover:cursor-pointer transition-200 hover:shadow-m border-2 border-transparent hover:border-blue-100"
   >
     <img
       :src="bg"
@@ -14,10 +14,10 @@
       <h4
         class="font-semibold text-white pb-3 text-center uppercase border-white/20 border-b-2 text-xs"
       >
-        {{ title }}
+        {{ $t(title) }}
       </h4>
       <p class="text-xl text-white font-semibold">
-        {{ text }}
+        {{ $t(text) }}
       </p>
     </article>
   </div>
