@@ -31,13 +31,13 @@
       >
         <div class="hidden md:block">
           <p
-            class="text-sm leading-140 text-white font-normal lg:max-w-[70%] text-center"
+            class="text-sm leading-140 text-white font-normal lg:max-w-[70%] text-left"
           >
             {{ $t('found_mistake_warn_us') }}
           </p>
 
           <p
-            class="rounded border border-solid border-blue-600 py-1 px-2.5 text-white text-sm leading-140 mt-4"
+            class="inline-block rounded border border-solid border-blue-600 py-1 px-2.5 text-white text-sm leading-140 mt-4"
           >
             Для этого нажмите
             <span class="font-bold text-blue-100 ml-1">CTRL + ENTER</span>

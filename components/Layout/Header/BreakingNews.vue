@@ -1,13 +1,13 @@
 <template>
   <div class="bg-white flex-y-center transition-200 dark:bg-blue-700">
     <div
-      class="flex-shrink-0 transition-200 bg-red-light dark:bg-red-700 py-[14px] pr-[11px] pl-5 inline-flex items-center space-x-2"
+      class="flex-shrink-0 transition-200 bg-red-light dark:bg-red-700 p-3 md:py-[14px] md:pr-[11px] md:pl-5 inline-flex items-center space-x-2"
     >
       <span
         class="icon-bolt text-red text-2xl transition-200 dark:text-red-100"
       />
       <span
-        class="text-red transition-200 dark:text-red-100 text-base font-medium leading-20"
+        class="text-red transition-200 dark:text-red-100 text-base font-medium leading-20 hidden md:block"
       >
         {{ $t('beaking_news') }}
       </span>
@@ -88,7 +88,7 @@ function generateItem(arr) {
   justify-content: space-around;
   gap: 28px;
   min-width: 100%;
-  animation: scroll-left 1000s linear infinite;
+  animation: scroll-left 2000s linear infinite;
 }
 
 .marquee__group_left:hover {
