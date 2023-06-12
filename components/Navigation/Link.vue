@@ -10,7 +10,7 @@
     <span
       class="text-blue-200 dark:text-blue-100 text-sm transition-200 leading-130 group-hover:text-blue-700 dark:group-hover:text-white"
     >
-      {{ link?.title }}
+      {{ $t(link?.title) }}
     </span>
   </NuxtLink>
 </template>

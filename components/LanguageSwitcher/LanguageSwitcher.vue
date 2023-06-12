@@ -25,11 +25,13 @@ interface ILanguage {
   name: string
 }
 
+const cookieLocale = useCookie('i18n_redirected')
 const activeLang = ref<ILanguage>()
 const router = useRouter()
 
 const switchLanguage = (item: ILanguage) => {
-  localStorage.setItem('locale', item?.value)
+  cookieLocale.value = item?.value
+  // localStorage.setItem('locale', item?.value)
   router.go(0)
 }
 const languageList = ref<ILanguage[]>([
@@ -39,7 +41,7 @@ const languageList = ref<ILanguage[]>([
 
 onMounted(() => {
   if (process.client) {
-    const localLang = localStorage.getItem('locale') ?? 'uz'
+    const localLang = cookieLocale.value || 'uz'
     activeLang.value = languageList.value.find((el) => el.value === localLang)
   }
 })

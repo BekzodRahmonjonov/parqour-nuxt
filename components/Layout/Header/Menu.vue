@@ -51,7 +51,7 @@
                 :to="localePath(`/${link?.url}`)"
                 class="text-blue-600 text-xl md:text-44 font-medium transition-200 hover:text-blue-200 cursor-pointer dark:text-white dark:hover:text-blue-100"
               >
-                {{ link?.title }}
+                {{ $t(link?.title) }}
               </NuxtLink>
             </div>
             <div
@@ -70,7 +70,7 @@
                 <span
                   class="text-blue-200 text-base font-medium transition-200 leading-20 group-hover:text-blue-600 dark:text-blue-100 dark:group-hover:text-white"
                 >
-                  {{ link?.title }}
+                  {{ $t(link?.title) }}
                 </span>
               </NuxtLink>
             </div>
@@ -105,7 +105,7 @@
               :to="localePath(link?.url)"
               class="text-sm font-normal leading-130 transition-200 hover:text-blue-700 dark:text-blue-100 dark:hover:text-white"
             >
-              {{ link?.title }}
+              {{ $t(link?.title) }}
             </NuxtLink>
           </div>
         </div>

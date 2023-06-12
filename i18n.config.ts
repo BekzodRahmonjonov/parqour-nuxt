@@ -1,8 +1,8 @@
-import ru from './locales/ru.json'
-import uz from './locales/uz.json'
+import ru from '~/locales/ru.json'
+import uz from '~/locales/uz.json'
 
 export default defineI18nConfig((nuxt) => ({
-  legacy: false,
+  legacy: true,
   fallbackLocale: 'ru',
   locale: 'ru',
   messages: {

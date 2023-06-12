@@ -1,4 +1,4 @@
-import {IColony, IInterview, IPodcast} from "~/types";
+import { IColony, IInterview, IPodcast } from '~/types'
 
 export const mainSwiperData = [
   {
@@ -151,27 +151,27 @@ export const reportsData = [
 export const navigationData = [
   {
     icon: 'icon-home',
-    title: 'Главная',
+    title: 'home',
     url: '/',
   },
   {
     icon: 'icon-bolt',
-    title: 'Популряное',
+    title: 'popular_head',
     url: '/#',
   },
   {
     icon: 'icon-pen',
-    title: 'Мнения',
+    title: 'meaning',
     url: '/#',
   },
   {
     icon: 'icon-document',
-    title: 'Спецрепортажи',
+    title: 'special_reports',
     url: '/#',
   },
   {
     icon: 'icon-gallery',
-    title: 'Фоторепортажи',
+    title: 'photo_reports',
     url: '/#',
   },
 ]
@@ -409,51 +409,51 @@ export const socialsData = [
 
 export const headerBottomMenuData = [
   {
-    title: 'Реклама на сайте',
+    title: 'advertising',
     url: '/advertising',
   },
   {
-    title: 'Контакты',
+    title: 'contacts',
     url: '/contact',
   },
   {
-    title: 'Использование материалов',
+    title: 'use_of_materials',
     url: '/materials',
   },
 ]
 export const headerMainMenuData = [
   {
-    title: 'Общество',
+    title: 'society',
     url: '/advertising',
     icon: 'users',
   },
   {
-    title: 'Происшествия',
+    title: 'incidents',
     url: '/contact',
     icon: 'calendar',
   },
   {
-    title: 'Экономика',
+    title: 'economy',
     url: '/materials',
     icon: 'banknote',
   },
   {
-    title: 'Интервью',
+    title: 'interview',
     url: '/materials',
     icon: 'microphone-center',
   },
   {
-    title: 'Спорт',
+    title: 'sport',
     url: '/materials',
     icon: 'football',
   },
   {
-    title: 'Назначения',
+    title: 'appointments',
     url: '/materials',
     icon: 'pen',
   },
   {
-    title: 'Культура',
+    title: 'culture',
     url: '/materials',
     icon: 'filters',
   },
@@ -605,7 +605,8 @@ export const columns: IColony[] = [
     id: 2,
     title: 'Почему в Узбекистане не работает система образования?',
     image: '/images/articles/image1.png',
-    description: '«Что случилось» — новостной подкаст «Медузы». Это вечернее шоу, которое выходит каждый день, кроме выходных. Мы не пытаемся рассказывать обо всех...',
+    description:
+      '«Что случилось» — новостной подкаст «Медузы». Это вечернее шоу, которое выходит каждый день, кроме выходных. Мы не пытаемся рассказывать обо всех...',
     created_at: '2023-06-07',
     views_count: 1234,
     userName: 'Абдулла',
@@ -627,7 +628,7 @@ export const columns: IColony[] = [
     created_at: '2023-06-07',
     views_count: 1234,
     userName: 'Абдулла',
-  }
+  },
 ]
 
 export const searchContent = [
