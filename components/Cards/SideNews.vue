@@ -9,7 +9,7 @@
       <p
         class="text-blue-200 text-xs leading-140 font-medium text-xs mb-1 transition-300 dark:text-white"
       >
-        {{ card?.date }}
+        {{ dayjs(card?.date).locale(locale).format('DD MMM YYYY, HH:mm') }}
       </p>
       <p
         class="text-sm leading-140 font-semibold text-blue-600 transition-200 dark:text-white"
@@ -25,7 +25,11 @@
 </template>
 
 <script setup lang="ts">
+import dayjs from 'dayjs'
+
 import { INews } from '~/types'
+
+const { locale } = useI18n()
 
 interface Props {
   card?: INews
