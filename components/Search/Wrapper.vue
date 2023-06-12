@@ -35,7 +35,7 @@
         class="lg:relative w-full"
       >
         <div
-          class="absolute top-[55px] left-[3px] !w-[87.9%] md:top-3 md:left-0 md:!w-full transition-200 bg-white dark:bg-blue-600 border border-solid border-white-500 dark:border-blue-200 rounded w-auto h-auto max-h-[320px] overflow-y-auto z-50 shadow-sm"
+          class="absolute md:!top-3 md:!left-0 md:!w-full !top-[55px] !left-[3px] !w-[87.9%] sm:!w-[90%] transition-200 bg-white dark:bg-blue-600 border border-solid border-white-500 dark:border-blue-200 rounded w-auto h-auto max-h-[320px] overflow-y-auto z-50 shadow-sm"
         >
           <template v-if="searchContent?.length > 0">
             <ul class="list">
