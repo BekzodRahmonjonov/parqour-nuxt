@@ -4,6 +4,13 @@
       <div
         v-if="showPush"
         class="fixed top-0 left-0 h-screen w-full bg-[#191F2ECC] z-50 flex items-center justify-center"
+      ></div>
+    </Transition>
+
+    <Transition name="modal-in">
+      <div
+        v-if="showPush"
+        class="fixed top-0 left-0 h-screen w-full z-[51] flex items-center justify-center"
       >
         <div class="py-[100px] relative flex">
           <div
@@ -100,8 +107,10 @@ onMounted(() => {
   const PushMessage = localStorage.getItem('PushMessage')
 
   if (!PushMessage) {
-    showPush.value = true
-    localStorage.setItem('PushMessage', 'true')
+    setTimeout(() => {
+      showPush.value = true
+      localStorage.setItem('PushMessage', 'true')
+    }, 300)
   }
 
   watchEffect(() => {
@@ -117,3 +126,24 @@ function closePush() {
   showPush.value = false
 }
 </script>
+
+<style scoped>
+.modal-in-enter-active {
+  animation: modal 300ms ease-out;
+}
+
+.modal-in-leave-active {
+  animation: modal 300ms ease-in reverse;
+}
+
+@keyframes modal {
+  0% {
+    opacity: 0;
+    transform: translateY(-30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+</style>
