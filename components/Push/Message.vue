@@ -10,14 +10,14 @@
     <Transition name="modal-in">
       <div
         v-if="showPush"
-        class="fixed top-0 left-0 h-screen w-full z-[51] flex items-center justify-center"
+        class="fixed top-0 left-0 h-screen w-full z-[51] flex items-center justify-center px-4"
       >
         <div class="py-[100px] relative flex">
           <div
-            class="relative mx-auto max-w-[450px] flex flex-col items-center bg-[white] p-7 rounded-xl"
+            class="relative mx-auto max-w-[450px] flex flex-col items-center bg-[white] p-3 sm:p-7 rounded-xl"
           >
             <div
-              class="absolute -top-8 -right-8 hover:cursor-pointer z-100"
+              class="absolute -top-10 right-0 sm:-top-8 sm:-right-8 hover:cursor-pointer z-100"
               @click="closePush()"
             >
               <i class="icon icon-close text-3xl text-[#A2BCDE]"></i>
@@ -34,11 +34,11 @@
                 новостях
               </p>
             </div>
-            <div class="mt-11">
+            <div class="w-full sm:w-auto mt-11">
               <div>
                 <CommonButton
                   variant="secondary"
-                  class="flex gap-1.5 max-w-[326px] w-full md:w-[326px]"
+                  class="flex gap-1.5 max-w-[326px] w-full md:w-[326px] hover:bg-blue-200/20 dark:hover:bg-blue-200/[16%]"
                 >
                   <div>
                     <svg
@@ -67,7 +67,7 @@
               <div class="mt-4">
                 <CommonButton
                   variant="primary-dark"
-                  class="flex gap-1.5 w-full"
+                  class="flex gap-1.5 w-full hover:bg-blue-600"
                 >
                   <div>
                     <svg
