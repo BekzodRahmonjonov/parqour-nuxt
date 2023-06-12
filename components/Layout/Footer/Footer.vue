@@ -2,7 +2,7 @@
   <footer class="bg-blue-700">
     <div class="container">
       <div
-        class="flex justify-between pt-10 pb-6 border-b border-solid items-start md:items-center border-blue-600 flex-col md:flex-row gap-4"
+        class="flex justify-between pb-5 pt-7 sm:pt-10 sm:pb-6 border-b border-solid items-start md:items-center border-blue-600 flex-col md:flex-row gap-4"
       >
         <div class="flex-y-center gap-3">
           <NuxtLink to="/">
@@ -14,12 +14,14 @@
           </div>
         </div>
 
-        <div class="flex-y-center gap-8">
+        <div
+          class="flex sm:items-center items-start sm:flex-row flex-col gap-3 sm:gap-8"
+        >
           <NuxtLink
             v-for="(link, index) in menu"
             :key="index"
             to="/"
-            class="text-base leading-5 font-medium text-white transition-200 hover:text-blue-100"
+            class="text-sm sm:text-base leading-5 font-medium text-white transition-200 hover:text-blue-100"
           >
             {{ link.title }}
           </NuxtLink>
@@ -27,7 +29,7 @@
       </div>
 
       <div
-        class="flex items-start md:items-center justify-between py-8 flex-col lg:flex-row gap-5"
+        class="flex items-start md:items-center justify-between py-5 sm:py-8 flex-col lg:flex-row gap-5"
       >
         <div class="hidden md:block">
           <p
@@ -82,13 +84,13 @@ const { t } = useI18n()
 
 const menu = [
   {
-    title: t('ad_for_site'),
+    title: t('advertising'),
   },
   {
-    title: t('contact'),
+    title: t('contacts'),
   },
   {
-    title: t('using_contents'),
+    title: t('use_of_materials'),
   },
 ]
 
