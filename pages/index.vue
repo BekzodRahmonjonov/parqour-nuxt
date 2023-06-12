@@ -9,6 +9,7 @@
     <SectionsPodcasts class="my-10" />
     <SectionsInterviews class="py-10" />
     <SectionsSocial class="my-10" />
+    <SectionsAnalysis class="my-10" />
   </div>
 </template>
 
