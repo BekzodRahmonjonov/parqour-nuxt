@@ -1,6 +1,9 @@
 <template>
   <div
-    :class="isCentered ? 'flex-y-center gap-6' : 'flex-center-between gap-4'"
+    class="flex"
+    :class="
+      isCentered ? 'items-center gap-6' : 'items-center justify-between gap-4'
+    "
   >
     <div v-if="isCentered" class="linear-section-wrapper w-full h-px" />
     <p

@@ -1,7 +1,7 @@
 <template>
   <div class="bg-white flex-y-center transition-200 dark:bg-blue-700">
     <div
-      class="flex-shrink-0 transition-200 bg-red-light dark:bg-red-700 p-3 md:py-[14px] md:pr-[11px] md:pl-5 inline-flex items-center space-x-2"
+      class="relative z-20 flex-shrink-0 transition-200 bg-red-light dark:bg-red-700 p-3 md:py-[14px] md:pr-[11px] md:pl-5 inline-flex items-center space-x-2"
     >
       <span
         class="icon-bolt text-red text-2xl transition-200 dark:text-red-100"
@@ -14,10 +14,10 @@
     </div>
     <div class="w-full h-full relative">
       <div
-        class="absolute left-0 top-0 h-full w-[115px] custom-gradient transition-200 opacity-100 dark:!opacity-0 pointer-events-none z-10"
+        class="absolute -left-2 top-0 h-full w-[115px] custom-gradient transition-200 opacity-100 dark:!opacity-0 pointer-events-none z-10"
       />
       <div
-        class="absolute left-0 top-0 h-full w-[115px] custom-gradient-dark transition-200 opacity-0 dark:opacity-100 pointer-events-none z-10"
+        class="absolute -left-2 top-0 h-full w-[115px] custom-gradient-dark transition-200 opacity-0 dark:opacity-100 pointer-events-none z-10"
       />
       <div class="marquee">
         <div aria-hidden="true" class="marquee__group_left space-x-3">

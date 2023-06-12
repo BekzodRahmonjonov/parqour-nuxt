@@ -1,19 +1,19 @@
 <template>
-  <div class="pt-8 md:pt-16">
+  <div class="pt-8">
     <SectionsLatestNews />
     <SectionsMainNews />
     <SectionsNews class="py-6 lg:py-10" />
     <CommonAdBanner image="/images/ad/ad.png" />
-    <SectionsAuthor class="my-6 lg:my-10" />
+    <SectionsAuthor class="py-6 lg:py-10" />
     <SectionsReports :data="reportsData" />
-    <CommonAdBanner image="/images/ad/yellow.png" class="mt-10" />
-    <SectionsPhotoReports class="my-10" />
-    <SectionsPodcasts class="my-10" />
-    <SectionsInterviews class="my-10" />
-    <CommonAdBanner image="/images/ad/airways.png" />
-    <SectionsColumns class="pb-10" />
-    <SectionsSocial class="my-10" />
-    <SectionsAnalysis class="my-10" />
+    <CommonAdBanner image="/images/ad/yellow.png" class="pt-6 lg:pt-10" />
+    <SectionsPhotoReports class="pt-6 lg:pt-10" />
+    <SectionsPodcasts class="py-6 lg:py-10" />
+    <SectionsInterviews class="pb-6 lg:pb-10" />
+    <CommonAdBanner image="/images/ad/airways.png" class="pb-6 lg:pb-10" />
+    <SectionsColumns class="pb-6 lg:pb-10" />
+    <SectionsSocial />
+    <SectionsAnalysis class="py-6 lg:py-10" />
   </div>
 </template>
 

@@ -1,15 +1,23 @@
 <template>
-  <div class="bg-blue-700 pt-10 pb-12">
+  <div class="bg-blue-700 py-10">
     <div class="container">
       <CommonSectionWrapper
         :title="$t('special_reports')"
         :all-link="'/special-reports'"
         :all-title="$t('all')"
         dark-title
-        class="mb-5 md:mb-4"
+        class="mb-5 md:mb-4 flex md:hidden"
+        is-centered
+      />
+      <CommonSectionWrapper
+        :title="$t('special_reports')"
+        :all-link="'/special-reports'"
+        :all-title="$t('all')"
+        dark-title
+        class="mb-5 md:mb-4 hidden md:flex"
       >
         <template #actions>
-          <div class="flex-y-center gap-1">
+          <div class="flex items-center gap-1">
             <button
               class="button-report-prev w-7 h-7 rounded-full border border-solid border-blue-100/30 flex-center hover:border-blue-100 transition-200"
             >

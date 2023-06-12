@@ -3,7 +3,7 @@
     <PushMessage />
     <div class="dark:bg-blue-700 transition-200">
       <LayoutHeader />
-      <div class="pt-[104px] lg:pt-[233.9px]">
+      <div class="pt-[104px] lg:pt-[235.9px]">
         <slot />
       </div>
       <LayoutFooter />

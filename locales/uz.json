@@ -31,6 +31,12 @@
   "culture": "Madaniyat",
   "advertising": "Saytdagi reklama",
   "contacts": "Kontaktlar",
+  "lenta_news": "Yangiliklar lentasi",
   "use_of_materials": "Materiallardan foydalanish",
-  "lenta_news": "Yangiliklar lentasi"
+  "analysis": "tahlil",
+  "business": "biznes",
+  "analysiscardtext1" : "E'lonlar saytlarida savdongiz qanday",
+  "analysiscardtext2" : "Juda ko'p qiziqarli va juda kam ishlaydigan nazariyalar!",
+  "analysiscardtext3" : "Ko'taruvchi hikoyalar qidirilmoqda",
+  "analysiscardtext4" : "Koronavirus inqirozi - yangi mutaxassis uchun boshi berk ko'chami?"
 }

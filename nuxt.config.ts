@@ -7,7 +7,7 @@ export default defineNuxtConfig({
   app: {
     head: {
       link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.svg' }],
-      title: 'Uz News',
+      title: 'UzNews.uz - Новости Узбекистана',
     },
   },
   css: ['/assets/style.css', '/assets/icomoon/style.css'],
