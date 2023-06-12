@@ -1,9 +1,13 @@
 <template>
-  <div class="dark:bg-blue-700 transition-200">
-    <LayoutHeader />
-    <div class="pt-[104px] lg:pt-[233.9px]">
-      <slot />
+  <div>
+    <PushMessage />
+    <div class="dark:bg-blue-700 transition-200">
+      <LayoutHeader />
+      <div class="pt-[104px] lg:pt-[233.9px]">
+        <slot />
+      </div>
+      <LayoutFooter />
     </div>
-    <LayoutFooter />
   </div>
 </template>
+<script setup lang="ts"></script>
