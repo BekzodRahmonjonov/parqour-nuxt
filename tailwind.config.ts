@@ -64,7 +64,7 @@ export default <Partial<Config>>{
       },
       boxShadow: {
         sm: '0px 2px 24px rgba(25, 31, 46, 0.24)',
-        m: '0px 6px 12px rgba(29, 29, 29, 0.16)',
+        m: '0px 12px 32px rgba(82, 97, 143, 0.52)',
       },
       lineHeight: {
         136: '136%',
