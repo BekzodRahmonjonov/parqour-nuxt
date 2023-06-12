@@ -26,6 +26,7 @@ export default <Partial<Config>>{
           200: '#52618F',
           600: '#2C3752',
           700: '#191F2E',
+          800: '#2B3348',
           900: '#0E1118',
         },
         white: {
@@ -34,6 +35,10 @@ export default <Partial<Config>>{
           200: '#D9D9D9',
           300: '#ECF2F8',
           400: '#F5F6F9',
+          700: '#F5F5F8',
+          800: '#F0F4F9',
+          500: '#EEF0F4',
+          900: '#F0F0F5',
         },
         gray: {
           DEFAULT: '#B8BABE',
@@ -42,6 +47,7 @@ export default <Partial<Config>>{
           200: '#919299',
           300: '#E5E7EE',
           400: '#a2bcde29',
+          500: '#E6EEF6',
         },
         green: {
           DEFAULT: '#51B334',

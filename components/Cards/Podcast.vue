@@ -1,10 +1,12 @@
 <template>
-  <div class="rounded-md bg-gray-150 w-full h-full relative max-h-[296px] group transition-200 cursor-pointer hover:-translate-y-1 hover:shadow-cyan-500/50">
+  <NuxtLink to="/" class="rounded-md bg-gray-150 w-full h-full relative max-h-[296px] group transition-200">
     <img :src="data.image"
          alt="podcast_image"
          class="w-full h-full object-cover rounded-md aspect-auto relative z-0 box transition-200"
     >
-    <div class="transition-200 absolute z-10 box w-full h-full podcast-overlay border-0 border-transparent top-0 rounded-md p-4 flex flex-col justify-between items-end">
+    <div class="absolute top-0 podcast-overlay w-full rounded-md h-full z-0 opacity-100 transition-200 group-hover:opacity-0"></div>
+    <div class="absolute top-0 podcast-overlay-hover w-full rounded-md h-full z-0 opacity-0 transition-200 group-hover:opacity-100"></div>
+    <div class="transition-200 absolute z-10 box w-full h-full top-0 rounded-md p-4 flex flex-col justify-between items-end">
       <div class="bg-blue-700/40 px-2.5 py-1.5 rounded w-fit flex-center">
         <span class="text-white text-xs font-medium leading-130"> {{ data.typeTitle }} </span>
         <span class="w-1 h-1 rounded-full bg-gray-100 mx-1.5"></span>
@@ -19,7 +21,7 @@
         <p class="text-white line-clamp-2 text-base font-medium leading-130"> {{ data.title }} </p>
       </div>
     </div>
-  </div>
+  </NuxtLink>
 </template>
 <script setup lang="ts">
 import { IPodcast } from "~/types";
@@ -32,6 +34,10 @@ defineProps<Props>()
 </script>
 <style>
   .podcast-overlay {
+    transition: 0.2s ease-in-out;
     background: linear-gradient(0deg, rgba(25, 31, 46, 0.9) -9.97%, rgba(25, 31, 46, 0) 108.11%);
+  }
+  .podcast-overlay-hover {
+    background: linear-gradient(0deg, rgba(82, 97, 143, 0.9) -9.97%, rgba(82, 97, 143, 0) 108.11%);
   }
 </style>

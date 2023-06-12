@@ -12,7 +12,7 @@
             />
           </div>
           <div
-            class="w-full h-[0.5px] bg-white-200 dark:bg-blue-200/20 transition-300 hidden lg:block"
+            class="w-full h-[0.5px] bg-white-200 dark:bg-blue-200/20 transition-200 hidden lg:block"
           />
           <div class="grid lg:grid-cols-2 gap-3 lg:gap-8">
             <CardsNewsSmall
@@ -25,7 +25,7 @@
         </div>
       </div>
       <div
-        class="col-span-4 bg-white-400 dark:bg-blue-100/[16%] transition-300 rounded-lg mt-6 lg:mt-0"
+        class="col-span-4 bg-white-400 dark:bg-blue-100/[16%] transition-200 rounded-lg mt-6 lg:mt-0"
       >
         <SectionsSidebarNews />
       </div>

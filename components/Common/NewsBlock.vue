@@ -10,7 +10,7 @@
       />
     </div>
     <div
-      class="absolute bottom-0 w-full h-[100px] pointer-events-none transition-300 news-side-bg-linear"
+      class="absolute bottom-0 w-full h-[100px] pointer-events-none transition-200 news-side-bg-linear"
     />
     <div class="w-full absolute bottom-0 z-[1] p-3 lg:p-5">
       <CommonButton variant="primary-dark" class="w-full group px-0">

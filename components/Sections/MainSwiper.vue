@@ -3,12 +3,12 @@
     <div class="absolute hidden md:block top-6 right-6 z-[2]">
       <div class="flex-y-center gap-2">
         <button
-          class="main-button-prev bg-blue-200/[24%] w-7 h-7 rounded flex-center transition-300 hover:bg-blue-200/100 active:scale-90"
+          class="main-button-prev bg-blue-200/[24%] w-7 h-7 rounded flex-center transition-200 hover:bg-blue-200/100 active:scale-90"
         >
           <i class="icon-arrow-left text-white" />
         </button>
         <button
-          class="main-button-next bg-blue-200/[24%] w-7 h-7 rounded flex-center transition-300 hover:bg-blue-200/100 active:scale-90"
+          class="main-button-next bg-blue-200/[24%] w-7 h-7 rounded flex-center transition-200 hover:bg-blue-200/100 active:scale-90"
         >
           <i class="icon-arrow-right text-white" />
         </button>

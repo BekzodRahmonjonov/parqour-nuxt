@@ -9,7 +9,10 @@
         <hr class="relative h-6 w-px bg-blue-100/20 border-0" />
         <div class="flex-y-center space-x-3">
           <NuxtLink to="/">
-            <CommonButton variant="secondary">
+            <CommonButton
+              variant="secondary"
+              button-class="hover:bg-blue-200/20 dark:hover:bg-blue-200/[16%]"
+            >
               <span
                 class="relative text-blue-200 inline-block icon-plus text-lg font-medium mr-2 leading-20 transition-200 dark:text-blue-100"
               />
@@ -21,11 +24,13 @@
             </CommonButton>
           </NuxtLink>
           <NuxtLink to="/">
-            <CommonButton>
+            <CommonButton button-class="hover:bg-blue-200">
               <span
-                class="relative inline-block icon-login text-lg font-medium mr-2 leading-20"
+                class="relative inline-block icon-login text-lg font-medium mr-2 leading-20 transition-200 group-hover:text-white"
               />
-              <span class="text-sm font-medium leading-20">
+              <span
+                class="text-sm font-medium leading-20 transition-200 group-hover:text-white"
+              >
                 {{ $t('login') }}
               </span>
             </CommonButton>

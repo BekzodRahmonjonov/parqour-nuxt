@@ -1,19 +1,18 @@
 <template>
-  <li class="text-white space-y-0.5" @click="handleCloseMobile">
-    <NuxtLink :to="localePath(`/destination/${slug}`)" class="w-full">
+  <li class="text-white space-y-0.5 pl-[10px]" @click="handleCloseMobile">
+    <NuxtLink
+      :to="localePath(`/destination/${slug}`)"
+      class="w-full flex-y-center space-x-2 border-b border-solid border-white-500 dark:border-blue-200"
+    >
+      <div class="w-12 h-12 rounded flex-shrink-0 overflow-hidden">
+        <img :src="image" class="w-full h-full" />
+      </div>
       <Highlighter
-        class="text-base text-white font-medium leading-130"
-        highlight-class-name="bg-[#FFCD55] rounded"
+        class="text-[13px] text-blue-700 dark:text-white font-bold leading-136"
+        highlight-class-name="bg-[#FFCD55] dark:bg-[#F9DCA3] dark:text-white dark:bg-opacity-[24%] rounded"
         :search-words="[search ?? '']"
         :text-to-highlight="title"
       />
-      <p class="text-xs text-white/80 font-normal leading-130">
-        <span>{{ $t('countries') }}</span>
-        <span class="mx-0.5"> / </span>
-        <span>{{ breadcrumb?.country?.title }}</span>
-        <span v-if="breadcrumb?.title" class="mx-0.5"> / </span>
-        <span>{{ breadcrumb?.title }}</span>
-      </p>
     </NuxtLink>
   </li>
 </template>
@@ -25,6 +24,7 @@ interface Props {
   title?: string
   search?: string
   slug?: string
+  image?: string
   breadcrumb?: {}[]
 }
 defineProps<Props>()

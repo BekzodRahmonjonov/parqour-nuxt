@@ -1,6 +1,6 @@
 <template>
   <div
-    class="relative inline-flex items-center transition-300 relative rounded overflow-hidden w-full px-4 py-3 group !bg-blue-200/10"
+    class="relative inline-flex items-center transition-200 relative rounded overflow-hidden w-full px-4 py-3 group border border-blue-100 md:border-transparent dark:focus-within:border-blue-100 focus-within:bg-blue-600 dark:focus-within:!bg-blue-600 focus-within:hover:bg-white dark:bg-blue-600 lg:bg-white lg:!bg-blue-100/10 !dark:bg-blue-100/[16%] lg:hover:!bg-blue-100/50"
     :class="[{ '!border-red': error }]"
   >
     <span :class="[prefixClass]" class="flex-center">
