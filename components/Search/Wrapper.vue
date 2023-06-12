@@ -2,10 +2,14 @@
   <div class="w-full">
     <FormInput
       :model-value="search"
-      class="transition-200 !p-[10px]"
+      class="transition-200 !p-[10px] !absolute w-[87.9%] sm:w-[90%] md:w-[93%] lg:w-full right-12 z-30 !left-[3px] !top-[2px] transition-all duration-300 lg:!relative lg:!right-0 lg:!left-0 lg:!top-0"
       :placeholder="$t('search')"
-      :class="[searchTrigger ? 'opacity-100' : 'opacity-0']"
-      input-class="pl-2 mt-0.5 dark:text-white"
+      :class="[
+        searchTrigger
+          ? 'max-w-full opacity-100'
+          : 'max-w-0 md:max-w-full opacity-0 lg:opacity-100',
+      ]"
+      input-class="pl-2 mt-0.5 dark:text-white "
       prefix-class="leading-130"
       :focus="searchTrigger"
       @update:modelValue="handleUpdateSearch"
@@ -26,9 +30,12 @@
       </template>
     </FormInput>
     <Transition name="fade" mode="out-in">
-      <div v-if="searchTrigger && search" class="relative w-full">
+      <div
+        v-if="(searchTrigger && search) || search"
+        class="lg:relative w-full"
+      >
         <div
-          class="absolute top-3 left-0 w-full transition-200 bg-white dark:bg-blue-600 border border-solid border-white-500 dark:border-blue-200 rounded w-auto h-auto max-h-[320px] overflow-y-auto z-50 z-50 shadow-sm"
+          class="absolute top-[55px] left-[3px] !w-[87.9%] md:top-3 md:left-0 md:!w-full transition-200 bg-white dark:bg-blue-600 border border-solid border-white-500 dark:border-blue-200 rounded w-auto h-auto max-h-[320px] overflow-y-auto z-50 shadow-sm"
         >
           <template v-if="searchContent?.length > 0">
             <ul class="list">

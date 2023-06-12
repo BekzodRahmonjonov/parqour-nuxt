@@ -1,8 +1,9 @@
 <template>
-  <div class="w-full flex items-center">
+  <div class="w-full flex items-center justify-end z-40">
     <SearchWrapper
       :search="search"
       :search-content="searchContent"
+      :search-trigger="searchTrigger"
       @handleUpdateSearch="handleUpdateSearch"
       @clear="clear"
     />

@@ -1,13 +1,13 @@
 <template>
-  <div class="flex-y-center space-x-[10px]">
+  <div class="flex-y-center md:space-x-[10px]">
     <button
       v-for="item in languageList"
       :key="item?.value"
-      class="transition-200"
+      class="transition-200 w-8 h-8 md:w-auto md:h-auto rounded-full"
       :class="[
         activeLang?.value === item?.value
-          ? 'text-blue-200 dark:text-white'
-          : 'text-gray dark:text-gray-100/40',
+          ? 'bg-white md:bg-transparent text-blue-200 md:text-blue-200 md:dark:text-white'
+          : ' text-blue-100  md:text-gray md:dark:text-gray-100/40',
       ]"
       @click="switchLanguage(item)"
     >

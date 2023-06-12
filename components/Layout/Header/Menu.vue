@@ -2,22 +2,62 @@
   <div
     class="absolute left-0 top-0 w-full h-screen bg-white z-20 transition-200 dark:bg-blue-700 overflow-y-auto"
   >
-    <div class="h-full pt-[233.9px] pb-16 min-h-[800px]">
+    <div class="h-full pt-[104px] md:pt-[233.9px] pb-16 min-h-[900px]">
       <div class="relative container h-full flex flex-col">
-        <div class="relative h-full flex-y-center justify-center py-16">
-          <div class="flex items-stretch">
-            <div class="inline-flex flex-col space-y-4">
+        <div
+          class="relative h-auto md:h-full flex items-start md:items-center flex-col md:flex-row justify-start md:justify-center py-5 md:py-16"
+        >
+          <div
+            class="w-full flex md:hidden items-center justify-between space-x-3 border-b border-solid border-gray-300 pb-4 mb-5"
+          >
+            <LanguageSwitcher class="rounded-[150px] bg-white-100 p-1" />
+            <div class="flex-y-center space-x-3">
+              <NuxtLink to="/">
+                <CommonButton
+                  variant="secondary"
+                  button-class="hover:bg-blue-200/20 dark:hover:bg-blue-200/[16%]"
+                >
+                  <span
+                    class="relative text-blue-200 inline-block icon-plus text-lg font-medium mr-2 leading-20 transition-200 dark:text-blue-100"
+                  />
+                  <span
+                    class="text-sm font-medium leading-20 transition-200 dark:text-white"
+                  >
+                    {{ $t('news') }}
+                  </span>
+                </CommonButton>
+              </NuxtLink>
+              <NuxtLink to="/">
+                <CommonButton button-class="hover:bg-blue-200">
+                  <span
+                    class="relative inline-block icon-login text-lg font-medium mr-2 leading-20 transition-200 group-hover:text-white"
+                  />
+                  <span
+                    class="text-sm font-medium leading-20 transition-200 group-hover:text-white"
+                  >
+                    {{ $t('login') }}
+                  </span>
+                </CommonButton>
+              </NuxtLink>
+            </div>
+          </div>
+          <div
+            class="w-full flex items-stretch justify-center flex-col md:flex-row"
+          >
+            <div class="inline-flex flex-col space-y-3 md:space-y-4">
               <NuxtLink
                 v-for="(link, i) of navigationData"
                 :key="i"
                 :to="localePath(`/${link?.url}`)"
-                class="text-blue-600 text-44 font-medium transition-200 hover:text-blue-200 cursor-pointer dark:text-white dark:hover:text-blue-100"
+                class="text-blue-600 text-xl md:text-44 font-medium transition-200 hover:text-blue-200 cursor-pointer dark:text-white dark:hover:text-blue-100"
               >
                 {{ link?.title }}
               </NuxtLink>
             </div>
-            <div class="linear-section-wrapper w-px h-auto mr-8 ml-16" />
-            <div class="inline-flex flex-col space-y-5 py-8">
+            <div
+              class="linear-section-wrapper w-full h-px md:w-px md:h-auto my-4 md:my-0 md:mr-8 md:ml-16"
+            />
+            <div class="inline-flex flex-col space-y-5 py-0 md:py-8">
               <NuxtLink
                 v-for="(link, idx) of headerMainMenuData"
                 :key="idx"
@@ -36,7 +76,9 @@
             </div>
           </div>
         </div>
-        <div class="flex items-end justify-between mt-auto">
+        <div
+          class="flex items-start md:items-end md:justify-between mt-auto md:flex-row flex-col-reverse space-y-6 md:space-y-0 space-y-reverse"
+        >
           <div class="space-y-3">
             <div class="space-x-4">
               <a
@@ -54,7 +96,9 @@
               <span class="icon-circle text-2xl text-" />
             </div>
           </div>
-          <div class="inline-flex items-center space-x-4 text-blue-200">
+          <div
+            class="inline-flex items-start md:items-center md:flex-row flex-col space-y-3 md:space-y-0 md:space-x-4 text-blue-200"
+          >
             <NuxtLink
               v-for="(link, index) of headerBottomMenuData"
               :key="index"
