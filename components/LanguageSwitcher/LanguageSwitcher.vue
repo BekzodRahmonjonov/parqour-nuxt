@@ -7,7 +7,7 @@
       :class="[
         activeLang?.value === item?.value
           ? 'bg-white md:bg-transparent text-blue-200 md:text-blue-200 md:dark:text-white'
-          : ' text-blue-100  md:text-gray md:dark:text-gray-100/40',
+          : ' text-blue-100  md:text-gray md:dark:text-gray-100/40 hover:text-blue-200/80',
       ]"
       @click="switchLanguage(item)"
     >
