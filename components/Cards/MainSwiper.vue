@@ -1,14 +1,22 @@
 <template>
   <div
     class="w-full aspect-video lg:h-[466px] rounded-lg relative overflow-hidden group"
+    @mouseenter="hovered = true"
+    @mouseleave="hovered = false"
   >
     <img :src="card?.image" alt="news" class="w-full h-full object-cover" />
-    <div
-      class="linear-bg-news absolute w-full h-full inset-0 transition-200 group-hover:opacity-0"
-    />
-    <div
-      class="linear-bg-news-blue absolute w-full h-full inset-0 opacity-0 transition-300 group-hover:opacity-100"
-    />
+    <Transition name="fade">
+      <div
+        v-if="!hovered"
+        class="linear-bg-news absolute w-full h-full inset-0 transition-200"
+      />
+    </Transition>
+    <Transition name="fade">
+      <div
+        v-if="hovered"
+        class="linear-bg-news-blue absolute w-full h-full inset-0 transition-300"
+      />
+    </Transition>
     <div class="absolute w-full h-full inset-0 z-[1] flex items-end">
       <div class="p-3 sm:p-6">
         <p class="text-xs sm:text-sm leading-5 text-white font-normal">
@@ -33,6 +41,8 @@
 <script setup lang="ts">
 import { INews } from '~/types'
 import { formatNumberWithSpaces } from '~/utils'
+
+const hovered = ref(false)
 
 interface Props {
   card?: INews
