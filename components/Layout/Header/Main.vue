@@ -5,18 +5,7 @@
         <LayoutHeaderSalary />
         <LayoutHeaderTime :date="new Date()" />
       </div>
-      <NuxtLink to="/">
-        <img
-          src="/svg/uznews.svg"
-          alt="uznews logo"
-          class="block dark:hidden"
-        />
-        <img
-          src="/svg/uznews-white.svg"
-          alt="uznews logo"
-          class="hidden dark:block"
-        />
-      </NuxtLink>
+      <LayoutHeaderLogo />
       <div class="flex-y-center space-x-3">
         <LayoutHeaderLegal :salary="970000" type="МПОТ" currency="UZS" />
         <LayoutHeaderLegal :salary="330000" type="БРВ" currency="UZS" />

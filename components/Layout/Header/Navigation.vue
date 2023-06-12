@@ -1,7 +1,7 @@
 <template>
   <div class="py-3 border-b-[0.5px] border-solid border-blue-200/10">
     <div class="container flex-y-center justify-between">
-      <div class="flex-y-center space-x-7">
+      <div class="relative flex-y-center space-x-7 z-10">
         <button class="group flex-y-center" @click="handleMenu">
           <span
             v-if="!menuTrigger"
@@ -14,7 +14,8 @@
         </button>
         <NavigationWrapper :navigations="navigationData" />
       </div>
-      <div class="w-full max-w-[376px]">
+      <LayoutHeaderLogo class="flex lg:hidden" />
+      <div class="lg:w-full lg:max-w-[376px]">
         <Search />
       </div>
     </div>
