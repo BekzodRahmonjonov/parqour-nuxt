@@ -1,11 +1,11 @@
 <template>
   <div
-    class="relative flex flex-col justify-between h-[362px] w-full lg:col-span-3 md:col-span-4 sm:col-span-6 col-span-12 rounded hover:-translate-y-2 hover:cursor-pointer transition-200 hover:shadow-m border-2 border-transparent hover:border-blue-100"
+    class="relative flex flex-col justify-between h-[362px] w-full lg:col-span-3 md:col-span-4 sm:col-span-6 col-span-12 rounded overflow-hidden hover:-translate-y-2 hover:cursor-pointer transition-200 hover:shadow-m"
   >
     <img
       :src="bg"
       alt=""
-      class="absolute inset-0 w-full h-full object-cover z-0"
+      class="absolute inset-0 w-full h-full rounded object-cover z-0"
     />
     <span
       class="absolute bg-[#191F2E] bg-opacity-60 inset-0 w-full h-full z-1"

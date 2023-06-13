@@ -2,7 +2,7 @@
   <div
     class="pb-8 border-b border-solid border-white-300 dark:border-blue-200/20 flex items-start gap-3"
   >
-    <div class="hidden md:flex items-center">
+    <div class="!hidden md:!flex items-center">
       <div
         class="flex-center bg-blue-100 w-3 h-3 rounded-full bullet-shadow dark:bg-blue-100 transition-200"
       >
@@ -24,7 +24,7 @@
 
     <div>
       <div class="flex-y-center gap-3">
-        <div class="flex-y-center md:hidden">
+        <div class="!flex-y-center md:!hidden">
           <div
             class="flex-center bg-blue-100 w-3 h-3 rounded-full bullet-shadow dark:bg-blue-100 transition-200"
           >
