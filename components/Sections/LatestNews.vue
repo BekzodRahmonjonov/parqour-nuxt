@@ -73,7 +73,7 @@
         <div class="w-full max-w-[990px] mx-auto px-4 pt-4">
           <div>
             <div class="flex-center w-full">
-              <CommonDate date="23 Января, 2023" />
+              <CommonDate :date="new Date()" />
             </div>
 
             <div class="w-full flex flex-col gap-8 mt-4">
@@ -111,7 +111,7 @@
 
             <div v-if="isNextMonth" class="mt-8">
               <div class="flex-center w-full">
-                <CommonDate date="22 Января, 2023" />
+                <CommonDate :date="new Date()" />
               </div>
               <div class="w-full flex flex-col gap-8">
                 <CardsLatest

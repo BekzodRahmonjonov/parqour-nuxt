@@ -36,6 +36,8 @@
   "use_of_materials": "Materiallardan foydalanish",
   "analysis": "tahlil",
   "business": "biznes",
+  "parsing": "Tahlil",
+  "fetch_next_month" : "Kechagi yuklab olish",
   "analysiscardtext1" : "E'lonlar saytlarida savdongiz qanday",
   "analysiscardtext2" : "Juda ko'p qiziqarli va juda kam ishlaydigan nazariyalar!",
   "analysiscardtext3" : "Ko'taruvchi hikoyalar qidirilmoqda",

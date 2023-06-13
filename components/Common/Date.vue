@@ -5,12 +5,15 @@
     <p
       class="text-xs md:text-2xl leading-[125%] text-blue-900 font-bold transition-200 dark:text-white"
     >
-      {{ date }}
+      {{ dayjs(date).locale(locale).format('D MMMM, YYYY') }}
     </p>
   </div>
 </template>
 
 <script setup lang="ts">
+import dayjs from 'dayjs'
+
+const { locale } = useI18n()
 interface Props {
   date: string
 }

@@ -19,7 +19,7 @@
         :to="allLink"
         class="flex-y-center gap-1.5 transition-200 hover:text-blue-100 group text-xs sm:text-lg text-blue-200 dark:text-blue-100 font-medium leading-120"
       >
-        {{ allTitle }}
+        {{ $t(allTitle) }}
         <i
           class="icon-arrow-right text-blue-100 transition-200 group-hover:translate-x-1"
         />
@@ -39,7 +39,7 @@ interface Props {
 
 withDefaults(defineProps<Props>(), {
   title: 'Title',
-  allTitle: 'All',
+  allTitle: 'all',
   allLink: '/',
 })
 </script>
