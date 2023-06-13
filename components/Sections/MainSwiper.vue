@@ -40,8 +40,10 @@
 
 <script setup lang="ts">
 import 'swiper/css'
+import 'swiper/css/free-mode'
+import 'swiper/css/effect-fade'
 
-import { Autoplay, Navigation } from 'swiper'
+import { Autoplay, EffectFade, Navigation } from 'swiper'
 import { Swiper, SwiperSlide } from 'swiper/vue'
 
 import { mainSwiperData } from '~/data'
@@ -52,6 +54,7 @@ const settings = {
   grabCursor: true,
   spaceBetween: 16,
   loop: true,
+  effect: 'fade',
   autoplay: {
     delay: 5000,
     disableOnInteraction: false,
@@ -60,7 +63,7 @@ const settings = {
     prevEl: '.main-button-prev',
     nextEl: '.main-button-next',
   },
-  modules: [Navigation, Autoplay],
+  modules: [Navigation, Autoplay, EffectFade],
 }
 
 const imageSlider = ref()
