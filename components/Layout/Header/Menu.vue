@@ -90,10 +90,12 @@
               />
             </div>
             <div
-              class="inline-flex items-center space-x-1 text-blue-200 dark:text-gray-200"
+              class="inline-flex items-center space-x-1 text-blue-200 dark:text-gray-200 group cursor-pointer"
             >
               <span>{{ $t('age_limit') }}</span>
-              <span class="icon-circle text-2xl text-" />
+              <span
+                class="icon-circle text-2xl transition-200 group-hover:text-red"
+              />
             </div>
           </div>
           <div

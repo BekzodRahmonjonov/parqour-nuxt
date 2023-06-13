@@ -4,14 +4,15 @@
       <div
         class="flex justify-between pb-5 pt-7 sm:pt-10 sm:pb-6 border-b border-solid items-start md:items-center border-blue-600 flex-col md:flex-row gap-4"
       >
-        <div class="flex-y-center gap-3">
-          <NuxtLink to="/">
+        <div class="flex-y-center gap-3 group">
+          <NuxtLink to="/" class="flex-y-center space-x-3">
             <img src="/svg/uznews.svg" alt="logo" />
+            <div
+              class="inline-block px-1.5 rounded-[2px] bg-blue-200 transition-200 group-hover:bg-red"
+            >
+              <i class="icon-18 text-white text-xs" />
+            </div>
           </NuxtLink>
-
-          <div class="px-1.5 rounded-[2px] bg-blue-200">
-            <i class="icon-18 text-white text-xs" />
-          </div>
         </div>
 
         <div
