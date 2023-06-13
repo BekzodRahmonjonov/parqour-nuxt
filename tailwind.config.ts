@@ -48,6 +48,8 @@ export default <Partial<Config>>{
           300: '#E5E7EE',
           400: '#a2bcde29',
           500: '#E6EEF6',
+          600: '#A3A8B3',
+          700: '#41495B',
         },
         green: {
           DEFAULT: '#51B334',
@@ -78,5 +80,5 @@ export default <Partial<Config>>{
       },
     },
   },
-  plugins: [],
+  plugins: [require('tailwind-scrollbar')],
 }

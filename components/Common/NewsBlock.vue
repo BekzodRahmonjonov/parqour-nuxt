@@ -1,7 +1,7 @@
 <template>
   <div class="relative">
     <div
-      class="h-[674px] relative pb-[70px] flex flex-col overflow-y-auto mini-scroll-sidebar overflow-x-hidden"
+      class="h-[674px] relative pb-[70px] flex flex-col overflow-y-auto transition-200 mini-scroll-sidebar scrollbar !scrollbar-thumb-gray-100 dark:!scrollbar-thumb-gray-600 dark:!scrollbar-track-gray-700 !scrollbar-track-gray-300"
     >
       <CardsSideNews
         v-for="(card, index) in list"
@@ -40,17 +40,15 @@ defineProps<Props>()
 
 <style scoped>
 .mini-scroll-sidebar::-webkit-scrollbar {
-  width: 4px;
+  width: 6px;
   border-radius: 99px;
 }
 
 .mini-scroll-sidebar::-webkit-scrollbar-track {
-  background: #e5e7ee;
   border-radius: 99px;
 }
 
 .mini-scroll-sidebar::-webkit-scrollbar-thumb {
-  background: #d1d2d5;
   border-radius: 99px;
 }
 
