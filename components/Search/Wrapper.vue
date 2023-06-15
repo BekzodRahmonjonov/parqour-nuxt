@@ -2,14 +2,14 @@
   <div class="w-full">
     <FormInput
       :model-value="search"
-      class="transition-200 !p-[10px] !absolute w-[86%] sm:w-[90%] md:w-[93%] lg:w-full right-12 z-30 !left-[3px] !top-[2px] transition-all duration-300 lg:!relative lg:!right-0 lg:!left-0 lg:!top-0"
+      class="transition-200 !px-[10px] py-[4.5px] !absolute w-[86%] sm:w-[90%] md:w-[93%] lg:w-full right-12 z-30 !left-[3px] !top-[2px] transition-all duration-300 lg:!relative lg:!right-0 lg:!left-0 lg:!top-0"
       :placeholder="$t('search')"
       :class="[
         searchTrigger
           ? 'max-w-full opacity-100'
           : 'max-w-0 md:max-w-full opacity-0 lg:opacity-100',
       ]"
-      input-class="pl-2 mt-0.5 dark:text-white "
+      input-class="pl-2 pr-2 mt-0.5 dark:text-white "
       prefix-class="leading-130"
       :focus="searchTrigger"
       @update:modelValue="handleUpdateSearch"
@@ -20,13 +20,15 @@
         />
       </template>
       <template #suffix>
-        <button
-          :class="{ '!opacity-100 !visible': search?.length }"
-          class="inline-block py-1 px-2 text-sm leading-120 rounded-md bg-blue-200 hover:bg-blue-100 dark:bg-white/[0.06] dark:hover:bg-blue-100 text-white transition-200 opacity-0 invisible"
-          @click="clear"
-        >
-          {{ $t('clear') }}
-        </button>
+        <div class="relative">
+          <button
+            :class="{ '!opacity-100 !visible': search?.length }"
+            class="inline-block py-1 px-2 text-sm leading-120 rounded-md bg-blue-200 hover:bg-blue-100 dark:bg-white/[0.06] dark:hover:bg-blue-100 text-white transition-200 opacity-0 invisible"
+            @click="clear"
+          >
+            {{ $t('clear') }}
+          </button>
+        </div>
       </template>
     </FormInput>
     <Transition name="fade" mode="out-in">
