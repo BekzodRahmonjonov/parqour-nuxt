@@ -1,5 +1,5 @@
 <template>
-  <div class="py-5 border-b-[0.5px] border-solid border-blue-200/10">
+  <div class="py-3 border-b-[0.5px] border-solid border-blue-200/10">
     <div class="container flex-y-center justify-between">
       <div class="flex-y-center space-x-5">
         <LayoutHeaderSalary />

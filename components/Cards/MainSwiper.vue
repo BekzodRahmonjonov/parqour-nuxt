@@ -15,11 +15,13 @@
         >
           {{ dayjs(card?.date).locale(locale).format('DD MMM YYYY, HH:mm') }}
         </p>
-        <p
-          class="content__second text-white text-sm sm:text-2xl leading-136 font-bold mt-2 sm:mt-4 mb-3 sm:mb-7 group-hover:text-blue-100"
-        >
-          {{ card?.title }}
-        </p>
+        <div class="content__second">
+          <p
+            class="text-white text-sm sm:text-2xl leading-136 font-bold mt-2 sm:mt-4 mb-3 sm:mb-7 transition-200 group-hover:text-blue-100"
+          >
+            {{ card?.title }}
+          </p>
+        </div>
         <div class="flex-y-center gap-1 content__third">
           <i class="icon-eye text-lg text-white" />
           <p class="text-xs leading-14 text-white font-medium">
@@ -48,7 +50,7 @@ defineProps<Props>()
 .content > * {
   opacity: 0;
   transform: translateY(25px);
-  transition: all 0.3s ease;
+  transition: all 0.4s ease;
 }
 .swiper-slide-active .content > * {
   opacity: 1;
@@ -56,20 +58,20 @@ defineProps<Props>()
 }
 .content-image {
   opacity: 0;
-  transition: all 0.3s ease;
+  transition: all 0.4s ease;
 }
 .swiper-slide-active .content-image {
   opacity: 1;
-  transition-delay: 0.2s;
+  transition-delay: 0.4s;
 }
 .swiper-slide-active .content > .content__first {
-  transition-delay: 0.1s;
+  transition-delay: 0.5s;
 }
 .swiper-slide-active .content > .content__second {
-  transition-delay: 0.2s;
+  transition-delay: 0.6s;
 }
 .swiper-slide-active .content > .content__third {
-  transition-delay: 0.3s;
+  transition-delay: 0.7s;
 }
 </style>
 <style scoped>

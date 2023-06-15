@@ -19,6 +19,9 @@
       @swiper="onInit"
       @activeIndexChange="sliderChange"
     >
+      <div
+        class="absolute top-0 left-0 w-full h-full bg-white-100 rounded-lg"
+      />
       <SwiperSlide v-for="(card, index) in mainSwiperData" :key="index">
         <CardsMainSwiper v-bind="{ card }" />
       </SwiperSlide>
@@ -56,7 +59,7 @@ const settings = {
   loop: true,
   effect: 'fade',
   autoplay: {
-    delay: 5000,
+    delay: 4000,
     disableOnInteraction: false,
   },
   navigation: {
@@ -79,7 +82,7 @@ function onInit(swiper: any) {
 
 <style scoped>
 .animation-fill {
-  animation: fill 5s linear forwards;
+  animation: fill 4s linear forwards;
 }
 
 @keyframes fill {
