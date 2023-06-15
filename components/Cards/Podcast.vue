@@ -1,7 +1,7 @@
 <template>
   <NuxtLink
     to="/"
-    class="rounded-md bg-gray-150 w-full h-full relative max-h-[296px] group transition-200 overflow-hidden"
+    class="rounded-md w-full h-full relative max-h-[296px] group transition-200 overflow-hidden bg-transparent hover:shadow-xs hover:-translate-y-2"
   >
     <img
       :src="data.image"
@@ -14,7 +14,9 @@
     <div
       class="transition-200 absolute z-10 box w-full h-full top-0 rounded-md p-4 flex flex-col justify-between items-end"
     >
-      <div class="bg-blue-700/40 px-2.5 py-1.5 rounded w-fit flex-center">
+      <div
+        class="bg-blue-700/40 px-2.5 py-1.5 transition-200 rounded w-fit flex-center group-hover:bg-blue-150"
+      >
         <span class="text-white text-xs font-medium leading-130">
           {{ data.typeTitle }}
         </span>
@@ -45,54 +47,9 @@
   </NuxtLink>
 </template>
 <script setup lang="ts">
-import dayjs from 'dayjs'
+import { IPodcast } from '~/types'
 
-import {getTimeText} from "../../helpers";
-import { IPodcast } from "~/types";
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+import { getTimeText } from '../../helpers'
 
 interface Props {
   data: IPodcast

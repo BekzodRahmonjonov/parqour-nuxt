@@ -1,7 +1,7 @@
 <template>
   <NuxtLink
     to="/"
-    class="rounded-lg md:rounded-xl flex flex-col relative overflow-hidden bg-blue-700 border border-solid border-transparent dark:border-blue-200/20 transition-200 group"
+    class="rounded-lg md:rounded-xl flex flex-col relative overflow-hidden bg-blue-700 border border-solid border-transparent dark:border-blue-200/20 transition-200 group hover:-translate-y-2 hover:shadow-xs"
   >
     <div>
       <div class="aspect-video">

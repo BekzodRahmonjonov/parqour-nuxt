@@ -2,8 +2,12 @@
   <div
     class="w-full aspect-video lg:h-[466px] rounded-lg relative overflow-hidden group"
   >
-    <img :src="card?.image" alt="news" class="w-full h-full object-cover" />
-    <div class="linear-bg-news absolute w-full h-full inset-0 transition-200" />
+    <div class="content-image relative w-full h-full">
+      <img :src="card?.image" alt="news" class="w-full h-full object-cover" />
+      <div
+        class="linear-bg-news absolute w-full h-full inset-0 transition-200"
+      />
+    </div>
     <div class="absolute w-full h-full inset-0 z-[1] flex items-end">
       <div class="p-3 sm:p-6 content">
         <p
@@ -12,7 +16,7 @@
           {{ dayjs(card?.date).locale(locale).format('DD MMM YYYY, HH:mm') }}
         </p>
         <p
-          class="content__second text-white text-sm sm:text-2xl leading-136 font-bold mt-2 sm:mt-4 mb-3 sm:mb-7 group-hover:text-blue-100 transition-200"
+          class="content__second text-white text-sm sm:text-2xl leading-136 font-bold mt-2 sm:mt-4 mb-3 sm:mb-7 group-hover:text-blue-100"
         >
           {{ card?.title }}
         </p>
@@ -50,8 +54,16 @@ defineProps<Props>()
   opacity: 1;
   transform: translateY(0);
 }
+.content-image {
+  opacity: 0;
+  transition: all 0.3s ease;
+}
+.swiper-slide-active .content-image {
+  opacity: 1;
+  transition-delay: 0.2s;
+}
 .swiper-slide-active .content > .content__first {
-  transition-delay: 0.4s;
+  transition-delay: 0.1s;
 }
 .swiper-slide-active .content > .content__second {
   transition-delay: 0.2s;

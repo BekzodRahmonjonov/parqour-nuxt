@@ -16,6 +16,7 @@
     <div>
       <div class="flex-y-center gap-2 lg:gap-4">
         <p
+          v-tooltip="'Fooo'"
           class="border border-solid border-blue-100 rounded-md px-2 py-0.5 text-[10px] lg:text-xs leading-5 font-medium text-blue-200 dark:text-blue-100 transition-200"
         >
           {{ card?.category }}

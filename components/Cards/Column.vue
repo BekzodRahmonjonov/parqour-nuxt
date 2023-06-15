@@ -1,7 +1,7 @@
 <template>
   <NuxtLink
     to="/"
-    class="p-4 transition-200 rounded-lg group odd:bg-blue-600 even:bg-white-700 odd:hover:bg-blue-600 even:hover:bg-white-800 w-full h-full flex flex-col justify-between"
+    class="p-4 transition-200 rounded-lg group odd:bg-blue-600 even:bg-white-700 odd:hover:bg-blue-600 even:hover:bg-white-800 w-full h-full flex flex-col justify-between hover:-translate-y-2 hover:shadow-xs"
   >
     <div>
       <h2
@@ -52,6 +52,11 @@
 <script setup lang="ts">
 import {getTimeText} from "../../helpers";
 import {IColony} from "~/types";
+
+
+
+
+
 
 
 
