@@ -30,7 +30,7 @@
               class="relative flex-shrink-0 w-[6px] h-[6px] rounded-full bg-red"
             />
             <p
-              class="text-base text-blue-600 font-medium leading-136 transition-200 hover:text-red-100 dark:text-blue-100 dark:hover:text-white"
+              class="text-base text-blue-600 font-normal leading-136 transition-200 hover:text-red-100 dark:text-blue-100 dark:hover:text-white"
             >
               «Это абсолютно необоснованные слова» — Шавкат Мирзиёев о введении
               подоходного налога для мигрантов
