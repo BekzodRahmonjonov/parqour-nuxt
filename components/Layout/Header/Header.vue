@@ -10,7 +10,12 @@
         <LayoutHeaderMain class="hidden lg:block" />
         <LayoutHeaderNavigation @handleShowMenu="showMenu" />
       </div>
-      <CollapseTransition :duration="300" easing="linear" dimension="height">
+      <CollapseTransition
+        v-if="false"
+        :duration="300"
+        easing="linear"
+        dimension="height"
+      >
         <div v-if="!windowIsScrolled">
           <LayoutHeaderBreakingNews />
         </div>
