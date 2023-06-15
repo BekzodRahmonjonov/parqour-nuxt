@@ -3,7 +3,7 @@
     <div class="lg:grid grid-cols-12 gap-8">
       <div class="col-span-8">
         <SectionsMainSwiper />
-        <div class="mt-8 flex flex-col gap-3 lg:gap-6">
+        <div class="z-30 relative mt-8 flex flex-col gap-3 lg:gap-6">
           <div class="grid lg:grid-cols-2 gap-3 lg:gap-8">
             <CardsNewsSmall
               v-for="(card, index) in newsData.slice(0, 2)"

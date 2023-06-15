@@ -42,5 +42,7 @@
   "analysiscardtext2" : "Juda ko'p qiziqarli va juda kam ishlaydigan nazariyalar!",
   "analysiscardtext3" : "Ko'taruvchi hikoyalar qidirilmoqda",
   "analysiscardtext4" : "Koronavirus inqirozi - yangi mutaxassis uchun boshi berk ko'chami?",
-  "clear": "tozalash"
+  "clear": "tozalash",
+  "media_tooltip": "Yangiliklar video formatdagi materiallarni taqdim etadi",
+  "verified_tooltip": "Uznews xodimlari tomonidan tekshirilgan"
 }

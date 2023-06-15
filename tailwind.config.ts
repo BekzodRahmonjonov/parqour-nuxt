@@ -8,6 +8,7 @@ export default <Partial<Config>>{
     './components/**/*.{js,vue,ts}',
     './layouts/**/*.vue',
     './pages/**/*.vue',
+    './directives/**/*.{js,ts}',
     './plugins/**/*.{js,ts}',
     './nuxt.config.{js,ts}',
     './app.vue',
@@ -23,6 +24,7 @@ export default <Partial<Config>>{
       colors: {
         blue: {
           100: '#A2BCDE',
+          150: '#52618E',
           200: '#52618F',
           600: '#2C3752',
           700: '#191F2E',
@@ -65,8 +67,12 @@ export default <Partial<Config>>{
         44: ['44px', '52px'],
       },
       boxShadow: {
+        xs: '0px 12px 32px rgba(82, 97, 143, 0.52)',
         sm: '0px 2px 24px rgba(25, 31, 46, 0.24)',
         m: '0px 12px 32px rgba(82, 97, 143, 0.52)',
+      },
+      dropShadow: {
+        xs: '(0px 12px 32px rgba(82, 97, 143, 0.52)',
       },
       lineHeight: {
         136: '136%',
