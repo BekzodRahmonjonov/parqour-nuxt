@@ -1,7 +1,7 @@
 import { DirectiveBinding } from 'vue'
 
 export function VTooltip(el: HTMLElement, binding: DirectiveBinding) {
-  el.classList.add('group', 'relative', '_v-tooltip')
+  el.classList.add('tooltip', 'relative', '_v-tooltip')
   const tooltip = document.createElement('div')
   tooltip.classList.add(
     'absolute',
@@ -11,14 +11,11 @@ export function VTooltip(el: HTMLElement, binding: DirectiveBinding) {
     'bg-[#2B2B30]',
     'dark:bg-white',
     'text-white',
-
     'text-xs',
     'py-1',
     'px-2',
     'rounded',
     'pointer-events-none',
-    'group-hover:opacity-100',
-    'group-hover:-top-2',
     'after:absolute',
     'after:w-2.5',
     'after:h-2.5',

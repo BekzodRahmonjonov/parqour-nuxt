@@ -28,25 +28,18 @@
         </p>
       </div>
 
-      <p
+      <div
         class="text-sm lg:text-base leading-136 font-bold text-blue-700 mt-1 lg:mt-3 dark:text-white transition-200 group-hover:text-blue-200 dark:group-hover:text-blue-100"
       >
-        <span class="inline line-clamp-3 mr-1">
+        <p class="inline line-clamp-3 mr-1">
           {{ card?.title }}
-        </span>
-        <span class="inline">
-          <i
-            v-if="card?.isVideo"
-            v-tooltip="$t('media_tooltip')"
-            class="icon-play-circle text-blue-200 dark:text-white transition-200 inline-block -mb-1 translate-y-0.5"
-          />
-          <i
-            v-if="card?.isVerified"
-            v-tooltip="$t('verified_tooltip')"
-            class="icon-unread text-green inline-block -mb-1 translate-y-0.5"
-          />
-        </span>
-      </p>
+        </p>
+        <CommonNewsTooltip
+          :is-video="card?.isVideo"
+          :is-verified="card?.isVerified"
+          @click.prevent.stop
+        />
+      </div>
     </div>
   </NuxtLink>
 </template>

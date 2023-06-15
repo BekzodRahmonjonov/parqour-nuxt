@@ -1,7 +1,7 @@
 <template>
   <NuxtLink
     to="/"
-    class="border-b last:border-b-[0px] sm:last:border-b sm:border border-solid border-blue-200/20 sm:rounded-lg relative overflow-hidden transition-200 hover:bg-white-100 dark:hover:bg-blue-200/20 hover:border-transparent group flex items-center sm:items-start flex-row sm:flex-col flex-row-reverse gap-2 sm:gap-0 justify-between"
+    class="border-b last:border-b-[0px] sm:last:border-b sm:border border-solid border-blue-200/20 sm:rounded-lg relative overflow-visible transition-200 hover:bg-white-100 dark:hover:bg-blue-200/20 hover:border-transparent group flex items-center sm:items-start flex-row sm:flex-col flex-row-reverse gap-2 sm:gap-0 justify-between"
   >
     <div class="shrink-0 sm:w-full">
       <div
@@ -33,19 +33,17 @@
           </p>
         </div>
 
-        <p
-          class="text-sm sm:text-base leading-136 font-bold text-blue-700 mt-3 dark:text-white transition-200 line-clamp-3 group-hover:text-blue-200 dark:group-hover:text-white"
+        <div
+          class="text-sm sm:text-base leading-136 font-bold text-blue-700 mt-3 dark:text-white transition-200 group-hover:text-blue-200 dark:group-hover:text-white overflow-visible"
         >
-          {{ card?.title }}
-          <i
-            v-if="card?.isVideo"
-            class="icon-play-circle text-blue-200 dark:text-white transition-200 inline-block -mb-1 translate-y-0.5"
+          <span class="inline line-clamp-3 mr-1">
+            {{ card?.title }}
+          </span>
+          <CommonNewsTooltip
+            :is-video="card?.isVideo"
+            :is-verified="card?.isVerified"
           />
-          <i
-            v-if="card?.isVerified"
-            class="icon-unread text-green inline-block -mb-1 translate-y-0.5"
-          />
-        </p>
+        </div>
       </div>
 
       <div class="sm:mt-4 flex-y-center gap-3 sm:gap-5">
