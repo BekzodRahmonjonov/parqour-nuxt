@@ -20,7 +20,7 @@
       @activeIndexChange="sliderChange"
     >
       <div
-        class="absolute top-0 left-0 w-full h-full bg-white-100 rounded-lg"
+        class="absolute top-0 left-0 w-full h-full bg-white-100 dark:bg-blue-100/[16%] rounded-lg"
       />
       <SwiperSlide v-for="(card, index) in mainSwiperData" :key="index">
         <CardsMainSwiper v-bind="{ card }" />
