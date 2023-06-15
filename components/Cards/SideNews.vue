@@ -12,12 +12,15 @@
         {{ dayjs(card?.date).locale(locale).format('DD MMM YYYY, HH:mm') }}
       </p>
       <p
-        class="text-sm leading-140 font-semibold text-blue-600 transition-200 dark:text-white"
+        class="text-sm leading-140 font-medium text-blue-600 transition-200 dark:text-white"
       >
-        {{ card?.title }}
-        <i
-          v-if="card?.isVideo"
-          class="icon-play-circle text-blue-200 dark:text-white transition-300 inline-block -mb-1 translate-y-0.5"
+        <span class="inline line-clamp-3 mr-1">
+          {{ card?.title }}
+        </span>
+        <CommonNewsTooltip
+          :is-video="card?.isVideo"
+          :is-verified="card?.isVerified"
+          @click.prevent.stop
         />
       </p>
     </div>
