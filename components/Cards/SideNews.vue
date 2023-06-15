@@ -1,10 +1,10 @@
 <template>
   <NuxtLink
     to="/"
-    class="px-3 lg:px-5 hover:bg-[#EDEFF4] dark:hover:bg-white/[4%] transition-200"
+    class="pl-3 lg:pl-5 hover:bg-[#EDEFF4] dark:hover:bg-white/[4%] transition-200"
   >
     <div
-      class="py-3 border-b border-solid border-gray-300 dark:border-gray-300/10"
+      class="py-3 pr-3 border-b border-solid border-gray-300 dark:border-gray-300/10"
     >
       <p
         class="text-blue-200 text-xs leading-140 font-medium text-xs mb-1 transition-300 dark:text-white"
