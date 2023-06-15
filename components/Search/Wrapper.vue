@@ -2,7 +2,7 @@
   <div class="w-full">
     <FormInput
       :model-value="search"
-      class="transition-200 !p-[10px] !absolute w-[87.9%] sm:w-[90%] md:w-[93%] lg:w-full right-12 z-30 !left-[3px] !top-[2px] transition-all duration-300 lg:!relative lg:!right-0 lg:!left-0 lg:!top-0"
+      class="transition-200 !p-[10px] !absolute w-[86%] sm:w-[90%] md:w-[93%] lg:w-full right-12 z-30 !left-[3px] !top-[2px] transition-all duration-300 lg:!relative lg:!right-0 lg:!left-0 lg:!top-0"
       :placeholder="$t('search')"
       :class="[
         searchTrigger
