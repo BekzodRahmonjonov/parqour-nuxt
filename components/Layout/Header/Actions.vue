@@ -12,7 +12,7 @@
         <CommonThemeTrigger />
         <hr class="relative h-6 w-px bg-blue-100/20 border-0" />
         <div class="flex-y-center space-x-3">
-          <NuxtLink to="/">
+          <a href="https://t.me/UznewsSendBot" target="_blank">
             <CommonButton variant="light" button-class="">
               <span
                 class="relative text-blue-200 inline-block icon-plus text-lg group-hover:text-white transition-200 font-medium mr-1.5 leading-20 transition-200 dark:text-blue-100"
@@ -23,7 +23,7 @@
                 {{ $t('news') }}
               </span>
             </CommonButton>
-          </NuxtLink>
+          </a>
         </div>
       </div>
     </div>
