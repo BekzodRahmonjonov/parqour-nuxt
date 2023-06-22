@@ -3,35 +3,24 @@
     class="bg-white-100 py-[10px] dark:bg-blue-700 transition-200 border-b-[0.5px] border-solid border-blue-200/10"
   >
     <div class="container flex-y-center justify-between">
-      <CommonThemeTrigger />
+      <LayoutHeaderLogo />
       <div class="flex-y-center space-x-3">
+        <LayoutHeaderSalary />
+        <hr class="relative h-6 w-px bg-blue-100/20 border-0" />
         <LanguageSwitcher />
+        <hr class="relative h-6 w-px bg-blue-100/20 border-0" />
+        <CommonThemeTrigger />
         <hr class="relative h-6 w-px bg-blue-100/20 border-0" />
         <div class="flex-y-center space-x-3">
           <NuxtLink to="/">
-            <CommonButton
-              variant="secondary"
-              button-class="hover:bg-blue-200/20 dark:hover:bg-blue-200/[16%]"
-            >
+            <CommonButton variant="light" button-class="">
               <span
-                class="relative text-blue-200 inline-block icon-plus text-lg font-medium mr-2 leading-20 transition-200 dark:text-blue-100"
+                class="relative text-blue-200 inline-block icon-plus text-lg group-hover:text-white transition-200 font-medium mr-1.5 leading-20 transition-200 dark:text-blue-100"
               />
               <span
-                class="text-sm font-medium leading-20 transition-200 dark:text-white"
+                class="text-sm font-medium leading-20 transition-200 dark:text-white group-hover:text-white"
               >
                 {{ $t('news') }}
-              </span>
-            </CommonButton>
-          </NuxtLink>
-          <NuxtLink to="/">
-            <CommonButton button-class="hover:bg-blue-200">
-              <span
-                class="relative inline-block icon-login text-lg font-medium mr-2 leading-20 transition-200 group-hover:text-white"
-              />
-              <span
-                class="text-sm font-medium leading-20 transition-200 group-hover:text-white"
-              >
-                {{ $t('login') }}
               </span>
             </CommonButton>
           </NuxtLink>

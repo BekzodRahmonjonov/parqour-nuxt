@@ -85,6 +85,8 @@ const variants = computed<{ [key in Props['variant']]: string }>(() => ({
   'primary-dark': 's-button-primary-dark',
   danger: 's-button-danger',
   'danger-outline': 's-button-danger-outline',
+  light:
+    'bg-blue-transparent hover:bg-blue-200 text-blue-200 border border-blue-200',
 }))
 
 const buttonVariantClass = computed<string>(() => variants.value[props.variant])
@@ -164,12 +166,12 @@ const textStyle = computed(() => {
 
 /*Primary*/
 .s-button-primary {
-  @apply text-[#2C3752] bg-[#A2BCDE];
+  @apply text-blue-600 bg-blue-100;
 }
 
 /* Secondary */
 .s-button-secondary {
-  @apply text-[#2C3752] bg-[#52618F1A];
+  @apply text-blue-600 bg-[#52618F1A];
 }
 
 .s-button-primary-dark {
