@@ -10,6 +10,13 @@ export interface INews {
   comments?: number
 }
 
+export interface ILatest {
+  id?: number
+  title?: string
+  date: string
+  time: string
+}
+
 export interface IAuthor {
   id: number
   title: string
@@ -29,3 +36,34 @@ export interface INavigation {
 
 export const buttonVariants = ['primary', 'secondary', 'primary-dark'] as const
 export type ButtonVariants = (typeof buttonVariants)[number]
+
+export interface IPodcast {
+  image: string
+  type: string
+  title: string
+  created_at: Date | string
+  typeTitle: string
+}
+
+export interface IInterview {
+  image: string
+  views_count: number
+  title: string
+  created_at: Date | string
+  with_whom: string
+}
+export interface IColony {
+  id: number
+  title: string
+  image: string
+  description: string
+  created_at: Date | string
+  views_count: number
+  userName: string
+}
+
+export interface ISocial {
+  icon: string
+  subscribe: number
+  title: string
+}

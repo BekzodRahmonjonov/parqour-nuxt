@@ -1,13 +1,13 @@
 <template>
-  <div class="flex-y-center space-x-[10px]">
+  <div class="flex-y-center md:space-x-[10px]">
     <button
       v-for="item in languageList"
       :key="item?.value"
-      class="transition-200"
+      class="transition-200 w-8 h-8 md:w-auto md:h-auto rounded-full"
       :class="[
         activeLang?.value === item?.value
-          ? 'text-blue-200 dark:text-white'
-          : 'text-gray dark:text-gray-100/40',
+          ? 'bg-white md:bg-transparent text-blue-200 md:text-blue-200 md:dark:text-white'
+          : ' text-blue-100  md:text-gray md:dark:text-gray-100/40 hover:text-blue-200/80',
       ]"
       @click="switchLanguage(item)"
     >
@@ -25,11 +25,13 @@ interface ILanguage {
   name: string
 }
 
+const cookieLocale = useCookie('i18n_redirected')
 const activeLang = ref<ILanguage>()
 const router = useRouter()
 
 const switchLanguage = (item: ILanguage) => {
-  localStorage.setItem('locale', item?.value)
+  cookieLocale.value = item?.value
+  // localStorage.setItem('locale', item?.value)
   router.go(0)
 }
 const languageList = ref<ILanguage[]>([
@@ -39,7 +41,7 @@ const languageList = ref<ILanguage[]>([
 
 onMounted(() => {
   if (process.client) {
-    const localLang = localStorage.getItem('locale') ?? 'uz'
+    const localLang = cookieLocale.value || 'uz'
     activeLang.value = languageList.value.find((el) => el.value === localLang)
   }
 })

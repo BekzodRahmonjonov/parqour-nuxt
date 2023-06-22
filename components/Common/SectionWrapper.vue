@@ -1,10 +1,13 @@
 <template>
   <div
-    :class="isCentered ? 'flex-y-center gap-6' : 'flex-center-between gap-4'"
+    class="flex"
+    :class="
+      isCentered ? 'items-center gap-6' : 'items-center justify-between gap-4'
+    "
   >
     <div v-if="isCentered" class="linear-section-wrapper w-full h-px" />
     <p
-      class="text-base sm:text-2xl leading-130 font-bold text-blue-600 dark:text-white transition-300"
+      class="shrink-0 text-base sm:text-2xl leading-130 font-bold text-blue-600 dark:text-white transition-200"
       :class="darkTitle ? 'text-white' : ''"
     >
       {{ title }}
@@ -16,7 +19,7 @@
         :to="allLink"
         class="flex-y-center gap-1.5 transition-200 hover:text-blue-100 group text-xs sm:text-lg text-blue-200 dark:text-blue-100 font-medium leading-120"
       >
-        {{ allTitle }}
+        {{ $t(allTitle) }}
         <i
           class="icon-arrow-right text-blue-100 transition-200 group-hover:translate-x-1"
         />
@@ -36,7 +39,7 @@ interface Props {
 
 withDefaults(defineProps<Props>(), {
   title: 'Title',
-  allTitle: 'All',
+  allTitle: 'all',
   allLink: '/',
 })
 </script>

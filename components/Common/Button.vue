@@ -1,7 +1,7 @@
 <template>
   <button
     v-bind="{ disabled, type }"
-    class="inline-block transition-300 rounded px-5 py-2 flex-center cursor-pointer relative group disabled:bg-grey-light disabled:hover:bg-grey-light disabled:text-dark/40 outline-none"
+    class="inline-block transition-200 rounded px-5 py-2 flex-center cursor-pointer relative group disabled:bg-grey-light disabled:hover:bg-grey-light disabled:text-dark/40 outline-none"
     :style="{ '--box-shadow': shadowColor, '--spinnerColor': spinnerColor }"
     :class="[
       buttonClass,
@@ -61,7 +61,7 @@ interface Props {
   loading?: boolean
   type?: string
   variant?: ButtonVariants
-  icon?: string
+  icon?: boolean
   iconClass?: string
   buttonClass?: string
   suffix?: boolean
@@ -81,7 +81,7 @@ const props = withDefaults(defineProps<Props>(), {
 })
 const variants = computed<{ [key in Props['variant']]: string }>(() => ({
   primary: 's-button-primary',
-  secondary: 's-button-secondary dark:bg-blue-100/[16%]',
+  secondary: 's-button-secondary dark:bg-blue-100/[16%] dark:text-white',
   'primary-dark': 's-button-primary-dark',
   danger: 's-button-danger',
   'danger-outline': 's-button-danger-outline',

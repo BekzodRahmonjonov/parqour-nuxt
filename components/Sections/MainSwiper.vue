@@ -3,12 +3,12 @@
     <div class="absolute hidden md:block top-6 right-6 z-[2]">
       <div class="flex-y-center gap-2">
         <button
-          class="main-button-prev bg-blue-200/[24%] w-7 h-7 rounded flex-center transition-300 hover:bg-blue-200/100 active:scale-90"
+          class="main-button-prev bg-blue-200/[24%] w-7 h-7 rounded flex-center transition-200 hover:bg-blue-200/100 active:scale-90"
         >
           <i class="icon-arrow-left text-white" />
         </button>
         <button
-          class="main-button-next bg-blue-200/[24%] w-7 h-7 rounded flex-center transition-300 hover:bg-blue-200/100 active:scale-90"
+          class="main-button-next bg-blue-200/[24%] w-7 h-7 rounded flex-center transition-200 hover:bg-blue-200/100 active:scale-90"
         >
           <i class="icon-arrow-right text-white" />
         </button>
@@ -19,6 +19,9 @@
       @swiper="onInit"
       @activeIndexChange="sliderChange"
     >
+      <div
+        class="absolute top-0 left-0 w-full h-full bg-white-100 dark:bg-blue-100/[16%] rounded-lg"
+      />
       <SwiperSlide v-for="(card, index) in mainSwiperData" :key="index">
         <CardsMainSwiper v-bind="{ card }" />
       </SwiperSlide>
@@ -40,8 +43,10 @@
 
 <script setup lang="ts">
 import 'swiper/css'
+import 'swiper/css/free-mode'
+import 'swiper/css/effect-fade'
 
-import { Autoplay, Navigation } from 'swiper'
+import { Autoplay, EffectFade, Navigation } from 'swiper'
 import { Swiper, SwiperSlide } from 'swiper/vue'
 
 import { mainSwiperData } from '~/data'
@@ -52,15 +57,16 @@ const settings = {
   grabCursor: true,
   spaceBetween: 16,
   loop: true,
+  effect: 'fade',
   autoplay: {
-    delay: 5000,
+    delay: 4000,
     disableOnInteraction: false,
   },
   navigation: {
     prevEl: '.main-button-prev',
     nextEl: '.main-button-next',
   },
-  modules: [Navigation, Autoplay],
+  modules: [Navigation, Autoplay, EffectFade],
 }
 
 const imageSlider = ref()
@@ -76,7 +82,7 @@ function onInit(swiper: any) {
 
 <style scoped>
 .animation-fill {
-  animation: fill 5s linear forwards;
+  animation: fill 4s linear forwards;
 }
 
 @keyframes fill {

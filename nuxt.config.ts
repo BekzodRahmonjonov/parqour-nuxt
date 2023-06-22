@@ -6,7 +6,8 @@ export default defineNuxtConfig({
   ssr: true,
   app: {
     head: {
-      title: 'Nuxt3 project',
+      link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.svg' }],
+      title: 'UzNews.uz - Новости Узбекистана',
     },
   },
   css: ['/assets/style.css', '/assets/icomoon/style.css'],
@@ -27,9 +28,12 @@ export default defineNuxtConfig({
   ],
   i18n: {
     locales: ['ru', 'uz'],
-    defaultLocale: 'ru',
+    defaultLocale: 'uz',
     vueI18n: {
-      fallbackLocale: 'ru',
+      fallbackLocale: 'uz',
+      silentTranslationWarn: true,
+      missingWarn: true,
+      fallbackWarn: true,
       messages: {
         ru,
         uz,

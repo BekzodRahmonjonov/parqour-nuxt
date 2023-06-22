@@ -1,5 +1,5 @@
 <template>
-  <div class="flex-y-center">
+  <div class="hidden lg:flex items-center">
     <NavigationLink
       v-for="(link, index) of navigations"
       :key="index"
