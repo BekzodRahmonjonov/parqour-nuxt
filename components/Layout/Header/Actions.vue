@@ -1,6 +1,6 @@
 <template>
   <div
-    class="bg-white-100 py-[10px] dark:bg-blue-700 transition-200 border-b-[0.5px] border-solid border-blue-200/10"
+    class="bg-white py-3 dark:bg-blue-700 transition-200 border-b-[0.5px] border-blue-200/[25%]"
   >
     <div class="container flex-y-center justify-between">
       <LayoutHeaderLogo />
