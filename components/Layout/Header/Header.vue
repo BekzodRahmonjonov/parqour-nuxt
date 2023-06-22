@@ -7,7 +7,7 @@
         </div>
       </CollapseTransition>
       <div class="transition-200 bg-white dark:bg-blue-600">
-        <LayoutHeaderMain class="hidden lg:block" />
+        <!--        <LayoutHeaderMain class="hidden lg:block" />-->
         <LayoutHeaderNavigation @handleShowMenu="showMenu" />
       </div>
       <CollapseTransition
