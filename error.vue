@@ -3,17 +3,16 @@
     <LayoutHeader ref="header" />
     <div class="flex items-center justify-center h-screen container">
       <div class="flex items-center justify-center flex-col">
-        <img src="/images/uz404.png" alt="404" />
+        <img src="/images/uz404.png" alt="404" class="pointer-events-none" />
         <h2 class="font-bold text-28 text-blue-700 mt-8">
-          Страница не найдена
+          {{ $t('not_found') }}
         </h2>
         <p class="leading-130 text-gray-200 text-lg">
-          Страница не найдена, перезагрузите страницу или повторите попытку
-          позже
+          {{ $t('not_found_detail') }}
         </p>
         <nuxt-link to="/">
           <CommonButton
-            text="На главную"
+            :text="$t('back_to_main')"
             class="!bg-blue-150 !text-white !py-3 !px-12 !font-medium mt-6"
           />
         </nuxt-link>
