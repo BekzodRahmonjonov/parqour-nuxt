@@ -84,7 +84,7 @@ defineProps<Props>()
 }
 .single-content blockquote {
   max-width: 698px;
-  margin: 0 auto;
+  margin: 24px auto;
   border-radius: 4px;
   background: rgba(162, 188, 222, 0.2);
   padding: 24px;

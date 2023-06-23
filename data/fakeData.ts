@@ -48,6 +48,10 @@ export const singleData: ISingleData = {
       <img src="https://www.kinopoisk.ru/images/film_big/1007450.jpg" alt="image">
       <figcaption>Fig.1 - Trulli, Puglia, Italy.</figcaption>
     </figure>
+    <div>
+      Одному богу известно, зачем Пэтти Дженкинс и двоих сосценаристов понесло в мировую политику — все трое сели в глубокую лужу, сочиняя агитку про «лево» и «право». Стоило лишь слегка докрутить легкую историю о супергероине-красотке, верящей в добро, — но нет, куда же без войны на Ближнем Востоке, советских мундиров, красных кнопок, экологической катастрофы и обезумевшей толпы. <br />  <br />
+      Последние полчаса с мясорубкой военной техники и «та-да-да!» обязательного в таких случаях Ханса Циммера — самый фальшивый полет голубя мира для людей в 2021 году. Жирный сиквел, критикующий потребительскую позицию «больше!», стоит гораздо больше первого фильма: следующая, уже запланированная часть «Чудо-женщины» еще за пару сотен миллионов, скорее всего, тоже будет учить нас, как быть скромнее в наших желаниях
+    </div>
     <blockquote cite="http://www.worldwildlife.org/who/index.html">
         For 60 years, WWF has worked to help people and nature thrive. As the world's leading conservation organization, WWF works in nearly 100 countries. At every level, we collaborate with people around the world to develop and deliver innovative solutions that protect communities, wildlife, and the places in which they live.
     </blockquote>
