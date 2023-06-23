@@ -1,6 +1,10 @@
 <template>
   <NuxtLayout>
-    <NuxtPage />
+    <Transition name="fade" mode="out-in">
+      <div :key="$route.path">
+        <NuxtPage />
+      </div>
+    </Transition>
   </NuxtLayout>
 </template>
 <script setup lang="ts">
