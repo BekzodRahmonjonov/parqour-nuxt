@@ -1,7 +1,8 @@
 <template>
   <NuxtLink
     to="/"
-    class="rounded-lg md:rounded-xl flex flex-col relative overflow-hidden bg-blue-700 border border-solid border-transparent dark:border-blue-200/20 transition-200 group hover:-translate-y-2 hover:shadow-xs"
+    class="rounded-lg flex flex-col relative overflow-hidden bg-white transition-200 group hover:shadow-xl"
+    :class="{ '!bg-blue-600 hover:!bg-blue-250 !rounded-sm': isHalf }"
   >
     <div>
       <div class="aspect-video">
@@ -13,17 +14,27 @@
       </div>
     </div>
 
-    <div class="p-3 p-4 lg:p-6 h-full flex flex-col justify-between">
+    <div class="p-3 p-4 lg:p-6 h-full flex flex-col">
       <p
-        class="text-sm lg:text-base leading-136 font-bold text-white group-hover:text-blue-100 transition-200"
-        :class="{ 'md:text-lg lg:text-2xl': isHalf }"
+        v-if="card?.actual"
+        class="text-blue-200 text-xs leading-tight mb-3"
+        :class="{ '!text-base !text-blue-100': isHalf }"
       >
-        {{ card?.title }}asdasd
+        {{ $t('actual_comments') }}
+      </p>
+      <p
+        class="text-sm lg:text-base leading-136 font-medium text-blue-700 group-hover:text-blue-200 transition-200 mb-3"
+        :class="{
+          'md:!text-lg lg:!text-2xl text-white group-hover:text-white mb-5':
+            isHalf,
+        }"
+      >
+        {{ card?.title }}
       </p>
 
       <p
-        class="text-xs text-white leading-5 font-normal mt-3"
-        :class="{ 'md:!text-sm': isHalf }"
+        class="text-xs text-blue-700 leading-130 font-medium mt-auto"
+        :class="{ 'md:!text-sm !text-white !mt-[53px]': isHalf }"
       >
         {{ card?.author }}
       </p>

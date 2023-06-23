@@ -280,33 +280,38 @@ export const newsData = [
 export const authorsData = [
   {
     id: 1,
+    actual: true,
     title:
       '«Сейчас население переплачивает за некачественное мясо» — российский экспер...',
     author: 'Дарья Пензова',
     image: '/images/news/older.png',
   },
   {
-    id: 1,
+    id: 2,
+    actual: true,
     title:
       'Татары в Узбекистане: откуда они появились и как повлияли на историю страны',
     author: 'Дарья Пензова',
     image: '/images/news/report.png',
   },
   {
-    id: 1,
+    id: 3,
+    actual: true,
     title:
       'Узбекистанцы присоединились к мировому флешмобу #сидимдома — #uydaqoldik',
     author: 'Дарья Пензова',
     image: '/images/news/hashtag.png',
   },
   {
-    id: 1,
+    id: 4,
+    actual: true,
     title: 'Что происходит с ценами на аренду жилья в Ташкенте',
     author: 'Дарья Пензова',
     image: '/images/news/meeting.png',
   },
   {
-    id: 1,
+    id: 5,
+    actual: true,
     title: 'Что происходит с ценами на аренду жилья в Ташкенте',
     author: 'Дарья Пензова',
     image: '/images/news/family.png',
