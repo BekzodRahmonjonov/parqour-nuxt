@@ -1,21 +1,20 @@
 <template>
-  <div>
+  <div
+    class="dark:bg-blue-700 transition-200 min-h-screen flex flex-col justify-between"
+  >
+    <PushMessage />
     <div>
-      <PushMessage />
-
-      <div class="dark:bg-blue-700 transition-200">
-        <LayoutHeader ref="header" />
-        <div class="pt-[49px] lg:pt-[125px]">
-          <slot />
-        </div>
-        <LayoutFooter />
+      <LayoutHeader ref="header" />
+      <div class="pt-[49px] lg:pt-[125px]">
+        <slot />
       </div>
-      <button
-        v-if="windowIsScrolled"
-        class="fixed right-8 bottom-8 flex-y-center justify-center text-2xl text-white icon-arrow-left rotate-90 w-12 h-12 transition-200 hover:bg-blue-600 rounded-full bg-blue-100 z-20"
-        @click="scrollToTop"
-      />
     </div>
+    <LayoutFooter />
+    <button
+      v-if="windowIsScrolled"
+      class="fixed right-8 bottom-8 flex-y-center justify-center text-2xl text-white icon-arrow-left rotate-90 w-12 h-12 transition-200 hover:bg-blue-600 rounded-full bg-blue-100 z-20"
+      @click="scrollToTop"
+    />
   </div>
 </template>
 <script setup lang="ts">
