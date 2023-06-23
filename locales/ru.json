@@ -52,5 +52,8 @@
   "channels_telegram": "Каналы в Telegram",
   "channels_instagram": "Каналы в Instagram",
   "channels_facebook": "Каналы в Facebook",
-  "load_more": "Загрузить еще"
+  "load_more": "Загрузить еще",
+  "contact_modal": "Напишите нам",
+  "how_do_you_connect": "Как вам обращаться?",
+  "enter_name": "Введите имя"
 }
