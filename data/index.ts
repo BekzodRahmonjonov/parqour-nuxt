@@ -686,3 +686,18 @@ export const searchContent = [
     slug: '/#',
   },
 ]
+
+export const contactData = {
+  email: 'info@uznews.uz',
+  phone: '+998 99 888 67 65',
+  telegramNumbers: {
+    first: '+998 94 649 57 77',
+    second: '+998 99 813 69 99',
+  },
+  telegramChannels: {
+    first: 't.me/uznews',
+    second: 't.me/uznews',
+  },
+  instagram: 'instagram.com/uznews',
+  facebook: 'facebook.com/uznews.uz',
+}
