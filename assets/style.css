@@ -90,5 +90,5 @@ html{
 }
 
 .page-title{
-    @apply text-blue-600 text-4xl font-bold leading-130 transition-200 dark:text-white;
+    @apply text-blue-600 text-2xl md:text-4xl font-bold leading-130 transition-200 dark:text-white;
 }
