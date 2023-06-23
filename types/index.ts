@@ -74,3 +74,11 @@ export interface ISocial {
   subscribe: number
   title: string
 }
+export interface ISingleData {
+  title: string
+  text: string
+  image: string
+  created_at: Date | string
+  views_count: number
+  content: string | HTMLAllCollection
+}

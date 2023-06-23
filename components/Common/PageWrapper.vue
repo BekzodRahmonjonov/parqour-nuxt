@@ -2,7 +2,9 @@
   <div class="grid grid-cols-12 gap-8">
     <main class="col-span-9">
       <h2 class="page-title">{{ title }}</h2>
-      <p class="text-slate-500 text-sm font-normal leading-tight mb-8">
+      <p
+        class="text-slate-500 text-sm font-normal leading-tight mb-8 transition-200 dark:text-white"
+      >
         {{ text }}
       </p>
       <slot />
