@@ -88,3 +88,7 @@ html{
         opacity: 1;
     }
 }
+
+.page-title{
+    @apply text-blue-600 text-4xl font-bold leading-130
+}
