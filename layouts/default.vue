@@ -2,8 +2,8 @@
   <div
     class="dark:bg-blue-700 transition-200 min-h-screen flex flex-col justify-between"
   >
-    <PushMessage />
     <div>
+      <PushMessage />
       <LayoutHeader ref="header" />
       <div class="pt-[49px] lg:pt-[125px]">
         <slot />

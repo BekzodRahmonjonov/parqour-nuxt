@@ -28,9 +28,9 @@ export default defineNuxtConfig({
   ],
   i18n: {
     locales: ['ru', 'uz'],
-    defaultLocale: 'uz',
+    defaultLocale: 'ru',
     vueI18n: {
-      fallbackLocale: 'uz',
+      fallbackLocale: 'ru',
       silentTranslationWarn: true,
       missingWarn: true,
       fallbackWarn: true,
