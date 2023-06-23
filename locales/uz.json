@@ -56,5 +56,8 @@
   "channels_telegram": "Telegram kanallar",
   "channels_instagram": "Insatgram kanallar",
   "channels_facebook": "Facebook kanallar",
-  "load_more": "Ko'proq yuklash"
+  "load_more": "Ko'proq yuklash",
+  "contact_modal": "Biz bilan aloqa",
+  "how_do_you_connect": "Sizni qanday chaqirishimiz mumkin?",
+  "enter_name": "Ismingizni kiriting"
 }
