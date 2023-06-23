@@ -6,11 +6,7 @@
       <PushMessage />
       <LayoutHeader ref="header" />
       <div class="pt-[49px] lg:pt-[125px]">
-        <Transition name="fade" mode="out-in">
-          <div :key="$route.path">
-            <slot />
-          </div>
-        </Transition>
+        <slot />
       </div>
     </div>
     <LayoutFooter />

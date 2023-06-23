@@ -6,7 +6,7 @@
     <span :class="[prefixClass]" class="flex-center">
       <slot name="prefix" />
     </span>
-    <input
+    <textarea
       v-bind="{
         type,
         minlength,
@@ -22,7 +22,7 @@
       ref="Input"
       :value="modelValue"
       :class="[inputClass]"
-      class="w-full font-normal leading-16 text-sm placeholder:text-sm placeholder:font-normal bg-transparent flex-grow outline-none text-blue-200 dark:text-blue-100 dark:placeholder:text-blue-100/50 placeholder:text-blue-200/50"
+      class="w-full resize-none font-normal leading-16 text-sm placeholder:text-sm placeholder:font-normal bg-transparent flex-grow outline-none text-blue-200 dark:text-blue-100 dark:placeholder:text-blue-100/50 placeholder:text-blue-200/50"
       @keyup.enter="handleEnter"
       @input="handleInput"
       @blur="$emit('blur')"

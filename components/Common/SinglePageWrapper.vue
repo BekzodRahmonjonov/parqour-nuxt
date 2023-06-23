@@ -104,4 +104,11 @@ defineProps<Props>()
   background: #52618f;
   border-radius: 4px;
 }
+.single-content blockquote:after {
+  content: url('/svg/quote.svg');
+  position: absolute;
+  top: 24px;
+  left: 24px;
+  margin: 0;
+}
 </style>
