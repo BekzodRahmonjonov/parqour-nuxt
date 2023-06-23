@@ -49,5 +49,7 @@
   "media_tooltip": "Yangiliklar video formatdagi materiallarni taqdim etadi",
   "verified_tooltip": "Uznews xodimlari tomonidan tekshirilgan",
   "actual_comments": "Aktual sharxlar",
-  "contacts": "Kontaktlar"
+  "contacts": "Kontaktlar",
+  "mail_for_contacts": "Biz bilan bog'lanish uchun elektron pochta",
+  "phone_reduction": "Redaksiya raqami"
 }

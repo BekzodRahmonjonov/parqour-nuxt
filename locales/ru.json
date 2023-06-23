@@ -49,5 +49,7 @@
   "media_tooltip": "В новостях представлены материалы в видеоформате",
   "verified_tooltip": "Проверено сотрудниками Uznews",
   "actual_comments": "Актуальные комментарии",
-  "contacts": "Контакты"
+  "contacts": "Контакты",
+  "mail_for_contacts": "Почта для контактов",
+  "phone_reduction": "Телефон редакции"
 }
