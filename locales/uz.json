@@ -44,5 +44,6 @@
   "analysiscardtext4" : "Koronavirus inqirozi - yangi mutaxassis uchun boshi berk ko'chami?",
   "clear": "tozalash",
   "media_tooltip": "Yangiliklar video formatdagi materiallarni taqdim etadi",
-  "verified_tooltip": "Uznews xodimlari tomonidan tekshirilgan"
+  "verified_tooltip": "Uznews xodimlari tomonidan tekshirilgan",
+  "actual_comments": "Aktual sharxlar"
 }

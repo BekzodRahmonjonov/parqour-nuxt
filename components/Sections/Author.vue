@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="bg-gray-800 dark:bg-blue-700">
     <div class="container">
       <CommonSectionWrapper :title="$t('articles_author')" />
 

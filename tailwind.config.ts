@@ -26,6 +26,7 @@ export default <Partial<Config>>{
           100: '#A2BCDE',
           150: '#52618E',
           200: '#52618F',
+          250: '#465370',
           600: '#2C3752',
           700: '#191F2E',
           800: '#2B3348',
@@ -52,6 +53,7 @@ export default <Partial<Config>>{
           500: '#E6EEF6',
           600: '#A3A8B3',
           700: '#41495B',
+          800: '#F7F7F7',
         },
         green: {
           DEFAULT: '#51B334',
@@ -70,6 +72,7 @@ export default <Partial<Config>>{
         xs: '0px 12px 32px rgba(82, 97, 143, 0.52)',
         sm: '0px 2px 24px rgba(25, 31, 46, 0.24)',
         m: '0px 12px 32px rgba(82, 97, 143, 0.52)',
+        xl: '0px 12px 24px 0px rgba(82, 97, 143, 0.12);',
       },
       dropShadow: {
         xs: '(0px 12px 32px rgba(82, 97, 143, 0.52)',

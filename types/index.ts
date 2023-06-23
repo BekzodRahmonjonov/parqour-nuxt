@@ -19,6 +19,7 @@ export interface ILatest {
 
 export interface IAuthor {
   id: number
+  actual: boolean
   title: string
   author: string
   image: string
