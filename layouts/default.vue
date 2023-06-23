@@ -5,7 +5,7 @@
 
       <div class="dark:bg-blue-700 transition-200">
         <LayoutHeader ref="header" />
-        <div class="pt-[49px] lg:pt-[170px]">
+        <div class="pt-[49px] lg:pt-[125px]">
           <slot />
         </div>
         <LayoutFooter />

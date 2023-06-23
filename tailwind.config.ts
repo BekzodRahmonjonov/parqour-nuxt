@@ -67,6 +67,7 @@ export default <Partial<Config>>{
       },
       fontSize: {
         44: ['44px', '52px'],
+        28: '28px',
       },
       boxShadow: {
         xs: '0px 12px 32px rgba(82, 97, 143, 0.52)',

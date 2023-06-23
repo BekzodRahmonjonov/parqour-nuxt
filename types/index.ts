@@ -35,7 +35,13 @@ export interface INavigation {
   url: string
 }
 
-export const buttonVariants = ['primary', 'secondary', 'primary-dark'] as const
+export const buttonVariants = [
+  'primary',
+  'secondary',
+  'primary-dark',
+  'danger',
+  'light',
+] as const
 export type ButtonVariants = (typeof buttonVariants)[number]
 
 export interface IPodcast {
