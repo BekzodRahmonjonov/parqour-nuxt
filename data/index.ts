@@ -157,22 +157,22 @@ export const navigationData = [
   {
     icon: 'icon-bolt',
     title: 'popular_head',
-    url: '/#',
+    url: '/popular-news',
   },
   {
     icon: 'icon-pen',
     title: 'meaning',
-    url: '/#',
+    url: '/meaning',
   },
   {
     icon: 'icon-document',
     title: 'special_reports',
-    url: '/#',
+    url: '/special-reports',
   },
   {
     icon: 'icon-gallery',
     title: 'photo_reports',
-    url: '/#',
+    url: '/photo-reports',
   },
 ]
 
@@ -380,35 +380,35 @@ export const latestData = [
 export const socialsData = [
   {
     icon: 'instagram',
-    url: '#',
+    url: 'https://instagram.com',
   },
   {
     icon: 'telegram',
-    url: '#',
+    url: 'https://telegram.org',
   },
   {
     icon: 'facebook',
-    url: '#',
+    url: 'https://facebook.com',
   },
   {
     icon: 'youtube',
-    url: '#',
+    url: 'https://youtube.com',
   },
   {
     icon: 'vk',
-    url: '#',
+    url: 'https://vk.com',
   },
   {
     icon: 'twitter',
-    url: '#',
+    url: 'https://twitter.com',
   },
   {
     icon: 'network',
-    url: '#',
+    url: 'https://ok.ru',
   },
   {
     icon: 'odno',
-    url: '#',
+    url: 'https://odnoklassniki.com',
   },
 ]
 

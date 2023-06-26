@@ -25,7 +25,7 @@
         </div>
       </div>
       <div
-        class="col-span-4 bg-white-400 dark:bg-blue-100/[16%] transition-200 rounded-lg mt-6 lg:mt-0"
+        class="col-span-4 bg-white-100 dark:bg-blue-100/[16%] transition-200 rounded-lg mt-6 lg:mt-0"
       >
         <SectionsSidebarNews />
       </div>
