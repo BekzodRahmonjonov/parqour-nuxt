@@ -81,4 +81,5 @@ export interface ISingleData {
   created_at: Date | string
   views_count: number
   content: string | HTMLAllCollection
+  author: string
 }

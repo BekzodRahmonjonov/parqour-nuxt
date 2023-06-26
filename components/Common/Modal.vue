@@ -49,7 +49,7 @@
             @click.stop="close()"
           >
             <i
-              class="icon-close text-light text-3xl transition-300 group-hover:text-grey-100"
+              class="icon-close text-light text-3xl transition-200 group-hover:text-grey-100"
             />
           </button>
           <div :class="contentClass" class="pt-5 p-6">

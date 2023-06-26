@@ -85,7 +85,7 @@ const props = withDefaults(defineProps<Props>(), {
   autocomplete: 'new-password',
 })
 
-const handleFocus = (e: Event) => {
+const handleFocus = () => {
   emit('focus')
 }
 watch(

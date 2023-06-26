@@ -19,7 +19,6 @@
 <script setup lang="ts">
 import { useRouter } from 'vue-router'
 
-const { locale } = useI18n()
 interface ILanguage {
   value: string
   name: string
@@ -31,7 +30,6 @@ const router = useRouter()
 
 const switchLanguage = (item: ILanguage) => {
   cookieLocale.value = item?.value
-  // localStorage.setItem('locale', item?.value)
   router.go(0)
 }
 const languageList = ref<ILanguage[]>([

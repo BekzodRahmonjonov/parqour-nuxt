@@ -5,7 +5,7 @@
   >
     <div class="flex flex-col justify-between h-full grow">
       <h2
-        class="transition-300 before:transition-200 line-clamp-3 text-blue-700 dark:text-white text-sm leading-136 font-bold mb-10 before:content-[''] before:h-[54px] before:-translate-y-1/3 before:top-1/3 before:transition-all before:duration-200 before:origin-center before:!max-h-0 group-hover:before:!max-h-full before:absolute before:left-0 before:w-0.5 before:rounded before:bg-blue-100"
+        class="transition-200 before:transition-200 line-clamp-3 text-blue-700 dark:text-white text-sm leading-136 font-bold mb-10 before:content-[''] before:h-[54px] before:-translate-y-1/3 before:top-1/3 before:transition-all before:duration-200 before:origin-center before:!max-h-0 group-hover:before:!max-h-full before:absolute before:left-0 before:w-0.5 before:rounded before:bg-blue-100"
       >
         В Яккасарайском районе столицы возведут новый парк отдыха
       </h2>

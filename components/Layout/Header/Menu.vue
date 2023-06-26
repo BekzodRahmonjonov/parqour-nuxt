@@ -61,6 +61,7 @@
               <NuxtLink
                 v-for="(link, idx) of headerMainMenuData"
                 :key="idx"
+                :to="link?.url"
                 class="flex-y-center space-x-2 group cursor-pointer"
               >
                 <span

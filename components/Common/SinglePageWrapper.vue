@@ -1,7 +1,9 @@
 <template>
   <div class="grid grid-cols-12 gap-8">
-    <main class="col-span-9">
-      <h2 class="text-blue-700 text-[32px] font-bold leading-10">
+    <main class="col-span-12 md:col-span-9">
+      <h2
+        class="text-blue-700 dark:text-white text-[32px] font-bold leading-10"
+      >
         {{ single.title }}
       </h2>
       <div class="my-4 flex items-center gap-4">
@@ -29,9 +31,10 @@
           alt=""
         />
         <figcaption
+          v-if="single.author"
           class="text-neutral-400 text-xs font-normal leading-none mt-2"
         >
-          © Фото: <span class="italic">Джасурбек Нарзуллаев</span>
+          © Фото: <span class="italic">{{ single.author }}</span>
         </figcaption>
       </figure>
       <div
@@ -40,7 +43,7 @@
       ></div>
       <slot />
     </main>
-    <aside class="col-span-3">
+    <aside class="max-md:hidden md:col-span-3">
       <div class="mt-14 w-full h-full">
         <slot name="aside" />
       </div>
@@ -93,6 +96,9 @@ defineProps<Props>()
   font-weight: 500;
   line-height: 150%;
   position: relative;
+}
+.dark .single-content blockquote {
+  color: white;
 }
 .single-content blockquote::before {
   content: '';
