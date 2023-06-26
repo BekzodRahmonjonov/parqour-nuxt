@@ -53,5 +53,10 @@
   "for_advertising": "По вопросам рекламы",
   "channels_telegram": "Каналы в Telegram",
   "channels_instagram": "Каналы в Instagram",
-  "channels_facebook": "Каналы в Facebook"
+  "channels_facebook": "Каналы в Facebook",
+  "load_more": "Загрузить еще",
+  "photo_reports_text": "Добро пожаловать в раздел \"Фоторепортажи\" на нашем новостном сайте! Здесь вы найдете захватывающие и информативные фотографии, которые позволят вам визуально погрузиться в события, истории и захватывающие моменты прошлого и настоящего."
+  "contact_modal": "Напишите нам",
+  "how_do_you_connect": "Как вам обращаться?",
+  "enter_name": "Введите имя"
 }
