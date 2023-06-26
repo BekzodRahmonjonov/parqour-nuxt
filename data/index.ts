@@ -701,3 +701,21 @@ export const contactData = {
   instagram: 'instagram.com/uznews',
   facebook: 'facebook.com/uznews.uz',
 }
+
+export const socialShareData = [
+  {
+    id: 1,
+    icon: 'telegram',
+    name: 'Telegram',
+  },
+  {
+    id: 2,
+    icon: 'twitter',
+    name: 'Twitter',
+  },
+  {
+    id: 3,
+    icon: 'facebook',
+    name: 'Facebook',
+  },
+]
