@@ -1,7 +1,9 @@
 <template>
   <div class="max-w-[886px]">
-    <h1 class="font-bold leading-130 text-blue-600 text-4xl">Разборы</h1>
-    <p class="text-sm leading-136 text-blue-150">
+    <h1 class="font-bold leading-130 text-blue-600 text-4xl dark:text-white">
+      Разборы
+    </h1>
+    <p class="text-sm leading-136 text-blue-150 dark:text-white">
       Добро пожаловать в раздел "Разборы" на нашем новостном сайте! Здесь вы
       найдете подробные аналитические материалы, которые позволят вам глубже
       понять сложные события и тенденции в мире.
