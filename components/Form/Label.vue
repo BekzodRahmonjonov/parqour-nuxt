@@ -1,6 +1,6 @@
 <template>
   <label
-    class="text-gray-100 text-sm leading-130 font-semibold"
+    class="text-blue-200 text-sm leading-130 font-semibold"
     :class="labelClass"
     :for="forText"
   >

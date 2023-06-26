@@ -18,7 +18,7 @@
           id="Modal"
           class="Modal bg-white w-full rounded-xl relative"
           :class="[
-            maxWidth ? 'max-w-[782px]' : 'max-w-[528px]',
+            maxWidth ? 'max-w-[382px]' : 'max-w-[382px]',
             bodyWrapperClass,
           ]"
         >
