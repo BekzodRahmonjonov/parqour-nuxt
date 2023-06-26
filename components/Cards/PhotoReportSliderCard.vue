@@ -1,37 +1,28 @@
 <template>
-  <div
-    class="relative w-full h-full"
-    :class="main ? 'max-h-[548px]' : 'max-h-[260px]'"
-  >
-    <Swiper
-      v-bind="settings"
-      class="w-full h-full rounded relative z-10"
-      :class="main ? 'max-h-[548px]' : 'max-h-[260px]'"
-    >
+  <div class="relative w-full aspect-video">
+    <Swiper v-bind="settings" class="w-full h-full rounded relative z-10">
       <SwiperSlide
-        v-for="(item, index) in 3"
+        v-for="(item, index) in card.images"
         :key="index"
         class="w-full h-full aspect-video rounded"
-        :class="main ? 'max-h-[548px]' : 'max-h-[260px]'"
       >
         <img
-          :src="`https://picsum.photos/200/30${index}`"
-          alt=""
+          :src="item"
+          :alt="card?.title"
           class="aspect-video object-cover rounded absolute w-full h-full photo-report-overlay"
-          :class="main ? 'max-h-[548px]' : 'max-h-[260px]'"
         />
       </SwiperSlide>
     </Swiper>
     <div
-      class="absolute main-button-prev inset-0 w-full h-full photo-report-overlay pt-4 px-4 pb-5 !rounded z-20 flex flex-col justify-between items-end"
+      class="absolute inset-0 w-full h-full photo-report-overlay pt-4 px-4 pb-5 !rounded z-20 flex flex-col justify-between items-end"
     >
       <div
         class="text-lg text-white font-bold px-3 py-2.5 bg-blue-700/40 rounded"
       >
-        28+
+        {{ card?.imagesCount }}
       </div>
       <p class="text-white text-base font-medium leading-6">
-        Незаконные сносы бизнеса добрались до Кибрайского района? — спецрепортаж
+        {{ card?.title }}
       </p>
     </div>
   </div>
@@ -41,11 +32,17 @@ import 'swiper/css'
 import 'swiper/css/free-mode'
 import 'swiper/css/effect-cards'
 
-import { Autoplay, EffectCards, Navigation } from 'swiper'
+import { Autoplay, EffectCards } from 'swiper'
 import { Swiper, SwiperSlide } from 'swiper/vue'
 
 interface Props {
-  images: any
+  card?: {
+    title: string
+    views: number
+    date: string
+    imagesCount: number
+    images: string[]
+  }
   main?: boolean
 }
 defineProps<Props>()
@@ -67,11 +64,7 @@ const settings = {
     disableOnInteraction: false,
     reverseDirection: true,
   },
-  navigation: {
-    prevEl: '.main-button-prev',
-    nextEl: '.main-button-next',
-  },
-  modules: [Navigation, Autoplay, EffectCards],
+  modules: [Autoplay, EffectCards],
 }
 </script>
 <style>
