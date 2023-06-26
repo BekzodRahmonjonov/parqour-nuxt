@@ -1,7 +1,7 @@
 <template>
   <button
     v-bind="{ disabled, type }"
-    class="inline-block transition-200 rounded px-5 py-2 flex-center cursor-pointer relative group disabled:bg-grey-light disabled:hover:bg-grey-light disabled:text-dark/40 outline-none"
+    class="inline-block transition-200 rounded px-5 py-2 flex-center cursor-pointer relative group disabled:bg-blue-200/10 disabled:hover:bg-blue-200/10 disabled:text-gray-200 hover:!bg-blue-300 outline-none"
     :style="{ '--box-shadow': shadowColor, '--spinnerColor': spinnerColor }"
     :class="[
       buttonClass,

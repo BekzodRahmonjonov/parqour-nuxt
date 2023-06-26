@@ -8,7 +8,7 @@
       </CollapseTransition>
       <div class="transition-200 bg-white dark:bg-blue-600">
         <!--        <LayoutHeaderMain class="hidden lg:block" />-->
-        <LayoutHeaderNavigation @handleShowMenu="showMenu" />
+        <LayoutHeaderNavigation @handle-show-menu="showMenu" />
       </div>
       <CollapseTransition
         v-if="false"

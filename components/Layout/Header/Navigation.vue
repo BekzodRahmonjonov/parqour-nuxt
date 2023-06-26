@@ -1,5 +1,5 @@
 <template>
-  <div class="py-[10px] border-b-[0.5px] border-solid border-blue-200/10">
+  <div class="py-2.5 border-b-[0.5px] border-solid border-blue-200/10">
     <div class="container flex-y-center justify-between">
       <div class="relative flex-y-center space-x-7 z-10">
         <button class="group flex-y-center" @click="handleMenu">

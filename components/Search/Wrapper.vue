@@ -2,7 +2,7 @@
   <div class="w-full">
     <FormInput
       :model-value="search"
-      class="transition-200 !px-[10px] py-[4.5px] !absolute w-[86%] sm:w-[90%] md:w-[93%] lg:w-full right-12 z-30 !left-[3px] !top-[2px] transition-all duration-300 lg:!relative lg:!right-0 lg:!left-0 lg:!top-0"
+      class="transition-200 !px-2.5 py-[4.5px] !absolute w-[86%] sm:w-[90%] md:w-[93%] lg:w-full right-12 z-30 !left-[3px] !top-[2px] transition-all duration-300 lg:!relative lg:!right-0 lg:!left-0 lg:!top-0"
       :placeholder="$t('search')"
       :class="[
         searchTrigger
@@ -12,7 +12,8 @@
       input-class="pl-2 pr-2 mt-0.5 dark:text-white "
       prefix-class="leading-130"
       :focus="searchTrigger"
-      @update:modelValue="handleUpdateSearch"
+      @update:model-value="handleUpdateSearch"
+      @enter="handleEnter"
     >
       <template #prefix>
         <span
@@ -20,15 +21,11 @@
         />
       </template>
       <template #suffix>
-        <div class="relative">
-          <button
-            :class="{ '!opacity-100 !visible': search?.length }"
-            class="inline-block py-1 px-2 text-sm leading-120 rounded-md bg-blue-200 hover:bg-blue-100 dark:bg-white/[0.06] dark:hover:bg-blue-100 text-white transition-200 opacity-0 invisible"
-            @click="clear"
-          >
-            {{ $t('clear') }}
-          </button>
-        </div>
+        <button
+          :class="{ '!opacity-100 !visible': search?.length }"
+          class="text-xl leading-5 icon-close text-gray-200 hover:text-blue-150 dark:hover:text-white transition-200 opacity-0 invisible"
+          @click="clear"
+        />
       </template>
     </FormInput>
     <Transition name="fade" mode="out-in">
@@ -62,7 +59,7 @@
 </template>
 
 <script setup lang="ts">
-import { debounce } from '~/utils/index'
+import { useLocalePath } from '#i18n'
 
 interface Props {
   search?: string
@@ -77,17 +74,30 @@ const props = withDefaults(defineProps<Props>(), {
   searchTrigger: true,
 })
 interface Emits {
-  (e: 'handleUpdateSearch', value: string): void
+  (e: 'handle-update-search', value: string): void
   (e: 'clear'): void
 }
 const emit = defineEmits<Emits>()
+
+const router = useRouter()
+const localePath = useLocalePath()
 
 function clear() {
   emit('clear')
 }
 const handleUpdateSearch = (value: string) => {
   debounce('search', () => {
-    emit('handleUpdateSearch', value)
+    emit('handle-update-search', value)
+  })
+}
+
+const handleEnter = () => {
+  console.log('enter')
+  router.push({
+    path: localePath('/search'),
+    query: {
+      q: props.search,
+    },
   })
 }
 </script>
@@ -109,20 +119,10 @@ const handleUpdateSearch = (value: string) => {
 }
 
 .list li:last-child {
-  border-radius: 0 0 12px 12px;
+  border-radius: 0 0 4px 4px;
 }
 
 .list li:hover {
   background-color: rgba(118, 129, 148, 0.11);
 }
-
-/*.list li:not(:last-child)::before {*/
-/*  content: '';*/
-/*  position: absolute;*/
-/*  right: 0;*/
-/*  bottom: 0;*/
-/*  width: calc(100% - 16px);*/
-/*  height: 1px;*/
-/*  background-color: #eef0f4;*/
-/*}*/
 </style>

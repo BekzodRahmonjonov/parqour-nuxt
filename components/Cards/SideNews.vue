@@ -7,7 +7,7 @@
       class="py-3 pr-3 border-b border-solid border-gray-300 dark:border-gray-300/10"
     >
       <p
-        class="text-blue-200 text-xs leading-140 font-medium text-xs mb-1 transition-300 dark:text-white"
+        class="text-blue-200 text-xs leading-140 font-medium text-xs mb-1 transition-200 dark:text-white"
       >
         {{ dayjs(card?.date).locale(locale).format('DD MMM YYYY, HH:mm') }}
       </p>

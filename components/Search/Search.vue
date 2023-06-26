@@ -4,7 +4,7 @@
       :search="search"
       :search-content="searchContent"
       :search-trigger="searchTrigger"
-      @handleUpdateSearch="handleUpdateSearch"
+      @handle-update-search="handleUpdateSearch"
       @clear="clear"
     />
     <button
