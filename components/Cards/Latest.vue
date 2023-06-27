@@ -26,14 +26,14 @@
       <div class="flex-y-center gap-3">
         <div class="!flex-y-center md:!hidden">
           <div
-            class="flex-center bg-blue-100 w-3 h-3 rounded-full bullet-shadow dark:bg-blue-100 transition-200"
+            class="flex-center bg-blue-100 w-3 h-3 rounded-full bullet-shadow dark:bg-blue-100 transition-200 !hidden"
           >
             <div
               class="w-1.5 h-1.5 rounded-full bg-white transition-200 dark:bg-blue-900"
             />
           </div>
           <div
-            class="w-5 h-px bg-white-300 ml-1 transition-200 dark:bg-blue-600"
+            class="w-5 h-px bg-white-300 ml-1 transition-200 dark:bg-blue-600 hidden"
           />
           <div
             class="py-[7px] rounded-full border border-solid border-white-300 px-4 dark:border-blue-600 transition-200"
