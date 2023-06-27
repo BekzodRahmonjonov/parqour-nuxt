@@ -12,7 +12,7 @@
     <LayoutFooter />
     <button
       v-if="windowIsScrolled"
-      class="fixed right-8 bottom-8 flex-y-center justify-center text-2xl text-white icon-arrow-left rotate-90 w-12 h-12 transition-200 hover:bg-blue-600 rounded-full bg-blue-100 z-20"
+      class="fixed right-8 bottom-8 flex-y-center justify-center text-2xl text-white icon-arrow-left rotate-90 w-12 h-12 transition-200 hover:bg-blue-600 rounded-full bg-blue-100 z-[99]"
       @click="scrollToTop"
     />
   </div>

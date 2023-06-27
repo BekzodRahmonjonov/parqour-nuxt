@@ -19,6 +19,7 @@
               :title="item.title"
               :text="item.text"
               :bg="item.bg"
+              :id="item.id"
             />
           </nuxt-link>
         </div>
