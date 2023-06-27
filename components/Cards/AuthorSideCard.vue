@@ -18,13 +18,13 @@
 
       <div class="flex items-center gap-5">
         <div class="flex flex-col items-center justify-center">
-          <span class="text-2xl font-bold text-blue-700">
+          <span class="text-2xl font-bold text-blue-700 dark:text-white">
             {{ author.reads }}
           </span>
           <p class="textSM !text-[12px]">читали</p>
         </div>
         <div class="flex flex-col items-center justify-center">
-          <span class="text-2xl font-bold text-blue-700">
+          <span class="text-2xl font-bold text-blue-700 dark:text-white">
             {{ author.articles }}
           </span>
           <p class="textSM !text-[12px]">статьи</p>

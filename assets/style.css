@@ -95,5 +95,5 @@ html {
 }
 
 .textSM {
-  @apply leading-140 text-sm text-blue-150;
+  @apply leading-140 text-sm text-blue-150 dark:text-white;
 }

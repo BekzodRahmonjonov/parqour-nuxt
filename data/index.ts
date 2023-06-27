@@ -719,3 +719,25 @@ export const socialShareData = [
     name: 'Facebook',
   },
 ]
+
+
+export const specialReports = [
+  {
+    id: 1,
+    title: 'Что происходит с ценами на аренду жилья в Ташкенте',
+    image: '/images/news/bulid.jpg',
+    author: 'Дарья Пензова',
+    created_at: '2023-06-07',
+    views_count: 1234,
+    userName: 'Абдулла',
+  },
+  {
+    id: 2,
+    title: 'Что происходит с ценами на аренду жилья в Ташкенте',
+    image: '/images/news/bulid.jpg',
+    author: 'Дарья Пензова',
+    created_at: '2023-06-07',
+    views_count: 1234,
+    userName: 'Абдулла',
+  },
+]
