@@ -67,5 +67,10 @@
   "phone_number": "Telefon raqami",
   "your_message": "Xabaringiz",
   "enter_message": "Xabaringizni kiriting",
-  "submit": "Yuborish"
+  "submit": "Yuborish",
+  "share": "Ulashish",
+  "write_to_us": "Bizga yozing",
+  "copied": "Nusxalandi",
+  "interview": "Intervyu",
+  "interview_sub": "Bu yerda siz eng dolzarb mavzular va voqealar haqida ko'proq ma'lumot olishga yordam beradigan qiziqarli shaxslar, ekspertlar va taniqli shaxslar bilan noyob va ma'lumotli suhbatlarni topasiz."
 }
