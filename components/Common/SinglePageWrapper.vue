@@ -20,10 +20,20 @@
         </p>
       </div>
       <p
-        class="text-blue-700 text-2xl font-medium leading-[33px] transition-200 dark:text-white"
+        class="text-blue-700 text-2xl font-medium leading-[33px] transition-200 dark:text-white mb-6"
       >
         {{ single.text }}
       </p>
+      <iframe
+        v-if="single?.youtube_video"
+        width="100%"
+        height="456px"
+        :src="`https://www.youtube.com/embed/${toEmbed(single?.youtube_video)}`"
+        frameborder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+        allowfullscreen
+        class="h-[245px] sm:h-[345px] md:h-[456px]"
+      ></iframe>
       <figure v-if="single?.image" class="mt-6 max-h-[498px] h-full">
         <img
           :src="single.image"
