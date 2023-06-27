@@ -57,3 +57,46 @@ export const singleData: ISingleData = {
     </blockquote>
 `,
 }
+
+export const authorsData = [
+  {
+    name: 'Шахзод Юлдошбоев',
+    img: '/images/face.png',
+    about: 'Корреспондент',
+  },
+  {
+    name: 'Шахзод Юлдошбоев',
+    img: '/images/face.png',
+    about: 'Корреспондент',
+  },
+  {
+    name: 'Шахзод Юлдошбоев',
+    img: '/images/face.png',
+    about: 'Корреспондент',
+  },
+  {
+    name: 'Шахзод Юлдошбоев',
+    img: '/images/face.png',
+    about: 'Корреспондент',
+  },
+  {
+    name: 'Шахзод Юлдошбоев',
+    img: '/images/face.png',
+    about: 'Корреспондент',
+  },
+  {
+    name: 'Шахзод Юлдошбоев',
+    img: '/images/face.png',
+    about: 'Корреспондент',
+  },
+]
+
+export const authorSideData = {
+  img: '/images/face.png',
+  name: 'Шахзод Юлдошбоев',
+  aboutUser: 'Корреспондент',
+  reads: '7.4M',
+  articles: 14,
+  fullInfo:
+    'Родился 29 декабря 1979 года в Ургутском районе Самаркандской области. Окончил факультет журналистики Национального университета Узбекистана. Является автором сценариев ряда художественных, документальных и мультиплексных фильмов. ',
+}
