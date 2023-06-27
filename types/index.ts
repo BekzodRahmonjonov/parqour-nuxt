@@ -78,6 +78,7 @@ export interface ISingleData {
   title: string
   text: string
   image: string
+  youtube_video: string
   created_at: Date | string
   views_count: number
   content: string | HTMLAllCollection
