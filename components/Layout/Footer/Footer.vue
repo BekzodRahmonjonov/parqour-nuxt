@@ -21,7 +21,7 @@
           <NuxtLink
             v-for="(link, index) in menu"
             :key="index"
-            to="/"
+            :to="link.link"
             class="text-sm sm:text-base leading-5 font-medium text-white transition-200 hover:text-blue-100"
           >
             {{ link.title }}
@@ -148,13 +148,20 @@ const socials = computed(() => [
 ])
 const menu = [
   {
+    title: t('terms_of_use'),
+    link: '/terms-of-use',
+  },
+  {
     title: t('advertising'),
+    link: '/advertisings',
   },
   {
     title: t('contacts'),
+    link: '/contact',
   },
   {
     title: t('use_of_materials'),
+    link: '/use_of_materials',
   },
 ]
 
