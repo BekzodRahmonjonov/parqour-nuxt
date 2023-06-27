@@ -1,6 +1,6 @@
 <template>
   <div
-    class="vhtml-text mx-auto max-w-[785px] md:mt-16 mt-4 whitespace-pre-line"
+    class="vhtml-text mx-auto max-w-[785px] md:mt-8 mt-4 mb-6 whitespace-pre-line px-5"
   >
     <h3>
       «Это абсолютно необоснованные слова» — Шавкат Мирзиёев о введении
@@ -240,8 +240,19 @@
 .vhtml-text ol {
   list-style: disc;
 }
-
+.results {
+  font-size: 14px;
+  line-height: 130%;
+  color: #52618F;
+}
 @media screen and (max-width: 768px) {
+  .vhtml-text h3 {
+    font-size: 28px;
+  }
+  .banner p {
+    transform: translateY(0);
+    font-size: 18px;
+  }
   .vhtml-text p,
   .vhtml-text blockquote {
     font-size: 16px !important;
