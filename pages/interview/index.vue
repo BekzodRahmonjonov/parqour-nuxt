@@ -13,11 +13,5 @@
   </div>
 </template>
 <script setup lang="ts">
-const coverData = {
-  id: 1,
-  title: 'Министру цифровых технологий Узбекистана определили заместителей',
-  date: new Date(),
-  views: 9664,
-  image: 'https://picsum.photos/1024/968',
-}
+import { coverData } from '~/data/fakeData'
 </script>

@@ -1,20 +1,17 @@
 <template>
-  <div class="w-full h-[472px] relative rounded overflow-hidden">
+  <NuxtLink
+    :to="'/interview/' + coverData?.id"
+    class="w-full h-[345px] md:h-[472px] relative rounded overflow-hidden inline-block"
+  >
     <Transition name="fade" mode="out-in">
       <img
         v-if="!isPlaying"
         src="https://picsum.photos/1024/968"
-        alt=""
-        class="w-full h-full object-cover absolute z-10"
-      />
-    </Transition>
-    <div
-      class="cover-content w-full h-full absolute left-0 top-0 flex items-start justify-end flex-col p-6 z-20"
-    >
-      <p class="mb-3 text-white text-sm leading-140">
-        {{ dayjs(coverData?.date).locale(locale).format('DD MMM YYYY, HH:mm') }}
+        alt=""overData?.date).locale(locale).format('DD MMM YYYY, HH:mm') }}
       </p>
-      <p class="mb-5 text-white text-2xl leading-136 font-medium line-clamp-1">
+      <p
+          class="mb-3 md:mb-5 text-white text-lg sm:text-xl md:text-2xl leading-136 font-medium line-clamp-1"
+      >
         {{ coverData?.title }}
       </p>
       <div class="flex items-center gap-2 text-white">
@@ -22,6 +19,14 @@
         <p class="text-sm font-medium">
           {{ formatNumberWithSpaces(coverData?.views) }}
         </p>
+        class="w-full h-full object-cover absolute z-10"
+      />
+    </Transition>
+    <div
+      class="cover-content w-full h-full absolute left-0 top-0 flex items-start justify-end flex-col p-6 z-20"
+    >
+      <p class="mb-2 md:mb-3 text-white text-sm leading-140">
+        {{ dayjs(c
       </div>
     </div>
     <div
@@ -47,27 +52,36 @@
     <iframe
       width="100%"
       height="100%"
-      src="https://www.youtube.com/embed/T9eKDsJUQXE"
-      title="YouTube video player"
+      :src="`https://www.youtube.com/embed/${toEmbed(
+        coverData?.video
+      )}?autoplay=1&mute=1&controls=0`"
       frameborder="0"
       allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
       allowfullscreen
       class="absolute inset-0 z-0"
     ></iframe>
-  </div>
+  </NuxtLink>
 </template>
 
 <script setup lang="ts">
 import dayjs from 'dayjs'
 
-import { formatNumberWithSpaces } from '~/utils'
+import { formatNumberWithSpaces, toEmbed } from '~/utils'
 
 const { locale } = useI18n()
 
 const isPlaying = ref(false)
 
+interface TCover {
+  id: number
+  date: string
+  title: string
+  views: number
+  image: string
+  video: string
+}
 interface Props {
-  coverData?: object
+  coverData?: TCover
 }
 
 defineProps<Props>()
