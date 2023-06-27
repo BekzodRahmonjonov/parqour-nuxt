@@ -6,6 +6,8 @@
     <p class="fon-text text-slate-700 !font-ibm text-[18px]">
       {{ terms.terms_text }}
     </p>
+
+    <CommonCommentary />
   </div>
 </template>
 
