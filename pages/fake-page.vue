@@ -11,6 +11,13 @@
           :value="item.value"
         />
       </div>
+      <div class="max-w-[274px] my-6">
+        <FormSelect
+          :options="categories"
+          search
+          :placeholder="$t('all_authors')"
+        />
+      </div>
     </div>
   </div>
 </template>
