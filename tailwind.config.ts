@@ -71,6 +71,9 @@ export default <Partial<Config>>{
         44: ['44px', '52px'],
         28: '28px',
       },
+      fontFamily: {
+        ibm: "IBM Plex Serif', serif;"
+      },
       boxShadow: {
         xs: '0px 12px 32px rgba(82, 97, 143, 0.52)',
         sm: '0px 2px 24px rgba(25, 31, 46, 0.24)',
