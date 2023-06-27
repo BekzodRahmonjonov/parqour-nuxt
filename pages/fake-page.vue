@@ -8,6 +8,7 @@
           v-for="(item, idx) in categories"
           :key="idx"
           :text="item.name"
+          :value="item.value"
         />
       </div>
     </div>
@@ -21,37 +22,37 @@ const categories = [
   {
     id: 1,
     name: 'Все',
-    slug: 'all',
+    value: 'all',
   },
   {
     id: 2,
     name: 'Новости',
-    slug: 'news',
+    value: 'news',
   },
   {
     id: 3,
     name: 'Статьи',
-    slug: 'articles',
+    value: 'articles',
   },
   {
     id: 4,
     name: 'Фоторепортажи',
-    slug: 'photo-reports',
+    value: 'photo-reports',
   },
   {
     id: 5,
     name: 'Спецрепортажи',
-    slug: 'special-reports',
+    value: 'special-reports',
   },
   {
     id: 6,
     name: 'Колонки',
-    slug: 'columns',
+    value: 'columns',
   },
   {
     id: 7,
     name: 'Разборы',
-    slug: 'analysis',
+    value: 'analysis',
   },
 ]
 </script>
