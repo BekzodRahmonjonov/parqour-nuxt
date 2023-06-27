@@ -129,6 +129,17 @@
               />
             </button>
 
+            <button
+              class="absolute top-[110px] right-0 border group border-solid border-blue-100 hover:border-blue-200 dark:hover:border-blue-100 rounded-l-lg z-[12] border-r-[0px] p-4 flex lg:hidden flex-col gap-4 transition-200 bg-white dark:bg-blue-100/[16%] dark:border-transparent"
+              :class="{ 'bg-blue-200 ': isOpen }"
+              @click="isOpen = !isOpen"
+            >
+              <i
+                class="icon-close text-blue-200 group-hover:text-blue-200 dark:group-hover:text-blue-100 text-2xl transition-200"
+                :class="{ 'rotate-180': isOpen }"
+              />
+            </button>
+
             <div v-if="isNextMonth" class="mt-8">
               <div class="flex-center w-full">
                 <CommonDate :date="new Date()" />
