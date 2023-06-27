@@ -15,9 +15,10 @@
         <NuxtLink
           :to="item?.link"
           :class="{
-            'pointer-events-none text-dark/40': index === menu?.length - 1,
+            'pointer-events-none text-gray-200 font-normal':
+              index === menu?.length - 1,
           }"
-          class="transition-200 flex cursor-pointer items-center text-gray-200 text-sm leading-140 min-w-max group-last:min-w-[100px] sm:group-last:min-w-[200px] hover:!text-purple breadcrumb-menu line-clamp-1 whitespace-nowrap"
+          class="transition-200 flex cursor-pointer items-center text-blue-150 font-medium text-sm leading-140 min-w-max group-last:min-w-[100px] sm:group-last:min-w-[200px] hover:!text-purple breadcrumb-menu line-clamp-1 whitespace-nowrap"
         >
           {{ item?.title }}
         </NuxtLink>
