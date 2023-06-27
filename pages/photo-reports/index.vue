@@ -12,6 +12,7 @@
           :key="index"
           :card="image"
           class="min-h-[250px]"
+          :small="true"
         />
       </div>
       <template #aside>
@@ -28,10 +29,10 @@ const image = {
     'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Hic, maxime!',
   imagesCount: 10,
   images: [
-    'https://picsum.photos/200/300',
-    'https://picsum.photos/200/301',
-    'https://picsum.photos/201/300',
-    'https://picsum.photos/200/302',
+    'https://picsum.photos/800/701',
+    'https://picsum.photos/800/702',
+    'https://picsum.photos/800/703',
+    'https://picsum.photos/800/704',
   ],
 }
 </script>

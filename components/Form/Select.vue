@@ -34,7 +34,7 @@
         <slot name="options">
           <template v-if="options?.length">
             <div class="p-2 sticky w-full bg-white top-0">
-              <CommonSelectSearch v-if="search" />
+              <SelectSearch />
             </div>
             <div
               v-for="(option, idx) in options"

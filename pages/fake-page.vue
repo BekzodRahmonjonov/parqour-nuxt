@@ -1,5 +1,5 @@
 <template>
-  <div class="py-16">
+  <div class="py-16 pb-40">
     <ModalContactModal :show="contactModal" @close="contactModal = false" />
     <div class="container">
       <CommonShareLink class="mb-4" @click="contactModal = true" />
@@ -18,11 +18,16 @@
           :placeholder="$t('all_authors')"
         />
       </div>
+      <div class="max-w-[886px]">
+        <PhotoReportSlider :images="images" />
+      </div>
     </div>
   </div>
 </template>
 
 <script setup lang="ts">
+import PhotoReportSlider from '~/components/Slider/PhotoReportSlider.vue'
+
 const contactModal = ref(false)
 
 const categories = [
@@ -60,6 +65,21 @@ const categories = [
     id: 7,
     name: 'Разборы',
     value: 'analysis',
+  },
+]
+
+const images = [
+  {
+    id: 1,
+    title: 'Brand 1',
+    default:
+      'https://toshkent-parfum.uicgroup.tech/media/manufacturers/saint.svg',
+  },
+  {
+    id: 2,
+    title: 'Brand 2',
+    default:
+      'http://toshkent-parfum.uicgroup.tech/media/manufacturers/channel.svg',
   },
 ]
 </script>

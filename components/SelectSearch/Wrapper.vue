@@ -2,7 +2,7 @@
   <div class="w-full">
     <FormInput
       :model-value="search"
-      class="transition-200 !px-2.5 py-[10px] !absolute w-[86%] sm:w-[90%] md:w-[93%] lg:w-full right-12 z-30 !left-[3px] !top-[2px] transition-all duration-300 lg:!relative lg:!right-0 lg:!left-0 lg:!top-0"
+      class="transition-200 !px-2.5 py-[10px]"
       :placeholder="$t('search')"
       :class="[
         searchTrigger
@@ -13,7 +13,6 @@
       prefix-class="leading-130"
       :focus="searchTrigger"
       @update:model-value="handleUpdateSearch"
-      @enter="handleEnter"
     >
       <template #prefix>
         <span
@@ -35,14 +34,11 @@
         >
           <template v-if="searchContent?.length > 0">
             <ul class="list">
-              <SearchValue
+              <SelectSearchValue
                 v-for="(value, index) of searchContent"
                 :key="index"
                 :search="search"
-                :slug="value?.slug"
-                :title="value?.title"
-                :image="value?.img"
-                :breadcrumb="value?.region"
+                :title="value?.name"
               />
             </ul>
           </template>
@@ -56,28 +52,25 @@
 </template>
 
 <script setup lang="ts">
-import { useLocalePath } from '#i18n'
-
 interface Props {
   search?: string
   searchTrigger?: boolean
   searchContent?: {
-    title?: string
-    region?: {}
+    name?: string
   }[]
   wrapperClass?: string
 }
+
 const props = withDefaults(defineProps<Props>(), {
   searchTrigger: true,
 })
+
 interface Emits {
   (e: 'handle-update-search', value: string): void
   (e: 'clear'): void
 }
-const emit = defineEmits<Emits>()
 
-const router = useRouter()
-const localePath = useLocalePath()
+const emit = defineEmits<Emits>()
 
 function clear() {
   emit('clear')
@@ -87,39 +80,54 @@ const handleUpdateSearch = (value: string) => {
     emit('handle-update-search', value)
   })
 }
-
-const handleEnter = () => {
-  console.log('enter')
-  router.push({
-    path: localePath('/search'),
-    query: {
-      q: props.search,
-    },
-  })
-}
 </script>
 
-<style>
-.list li {
-  position: relative;
-  cursor: pointer;
-  display: flex;
-  align-items: flex-start;
-  flex-direction: column;
-  transition: all 0.2s ease-in-out;
+<style scoped>
+.fade-enter-active {
+  animation: Fade 0.2s ease;
 }
-.list li a {
-  padding: 10px 10px 10px 0 !important;
-}
-.list li:first-child {
-  border-radius: 4px 4px 0 0;
+.fade-leave-active {
+  animation: Fade 0.2s ease reverse;
 }
 
-.list li:last-child {
-  border-radius: 0 0 4px 4px;
+@keyframes Fade {
+  from {
+    transform: translateY(-5px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+.slideDown-enter-active {
+  animation: slideDown 0.2s linear;
+}
+.slideDown-leave-active {
+  animation: slideDown 0.2s linear reverse;
 }
 
-.list li:hover {
-  background-color: rgba(118, 129, 148, 0.11);
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+/* slightly transparent fallback */
+.backdrop-blur {
+  background-color: rgba(7, 9, 28, 0.12);
+}
+
+/* if backdrop support: very transparent and blurred */
+@supports ((-webkit-backdrop-filter: none) or (backdrop-filter: none)) {
+  .backdrop-blur {
+    background-color: rgba(7, 9, 28, 0.12);
+    -webkit-backdrop-filter: blur(30px);
+    backdrop-filter: blur(30px);
+  }
 }
 </style>
