@@ -8,7 +8,11 @@
         class="mt-8"
       >
         <div class="grid gap-5">
+          <div class="grid gap-5" v-if="preloader">
+            <BlockAuthorsCardShimmer v-for="item in 6" :key="item" />
+          </div>
           <nuxt-link
+            v-else
             to="authors/1"
             v-for="(item, i) in copyOfAuthorsData"
             :key="i"
@@ -34,7 +38,12 @@
 <script setup lang="ts">
 import { authorsData } from '~/data/fakeData'
 const isLoading = ref(false)
+const preloader = ref(true)
 const copyOfAuthorsData = ref([...authorsData])
+
+setTimeout(() => {
+  preloader.value = false
+})
 
 const loadMore = () => {
   isLoading.value = true
