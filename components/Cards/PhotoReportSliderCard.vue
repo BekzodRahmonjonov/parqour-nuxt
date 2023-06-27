@@ -11,20 +11,23 @@
           :alt="card?.title"
           class="aspect-video object-cover rounded absolute w-full h-full photo-report-overlay"
         />
+        <div
+          class="absolute inset-0 w-full h-full photo-report-overlay pt-4 px-4 pb-5 !rounded z-20 flex flex-col pointer-events-none"
+          :class="
+            small ? 'justify-between items-end' : 'justify-end items-start'
+          "
+        >
+          <div
+            class="text-xs text-white font-bold px-[10px] py-[6px] bg-blue-700/40 rounded mb-3"
+          >
+            {{ index + 1 }}/{{ card?.images.length }}
+          </div>
+          <p class="text-white text-base font-medium leading-6">
+            {{ card?.title }}
+          </p>
+        </div>
       </SwiperSlide>
     </Swiper>
-    <div
-      class="absolute inset-0 w-full h-full photo-report-overlay pt-4 px-4 pb-5 !rounded z-20 flex flex-col justify-between items-end"
-    >
-      <div
-        class="text-lg text-white font-bold px-3 py-2.5 bg-blue-700/40 rounded"
-      >
-        {{ card?.imagesCount }}
-      </div>
-      <p class="text-white text-base font-medium leading-6">
-        {{ card?.title }}
-      </p>
-    </div>
   </div>
 </template>
 <script setup lang="ts">
@@ -44,6 +47,7 @@ interface Props {
     images: string[]
   }
   main?: boolean
+  small?: boolean
 }
 defineProps<Props>()
 

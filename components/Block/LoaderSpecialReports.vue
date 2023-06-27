@@ -11,5 +11,6 @@
     <BlockPreloader :loading="true" width="240px" height="24px" />
     <BlockPreloader :loading="true" width="100px" height="16px" />
     <BlockPreloader :loading="true" width="100px" height="16px" />
+    <!-- no need to set :loading="true" just loading -->
   </div>
 </template>
