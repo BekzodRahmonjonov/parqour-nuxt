@@ -1,7 +1,7 @@
 <template>
   <div class="container w-full">
     <button
-      class="left-0 border border-solid border-blue-100 w-full mb-3 rounded-lg w-full z-[12] px-4 py-2.5 flex lg:hidden justify-between gap-4 transition-200 dark:bg-blue-100/[16%] dark:border-transparent"
+      class="left-0 border border-solid border-blue-100 mb-3 rounded-lg w-full z-[12] px-4 py-2.5 flex lg:hidden justify-between gap-4 transition-200 dark:bg-blue-100/[16%] dark:border-transparent"
       :class="{ 'bg-blue-200 ': isOpen }"
       @click="isOpen = !isOpen"
     >
@@ -68,7 +68,7 @@
       <div
         v-if="isOpen"
         id="news-content"
-        class="fixed inset-0 bg-white z-[11] h-screen overflow-y-scroll pt-[150px] lg:pt-[260px] transition-200 dark:bg-blue-700"
+        class="fixed inset-0 bg-white z-[31] h-screen overflow-y-scroll transition-200 pt-16 md:pt-[150px] dark:bg-blue-700"
       >
         <div class="w-full max-w-[990px] mx-auto px-4 pt-4">
           <div>
@@ -76,7 +76,7 @@
               <CommonDate :date="new Date()" />
             </div>
 
-            <div class="w-full flex flex-col gap-8 mt-4">
+            <div class="w-full flex flex-col gap-8 mt-8">
               <CardsLatest
                 v-for="(card, index) in arrNews"
                 :key="index"
@@ -108,6 +108,25 @@
                 </CommonButton>
               </div>
             </div>
+
+            <button
+              class="absolute top-[268px] right-0 border group border-solid border-blue-100 hover:border-blue-200 dark:hover:border-blue-100 rounded-l-lg z-[12] border-r-[0px] p-4 hidden lg:flex flex-col gap-4 transition-200 bg-white dark:bg-blue-100/[16%] dark:border-transparent"
+              :class="{ 'bg-blue-200 ': isOpen }"
+              @click="isOpen = !isOpen"
+            >
+              <i
+                class="icon-bell text-blue-200 text-2xl transition-200 group-hover:text-blue-200 dark:group-hover:text-blue-100"
+              />
+              <p
+                class="text-base leading-130 font-medium text-blue-200 group-hover:text-blue-200 vertical-text transition-200 dark:text-blue-100"
+              >
+                {{ $t('lenta_close') }}
+              </p>
+              <i
+                class="icon-close text-blue-200 group-hover:text-blue-200 dark:group-hover:text-blue-100 text-2xl transition-200"
+                :class="{ 'rotate-180': isOpen }"
+              />
+            </button>
 
             <div v-if="isNextMonth" class="mt-8">
               <div class="flex-center w-full">

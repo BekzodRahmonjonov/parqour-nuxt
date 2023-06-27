@@ -15,7 +15,7 @@
         class="py-[7px] rounded-full border border-solid border-white-300 px-4 dark:border-blue-600 transition-200"
       >
         <p
-          class="text-sm leading-130 font-semibold dark:text-white transition-200"
+          class="text-sm leading-130 font-semibold text-blue-200 dark:text-white transition-200"
         >
           {{ card?.time }}
         </p>
@@ -49,7 +49,7 @@
           class="p-2 bg-blue-100/[16%] rounded-full inline-flex items-center"
         >
           <i
-            class="icon-bolt text-xs text-dark-200 transition-200 dark:text-blue-100"
+            class="icon-bolt text-xs text-blue-200 transition-200 dark:text-blue-100"
           />
           <p
             class="text-blue-200 dark:text-blue-100 text-sm leading-126 font-semibold"
@@ -60,7 +60,7 @@
       </div>
 
       <p
-        class="mt-3 text-lg leading-130 font-normal text-blue-900 transition-200 dark:text-white"
+        class="mt-3 text-lg leading-130 font-normal text-blue-600 transition-200 dark:text-white"
       >
         {{ card?.title }}
       </p>
