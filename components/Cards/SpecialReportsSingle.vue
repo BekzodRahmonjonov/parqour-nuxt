@@ -1,9 +1,16 @@
 <template>
-  <NuxtLink :to="`/special-reports/${data.id}`" class="group inline-block w-full pr-5 md:pr-0">
+  <NuxtLink
+    :to="`/special-reports/${data.id}`"
+    class="group inline-block w-full pr-5 md:pr-0"
+  >
     <div
       class="p-3 !pl-[202px] h-full sm:p-5 bg-[#F5F5F8] w-full md:w-full rounded-lg text-dark relative transition-200 group-hover:-translate-y-1"
     >
       <p class="text-xs md:text-[14px] leading-20 mb-2 sm:mb-4 text-[#919299]">
+        <span
+          class="border border-[#A2BCDE] rounded-lg mr-4 leading-20 py-1 px-[10px] font-medium text-[12px] text-[#52618F]"
+          >{{ badgeText }}</span
+        >
         {{ dayjs(data?.date).locale(locale).format('DD MMM YYYY, HH:mm') }}
       </p>
       <p
@@ -41,6 +48,7 @@ const { locale } = useI18n()
 
 interface Props {
   data: object
+  badgeText: string
 }
 defineProps<Props>()
 </script>
