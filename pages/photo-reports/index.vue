@@ -31,7 +31,9 @@
           <AdvetisimentBanner />
         </template>
       </CommonPageWrapper>
+      <CommentsCommentUpload />
     </div>
+
   </div>
 </template>
 <script setup lang="ts">
