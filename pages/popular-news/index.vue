@@ -30,13 +30,15 @@
         :key="index"
         :data="item"
         class="min-h-[180px]"
-        badgeText="Экономика"
+        badge-text="Экономика"
       />
 
       <template #aside>
         <img src="https://picsum.photos/200/400" class="w-full" alt="" />
       </template>
     </CommonPageWrapper>
+
+
   </div>
 </template>
 <script setup lang="ts">
