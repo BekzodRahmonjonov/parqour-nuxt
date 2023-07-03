@@ -1,6 +1,6 @@
 <template>
   <div class="px-8 pt-[108px] pb-7 bg-img border border-[#52618f33] rounded-lg">
-    <div class="flex items-center justify-between">
+    <div class="flex items-center justify-between flex-wrap">
       <div class="flex gap-7">
         <div class="w-[140px] h-[140px]">
           <img :src="author.img" class="rounded-full" alt="" />
@@ -31,7 +31,7 @@
         </div>
       </div>
     </div>
-    <p class="mt-7 textSM text-blue-600">
+    <p class="mt-7 textSM !text-blue-600 dark:text-white">
       {{ author.fullInfo }}
     </p>
   </div>

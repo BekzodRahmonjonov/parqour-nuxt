@@ -2,7 +2,7 @@
   <div
     class="p-5 bg-white-700 w-full rounded-lg cursor-pointer hover:scale-105 transition-200 dark:bg-blue-600"
   >
-    <div class="flex justify-between">
+    <div class="flex justify-between flex-wrap">
       <div class="flex items-center gap-5">
         <div class="w-[92px] h-[92px]">
           <img :src="author.img" class="rounded-full" alt="" />
@@ -20,7 +20,9 @@
         </div>
       </div>
 
-      <CommonSocials class="flex h-full gap-2" />
+      <CommonSocials
+        class="flex h-full gap-2 w-full md:w-auto justify-center"
+      />
     </div>
   </div>
 </template>
