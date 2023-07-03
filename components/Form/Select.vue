@@ -32,10 +32,12 @@
         class="absolute top-full w-full bg-white border border-gray-100 rounded z-10 translate-y-3 overflow-hidden max-h-[240px] overflow-y-auto relative"
       >
         <slot name="options">
+          <div class="p-2 sticky w-full bg-white top-0">
+            <CommonSelectSearch
+              @handle-update-search="(e) => emit('handle-search', e)"
+            />
+          </div>
           <template v-if="options?.length">
-            <div class="p-2 sticky w-full bg-white top-0">
-              <SelectSearch />
-            </div>
             <div
               v-for="(option, idx) in options"
               :key="idx"
@@ -53,7 +55,15 @@
             </div>
           </template>
           <div v-else class="text-center py-2 text-sm text-dark">
-            {{ $t('no_data_country') }}
+            <img
+              src="/images/select-no-data.svg"
+              alt=""
+              class="mx-auto mb-2 pointer-events-none"
+            />
+            <p class="text-[13px] font-bold leading-136">
+              {{ $t('result_not_found') }}
+            </p>
+            <p class="text-xs leading-136">{{ $t('try_again_text') }}</p>
           </div>
           <div v-if="infiniteScroll" ref="target" class="py-0.5 w-full"></div>
         </slot>
@@ -65,6 +75,8 @@
 <script setup lang="ts">
 import { onClickOutside, useIntersectionObserver } from '@vueuse/core'
 import { defineEmits, defineProps, ref, watch } from 'vue'
+
+const searchOption = ref('')
 
 type TOption = string | number | { [key: string]: string | number }
 
@@ -89,6 +101,7 @@ const emit = defineEmits<{
   (e: 'on-toggle', value: boolean): void
   (e: 'update:modelValue', value: boolean): void
   (e: 'infinite-scroll'): void
+  (e: 'handle-search', value: string): void
 }>()
 
 const showOptions = ref(false)
@@ -101,7 +114,6 @@ function toggleSelect(newValue = showOptions.value) {
 }
 
 function findOption(option: TOption) {
-  console.log(option, 'option')
   return props.options.find((o) => o === option || o[props.valueKey] === option)
 }
 
@@ -139,7 +151,6 @@ watch(
 watch(
   () => props.modelValue,
   (val) => {
-    console.log(val, 'val')
     value.value = findOption(props.modelValue)
   },
   {
