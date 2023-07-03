@@ -1,28 +1,37 @@
 <template>
   <div class="thumb-example">
-    <div class="relative h-[480px] overflow-hidden">
+    <div class="relative h-[280px] sm:h-[320px] md:h-[480px] overflow-hidden">
       <div
-        class="slide-prev absolute-y-center left-5 z-50 w-12 h-12 flex-center rounded-full border-2 border-white/30 cursor-pointer hover:bg-white/10 transition-200"
+        class="slide-prev absolute-y-center left-3 md:left-5 z-50 w-8 h-8 md:w-12 md:h-12 flex-center rounded-full border-2 border-white/30 cursor-pointer hover:bg-blue-600 hover:border-transparent transition-200"
       >
-        <i class="icon-arrow-left text-white text-xl pointer-events-none"></i>
+        <i
+          class="icon-arrow-left text-white text-base md:text-xl pointer-events-none"
+        ></i>
       </div>
       <div
-        class="slide-next absolute-y-center right-5 z-50 w-12 h-12 flex-center rounded-full border-2 border-white/30 cursor-pointer hover:bg-white/10 transition-200"
+        class="slide-next absolute-y-center right-3 md:right-5 z-50 w-8 h-8 md:w-12 md:h-12 flex-center rounded-full border-2 border-white/30 cursor-pointer hover:bg-blue-600 hover:border-transparent transition-200"
       >
-        <i class="icon-arrow-right text-white text-xl pointer-events-none"></i>
+        <i
+          class="icon-arrow-right text-white text-base md:text-xl pointer-events-none"
+        ></i>
       </div>
       <swiper
         class="top-swiper"
         :modules="modules"
         :space-between="12"
-        :navigation="true"
         :grab-cursor="true"
+        :loop="true"
         :thumbs="{ swiper: thumbsSwiper }"
+        :navigation="{
+          nextEl: '.slide-next',
+          prevEl: '.slide-prev',
+        }"
       >
         <swiper-slide v-for="index in 12" :key="index" class="slide">
           <img :src="`https://picsum.photos/1024/968`" />
         </swiper-slide>
       </swiper>
+      <div class="linear-bg absolute top-0 left-0 w-full h-full"></div>
     </div>
 
     <swiper
@@ -34,10 +43,17 @@
       :grab-cursor="true"
       :prevent-clicks="false"
       :prevent-clicks-propagation="false"
+      :breakpoints="thumbBreakpoints"
       @swiper="setThumbsSwiper"
     >
-      <swiper-slide v-for="index in 12" :key="index" class="slide">
-        <img :src="`https://picsum.photos/1024/968`" />
+      <swiper-slide v-for="index in 12" :key="index" class="slide relative">
+        <img
+          :src="`https://picsum.photos/1024/968`"
+          class="absolute top-0 left-0 w-full h-full rounded-md"
+        />
+        <div
+          class="thumbs-bg absolute top-0 left-0 w-full h-full border-2 border-blue-100 rounded"
+        ></div>
       </swiper-slide>
     </swiper>
   </div>
@@ -60,14 +76,20 @@ const setThumbsSwiper = (swiper: SwiperClass) => {
 
 const modules = [Navigation, Thumbs, Pagination]
 
-// const settingsFirst = {
-//   spaceBetween: 12,
-//   navigation: {
-//     nextEl: '.slide-next',
-//     prevEl: '.slide-prev',
-//   },
-//   grabCursor
-// }
+const thumbBreakpoints = {
+  '320': {
+    slidesPerView: 4,
+    spaceBetween: 12,
+  },
+  '492': {
+    slidesPerView: 5,
+    spaceBetween: 12,
+  },
+  '768': {
+    slidesPerView: 9,
+    spaceBetween: 12,
+  },
+}
 </script>
 
 <style scoped>
@@ -82,7 +104,7 @@ const modules = [Navigation, Thumbs, Pagination]
   width: 100%;
   height: 100%;
   object-fit: cover;
-  border-radius: 4px;
+  border-radius: 3px;
 }
 
 .top-swiper {
@@ -100,9 +122,24 @@ const modules = [Navigation, Thumbs, Pagination]
   width: 80px;
   height: 48px;
   opacity: 1;
+  /*border: 2px solid #a2bcde;*/
+  border-radius: 4px;
+  background-color: rgba(25, 31, 46, 0) !important;
 }
 
 .thumbs-swiper .slide:not(.swiper-slide-thumb-active) {
-  opacity: 0.4;
+  background-color: rgba(25, 31, 46, 0.28) !important;
+}
+
+.thumbs-swiper .slide:not(.swiper-slide-thumb-active) .thumbs-bg {
+  border: 2px solid transparent;
+}
+.linear-bg {
+  background: linear-gradient(
+    90deg,
+    rgba(25, 31, 46, 0.53) 0%,
+    rgba(25, 31, 46, 0) 53.13%,
+    rgba(25, 31, 46, 0.53) 100%
+  );
 }
 </style>
