@@ -19,8 +19,16 @@
         >
           <div
             class="text-xs text-white font-bold px-[10px] py-[6px] bg-blue-700/40 rounded mb-3"
+            :class="small ? 'hidden' : 'block'"
           >
             {{ index + 1 }}/{{ card?.images.length }}
+          </div>
+          <div
+            class="text-lg text-white font-bold px-3 py-2.5 bg-blue-700/40 rounded mb-3 leading-130"
+            :class="small ? 'flex' : 'hidden'"
+          >
+            {{ card?.images.length }}
+            <p v-if="card?.images.length > 1">+</p>
           </div>
           <p class="text-white text-base font-medium leading-6">
             {{ card?.title }}
