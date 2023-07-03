@@ -71,7 +71,7 @@
         </p>
         <!--        Social links-->
         <div v-if="isVisible">
-          <ul :key="trigger" class="flex-y-center gap-3">
+          <ul class="flex-y-center gap-3">
             <li v-for="(social, idx) in socials" :key="idx">
               <a
                 v-tooltip="social?.name"
@@ -103,7 +103,6 @@
 <script setup lang="ts">
 import { useRoute } from 'vue-router'
 
-const trigger = ref(true)
 const { t } = useI18n()
 
 const route = useRoute()
