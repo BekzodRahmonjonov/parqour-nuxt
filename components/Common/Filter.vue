@@ -1,6 +1,6 @@
 <template>
   <button
-    class="text-sm transition-200 hover:bg-blue-200 dark:text-white hover:text-white font-medium leading-126 p-2 rounded-[30px] bg-[#a2bcde29] text-blue-200"
+    class="text-sm transition-200 hover:bg-blue-200 dark:text-blue-100 dark:hover:text-blue-600 dark:hover:bg-white hover:text-white font-medium leading-126 p-2 rounded-[30px] bg-[#a2bcde29] text-blue-200"
   >
     {{ text }}
   </button>

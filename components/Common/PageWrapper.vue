@@ -3,6 +3,7 @@
     <main class="col-span-9 md:col-span-9">
       <h2 class="page-title">{{ title }}</h2>
       <p
+        v-if="text"
         class="text-slate-500 text-sm font-normal leading-tight mb-8 transition-200 dark:text-white"
       >
         {{ text }}

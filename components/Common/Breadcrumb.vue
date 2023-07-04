@@ -1,9 +1,12 @@
 <template>
   <div
-    class="py-[9px] w-full mt-2 bg-[#F5F6F9] hidden-on-print overflow-x-scroll scrollbar-hide bg-white-400 dark:bg-transparent"
+    class="py-[9px] pt-4 w-full bg-white-100 dark:bg-blue-600 hidden-on-print overflow-x-scroll scrollbar-hide bg-white-400"
   >
     <div class="container flex items-center gap-2 md:overflow-hidden">
-      <NuxtLink to="/" class="text-blue-150 leading-140 text-sm font-medium">
+      <NuxtLink
+        to="/"
+        class="text-blue-150 leading-140 text-sm font-medium dark:text-blue-100"
+      >
         {{ $t('home') }}
       </NuxtLink>
       <div
@@ -18,7 +21,7 @@
             'pointer-events-none text-gray-200 font-normal':
               index === menu?.length - 1,
           }"
-          class="transition-200 flex cursor-pointer items-center text-blue-150 font-medium text-sm leading-140 min-w-max group-last:min-w-[100px] sm:group-last:min-w-[200px] hover:!text-purple breadcrumb-menu line-clamp-1 whitespace-nowrap"
+          class="transition-200 flex cursor-pointer items-center text-blue-150 dark:text-white font-medium text-sm leading-140 min-w-max group-last:min-w-[100px] sm:group-last:min-w-[200px] hover:!text-purple breadcrumb-menu line-clamp-1 whitespace-nowrap"
         >
           {{ item?.title }}
         </NuxtLink>
