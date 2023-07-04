@@ -10,7 +10,7 @@
     <transition name="dropdown">
       <ul
         v-if="dropDownActive"
-        class="rounded-md shadow-[0_4px_36px_rgba(56,56,56,0.16)] border border-[#E0DCDE] right-0 w-full h-auto absolute !z-[10] flex flex-col cursor-pointer bg-dark-500"
+        class="rounded-md mt-2 shadow-[0_4px_36px_rgba(56,56,56,0.16)] border dark:border-0 dark:bg-blue-800 border-[#E0DCDE] right-0 w-full h-auto absolute !z-[10] flex flex-col cursor-pointer bg-dark-500"
         :class="[listStyle, above ? 'bottom-[60px]' : 'top-7']"
         @click="onClickAway"
       >
@@ -35,7 +35,7 @@ const props = withDefaults(defineProps<Props>(), {
   buttonClass: '',
 })
 
-const emit = defineEmits(['change'])
+const emit = defineEmits(['change', 'clickAway'])
 const dropDownActive = ref(false)
 
 const onClick = () => {
@@ -45,6 +45,7 @@ const onClick = () => {
 
 function onClickAway() {
   dropDownActive.value = false
+  emit('clickAway', dropDownActive.value)
 }
 
 watch(

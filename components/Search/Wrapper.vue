@@ -15,6 +15,7 @@
       @update:model-value="handleUpdateSearch"
       @enter="handleEnter"
     >
+      <!-- Fix it @enter kiddo -->
       <template #prefix>
         <span
           class="icon-magnifer text-base text-blue-200 dark:text-blue-100"
@@ -89,6 +90,7 @@ const handleUpdateSearch = (value: string) => {
 }
 
 const handleEnter = () => {
+  clear()
   console.log('enter')
   router.push({
     path: localePath('/search'),

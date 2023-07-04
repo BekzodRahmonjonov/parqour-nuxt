@@ -3,7 +3,11 @@
     <div class="flex items-center justify-between flex-wrap">
       <div class="flex gap-7">
         <div class="w-[140px] h-[140px]">
-          <img :src="author.img" class="rounded-full" alt="" />
+          <img
+            :src="author.img"
+            class="rounded-full border-2 border-blue-100"
+            alt=""
+          />
         </div>
 
         <div class="flex flex-col self-end gap-4">
@@ -31,7 +35,7 @@
         </div>
       </div>
     </div>
-    <p class="mt-7 textSM !text-blue-600 dark:text-white">
+    <p class="mt-7 textSM !text-blue-600 dark:!text-white">
       {{ author.fullInfo }}
     </p>
   </div>
@@ -60,5 +64,9 @@ defineProps<Props>()
   background-repeat: no-repeat;
   background-position: left top;
   background-size: 100% 140px;
+}
+
+.dark .bg-img {
+  background-image: url('/images/dark-bg-author.png');
 }
 </style>

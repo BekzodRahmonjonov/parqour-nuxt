@@ -24,6 +24,7 @@ export default <Partial<Config>>{
       colors: {
         dark: {
           DEFAULT: '#2D2D2B',
+          200: '#222B3F',
         },
         blue: {
           100: '#A2BCDE',
@@ -70,6 +71,7 @@ export default <Partial<Config>>{
       fontSize: {
         44: ['44px', '52px'],
         28: '28px',
+        32: '32px',
       },
       fontFamily: {
         ibm: "IBM Plex Serif', serif;",
