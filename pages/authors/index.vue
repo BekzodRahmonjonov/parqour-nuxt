@@ -22,7 +22,7 @@
         </div>
         <CommonButton
           :loading="isLoading"
-          class="w-full text-blue-600 !bg-[#52618f1a] font-medium leading-125 mt-8 dark:text-white"
+          class="w-full text-blue-600 !bg-[#52618f1a] font-medium leading-125 mt-8"
           @click="loadMore"
         >
           <span class="icon-double rotate-90 mr-[10px] text-xl"></span>
@@ -52,7 +52,7 @@ const loadMore = () => {
     name: 'Жасурбек Жабборов',
     img: '/images/face.png',
     about:
-      'Ведущий специалист организационно-социального отдела Центрального Правления Общества слепых Узбекистана',
+      'Ведущий специалист  Правления Общества слепых Узбекистана  Правления Общества слепых Узбекистана',
   }
   setTimeout(() => {
     isLoading.value = false

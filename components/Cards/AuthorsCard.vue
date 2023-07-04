@@ -1,6 +1,6 @@
 <template>
   <div
-    class="p-5 bg-white-700 dark:bg-dark-200 w-full group rounded-lg cursor-pointer hover:bg-[#a2bcde33] transition-200 dark:hover:bg-blue-600"
+    class="p-5 relative bg-white-700 dark:bg-dark-200 w-full group rounded-lg cursor-pointer hover:bg-[#a2bcde33] transition-200 dark:hover:bg-blue-600"
   >
     <div class="flex justify-between flex-wrap">
       <div class="flex items-center gap-5">
@@ -20,9 +20,7 @@
         </div>
       </div>
 
-      <CommonSocials
-        class="flex h-full gap-2 w-full md:w-auto justify-center"
-      />
+      <CommonSocials class="absolute top-5 right-5 flex items-center gap-2" />
     </div>
   </div>
 </template>

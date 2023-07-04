@@ -16,7 +16,7 @@
         <CommonButton
           @click="loadMore"
           :loading="isLoading"
-          class="w-full text-blue-600 !bg-[#52618f1a] font-medium leading-125 mt-8 dark:text-white"
+          class="w-full text-blue-600 !bg-[#52618f1a] font-medium leading-125 mt-8"
         >
           <span class="icon-double rotate-90 mr-[10px] text-xl"></span>
           {{ $t('load_more') }}</CommonButton
