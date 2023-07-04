@@ -18,8 +18,8 @@
         <li
           v-for="(item, i) in sort"
           :key="i"
-          @click="onClick(i)"
           class="p-3 hover:bg-[#F5F6F9] rounded-md font-medium leading-130 text-blue-700 transition-300"
+          @click="onClick(i)"
         >
           {{ item }}
         </li>
@@ -37,8 +37,6 @@
         <img src="https://picsum.photos/200/400" class="w-full" alt="" />
       </template>
     </CommonPageWrapper>
-
-
   </div>
 </template>
 <script setup lang="ts">

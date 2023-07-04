@@ -111,7 +111,7 @@
             </div>
 
             <button
-              class="absolute top-[268px] right-0 border group border-solid border-blue-100 hover:border-blue-200 dark:hover:border-blue-100 rounded-l-lg z-[12] border-r-[0px] p-4 hidden lg:flex flex-col gap-4 transition-200 bg-white dark:bg-blue-100/[16%] dark:border-transparent"
+              class="fixed top-[268px] right-0 group border border-solid border-transparent bg-[#a2bcde29] hover:bg-transparent hover:border-blue-200 dark:hover:border-blue-100 rounded-l-lg z-[12] border-r-[0px] p-4 hidden lg:flex flex-col gap-4 transition-200 dark:bg-blue-100/[16%] dark:border-transparent"
               :class="{ 'bg-blue-200': isOpen, 'animate-slide-in': isOpen }"
               @click="isOpen = !isOpen"
             >

@@ -70,23 +70,25 @@
           © 2015-2023 UzNews.uz
         </p>
         <!--        Social links-->
-        <div v-if="isVisible">
-          <ul class="flex-y-center gap-3">
-            <li v-for="(social, idx) in socials" :key="idx">
-              <a
-                v-tooltip="social?.name"
-                :href="social?.link"
-                target="_blank"
-                class="text-white text-base w-9 h-9 rounded-full flex-center hover:text-white transition-200"
-              >
-                <i
-                  class="text-blue-100 text-2xl hover:text-white"
-                  :class="`icon-${social?.icon}`"
-                ></i>
-              </a>
-            </li>
-          </ul>
-        </div>
+        <Transition name="fade" mode="out-in">
+          <div v-if="$route?.path !== '/'">
+            <ul class="flex-y-center gap-3">
+              <li v-for="(social, idx) in socials" :key="idx">
+                <a
+                  v-tooltip="social?.name"
+                  :href="social?.link"
+                  target="_blank"
+                  class="text-white text-base w-9 h-9 rounded-full flex-center hover:text-white transition-200"
+                >
+                  <i
+                    class="text-blue-100 text-2xl hover:text-white"
+                    :class="`icon-${social?.icon}`"
+                  ></i>
+                </a>
+              </li>
+            </ul>
+          </div>
+        </Transition>
         <!--        Social links-->
 
         <div class="flex-y-center gap-2">
@@ -104,9 +106,6 @@
 import { useRoute } from 'vue-router'
 
 const { t } = useI18n()
-
-const route = useRoute()
-const isVisible = route.path !== '/'
 
 const socials = computed(() => [
   {
