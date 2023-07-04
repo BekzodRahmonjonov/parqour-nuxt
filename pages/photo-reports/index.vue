@@ -28,17 +28,14 @@
           >
         </div>
         <template #aside>
-          <AdvetisimentBanner />
+          <TempAdvetisimentBanner />
         </template>
       </CommonPageWrapper>
-      <CommentsCommentUpload />
     </div>
-
+    <CommentsCommentUpload class="container mb-10" />
   </div>
 </template>
 <script setup lang="ts">
-import AdvetisimentBanner from '~/components/Temp/AdvetisimentBanner.vue'
-import { columns } from '~/data'
 import { analysisData } from '~/data/fakeData'
 
 const copyOfAnalysisData = ref([...analysisData])
@@ -48,8 +45,7 @@ const loadMore = () => {
   isLoading.value = true
   const additionData = {
     title: 'business',
-    text: 'analysiscardtext4',
-    bg: '/images/analysis/card4.png',
+    images: 'https://picsum.photos/800/701',
   }
   setTimeout(() => {
     isLoading.value = false
