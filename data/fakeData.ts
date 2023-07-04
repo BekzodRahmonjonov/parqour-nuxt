@@ -110,3 +110,8 @@ export const coverData = {
   image: 'https://picsum.photos/1024/968',
   video: 'https://youtu.be/KJwYBJMSbPI',
 }
+
+export const fakeFotoData = {
+  title: 'Министру цифровых технологий Узбекистана определили заместителей',
+  image: 'https://picsum.photos/1024/968',
+}

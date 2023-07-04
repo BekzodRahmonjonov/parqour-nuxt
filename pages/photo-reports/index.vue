@@ -1,29 +1,61 @@
 <template>
-  <div class="container">
-    <CommonPageWrapper
-      :title="$t('photo_reports')"
-      :text="$t('photo_reports_text')"
-      class="mt-8"
-    >
-      <CardsPhotoReportSliderCard :card="image" main class="mb-11" />
-      <div class="grid grid-cols-2 gap-8 mb-14">
-        <CardsPhotoReportSliderCard
-          v-for="(item, index) in columns"
-          :key="index"
-          :card="image"
-          class="min-h-[250px]"
-          :small="true"
-        />
-      </div>
-      <template #aside>
-        <img src="https://picsum.photos/200/400" class="w-full" alt="" />
-      </template>
-    </CommonPageWrapper>
+  <div>
+    <CommonBreadcrumb :menu="[{ title: 'Разборы', link: '/' }]" />
+    <div class="container">
+      <CommonPageWrapper
+        :title="$t('photo_reports')"
+        :text="$t('photo_reports_text')"
+        class="mt-8"
+      >
+        <CardsPhotoReportSliderCard :card="image" main class="mb-11" />
+        <div>
+          <div class="grid grid-cols-2 gap-8 mb-14">
+            <CardsPhotoReportSliderCard
+              v-for="(item, index) in 4"
+              :key="index"
+              :card="image"
+              class="min-h-[250px]"
+              :small="true"
+            />
+          </div>
+          <CommonButton
+            :loading="isLoading"
+            class="w-full text-blue-600 !bg-[#52618f1a] font-medium leading-125 mt-8 mb-16"
+            @click="loadMore"
+          >
+            <span class="icon-double rotate-90 mr-[10px] text-xl"></span>
+            {{ $t('load_more') }}</CommonButton
+          >
+        </div>
+        <template #aside>
+          <AdvetisimentBanner />
+        </template>
+      </CommonPageWrapper>
+      <CommentsCommentUpload />
+    </div>
+
   </div>
 </template>
 <script setup lang="ts">
+import AdvetisimentBanner from '~/components/Temp/AdvetisimentBanner.vue'
 import { columns } from '~/data'
+import { analysisData } from '~/data/fakeData'
 
+const copyOfAnalysisData = ref([...analysisData])
+const isLoading = ref(false)
+
+const loadMore = () => {
+  isLoading.value = true
+  const additionData = {
+    title: 'business',
+    text: 'analysiscardtext4',
+    bg: '/images/analysis/card4.png',
+  }
+  setTimeout(() => {
+    isLoading.value = false
+    copyOfAnalysisData.value.push(additionData)
+  }, 1000)
+}
 const image = {
   title:
     'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Hic, maxime!',
@@ -33,6 +65,14 @@ const image = {
     'https://picsum.photos/800/702',
     'https://picsum.photos/800/703',
     'https://picsum.photos/800/704',
+    'https://picsum.photos/800/705',
+    'https://picsum.photos/800/706',
+    'https://picsum.photos/800/707',
+    'https://picsum.photos/800/708',
+    'https://picsum.photos/800/709',
+    'https://picsum.photos/800/710',
+    'https://picsum.photos/800/711',
+    'https://picsum.photos/800/712',
   ],
 }
 </script>

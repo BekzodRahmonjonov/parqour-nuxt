@@ -13,13 +13,17 @@
       </div>
       <div class="max-w-[274px] my-6">
         <FormSelect
-          :options="categories"
+          :options="options"
           search
           :placeholder="$t('all_authors')"
+          @handle-search="(e: string) => search = e"
         />
       </div>
-      <div class="max-w-[886px]">
+      <div v-if="false" class="max-w-[886px]">
         <PhotoReportSlider :images="images" />
+      </div>
+      <div class="mt-20">
+        <CommonLikeDislike />
       </div>
     </div>
   </div>
@@ -29,8 +33,8 @@
 import PhotoReportSlider from '~/components/Slider/PhotoReportSlider.vue'
 
 const contactModal = ref(false)
-
-const categories = [
+const search = ref('')
+const categories = ref([
   {
     id: 1,
     name: 'Все',
@@ -66,8 +70,18 @@ const categories = [
     name: 'Разборы',
     value: 'analysis',
   },
-]
-
+])
+const options = computed(() => {
+  const list = ref()
+  if (search.value) {
+    list.value = categories.value.filter((el: any) =>
+      el.name.includes(search.value)
+    )
+  } else {
+    list.value = categories.value
+  }
+  return list.value
+})
 const images = [
   {
     id: 1,
@@ -82,4 +96,9 @@ const images = [
       'http://toshkent-parfum.uicgroup.tech/media/manufacturers/channel.svg',
   },
 ]
+
+const handleSearch = (e: string) => {
+  categories.value.filter((el: any) => el.value.includes(e))
+  console.log(categories.value)
+}
 </script>
