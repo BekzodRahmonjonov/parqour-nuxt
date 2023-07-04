@@ -1,6 +1,6 @@
 <template>
   <div
-    class="p-5 bg-white-700 dark:bg-dark-200 w-full rounded-lg cursor-pointer hover:bg-[#a2bcde33] transition-200 dark:hover:bg-blue-600"
+    class="p-5 bg-white-700 dark:bg-dark-200 w-full group rounded-lg cursor-pointer hover:bg-[#a2bcde33] transition-200 dark:hover:bg-blue-600"
   >
     <div class="flex justify-between flex-wrap">
       <div class="flex items-center gap-5">
@@ -10,7 +10,7 @@
 
         <div class="flex flex-col justify-center">
           <h2
-            class="text-xl font-semibold leading-140 text-blue-700 dark:text-white"
+            class="text-xl font-semibold leading-140 text-blue-700 dark:text-white dark:group-hover:text-blue-100 transition-200"
           >
             {{ author.name }}
           </h2>
