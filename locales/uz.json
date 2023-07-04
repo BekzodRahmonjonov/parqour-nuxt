@@ -61,6 +61,7 @@
   "contact_modal": "Biz bilan aloqa",
   "authors_text": "Добро пожаловать на раздел 'Авторы' нашего новостного сайта! В этом разделе мы хотели бы представить наших талантливых авторов, которые работают над созданием интересного и актуального контента для наших читателей.",
   "authors": "Авторы",
+  "search_result": "Результаты поиска",
   "how_do_you_connect": "Sizni qanday chaqirishimiz mumkin?",
   "enter_name": "Ismingizni kiriting",
   "phone_number": "Telefon raqami",
@@ -74,5 +75,5 @@
   "interview_sub": "Bu yerda siz eng dolzarb mavzular va voqealar haqida ko'proq ma'lumot olishga yordam beradigan qiziqarli shaxslar, ekspertlar va taniqli shaxslar bilan noyob va ma'lumotli suhbatlarni topasiz.",
   "all_authors": "Barcha mualliflar",
   "terms_of_use": "Foydalanish shartlari",
-  "advertisings":"Реклама на сайте"
+  "advertisings": "Реклама на сайте"
 }
