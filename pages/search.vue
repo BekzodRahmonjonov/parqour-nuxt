@@ -3,7 +3,7 @@
     <CommonPageWrapper :title="$t('search_result')" class="mt-8">
       <FormInput
         :model-value="search"
-        class="transition-200 !px-2.5 py-[10px] !absolute w-[86%] sm:w-[90%] md:w-[93%] lg:w-full right-12 z-30 !left-[3px] !top-[2px] transition-all duration-300 lg:!relative lg:!right-0 lg:!left-0 lg:!top-0"
+        class="transition-200 mt-4 !px-2.5 py-[10px] !absolute w-[86%] sm:w-[90%] md:w-[93%] lg:w-full right-12 z-30 !left-[3px] !top-[2px] transition-all duration-300 lg:!relative lg:!right-0 lg:!left-0 lg:!top-0"
         :placeholder="$t('search')"
         :class="[
           searchTrigger
@@ -38,7 +38,7 @@
         />
       </div>
 
-      <div class="grid gap-6 mt-6">
+      <div v-if="search.length < 6" class="grid gap-6 mt-6">
         <CardsSpecialReportsSingle
           v-for="(item, index) in copyOfspecialReports"
           :key="index"
@@ -54,6 +54,7 @@
           badge-text="Экономика"
         />
       </div>
+      <CommonNoData v-else class="mt-16" />
       <div ref="target"></div>
       <Transition name="fade">
         <div v-if="loading" class="flex-center py-10">

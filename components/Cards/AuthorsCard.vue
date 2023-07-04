@@ -1,6 +1,6 @@
 <template>
   <div
-    class="p-5 bg-white-700 w-full rounded-lg cursor-pointer hover:scale-105 transition-200 dark:bg-blue-600"
+    class="p-5 bg-white-700 dark:bg-dark-200 w-full rounded-lg cursor-pointer hover:bg-[#a2bcde33] transition-200 dark:hover:bg-blue-600"
   >
     <div class="flex justify-between flex-wrap">
       <div class="flex items-center gap-5">
@@ -14,7 +14,7 @@
           >
             {{ author.name }}
           </h2>
-          <p class="text-sm leading-140 text-blue-200 dark:text-white">
+          <p class="text-sm leading-140 text-blue-200 dark:text-gray-100">
             {{ author.about }}
           </p>
         </div>

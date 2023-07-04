@@ -1,14 +1,14 @@
 <template>
-  <div>
+  <div class="relative z-20">
     <a
-      class="border-[#a2bcde4d] border rounded-md flex items-center justify-center p-1"
+      class="rounded-md flex group transition-200 items-center justify-center"
       v-for="(item, i) in icons"
       :key="i"
       :href="item.url"
       target="_blank"
     >
       <span
-        class="text-blue-200 dark:text-white hover:text-blue-100 cursor-pointer transition-200"
+        class="text-blue-200 rounded-md dark:text-blue-100 border-[#a2bcde4d] hover:border-blue-150 border dark:hover:text-white hover:text-white hover:bg-blue-150 p-1 cursor-pointer transition-200"
         :class="item.icon"
       ></span>
     </a>
