@@ -1,6 +1,6 @@
 <template>
   <div
-    class="py-[9px] w-full bg-[#F5F6F9] hidden-on-print overflow-x-scroll scrollbar-hide bg-white-400 dark:bg-transparent"
+    class="py-[9px] w-full mt-2 bg-[#F5F6F9] hidden-on-print overflow-x-scroll scrollbar-hide bg-white-400 dark:bg-transparent"
   >
     <div class="container flex items-center gap-2 md:overflow-hidden">
       <NuxtLink to="/" class="text-blue-150 leading-140 text-sm font-medium">
