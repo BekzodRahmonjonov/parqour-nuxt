@@ -11,7 +11,7 @@
       <slot />
     </main>
     <aside class="col-span-3 md:col-span-3">
-      <div class="mt-14 w-full h-full">
+      <div class="w-full h-full">
         <slot name="aside" />
       </div>
     </aside>

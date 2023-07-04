@@ -27,6 +27,7 @@
           </nuxt-link>
         </div>
         <CommonButton
+          v-if="!preloader"
           @click="loadMore"
           :loading="isLoading"
           class="w-full text-blue-600 dark:text-blue-100 hover:!text-white !bg-[#52618f1a] font-medium leading-125 mt-8"
@@ -35,7 +36,7 @@
           {{ $t('load_more') }}</CommonButton
         >
         <template #aside>
-          <img src="https://picsum.photos/200/400" class="w-full" alt="" />
+          <TempAdvetisimentBanner class="mt-11" />
         </template>
       </CommonPageWrapper>
     </div>

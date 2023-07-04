@@ -64,7 +64,7 @@
         >
 
         <template #aside>
-          <img src="https://picsum.photos/200/400" class="w-full" alt="" />
+          <TempAdvetisimentBanner />
         </template>
       </CommonPageWrapper>
     </div>
