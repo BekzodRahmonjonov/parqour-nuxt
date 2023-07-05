@@ -5,7 +5,16 @@
       <CommonPageWrapper class="mt-8">
         <h1 class="page-title">Популярное</h1>
         <div class="flex items-center gap-3 flex-wrap mt-4">
-          <CommonFilter v-for="(item, i) in filters" :key="i" :text="item" />
+          <CommonFilter
+            v-for="(item, i) in filters"
+            :key="i"
+            :text="item.text"
+            :class="{
+              'bg-blue-200 text-white dark:text-blue-600 dark:bg-white':
+                item.isActive,
+            }"
+            @click="makeActive(i)"
+          />
 
           <CommonDropdown
             class="bg-[#F5F6F9] rounded-md md:ml-auto dark:bg-blue-800"
@@ -37,24 +46,19 @@
             </li>
           </CommonDropdown>
         </div>
-        <div class="flex flex-col gap-6 mt-8">
-          <CardsSpecialReportsSingle
-            v-for="(item, index) in copyOfspecialReports"
-            :key="index"
-            :data="item"
-            class="min-h-[180px]"
-            badge-text="Экономика"
-          />
-          <CardsSpecialReportsSingle
-            v-for="(item, index) in copyOfspecialReports"
-            :key="index"
-            :data="item"
-            class="min-h-[180px]"
-            badge-text="Экономика"
+        <div class="flex flex-col gap-6 mt-8" v-if="preloader">
+          <BlockLoaderSpecialReports v-for="item in 5" :key="item" />
+        </div>
+        <div v-else class="flex flex-col gap-6 mt-8">
+          <CardsPopularCard
+            v-for="(item, i) in copyOfpopularNews"
+            :key="i"
+            :news="item"
           />
         </div>
 
         <CommonButton
+          v-if="!preloader"
           @click="loadMore"
           :loading="isLoading"
           class="w-full text-blue-600 !bg-[#52618f1a] font-medium leading-125 mt-8 dark:text-white"
@@ -71,15 +75,45 @@
   </div>
 </template>
 <script setup lang="ts">
-import { specialReports } from '~/data'
+import { popular_news } from '~/data'
 import { useI18n } from 'vue-i18n'
 
 const { t } = useI18n()
 const sort = ref(['За неделью', 'За все время'])
 const activeSortI = ref(0)
-const filters = ['Все', 'Новости', 'Статьи', 'Фоторепортажи', 'Колонки']
+const filters = ref([
+  {
+    isActive: false,
+    text: 'Все',
+  },
+  {
+    isActive: false,
+    text: 'Новости',
+  },
+  {
+    isActive: false,
+    text: 'Статьи',
+  },
+  {
+    isActive: false,
+    text: 'Фоторепортажи',
+  },
+  {
+    isActive: false,
+    text: 'Колонки',
+  },
+])
+
+const makeActive = (index: number) => {
+  filters.value.forEach((item, i) => {
+    if (index == i) {
+      item.isActive = !item.isActive
+    }
+  })
+}
 const activeDropdown = ref(false)
 const menu = [{ title: t('popular'), link: '/popular' }]
+const preloader = ref(true)
 
 const onClick = (index: number) => {
   activeSortI.value = index
@@ -93,25 +127,29 @@ const onClickAway = () => {
   activeDropdown.value = false
 }
 
-const copyOfspecialReports = ref([...specialReports])
+const copyOfpopularNews = ref([...popular_news])
 const isLoading = ref(false)
-let counter = 4
 
 const loadMore = () => {
   isLoading.value = true
   const additionData = {
-    id: 1,
-    title: 'Что происходит с ценами на аренду жилья в Ташкенте',
-    image: '/images/news/bulid.jpg',
-    author: 'Дарья Пензова',
-    created_at: '2023-06-07',
-    views_count: 1234,
-    userName: 'Абдулла',
+    img: '/images/news/bulid.jpg',
+    badge: 'Экономика',
+    publishedTime: 'Сегодня, 13:25',
+    title:
+      'В ташкентском аэропортах горизонт отменили и задержали около 40 рейсов',
+    description:
+      'Документы отражают сотрудничество в химической, электротехнической, автомобилестроительной, текстильной промышленности и других сферах.',
+    views: 223,
   }
 
   setTimeout(() => {
     isLoading.value = false
-    copyOfspecialReports.value.push(additionData)
+    copyOfpopularNews.value.push(additionData)
   }, 1000)
 }
+
+setTimeout(() => {
+  preloader.value = false
+}, 1000)
 </script>
