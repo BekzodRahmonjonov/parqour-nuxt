@@ -2,7 +2,7 @@
   <div class="container pb-16">
     <CommonPageWrapper :title="$t('search_result')" class="mt-8">
       <FormInput
-        :model-value="search"
+        v-model="search"
         class="transition-200 mt-4 !px-2.5 py-[10px] !absolute w-[86%] sm:w-[90%] md:w-[93%] lg:w-full right-12 z-30 !left-[3px] !top-[2px] transition-all duration-300 lg:!relative lg:!right-0 lg:!left-0 lg:!top-0"
         :placeholder="$t('search')"
         :class="[
@@ -76,7 +76,7 @@ const loading = ref(false)
 const target = ref(null)
 const preloader = ref(true)
 
-search.value = route.query?.q
+// search.value = route.query?.q
 // watch(route, () => {
 //   console.log(route.query.q)
 //   search.value = route.query.q
