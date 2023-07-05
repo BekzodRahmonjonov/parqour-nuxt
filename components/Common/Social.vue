@@ -1,5 +1,6 @@
 <template>
-  <div class="flex-y-center gap-2.5 group cursor-pointer">
+  <a :href="social?.url"
+      class="flex-y-center gap-2.5 group">
     <div
       class="flex-center w-10 md:w-[50px] h-10 md:h-[50px] rounded-full transition-200 bg-[#E7EEF6] dark:bg-[#44526E] group-hover:bg-blue-100 dark:group-hover:bg-blue-100"
     >
@@ -21,7 +22,8 @@
         {{ formatNumberWithSpaces(social?.subscribe) }}
       </p>
     </div>
-  </div>
+  </a>
+
 </template>
 
 <script setup lang="ts">
