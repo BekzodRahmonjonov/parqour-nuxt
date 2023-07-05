@@ -1,14 +1,14 @@
 <template>
   <div class="container pb-16">
-    <div v-if="preloader" class="grid gap-5">
-      <BlockColumnShimmer v-for="item in 6" :key="item" />
-    </div>
     <CommonPageWrapper
       :title="$t('column')"
       :text="$t('column_text')"
       class="mt-8"
     >
-      <div class="grid grid-cols-3 gap-8">
+      <div v-if="preloader" class="grid grid-cols-3 gap-8">
+        <BlockColumnShimmer v-for="item in 6" :key="item" />
+      </div>
+      <div v-if="!preloader" class="grid grid-cols-3 gap-8">
         <CardsColumn
           v-for="(item, index) in columns"
           :key="index"
@@ -26,4 +26,8 @@
 import { columns } from '~/data'
 
 const preloader = ref(true)
+
+setTimeout(() => {
+  preloader.value = false
+}, 1000)
 </script>
