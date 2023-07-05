@@ -3,7 +3,6 @@
     <div v-if="preloader" class="grid gap-5">
       <BlockColumnShimmer v-for="item in 6" :key="item" />
     </div>
-
     <CommonPageWrapper
       :title="$t('column')"
       :text="$t('column_text')"

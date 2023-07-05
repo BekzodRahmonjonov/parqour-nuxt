@@ -7,9 +7,12 @@
         {{ single.title }}
       </h2>
       <div class="my-4 flex items-center gap-4">
-        <span class="text-blue-200 text-sm font-normal leading-tight">{{
-          dayjs(single.created_at).format('DD MMMM, HH:mm')
-        }}</span>
+        <span class="text-blue-200 text-sm font-normal leading-tight">
+          <i
+            class="icon-calendar-dotted group-odd:text-white/60 group-even:text-gray mr-1"
+          ></i>
+          {{ dayjs(single.created_at).format('DD MMMM, HH:mm') }}</span
+        >
         <p
           class="text-blue-200 text-sm font-normal leading-tight flex items-center"
         >
@@ -42,9 +45,9 @@
         />
         <figcaption
           v-if="single.author"
-          class="text-neutral-400 text-xs font-normal leading-none mt-2"
+          class="text-neutral-400 text-xs font-normal leading-none mt-2 italic"
         >
-          © Фото: <span class="italic">{{ single.author }}</span>
+          © Фото: {{ single.author }}
         </figcaption>
       </figure>
       <div
@@ -58,6 +61,15 @@
         <slot name="aside" />
       </div>
     </aside>
+  </div>
+  <div>
+    <div class="flex items-center gap-4">
+      <h3
+        class="text-blue-600 dark:text-white text-[24px] font-bold leading-10"
+      >
+        Читайте также
+      </h3>
+    </div>
   </div>
 </template>
 <script setup lang="ts">
