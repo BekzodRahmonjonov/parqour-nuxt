@@ -1,34 +1,6 @@
 <template>
   <div class="container pb-16">
-    <CommonPageWrapper :title="$t('search_result')" class="mt-8">
-      <FormInput
-        :model-value="search"
-        class="transition-200 mt-4 !px-2.5 py-[10px] !absolute w-[86%] sm:w-[90%] md:w-[93%] lg:w-full right-12 z-30 !left-[3px] !top-[2px] transition-all duration-300 lg:!relative lg:!right-0 lg:!left-0 lg:!top-0"
-        :placeholder="$t('search')"
-        :class="[
-          searchTrigger
-            ? 'max-w-full opacity-100'
-            : 'max-w-0 md:max-w-full opacity-0 lg:opacity-100',
-        ]"
-        input-class="pl-2 pr-2 mt-0.5 dark:text-white "
-        prefix-class="leading-130"
-        :focus="searchTrigger"
-        @update:model-value="handleUpdateSearch"
-        @enter="handleEnter"
-      >
-        <template #prefix>
-          <span
-            class="icon-magnifer text-base text-blue-200 dark:text-blue-100"
-          />
-        </template>
-        <template #suffix>
-          <button
-            :class="{ '!opacity-100 !visible': search?.length }"
-            class="text-xl leading-5 icon-close text-gray-200 hover:text-blue-150 dark:hover:text-white transition-200 opacity-0 invisible"
-            @click="clear"
-          />
-        </template>
-      </FormInput>
+    <CommonPageWrapper :title="$route.hash" class="mt-8">
       <div class="flex items-center gap-3">
         <CommonFilter
           v-for="(item, i) in filters"
@@ -43,16 +15,16 @@
         />
       </div>
       <div class="flex flex-col gap-6 mt-8" v-if="preloader">
-        <BlockLoaderSpecialReports v-for="item in 5" :key="item" />
+        <BlockLoaderSpecialReports v-for="item in 4" :key="item" />
       </div>
-      <div v-if="search.length < 6" class="grid gap-6 mt-6">
+      <div v-else class="grid gap-6 mt-6">
         <CardsPopularCard
           v-for="(item, i) in copyOfpopularNews"
           :key="i"
           :news="item"
         />
       </div>
-      <CommonNoData v-else class="mt-16" />
+
       <div ref="target"></div>
       <Transition name="fade">
         <div v-if="loading" class="flex-center py-10">
@@ -69,14 +41,11 @@
 <script setup lang="ts">
 import { searchContent, popular_news } from '~/data'
 
-const search = ref('')
-const searchTrigger = ref(false)
 const route = useRoute()
 const loading = ref(false)
 const target = ref(null)
 const preloader = ref(true)
 
-search.value = route.query?.q
 // watch(route, () => {
 //   console.log(route.query.q)
 //   search.value = route.query.q
@@ -128,22 +97,6 @@ const { stop } = useIntersectionObserver(
     }
   }
 )
-
-const handleShowSearch = () => {
-  search.value = ''
-  searchTrigger.value = !searchTrigger.value
-}
-const clear = () => {
-  search.value = ''
-}
-const handleUpdateSearch = (value: string) => {
-  search.value = value
-}
-
-const handleEnter = () => {
-  console.log('enter')
-}
-
 const copyOfpopularNews = ref([...popular_news])
 
 setTimeout(() => {
