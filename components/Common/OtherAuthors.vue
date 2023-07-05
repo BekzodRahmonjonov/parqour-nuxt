@@ -1,7 +1,7 @@
 <template>
-  <div class="p-5 rounded-lg bg-white-100">
+  <div class="p-5 rounded-lg bg-white-100 dark:bg-dark-200">
     <div class="flex flex-col gap-5">
-      <h2 class="text-xl font-bold leading-130 text-dark">
+      <h2 class="text-xl font-bold leading-130 text-dark dark:text-white">
         {{ $t('others') }}
       </h2>
       <div class="flex items-center gap-3" v-for="(item, i) in others" :key="i">
@@ -10,7 +10,9 @@
           src="/images/face.png"
           alt=""
         />
-        <p class="text-sm font-semibold leading-140 text-blue-600">
+        <p
+          class="text-sm font-semibold leading-140 text-blue-600 dark:text-white"
+        >
           {{ item?.name }}
         </p>
       </div>
