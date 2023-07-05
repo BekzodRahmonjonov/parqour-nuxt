@@ -20,7 +20,7 @@
           </div>
           <CommonButton
             :loading="isLoading"
-            class="w-full text-blue-600 !bg-[#52618f1a] font-medium leading-125 mt-8 mb-16"
+            class="w-full text-blue-600 dark:hover:text-white !bg-[#52618f1a] font-medium leading-125 mt-8 mb-16"
             @click="loadMore"
           >
             <span class="icon-double rotate-90 mr-[10px] text-xl"></span>

@@ -524,21 +524,25 @@ export const podcasts: IPodcast[] = [
 
 export const socials = [
   {
+    url: '',
     title: 'YOUTUBE',
     subscribe: 15251,
     icon: 'icon-youtube',
   },
   {
+    url: 'https://t.me/uznews',
     title: 'telegram',
     subscribe: 142340,
     icon: 'icon-telegram',
   },
   {
+    url: 'https://www.instagram.com/uznews/',
     title: 'Instagram',
     subscribe: 1520214,
     icon: 'icon-instagram',
   },
   {
+    url: 'https://www.facebook.com/uznews.uz',
     title: 'FACEBOOK',
     subscribe: 310251,
     icon: 'icon-facebook',

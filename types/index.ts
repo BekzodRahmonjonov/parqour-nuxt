@@ -70,6 +70,7 @@ export interface IColony {
 }
 
 export interface ISocial {
+  url: string
   icon: string
   subscribe: number
   title: string
