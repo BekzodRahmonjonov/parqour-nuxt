@@ -743,6 +743,33 @@ export const specialReports = [
     views_count: 1234,
     userName: 'Абдулла',
   },
+  {
+    id: 3,
+    title: 'Что происходит с ценами на аренду жилья в Ташкенте',
+    image: '/images/news/bulid.jpg',
+    author: 'Дарья Пензова',
+    created_at: '2023-06-07',
+    views_count: 1234,
+    userName: 'Абдулла',
+  },
+  {
+    id: 4,
+    title: 'Что происходит с ценами на аренду жилья в Ташкенте',
+    image: '/images/news/bulid.jpg',
+    author: 'Дарья Пензова',
+    created_at: '2023-06-07',
+    views_count: 1234,
+    userName: 'Абдулла',
+  },
+  {
+    id: 5,
+    title: 'Что происходит с ценами на аренду жилья в Ташкенте',
+    image: '/images/news/bulid.jpg',
+    author: 'Дарья Пензова',
+    created_at: '2023-06-07',
+    views_count: 1234,
+    userName: 'Абдулла',
+  },
 ]
 
 export const ads = [
