@@ -94,10 +94,7 @@ import { reportsData } from '~/data'
 const { t } = useI18n()
 const menu = [
   { title: t('special_reports'), link: '/special-reports' },
-  {
-    title: 'Спецрепортаж: как добывают уголь в Узбекистане — фото, видео',
-    link: '/special-reports',
-  },
+  { title: t('reports_single'), link: '/special-reports' },
 ]
 const settings = {
   slidesPerView: 'auto',
