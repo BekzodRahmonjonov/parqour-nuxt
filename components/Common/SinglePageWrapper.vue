@@ -83,13 +83,15 @@
   </div>
 </template>
 <script setup lang="ts">
-import dayjs from 'dayjs'
 import 'swiper/css'
-import { ISingleData } from '~/types'
-import { useI18n } from 'vue-i18n'
+
+import dayjs from 'dayjs'
 import { Navigation } from 'swiper'
 import { Swiper, SwiperSlide } from 'swiper/vue'
+import { useI18n } from 'vue-i18n'
+
 import { reportsData } from '~/data'
+import { ISingleData } from '~/types'
 
 const { t } = useI18n()
 const menu = [
