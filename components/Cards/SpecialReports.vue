@@ -1,5 +1,8 @@
 <template>
-  <NuxtLink to="/" class="group inline-block w-full pr-5 md:pr-0">
+  <NuxtLink
+    :to="'/special-reports/' + `${data?.id}`"
+    class="group inline-block w-full pr-5 md:pr-0"
+  >
     <div
       class="p-3 sm:p-5 bg-gray-400 w-full md:w-[521px] rounded-lg text-white relative transition-200 group-hover:-translate-y-1"
     >

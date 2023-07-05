@@ -1,6 +1,6 @@
 <template>
   <CommonBreadcrumb :menu="menu" class="mb-8" />
-  <div class="py-8 md:pt-[84px] md:pb-16">
+  <div class="py-8 md:py-16">
     <div class="container">
       <p class="page-title mb-4 md:mb-6">{{ $t('contacts') }}</p>
       <div
