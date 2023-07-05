@@ -1,6 +1,6 @@
 <template>
   <nuxt-link
-    class="py-5 rounded-lg bg-white-100 dark:bg-dark-200 group"
+    class="py-5 rounded-lg bg-white-100 dark:bg-dark-200 group dark:hover:bg-blue-600 transition-200"
     href="/"
   >
     <div class="flex gap-0.5">
@@ -21,7 +21,7 @@
         </div>
         <div>
           <h1
-            class="text-base font-semibold text-blue-600 leading-140 dark:text-white"
+            class="text-base font-semibold text-blue-600 leading-140 dark:text-white dark:group-hover:text-blue-100 transition-200"
           >
             {{ news?.title }}
           </h1>

@@ -5,7 +5,7 @@
     <div class="container flex items-center gap-2 md:overflow-hidden">
       <NuxtLink
         to="/"
-        class="text-blue-150 hover:text-dark-200 transition-300 leading-140 text-sm font-medium dark:text-blue-100"
+        class="text-blue-150 hover:text-dark-200 dark:hover:text-white-100 transition-300 leading-140 text-sm font-medium dark:text-blue-100"
       >
         {{ $t('home') }}
       </NuxtLink>
