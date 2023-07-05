@@ -1,4 +1,5 @@
 <template>
+  <CommonBreadcrumb :menu="menu" class="mb-8" />
   <div class="container">
     <CommonPageWrapper :title="$t('advertisings')" class="mt-8">
       <CardsAds
@@ -12,4 +13,8 @@
 </template>
 <script setup lang="ts">
 import { ads } from '~/data'
+import { useI18n } from 'vue-i18n'
+
+const { t } = useI18n()
+const menu = [{ title: t('advertisings'), link: '/advertisings' }]
 </script>
