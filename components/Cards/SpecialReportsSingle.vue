@@ -13,7 +13,9 @@
           class="border border-[#A2BCDE] dark:text-blue-100 rounded-lg mr-4 leading-20 py-1 px-[10px] font-medium text-[12px] text-[#52618F]"
           >{{ badgeText }}</span
         >
-        {{ dayjs(data?.date).locale(locale).format('DD MMM YYYY, HH:mm') }}
+        {{
+          dayjs(data?.created_at).locale(locale).format('DD MMM YYYY, HH:MM')
+        }}
       </p>
       <p
         class="mb-1 sm:mb-[6px] font-medium sm:font-bold text-sm sm:text-[20px] leading-136 line-clamp-2 dark:text-white"
@@ -30,7 +32,7 @@
       >
         <i class="icon-eye dark:text-white"></i>
         <span class="dark:text-white">{{
-          formatMoneyDecimal(data?.views)
+          formatMoneyDecimal(data?.views_count)
         }}</span>
       </div>
       <div
