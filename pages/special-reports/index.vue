@@ -20,7 +20,7 @@
         >
       </div>
       <template #aside>
-        <tempAdvetisimentBanner />
+        <TempAdvetisimentBanner />
       </template>
     </CommonPageWrapper>
   </div>
