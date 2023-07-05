@@ -1,11 +1,12 @@
 <template>
   <CommonBreadcrumb :menu="menu" class="mb-8" />
   <div class="container">
-    <CommonPageWrapper :title="$t('advertisings')" class="mt-8">
+    <CommonPageWrapper :title="$t('advertisings')" class="mb-10 md:mb-16">
       <CardsAds
         v-for="(item, index) in ads"
         :key="index"
         :data="item"
+        :count="ads?.length"
         class="min-h-[180px]"
       />
     </CommonPageWrapper>
