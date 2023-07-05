@@ -790,3 +790,26 @@ export const popular_news = [
     views: 223,
   },
 ]
+
+export const other_authors = [
+  {
+    img: 'images/face.png',
+    name: 'Шахзод Юлдошбоев',
+  },
+  {
+    img: 'images/face.png',
+    name: 'Шахзод Юлдошбоев',
+  },
+  {
+    img: 'images/face.png',
+    name: 'Шахзод Юлдошбоев',
+  },
+  {
+    img: 'images/face.png',
+    name: 'Шахзод Юлдошбоев',
+  },
+  {
+    img: 'images/face.png',
+    name: 'Шахзод Юлдошбоев',
+  },
+]
