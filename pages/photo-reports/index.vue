@@ -9,15 +9,15 @@
       >
         <CardsPhotoReportSliderCard :card="image" main class="mb-11" />
         <div>
-          <div class="grid grid-cols-2 gap-8 mb-14">
+          <nuxt-link to="/photo-reports/1" class="grid grid-cols-2 gap-8 mb-14">
             <CardsPhotoReportSliderCard
-              v-for="(item, index) in 4"
+              v-for="(item, index) in counter"
               :key="index"
               :card="image"
               class="min-h-[250px]"
               :small="true"
             />
-          </div>
+          </nuxt-link>
           <CommonButton
             :loading="isLoading"
             class="w-full text-blue-600 dark:hover:text-white !bg-[#52618f1a] font-medium leading-125 mt-8 mb-16"
@@ -32,24 +32,17 @@
         </template>
       </CommonPageWrapper>
     </div>
-    <CommentsCommentUpload class="container mb-10" />
   </div>
 </template>
 <script setup lang="ts">
-import { analysisData } from '~/data/fakeData'
-
-const copyOfAnalysisData = ref([...analysisData])
 const isLoading = ref(false)
-
+const counter = ref(4)
 const loadMore = () => {
   isLoading.value = true
-  const additionData = {
-    title: 'business',
-    images: 'https://picsum.photos/800/701',
-  }
+
   setTimeout(() => {
+    counter.value += 1
     isLoading.value = false
-    copyOfAnalysisData.value.push(additionData)
   }, 1000)
 }
 const image = {

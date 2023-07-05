@@ -4,7 +4,7 @@
     class="group inline-block w-full pr-5 md:pr-0"
   >
     <div
-      class="p-3 sm:p-5 bg-gray-400 w-full md:w-[521px] rounded-lg text-white relative transition-200 group-hover:-translate-y-1"
+      class="p-3 sm:p-5 bg-[#a2bcde29] w-full md:w-[521px] rounded-lg text-white relative transition-200 group-hover:-translate-y-1"
     >
       <p class="text-xs leading-20 mb-2 sm:mb-4">
         {{ dayjs(data?.date).locale(locale).format('DD MMM YYYY, HH:mm') }}
