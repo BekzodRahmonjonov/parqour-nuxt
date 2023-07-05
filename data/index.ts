@@ -813,3 +813,70 @@ export const other_authors = [
     name: 'Шахзод Юлдошбоев',
   },
 ]
+
+export const contacts = [
+  {
+    icon: 'chat',
+    title: 'mail_for_contacts',
+    links: [{ text: 'info@uznews.uz', link: 'info@uznews.uz' }],
+  },
+  {
+    icon: 'phone',
+    title: 'phone_reduction',
+    links: [{ text: '+998 99 888 67 65', link: '998998886765' }],
+  },
+  {
+    icon: 'message',
+    title: 'for_advertising',
+    links: [
+      {
+        phone: `+998 94 649 57 77 <span class="mx-2 h-5 w-2 bg-white opacity-[0.4]"/> Telegram`,
+        link: '998998886765',
+        icon: 'right-arrow',
+      },
+      {
+        phone: `+998 99 813 69 99 <span class="mx-2 h-5 w-2 bg-white opacity-[0.4]"/> Telegram`,
+        link: '998998886765',
+        icon: 'right-arrow',
+      },
+    ],
+  },
+  {
+    icon: 'telegram',
+    title: 'channels_telegram',
+    links: [
+      {
+        text: 't.me/uznews',
+        link: 't.me/uznews',
+        icon: 'right-arrow',
+      },
+      {
+        text: 't.me/uznewsdigest',
+        link: 't.me/uznewsdigest',
+        icon: 'right-arrow',
+      },
+    ],
+  },
+  {
+    icon: 'instagram',
+    title: 'channels_instagram',
+    links: [
+      {
+        text: 'instagram.com/uznews',
+        link: 'instagram.com/uznews',
+        icon: 'right-arrow',
+      },
+    ],
+  },
+  {
+    icon: 'facebook',
+    title: 'channels_facebook',
+    links: [
+      {
+        text: 'facebook.com/uznews.uz',
+        link: 'facebook.com/uznews.uz',
+        icon: 'right-arrow',
+      },
+    ],
+  },
+]
