@@ -1,7 +1,6 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 import ru from './locales/ru.json'
 import uz from './locales/uz.json'
-
 export default defineNuxtConfig({
   ssr: true,
   app: {
