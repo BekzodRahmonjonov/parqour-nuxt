@@ -49,7 +49,7 @@
         <span>{{ formatMoneyDecimal(data?.views) }}</span>
       </div>
       <div
-        class="absolute-y-center rounded-lg w-[138px] h-[96px] sm:w-[202px] sm:h-[140px] overflow-hidden bg-blue-200 blur-[0] group-hover:blur-[14.5px] transition-200"
+        class="absolute-y-center rounded-lg overflow-hidden bg-blue-200 blur-[0] group-hover:blur-[14.5px] transition-200"
         :class="
           specialReport
             ? '-right-5 md:-right-11 w-[114px] h-[70px] sm:w-[156px] sm:h-[96px]'

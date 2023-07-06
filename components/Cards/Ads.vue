@@ -8,7 +8,7 @@
       {{ data?.title }}
     </h3>
     <p
-      class="fon-text text-slate-700 dark:text-blue-600 text-base md:text-[18px] font-normal leading-relaxed"
+      class="fon-text text-slate-700 dark:text-gray-100 text-base md:text-[18px] font-normal leading-relaxed"
     >
       {{ data?.description }}
     </p>
