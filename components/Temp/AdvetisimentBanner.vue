@@ -1,5 +1,5 @@
 <template>
-  <div class="float-right grid gap-6">
+  <div class="grid gap-6">
     <img
       v-for="(item, idx) in items"
       :key="idx"

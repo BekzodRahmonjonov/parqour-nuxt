@@ -5,8 +5,9 @@
         <img
           src="/podcast/author.png"
           alt=""
-          class="h-[234px] w-[234px] rounded"
+          class="h-[234px] w-[234px] rounded border border-white"
         />
+
         <div class="flex-1">
           <h1 class="text-32 font-semibold text-white leading-140">
             Дело Азата Мифтахова: Как в России шьют дела против анархистов
@@ -25,11 +26,13 @@
           <div class="mt-6 flex items-center">
             <img
               v-if="!isPlaying"
+              class="cursor-pointer w-8 h-8"
               @click="playpauseTrack"
               src="/podcast/play-btn.svg"
               alt=""
             />
             <svg
+              class="w-10 h-8 fill-white cursor-pointer"
               @click="playpauseTrack"
               v-else
               xmlns="http://www.w3.org/2000/svg"
@@ -42,6 +45,7 @@
             <span class="text-white text-[13px] uppercase ml-2 mr-3">
               {{ currentTime }}
             </span>
+
             <input
               id="default-range"
               type="range"
@@ -49,22 +53,25 @@
               min="1"
               max="100"
               ref="seekSlider"
-              @change="seekTo"
-              class="w-[80%] h-2 bg-[#E6E6E6] rounded-sm appearance-none cursor-pointer"
+              @input="onUpdate"
+              class="w-[90%] h-1 rounded-sm appearance-none cursor-pointer"
             />
             <span class="text-white text-[13px] uppercase ml-3 mr-6">
               {{ totalDuration }}
             </span>
-
+            <span
+              @click="mute"
+              class="icon-volume text-white text-32 mr-2 cursor-pointer"
+            ></span>
             <input
               id="default-range"
               type="range"
               min="1"
               max="100"
-              value="99"
+              value="50"
               ref="volume"
-              @change="setVolume"
-              class="w-[20%] h-2 bg-[#E6E6E6] rounded-sm appearance-none cursor-pointer"
+              @input="setVolume"
+              class="w-[10%] h-1 rounded-sm appearance-none cursor-pointer"
             />
           </div>
         </div>
@@ -74,28 +81,65 @@
 </template>
 
 <script setup lang="ts">
-let track_list = [
-  {
-    name: 'Night Owl',
-    artist: 'Broke For Free',
-    image:
-      'https://images.pexels.com/photos/2264753/pexels-photo-2264753.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=250&w=250',
-    path: 'https://files.freemusicarchive.org/storage-freemusicarchive-org/music/WFMU/Broke_For_Free/Directionless_EP/Broke_For_Free_-_01_-_Night_Owl.mp3',
-  },
-]
 const currentTime = ref('00:00')
 const totalDuration = ref('00:00')
-const seekSlider = ref(null)
+const seekSlider = ref({} as HTMLInputElement)
 const isPlaying = ref(false)
 const volume = ref(null)
-let trackIndex = 0
-let updateTimer
-let currentTrack = {} as HTMLAudioElement
+let music = {} as HTMLAudioElement
+
+const updateColorTracker = (progress: number, element: HTMLInputElement) => {
+  element.style.background = `linear-gradient(to right, #52618F ${progress}%, #E6E6E6 ${progress}%)`
+}
+
+const calculateProgress = () => {
+  return (music.currentTime / music.duration) * 100
+}
+
+const onUpdate = (e: Event) => {
+  music.currentTime = (e.target.value / 100) * music.duration
+  updateColorTracker(calculateProgress(), seekSlider.value)
+}
+
+const onTimeupdate = () => {
+  const progress = (music.currentTime / music.duration) * 100
+  updateColorTracker(calculateProgress(), seekSlider.value)
+
+  seekSlider.value.value = '' + (music.currentTime / music.duration) * 100
+  const formattedTime = formatTime(music.currentTime)
+  currentTime.value = formattedTime
+}
+
+const onLoadedmetadata = () => {
+  totalDuration.value = formatTime(music.duration)
+}
 
 onMounted(() => {
-  currentTrack = document.createElement('audio')
-  loadTrack(trackIndex)
+  const precent = (volume.value.value / volume.value.max) * 100
+  updateColorTracker(precent, volume.value)
+
+  music = new Audio(
+    'https://files.freemusicarchive.org/storage-freemusicarchive-org/music/WFMU/Broke_For_Free/Directionless_EP/Broke_For_Free_-_01_-_Night_Owl.mp3'
+  )
+
+  music.addEventListener('loadedmetadata', onLoadedmetadata),
+    music.addEventListener('timeupdate', onTimeupdate)
 })
+
+onBeforeUnmount(() => {
+  music.removeEventListener('loadedmetadata', onLoadedmetadata)
+  music.removeEventListener('timeupdate', onTimeupdate)
+})
+
+function formatTime(time: number) {
+  var minutes = Math.floor(time / 60)
+  var seconds = Math.floor(time % 60)
+
+  var formattedMinutes = minutes < 10 ? '0' + minutes : minutes
+  var formattedSeconds = seconds < 10 ? '0' + seconds : seconds
+
+  return formattedMinutes + ':' + formattedSeconds
+}
 
 const playerActions = [
   {
@@ -117,31 +161,19 @@ const playerActions = [
 ]
 
 function makeFaster() {
-  currentTrack.playbackRate = 2.0
+  music.playbackRate = 2.0
 }
 function back() {
-  currentTrack.currentTime -= 15
+  music.currentTime -= 15
 }
+
 function forwardAudio() {
-  currentTrack.currentTime += 15
+  music.currentTime += 15
 }
 function download() {}
 
 const onClick = (handler: () => {}) => {
-  console.log(handler, 'handler')
   handler()
-}
-
-function loadTrack(trackIndex: number) {
-  currentTrack.src = track_list[trackIndex].path
-  currentTrack.load()
-
-  setInterval(seekUpdate, 1000)
-}
-
-function resetValues() {
-  currentTime.value = '00:00'
-  totalDuration.value = '00:00'
 }
 
 function playpauseTrack() {
@@ -149,64 +181,27 @@ function playpauseTrack() {
   else pauseTrack()
 }
 
+function mute() {
+  music.volume = 0
+  volume.value.value = 0
+  const precent = (volume.value.value / volume.value.max) * 100
+  updateColorTracker(precent, volume.value)
+}
+
 function playTrack() {
-  currentTrack.play()
+  music.play()
   isPlaying.value = true
 }
 
 function pauseTrack() {
-  currentTrack.pause()
+  music.pause()
   isPlaying.value = false
 }
 
-function setVolume() {
-  console.log(volume.value.value)
-  currentTrack.volume = volume.value.value / 100
-}
-
-function seekUpdate() {
-  let seekPosition = 0
-
-  if (!isNaN(currentTrack.duration)) {
-    seekPosition = currentTrack.currentTime * (100 / currentTrack.duration)
-    seekSlider.value.value = seekPosition
-
-    // Calculate the time left and the total duration
-    let currentMinutes: string | number = Math.floor(
-      currentTrack.currentTime / 60
-    )
-    let currentSeconds: string | number = Math.floor(
-      currentTrack.currentTime - currentMinutes * 60
-    )
-    let durationMinutes: string | number = Math.floor(
-      currentTrack.duration / 60
-    )
-    let durationSeconds: string | number = Math.floor(
-      currentTrack.duration - durationMinutes * 60
-    )
-
-    // Adding a zero to the single digit time values
-    if (currentSeconds < 10) {
-      currentSeconds = '0' + currentSeconds
-    }
-    if (durationSeconds < 10) {
-      durationSeconds = '0' + durationSeconds
-    }
-    if (currentMinutes < 10) {
-      currentMinutes = '0' + currentMinutes
-    }
-    if (durationMinutes < 10) {
-      durationMinutes = '0' + durationMinutes
-    }
-
-    currentTime.value = currentMinutes + ':' + currentSeconds
-    totalDuration.value = durationMinutes + ':' + durationSeconds
-  }
-}
-
-function seekTo() {
-  const seekTo = currentTrack.duration * (seekSlider.value.value / 100)
-  currentTrack.currentTime = seekTo
+function setVolume(e) {
+  music.volume = volume.value.value / 100
+  const precent = (e.target.value / e.target.max) * 100
+  updateColorTracker(precent, volume.value)
 }
 </script>
 
@@ -222,7 +217,18 @@ function seekTo() {
   backdrop-filter: blur(12.5px);
 }
 
+input[type='range'] {
+  -webkit-appearance: none;
+  appearance: none;
+  cursor: pointer;
+  outline: none;
+  border-radius: 15px;
+  background: #e6e6e6;
+}
+
+/* Thumb: webkit */
 input[type='range']::-webkit-slider-thumb {
+  -webkit-appearance: none;
   appearance: none;
   width: 20px;
   height: 20px;
@@ -230,5 +236,17 @@ input[type='range']::-webkit-slider-thumb {
   background-color: #52618f;
   border: 2px solid #fff;
   cursor: pointer;
+  transition: 0.2s ease-in-out;
+}
+
+/* Thumb: Firefox */
+input[type='range']::-moz-range-thumb {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background-color: #52618f;
+  border: 2px solid #fff;
+  cursor: pointer;
+  transition: 0.2s ease-in-out;
 }
 </style>

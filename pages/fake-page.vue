@@ -19,7 +19,7 @@
           @handle-search="(e: string) => search = e"
         />
       </div>
-      <div v-if="false" class="max-w-[886px]">
+      <div class="max-w-[886px]">
         <PhotoReportSlider :images="images" />
       </div>
       <div class="mt-20">

@@ -6,7 +6,7 @@
       <CardsSideNews
         v-for="(card, index) in list"
         :key="index"
-        v-bind="{ card }"
+        v-bind="{ card, link }"
       />
     </div>
     <div
@@ -33,6 +33,7 @@ import { INews } from '~/types'
 interface Props {
   list?: INews[]
   buttonText?: string
+  link?: string
 }
 
 defineProps<Props>()
