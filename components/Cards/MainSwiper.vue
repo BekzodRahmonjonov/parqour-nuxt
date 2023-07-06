@@ -1,7 +1,7 @@
 <template>
   <NuxtLink
     :to="`/news/${card?.id}`"
-    class="w-full aspect-video lg:h-[466px] rounded-lg relative overflow-hidden group"
+    class="w-full aspect-video lg:h-[466px] rounded-lg relative overflow-hidden group block"
   >
     <div class="content-image relative w-full h-full">
       <img :src="card?.image" alt="news" class="w-full h-full object-cover" />

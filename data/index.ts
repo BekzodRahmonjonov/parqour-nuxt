@@ -32,6 +32,7 @@ export const popularNews = [
     views: 12432,
     image: '/images/news/president.png',
     isVideo: true,
+    id: 1,
   },
   {
     date: '2023-06-07',
@@ -39,6 +40,7 @@ export const popularNews = [
       '«Это абсолютно необоснованные слова» — Шавкат Мирзиёев о введении подоходного налога для мигрантов',
     views: 12432,
     image: '/images/news/president.png',
+    id: 1,
   },
   {
     date: '2023-06-07',
@@ -46,6 +48,7 @@ export const popularNews = [
       '«Это абсолютно необоснованные слова» — Шавкат Мирзиёев о введении подоходного налога для мигрантов',
     views: 12432,
     image: '/images/news/president.png',
+    id: 1,
   },
   {
     date: '2023-06-07',
@@ -53,6 +56,7 @@ export const popularNews = [
       '«Это абсолютно необоснованные слова» — Шавкат Мирзиёев о введении подоходного налога для мигрантов',
     views: 12432,
     image: '/images/news/president.png',
+    id: 1,
   },
   {
     date: '2023-06-07',
@@ -60,6 +64,7 @@ export const popularNews = [
       '«Это абсолютно необоснованные слова» — Шавкат Мирзиёев о введении подоходного налога для мигрантов',
     views: 12432,
     image: '/images/news/president.png',
+    id: 1,
   },
   {
     date: '2023-06-07',
@@ -67,6 +72,7 @@ export const popularNews = [
       '«Это абсолютно необоснованные слова» — Шавкат Мирзиёев о введении подоходного налога для мигрантов',
     views: 12432,
     image: '/images/news/president.png',
+    id: 1,
   },
   {
     date: '2023-06-07',
@@ -74,6 +80,7 @@ export const popularNews = [
       '«Это абсолютно необоснованные слова» — Шавкат Мирзиёев о введении подоходного налога для мигрантов',
     views: 12432,
     image: '/images/news/president.png',
+    id: 1,
   },
   {
     date: '2023-06-07',
@@ -81,6 +88,7 @@ export const popularNews = [
       '«Это абсолютно необоснованные слова» — Шавкат Мирзиёев о введении подоходного налога для мигрантов',
     views: 12432,
     image: '/images/news/president.png',
+    id: 1,
   },
   {
     date: '2023-06-07',
@@ -88,6 +96,7 @@ export const popularNews = [
       '«Это абсолютно необоснованные слова» — Шавкат Мирзиёев о введении подоходного налога для мигрантов',
     views: 12432,
     image: '/images/news/president.png',
+    id: 1,
   },
   {
     date: '2023-06-07',
@@ -95,6 +104,7 @@ export const popularNews = [
       '«Это абсолютно необоснованные слова» — Шавкат Мирзиёев о введении подоходного налога для мигрантов',
     views: 12432,
     image: '/images/news/president.png',
+    id: 1,
   },
 ]
 
