@@ -54,12 +54,15 @@
         </div>
       </aside>
     </div>
+  </div>
+  <div class="bg-blue-700 pt-6 mt-5 pb-12 mb-12">
     <CommonSectionWrapper
       :title="$t('special_reports')"
       all-link="/special-reports"
-      class="mt-10 mb-6"
+      dark-title
+      class="mb-6 container"
     />
-    <Swiper v-bind="settings" class="mb-24">
+    <Swiper v-bind="settings">
       <SwiperSlide
         v-for="(item, idx) in reportsData"
         :key="idx"

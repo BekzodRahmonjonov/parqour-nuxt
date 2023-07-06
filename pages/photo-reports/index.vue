@@ -7,13 +7,31 @@
         :text="$t('photo_reports_text')"
         class="mt-8"
       >
-        <CardsPhotoReportSliderCard :card="image" main class="mb-11" />
+        <CardsPhotoReportSliderCard
+          :card="image"
+          v-bind="{
+            auto: {
+              delay: 5000,
+              disableOnInteraction: true,
+              reverseDirection: true,
+            },
+          }"
+          main
+          class="mb-11"
+        />
         <div>
           <nuxt-link to="/photo-reports/1" class="grid grid-cols-2 gap-8 mb-14">
             <CardsPhotoReportSliderCard
               v-for="(item, index) in counter"
               :key="index"
               :card="image"
+              v-bind="{
+                auto: {
+                  delay: 9000 + getRandomNumber() * 1000,
+                  disableOnInteraction: true,
+                  reverseDirection: true,
+                },
+              }"
               class="min-h-[250px]"
               :small="true"
             />
@@ -67,5 +85,9 @@ const image = {
     'https://picsum.photos/800/711',
     'https://picsum.photos/800/712',
   ],
+}
+
+function getRandomNumber() {
+  return Math.floor(Math.random() * 5) + 1
 }
 </script>
