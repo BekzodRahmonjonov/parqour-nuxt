@@ -7,15 +7,15 @@
       class="mb-5 md:mb-4"
     />
     <div class="flex gap-6">
-      <CardsPhotoReportSliderCard
-        :card="image"
-        main
-        class="mb-11 w-[787px] h-[472px]"
-      />
+      <CardsPhotoReportSliderCard :card="image" main class="!w-[787px]" />
       <div
         class="grid lg:justify-between justify-center lg:flex-nowrap flex-wrap gap-4 pr-10"
       >
-        <CardsPhotoReports v-for="(item, index) in 3" :key="index" />
+        <CardsPhotoReports
+          v-for="(item, index) in 3"
+          :key="index"
+          :auto="auto"
+        />
       </div>
     </div>
   </div>
