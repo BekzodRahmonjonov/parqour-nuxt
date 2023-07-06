@@ -1,6 +1,13 @@
 <template>
-  <NuxtLink to="/" class="transition-200 group">
-    <div class="rounded relative">
+  <NuxtLink
+    to="/"
+    class="transition-200 group flex flex-col items-start"
+    :class="rowFormat ? 'sm:!flex-row gap-3 md:gap-5 sm:items-center' : ''"
+  >
+    <div
+      class="rounded relative"
+      :class="rowFormat ? 'sm:w-[274px] sm:h-[160px]' : ''"
+    >
       <img
         :src="data.image"
         alt=""
@@ -21,24 +28,30 @@
         </div>
       </div>
     </div>
-    <p
-      class="text-xs text-blue-700 leading-5 transition-200 dark:text-white mt-4 mb-1"
-    >
-      {{ '27 ноя 2022, 20:00' }}
-    </p>
-    <p
-      class="text-base font-bold text-blue-700 line-clamp-2 transition-200 dark:text-white leading-136 group-hover:text-blue-200 dark:group-hover:text-blue-100"
-    >
-      {{ data.title }}
-    </p>
-    <p
-      class="mt-4 text-blue-200 transition-200 dark:text-blue-100 text-xs font-medium flex-y-center"
-    >
-      <i
-        class="icon-eye text-blue-200 transition-200 dark:text-blue-100 mr-0.5"
-      ></i>
-      {{ formatNumberWithSpaces(1234) }}
-    </p>
+    <div>
+      <p
+        class="text-blue-700 leading-5 transition-200 dark:text-white mb-1"
+        :class="rowFormat ? 'text-sm' : 'mt-4 text-xs'"
+      >
+        {{ '27 ноя 2022, 20:00' }}
+      </p>
+      <p
+        class="font-bold text-blue-700 line-clamp-2 transition-200 dark:text-white leading-136 group-hover:text-blue-200 dark:group-hover:text-blue-100"
+        :class="rowFormat ? 'text-base md:text-xl' : 'text-base'"
+      >
+        {{ data.title }}
+      </p>
+      <p
+        class="mt-2 sm:mt-4 text-blue-200 transition-200 dark:text-blue-100 font-medium flex-y-center"
+        :class="rowFormat ? 'text-xs md:text-sm' : 'text-xs'"
+      >
+        <i
+          class="icon-eye text-blue-200 transition-200 dark:text-blue-100"
+          :class="rowFormat ? 'mr-2' : 'mr-1'"
+        ></i>
+        {{ formatNumberWithSpaces(1234) }}
+      </p>
+    </div>
   </NuxtLink>
 </template>
 <script setup lang="ts">
@@ -46,6 +59,7 @@ import { IInterview } from '~/types'
 
 interface Props {
   data: IInterview
+  rowFormat?: boolean
 }
 defineProps<Props>()
 </script>

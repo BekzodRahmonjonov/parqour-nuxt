@@ -1,23 +1,20 @@
 <template>
   <div>
-    <CommonBreadcrumb :menu="menu" class="mb-8" />
-    <div class="container">
-      <div class="grid grid-cols-12 gap-8">
-        <main class="col-span-12 md:col-span-9">
-          <h2
-            class="text-blue-700 dark:text-white text-[32px] font-bold leading-10"
-          >
-            {{ single.title }}
-          </h2>
-          <div class="my-4 flex items-center gap-4">
-            <span class="text-blue-200 text-sm font-normal leading-tight">
+    <CommonBreadcrumb :menu="menu" />
+    <div class="relative md:max-h-[580px] overflow-hidden">
+      <div
+        class="absolute top-0 left-0 w-full h-full cover-linear flex flex-col items-start justify-end p-6"
+      >
+        <div class="container">
+          <div class="mb-2 sm:mb-4 flex items-center gap-4">
+            <span class="text-white text-sm font-normal leading-tight">
               <i
                 class="icon-calendar-dotted group-odd:text-white/60 group-even:text-gray mr-1"
               ></i>
               {{ dayjs(single.created_at).format('DD MMMM, HH:mm') }}</span
             >
             <p
-              class="text-blue-200 text-sm font-normal leading-tight flex items-center"
+              class="text-white text-sm font-normal leading-tight flex items-center"
             >
               <i
                 class="icon-eye group-odd:text-white/60 group-even:text-gray mr-1"
@@ -25,24 +22,23 @@
               {{ formatNumberWithSpaces(single.views_count) }}
             </p>
           </div>
-          <p
-            class="text-blue-700 text-2xl font-medium leading-[33px] transition-200 dark:text-white mb-6"
+          <h2
+            class="text-white text-xl sm:text-2xl md:text-[32px] font-bold leading-10 line-clamp-2"
           >
-            {{ single?.text }}
-          </p>
-          <iframe
-            v-if="single?.youtube_video"
-            width="100%"
-            height="456px"
-            :src="`https://www.youtube.com/embed/${toEmbed(
-              single?.youtube_video
-            )}`"
-            frameborder="0"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-            allowfullscreen
-            class="h-[245px] sm:h-[345px] md:h-[456px]"
-          ></iframe>
-          <figure v-if="single?.image" class="mt-6 max-h-[498px] h-full">
+            {{ single.title }}
+          </h2>
+        </div>
+      </div>
+      <img
+        src="https://picsum.photos/1024/580"
+        class="object-cover w-full h-full"
+        alt=""
+      />
+    </div>
+    <div class="container">
+      <div class="grid grid-cols-12 gap-8 mt-8">
+        <main class="col-span-12 md:col-span-12">
+          <figure v-if="single?.image" class="max-h-[498px] h-full">
             <img
               :src="single.image"
               class="w-full h-full object-cover rounded"
@@ -61,11 +57,6 @@
           ></div>
           <slot />
         </main>
-        <aside class="max-md:hidden md:col-span-3">
-          <div class="mt-14 w-full h-full">
-            <slot name="aside" />
-          </div>
-        </aside>
       </div>
     </div>
   </div>
@@ -147,5 +138,14 @@ defineProps<Props>()
   top: 24px;
   left: 24px;
   margin: 0;
+}
+
+.cover-linear {
+  background: linear-gradient(
+    180deg,
+    rgba(22, 28, 45, 0) 0%,
+    rgba(22, 28, 45, 0.06) 7.29%,
+    rgba(22, 28, 45, 0.88) 100%
+  );
 }
 </style>

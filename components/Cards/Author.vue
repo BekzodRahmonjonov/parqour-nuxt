@@ -1,6 +1,6 @@
 <template>
   <NuxtLink
-    to="/"
+    :to="'/article-authors/' + card?.slug"
     class="rounded-lg flex flex-col relative overflow-hidden bg-white transition-200 group hover:shadow-xl"
     :class="{ '!bg-blue-600 hover:!bg-blue-250 !rounded-sm': isHalf }"
   >
