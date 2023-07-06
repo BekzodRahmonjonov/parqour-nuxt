@@ -1,5 +1,4 @@
 <template>
-  <CommonBreadcrumb :menu="menu" class="mb-8" />
   <div class="container">
     <div class="grid grid-cols-12 gap-8">
       <main class="col-span-12 md:col-span-9">
@@ -97,10 +96,6 @@ import { reportsData } from '~/data'
 import { ISingleData } from '~/types'
 
 const { t } = useI18n()
-const menu = [
-  { title: t('special_reports'), link: '/special-reports' },
-  { title: t('reports_single'), link: '/special-reports' },
-]
 const settings = {
   slidesPerView: 'auto',
   spaceBetween: 44,
