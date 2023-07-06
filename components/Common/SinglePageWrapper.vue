@@ -29,18 +29,6 @@
         >
           {{ single.text }}
         </p>
-        <iframe
-          v-if="single?.youtube_video"
-          width="100%"
-          height="456px"
-          :src="`https://www.youtube.com/embed/${toEmbed(
-            single?.youtube_video
-          )}`"
-          frameborder="0"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-          allowfullscreen
-          class="h-[245px] sm:h-[345px] md:h-[456px]"
-        ></iframe>
         <figure v-if="single?.image" class="mt-6 max-h-[498px] h-full">
           <img
             :src="single.image"
@@ -91,7 +79,7 @@ import { Swiper, SwiperSlide } from 'swiper/vue'
 import { useI18n } from 'vue-i18n'
 
 import { reportsData } from '~/data'
-import { ISingleData } from '~/types'
+import { ISingleData, ISinglePhoto } from '~/types'
 
 const { t } = useI18n()
 const menu = [
@@ -111,6 +99,7 @@ const settings = {
 
 interface Props {
   single: ISingleData
+  singlePhoto: ISinglePhoto
 }
 defineProps<Props>()
 </script>

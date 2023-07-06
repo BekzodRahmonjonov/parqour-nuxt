@@ -1,38 +1,38 @@
 <template>
   <OverlayModal :visible="show">
     <div
-        id="Modal"
-        class="Modal bg-white w-full rounded-xl relative"
-        :class="[maxWidth ? 'max-w-[382px]' : 'max-w-[382px]', bodyWrapperClass]"
+      id="Modal"
+      class="Modal bg-white w-full rounded-xl relative"
+      :class="[maxWidth ? 'max-w-[382px]' : 'max-w-[382px]', bodyWrapperClass]"
     >
       <slot name="header">
         <div
-            v-if="title"
-            class="flex items-center justify-between py-4 px-5 border-b border-blue-100/20 relative"
-            :class="[headerClass, textCenter]"
+          v-if="title"
+          class="flex items-center justify-between py-4 px-5 border-b border-blue-100/20 relative"
+          :class="[headerClass, textCenter]"
         >
           <div class="flex-y-center gap-2">
             <slot name="pre-title" />
             <h5
-                class="text-blue-700 text-xl font-bold leading-24"
-                :class="textStyle"
+              class="text-blue-700 text-xl font-bold leading-24"
+              :class="textStyle"
             >
               {{ title }}
             </h5>
           </div>
           <i
-              class="icon-close cursor-pointer text-blue-100 text-2xl hover:text-blue-700 transition-200 ease-in-out"
-              @click.stop="close()"
+            class="icon-close cursor-pointer text-blue-100 text-2xl hover:text-blue-700 transition-200 ease-in-out"
+            @click.stop="close()"
           />
         </div>
       </slot>
       <button
-          v-if="!title"
-          class="absolute group -top-16 md:top-0 right-0 md:-right-16 cursor-pointer modal-close bg-dark-500 w-10 h-10 rounded-lg flex items-center justify-center"
-          @click.stop="close()"
+        v-if="!title"
+        class="absolute group -top-16 md:top-0 right-0 md:-right-16 cursor-pointer modal-close bg-dark-500 w-10 h-10 rounded-lg flex items-center justify-center"
+        @click.stop="close()"
       >
         <i
-            class="icon-close text-light text-3xl transition-200 group-hover:text-grey-100"
+          class="icon-close text-light text-3xl transition-200 group-hover:text-grey-100"
         />
       </button>
       <div :class="contentClass" class="pt-5 p-6">
@@ -64,15 +64,15 @@ const props = withDefaults(defineProps<Props>(), {
   contentClass: '',
 })
 watch(
-    () => props.show,
-    (first) => {
-      const body = document.body
-      if (first) {
-        body.classList.add('overflow-hidden')
-      } else {
-        body.classList.remove('overflow-hidden')
-      }
+  () => props.show,
+  (first) => {
+    const body = document.body
+    if (first) {
+      body.classList.add('overflow-hidden')
+    } else {
+      body.classList.remove('overflow-hidden')
     }
+  }
 )
 const emit = defineEmits(['close'])
 function close() {
