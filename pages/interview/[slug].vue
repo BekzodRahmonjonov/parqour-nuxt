@@ -1,4 +1,5 @@
 <template>
+  <CommonBreadcrumb :menu="breadcrumb" />
   <div class="mt-8 pb-16">
     <CommonSinglePageWrapper :single="singleData">
       <template #aside>
@@ -25,6 +26,20 @@
   </div>
 </template>
 <script setup lang="ts">
+import { useI18n } from 'vue-i18n'
 import { interviews } from '~/data'
 import { singleData } from '~/data/fakeData'
+
+const { t } = useI18n()
+
+const breadcrumb = [
+  {
+    title: t('interview'),
+    link: '/interview',
+  },
+  {
+    title: singleData.title,
+    link: '/interview',
+  },
+]
 </script>
