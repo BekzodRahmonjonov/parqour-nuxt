@@ -5,7 +5,7 @@
     <div class="container flex-y-center justify-between">
       <LayoutHeaderLogo />
       <div class="flex-y-center space-x-3">
-        <LayoutHeaderSalary />
+        <LayoutHeaderMain />
         <hr class="relative h-6 w-px bg-blue-100/20 border-0" />
         <LanguageSwitcher />
         <hr class="relative h-6 w-px bg-blue-100/20 border-0" />

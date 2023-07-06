@@ -1,5 +1,7 @@
 <template>
-  <div class="bg-white flex-y-center transition-200 dark:bg-blue-700">
+  <div
+    class="bg-white overflow-x-hidden flex-y-center transition-200 dark:bg-blue-700"
+  >
     <div
       class="relative z-20 flex-shrink-0 transition-200 bg-red-light dark:bg-red-700 p-3 md:py-[14px] md:pr-[11px] md:pl-5 inline-flex items-center space-x-2"
     >
