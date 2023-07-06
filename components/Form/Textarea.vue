@@ -1,6 +1,6 @@
 <template>
   <div
-    class="relative inline-flex items-center bg-white-100 transition-200 rounded overflow-hidden w-full px-4 py-[11px] group border border-blue-100 lg:border-transparent focus-within:border-blue-100 dark:focus-within:border-blue-100 dark:focus-within:bg-blue-600 dark:focus-within:!bg-blue-600 focus-within:hover:bg-white bg-white dark:bg-blue-600 lg:bg-white lg:!bg-blue-100/10 !dark:bg-blue-100/[16%] lg:hover:!bg-blue-100/50"
+    class="relative inline-flex items-center bg-white-100 transition-200 rounded overflow-hidden w-full px-4 py-[11px] group border border-blue-100 lg:border-transparent focus-within:border-blue-100 dark:focus-within:border-blue-200 dark:focus-within:!bg-blue-700 focus-within:hover:bg-white bg-white dark:bg-blue-600 lg:bg-white lg:!bg-blue-100/10 !dark:bg-blue-100/[16%] lg:hover:!bg-blue-100/50"
     :class="[{ '!border-red': error }]"
   >
     <span :class="[prefixClass]" class="flex-center">
@@ -22,7 +22,7 @@
       ref="Input"
       :value="modelValue"
       :class="[inputClass]"
-      class="w-full resize-none font-normal leading-16 text-sm placeholder:text-sm placeholder:font-normal bg-transparent flex-grow outline-none text-blue-200 dark:text-blue-100 dark:placeholder:text-blue-100/50 placeholder:text-blue-200/50"
+      class="w-full resize-none font-normal leading-16 text-sm placeholder:text-sm placeholder:font-normal bg-transparent flex-grow outline-none text-blue-200 dark:!text-white dark:placeholder:text-blue-100/50 placeholder:text-blue-200/50"
       @keyup.enter="handleEnter"
       @input="handleInput"
       @blur="$emit('blur')"

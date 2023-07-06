@@ -7,14 +7,31 @@
       class="mb-5 md:mb-4"
     />
     <div class="flex gap-6">
-      <CardsPhotoReportSliderCard :card="image" main class="!w-[787px]" />
+      <CardsPhotoReportSliderCard
+        :card="image"
+        main
+        class="!w-[787px]"
+        v-bind="{
+          auto: {
+            delay: 3000 + getRandomNumber() * 1000,
+            disableOnInteraction: true,
+            reverseDirection: true,
+          },
+        }"
+      />
       <div
         class="grid lg:justify-between justify-center lg:flex-nowrap flex-wrap gap-4 pr-10"
       >
         <CardsPhotoReports
           v-for="(item, index) in 3"
           :key="index"
-          :auto="auto"
+          v-bind="{
+            auto: {
+              delay: 3000 + getRandomNumber() * 1000,
+              disableOnInteraction: true,
+              reverseDirection: true,
+            },
+          }"
         />
       </div>
     </div>
@@ -56,4 +73,7 @@ interface Props {
   data: object
 }
 defineProps<Props>()
+function getRandomNumber() {
+  return Math.floor(Math.random() * 5) + 1
+}
 </script>

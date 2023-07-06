@@ -1,26 +1,31 @@
 <template>
-  <div>
-    <CommonBreadcrumb :menu="breadcrumbLinks" />
-    <div class="mt-8">
-      <SectionsAudioPlayer />
-      <CommonSinglePageWrapper class="container" :single="singleData">
-        <template #aside>
-          <img src="https://picsum.photos/200/400" class="w-full" alt="" />
-        </template>
-      </CommonSinglePageWrapper>
-    </div>
+  <div class="mt-8" ref="content">
+    <SectionsAudioPlayer ref="target" />
+    <SectionsAudioPlayer :fixed="isFixed" v-if="isFixed" />
+    <CommonSinglePageWrapper class="container mt-8" :single="singleData">
+      <template #aside>
+        <img src="https://picsum.photos/200/400" class="w-full" alt="" />
+      </template>
+    </CommonSinglePageWrapper>
   </div>
 </template>
 <script setup lang="ts">
 import { singleData } from '~/data/fakeData'
-import { useI18n } from 'vue-i18n'
 
-const { t } = useI18n()
-const breadcrumbLinks = computed(() => [
-  { title: t('podcasts'), link: '/podcasts' },
-  {
-    title: singleData.title,
-    link: '/podcasts',
-  },
-])
+const isFixed = ref(false)
+const target = ref(null)
+
+onMounted(() => {
+  const { stop } = useIntersectionObserver(
+    target,
+    ([{ isIntersecting }], observerElement) => {
+      console.log('inter', isIntersecting)
+      if (!isIntersecting) {
+        isFixed.value = true
+      } else {
+        isFixed.value = false
+      }
+    }
+  )
+})
 </script>

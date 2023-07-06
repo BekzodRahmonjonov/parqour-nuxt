@@ -1,7 +1,7 @@
 <template>
   <button
     v-bind="{ disabled, type }"
-    class="text-blue-600 text-base font-medium leading-125 bg-blue-200/10 hover:bg-blue-200/30 flex gap-[10px] w-full inline-block transition-200 rounded px-5 py-3 flex-center cursor-pointer relative group outline-none"
+    class="text-blue-600 dark:text-blue-100 text-base font-medium leading-125 bg-blue-200/10 hover:bg-blue-200/30 flex gap-[10px] w-full inline-block transition-200 rounded px-5 py-3 flex-center cursor-pointer relative group outline-none"
     :style="{ '--spinnerColor': spinnerColor }"
     :class="[{ 'pointer-events-none w-full': loading }]"
     @click="onClick"
@@ -33,7 +33,7 @@
       </svg>
     </i>
     <slot v-if="!loading">
-      <i class="icon-double rotate-90 text-blue-200"></i>
+      <i class="icon-double rotate-90 text-blue-200 dark:text-blue-100"></i>
       <span class="s-transition">
         {{ text }}
       </span>
