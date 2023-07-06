@@ -1,5 +1,4 @@
 <template>
-  <CommonBreadcrumb :menu="menu" class="mb-8" />
   <div class="container">
     <div class="grid grid-cols-12 gap-8">
       <main class="col-span-12 md:col-span-9">
@@ -27,8 +26,20 @@
         <p
           class="text-blue-700 text-2xl font-medium leading-[33px] transition-200 dark:text-white mb-6"
         >
-          {{ single.text }}
+          {{ single?.text }}
         </p>
+        <iframe
+          v-if="single?.youtube_video"
+          width="100%"
+          height="456px"
+          :src="`https://www.youtube.com/embed/${toEmbed(
+            single?.youtube_video
+          )}`"
+          frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          allowfullscreen
+          class="h-[245px] sm:h-[345px] md:h-[456px]"
+        ></iframe>
         <figure v-if="single?.image" class="mt-6 max-h-[498px] h-full">
           <img
             :src="single.image"
@@ -46,6 +57,11 @@
           class="mx-auto my-10 text-dark-200 text-lg font-normal leading-relaxed transition-200 dark:text-white single-content"
           v-html="single.content"
         ></div>
+        <CommonAdBanner
+          v-if="isSpecialReport"
+          image="/images/advertising/yellow.png"
+          class="mb-10 md:mb-20 max-w-[728px] mx-auto"
+        />
         <slot />
       </main>
       <aside class="max-md:hidden md:col-span-3">
@@ -54,44 +70,47 @@
         </div>
       </aside>
     </div>
-  </div>
-  <div class="bg-blue-700 pt-6 mt-5 pb-12 mb-12">
-    <CommonSectionWrapper
-      :title="$t('special_reports')"
-      all-link="/special-reports"
-      dark-title
-      class="mb-6 container"
-    />
-    <Swiper v-bind="settings">
-      <SwiperSlide
-        v-for="(item, idx) in reportsData"
-        :key="idx"
-        class="py-4 !w-[521px] h-[180px]"
-      >
-        <CardsSpecialReports :data="item" />
-      </SwiperSlide>
-    </Swiper>
+    <div v-if="isSpecialReport" class="mb-6">
+      <CommonSectionWrapper
+        :title="$t('special_reports')"
+        all-link="/special-reports"
+      />
+      <Swiper v-bind="settings">
+        <SwiperSlide
+          v-for="(item, idx) in reportsData"
+          :key="idx"
+          class="py-5 !w-[333px] h-[147px]"
+        >
+          <CardsSpecialReports special-report :data="item" />
+        </SwiperSlide>
+      </Swiper>
+    </div>
   </div>
 </template>
 <script setup lang="ts">
 import 'swiper/css'
-
+import { useRoute } from 'vue-router'
 import dayjs from 'dayjs'
+import { useI18n } from 'vue-i18n'
 import { Navigation } from 'swiper'
 import { Swiper, SwiperSlide } from 'swiper/vue'
-import { useI18n } from 'vue-i18n'
 
+import { ISingleData } from '~/types'
 import { reportsData } from '~/data'
-import { ISingleData, ISinglePhoto } from '~/types'
 
 const { t } = useI18n()
+const route = useRoute()
 const menu = [
   { title: t('special_reports'), link: '/special-reports' },
   { title: t('reports_single'), link: '/special-reports' },
 ]
+const isSpecialReport = computed(() => {
+  return route.path.includes('special-reports')
+})
+
 const settings = {
   slidesPerView: 'auto',
-  spaceBetween: 44,
+  spaceBetween: 75,
   loop: true,
   navigation: {
     prevEl: '.button-report-prev',
@@ -102,7 +121,6 @@ const settings = {
 
 interface Props {
   single: ISingleData
-  singlePhoto: ISinglePhoto
 }
 defineProps<Props>()
 </script>

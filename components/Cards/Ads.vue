@@ -3,7 +3,7 @@
     class="w-full md:w-full rounded-lg text-dark relative transition-200 group-hover:-translate-y-1"
   >
     <h3
-      class="text-gray-900 dark:text-white text-xl md:text-[24px] font-bold leading-loose"
+      class="text-blue-700 dark:text-white text-xl md:text-[24px] font-bold leading-loose"
     >
       {{ data?.title }}
     </h3>
@@ -13,7 +13,7 @@
       {{ data?.description }}
     </p>
     <h4
-      class="text-gray-900 dark:text-white text-xl md:text-[24px] font-bold leading-loose"
+      class="text-gray-900 dark:text-white text-xl md:text-[24px] font-semibold leading-loose"
     >
       Стоимость: {{ data?.price }}
     </h4>

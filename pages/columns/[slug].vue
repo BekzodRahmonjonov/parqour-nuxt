@@ -1,4 +1,5 @@
 <template>
+  <CommonBreadcrumb :menu="menu" />
   <div class="container mt-8">
     <CommonSinglePageWrapper :single="singleData">
       <template #aside>
@@ -9,4 +10,12 @@
 </template>
 <script setup lang="ts">
 import { singleData } from '~/data/fakeData'
+
+import { useI18n } from 'vue-i18n'
+
+const { t } = useI18n()
+const menu = [
+  { title: t('column'), link: '/columns' },
+  { title: singleData.title, link: '/columns' },
+]
 </script>

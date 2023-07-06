@@ -1,6 +1,6 @@
 <template>
   <NuxtLink
-    to="/"
+    :to="'/article-authors/' + card?.slug"
     class="rounded-lg flex flex-col relative overflow-hidden bg-white transition-200 group hover:shadow-xl"
     :class="{ '!bg-blue-600 hover:!bg-blue-250 !rounded-sm': isHalf }"
   >
@@ -14,7 +14,10 @@
       </div>
     </div>
 
-    <div class="p-3 p-4 lg:p-6 h-full flex flex-col">
+    <div
+      class="p-3 p-4 h-full flex flex-col"
+      :class="isHalf ? 'lg:p-6' : 'lg:p-5'"
+    >
       <p
         v-if="card?.actual"
         class="text-blue-200 text-xs leading-tight mb-3"

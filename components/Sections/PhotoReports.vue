@@ -2,7 +2,7 @@
   <div class="container">
     <CommonSectionWrapper
       :title="$t('photo_reports')"
-      :all-link="'/special-reports'"
+      :all-link="'/photo-reports'"
       :all-title="$t('all')"
       class="mb-5 md:mb-4"
     />

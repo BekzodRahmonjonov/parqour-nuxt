@@ -19,7 +19,7 @@
           @handle-search="(e: string) => search = e"
         />
       </div>
-      <div v-if="false" class="max-w-[886px]">
+      <div class="max-w-[886px]">
         <PhotoReportSlider :images="images" />
       </div>
       <div class="mt-20">
@@ -37,37 +37,37 @@ const search = ref('')
 const categories = ref([
   {
     id: 1,
-    name: 'Все',
+    name: 'все',
     value: 'all',
   },
   {
     id: 2,
-    name: 'Новости',
+    name: 'новости',
     value: 'news',
   },
   {
     id: 3,
-    name: 'Статьи',
+    name: 'статьи',
     value: 'articles',
   },
   {
     id: 4,
-    name: 'Фоторепортажи',
+    name: 'фоторепортажи',
     value: 'photo-reports',
   },
   {
     id: 5,
-    name: 'Спецрепортажи',
+    name: 'спецрепортажи',
     value: 'special-reports',
   },
   {
     id: 6,
-    name: 'Колонки',
+    name: 'колонки',
     value: 'columns',
   },
   {
     id: 7,
-    name: 'Разборы',
+    name: 'разборы',
     value: 'analysis',
   },
 ])
@@ -99,6 +99,5 @@ const images = [
 
 const handleSearch = (e: string) => {
   categories.value.filter((el: any) => el.value.includes(e))
-  console.log(categories.value)
 }
 </script>

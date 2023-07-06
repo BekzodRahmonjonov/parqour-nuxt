@@ -19,6 +19,7 @@ export interface ILatest {
 
 export interface IAuthor {
   id: number
+  slug: string
   actual: boolean
   title: string
   author: string
@@ -58,6 +59,7 @@ export interface IInterview {
   title: string
   created_at: Date | string
   with_whom: string
+  rowFormat?: boolean
 }
 export interface IColony {
   id: number
@@ -80,6 +82,32 @@ export interface ISingleData {
   text: string
   image: string
   youtube_video: string
+  default: boolean
+  standard: boolean
+  full_width: boolean
+  created_at: Date | string
+  views_count: number
+  content: string | HTMLAllCollection
+  author: string
+}
+export interface INewsSingleData {
+  title: string
+  text: string
+  image: string
+  default: boolean
+  standard: boolean
+  full_width: boolean
+  created_at: Date | string
+  views_count: number
+  content: string | HTMLAllCollection
+  author: string
+  author_image: string
+}
+
+export interface ISinglePhoto {
+  title: string
+  text: string
+  image: string
   created_at: Date | string
   views_count: number
   content: string | HTMLAllCollection

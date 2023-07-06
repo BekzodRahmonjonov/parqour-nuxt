@@ -1,4 +1,5 @@
 <template>
+  <CommonBreadcrumb :menu="menu" />
   <div class="container pb-16">
     <CommonPageWrapper
       :title="$t('column')"
@@ -24,7 +25,10 @@
 </template>
 <script setup lang="ts">
 import { columns } from '~/data'
+import { useI18n } from 'vue-i18n'
 
+const { t } = useI18n()
+const menu = [{ title: t('column'), link: '/column' }]
 const preloader = ref(true)
 
 setTimeout(() => {
