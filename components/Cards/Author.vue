@@ -14,7 +14,10 @@
       </div>
     </div>
 
-    <div class="p-3 p-4 lg:p-6 h-full flex flex-col">
+    <div
+      class="p-3 p-4 h-full flex flex-col"
+      :class="isHalf ? 'lg:p-6' : 'lg:p-5'"
+    >
       <p
         v-if="card?.actual"
         class="text-blue-200 text-xs leading-tight mb-3"

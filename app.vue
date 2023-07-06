@@ -8,8 +8,12 @@
   </NuxtLayout>
 </template>
 <script setup lang="ts">
+import { useHomeStore } from '~/store/index'
 import { useTheme } from '~/store/theme'
 
+const homeStore = useHomeStore()
 const themeStore = useTheme()
+
+homeStore.nuxtServerInit()
 themeStore.initTheme()
 </script>
