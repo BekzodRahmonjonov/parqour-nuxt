@@ -13,7 +13,7 @@
         <CommonButton
           v-if="counter !== specialReports?.length"
           :loading="isLoading"
-          class="w-full text-blue-600 dark:hover:text-white !bg-[#52618f1a] font-medium leading-125 mt-6 mb-16"
+          class="w-full text-blue-600 dark:hover:text-white !bg-[#52618f1a] font-medium leading-125 mb-16"
           @click="loadMore"
         >
           <span class="icon-double rotate-90 mr-[10px] text-xl"></span>
@@ -21,7 +21,7 @@
         >
       </div>
       <template #aside>
-        <TempAdvetisimentBanner />
+        <TempAdvetisimentBanner class="mt-10" />
       </template>
     </CommonPageWrapper>
   </div>
@@ -34,7 +34,7 @@ import { specialReports } from '~/data'
 const isLoading = ref(false)
 const { t } = useI18n()
 const menu = [{ title: t('special_reports'), link: '/special-reports' }]
-const counter = ref(3)
+const counter = ref(4)
 const loadMore = () => {
   isLoading.value = true
   setTimeout(() => {

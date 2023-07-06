@@ -1,44 +1,57 @@
 <template>
-  <div class="relative player-bg-img h-[298px]">
+  <div
+    class="relative player-bg-img h-[298px]"
+    :class="{
+      '!fixed left-0 bottom-0 right-0 h-[88px] transition-all duration-300 z-20':
+        fixed,
+    }"
+  >
     <div class="player-bg absolute left-0 top-0 h-full w-full">
       <div class="container flex gap-8 py-8">
         <img
+          v-if="!fixed"
           src="/podcast/author.png"
           alt=""
           class="h-[234px] w-[234px] rounded border border-white"
         />
 
-        <div class="flex-1">
-          <h1 class="text-32 font-semibold text-white leading-140">
+        <div class="flex-1" :class="{ 'flex items-center gap-6': fixed }">
+          <h1
+            v-if="!fixed"
+            class="text-32 font-semibold text-white leading-140"
+          >
             Дело Азата Мифтахова: Как в России шьют дела против анархистов
           </h1>
 
-          <ul class="mt-12 flex items-center gap-4">
+          <ul class="mt-12 flex items-center gap-4" :class="{ '!mt-0': fixed }">
             <li
               v-for="(item, i) in playerActions"
-              @click="onClick(item.handler)"
               :key="i"
               :class="item.icon"
               class="p-2 rounded-md text-white bg-[#0000004d] text-2xl cursor-pointer transition-300 ease-out hover:text-opacity-50"
+              @click="onClick(item.handler)"
             ></li>
           </ul>
 
-          <div class="mt-6 flex items-center">
+          <div
+            class="mt-6 flex items-center"
+            :class="{ 'w-full !mt-0': fixed }"
+          >
             <img
               v-if="!isPlaying"
               class="cursor-pointer w-8 h-8"
-              @click="playpauseTrack"
               src="/podcast/play-btn.svg"
               alt=""
+              @click="playpauseTrack"
             />
             <svg
-              class="w-10 h-8 fill-white cursor-pointer"
-              @click="playpauseTrack"
               v-else
+              class="w-10 h-8 fill-white cursor-pointer"
               xmlns="http://www.w3.org/2000/svg"
               width="24"
               height="24"
               viewBox="0 0 24 24"
+              @click="playpauseTrack"
             >
               <path d="M6 4h4v16H6zm8 0h4v16h-4z" />
             </svg>
@@ -48,30 +61,32 @@
 
             <input
               id="default-range"
+              ref="seekSlider"
               type="range"
               value="0"
               min="1"
               max="100"
-              ref="seekSlider"
+              class="w-[90%] h-1 rounded-sm appearance-none cursor-pointer transition-300"
               @input="onUpdate"
-              class="w-[90%] h-1 rounded-sm appearance-none cursor-pointer"
             />
             <span class="text-white text-[13px] uppercase ml-3 mr-6">
               {{ totalDuration }}
             </span>
             <span
+              v-if="!isMuted"
               @click="mute"
-              class="icon-volume text-white text-32 mr-2 cursor-pointer"
+              class="icon-volume text-white text-32 mr-2 w-10 cursor-pointer"
             ></span>
+            <span v-else class="icon-icon-muted text-2xl w-10 mr-2"></span>
             <input
               id="default-range"
+              ref="volume"
               type="range"
               min="1"
               max="100"
               value="50"
-              ref="volume"
+              class="w-[10%] h-1 rounded-sm appearance-none cursor-pointer volum"
               @input="setVolume"
-              class="w-[10%] h-1 rounded-sm appearance-none cursor-pointer"
             />
           </div>
         </div>
@@ -86,10 +101,19 @@ const totalDuration = ref('00:00')
 const seekSlider = ref({} as HTMLInputElement)
 const isPlaying = ref(false)
 const volume = ref(null)
+const isMuted = ref(false)
 let music = {} as HTMLAudioElement
+const normalSpeed = ref(true)
+
+interface Props {
+  fixed?: boolean
+}
+
+defineProps<Props>()
 
 const updateColorTracker = (progress: number, element: HTMLInputElement) => {
   element.style.background = `linear-gradient(to right, #52618F ${progress}%, #E6E6E6 ${progress}%)`
+  element.style.transition = '0.3s ease-in-out'
 }
 
 const calculateProgress = () => {
@@ -122,8 +146,8 @@ onMounted(() => {
     'https://files.freemusicarchive.org/storage-freemusicarchive-org/music/WFMU/Broke_For_Free/Directionless_EP/Broke_For_Free_-_01_-_Night_Owl.mp3'
   )
 
-  music.addEventListener('loadedmetadata', onLoadedmetadata),
-    music.addEventListener('timeupdate', onTimeupdate)
+  music.addEventListener('loadedmetadata', onLoadedmetadata)
+  music.addEventListener('timeupdate', onTimeupdate)
 })
 
 onBeforeUnmount(() => {
@@ -132,11 +156,11 @@ onBeforeUnmount(() => {
 })
 
 function formatTime(time: number) {
-  var minutes = Math.floor(time / 60)
-  var seconds = Math.floor(time % 60)
+  const minutes = Math.floor(time / 60)
+  const seconds = Math.floor(time % 60)
 
-  var formattedMinutes = minutes < 10 ? '0' + minutes : minutes
-  var formattedSeconds = seconds < 10 ? '0' + seconds : seconds
+  const formattedMinutes = minutes < 10 ? '0' + minutes : minutes
+  const formattedSeconds = seconds < 10 ? '0' + seconds : seconds
 
   return formattedMinutes + ':' + formattedSeconds
 }
@@ -161,7 +185,11 @@ const playerActions = [
 ]
 
 function makeFaster() {
-  music.playbackRate = 2.0
+  if (normalSpeed) {
+    music.playbackRate = 1.0
+  } else {
+    music.playbackRate = 2.0
+  }
 }
 function back() {
   music.currentTime -= 15
@@ -182,6 +210,7 @@ function playpauseTrack() {
 }
 
 function mute() {
+  isMuted.value = true
   music.volume = 0
   volume.value.value = 0
   const precent = (volume.value.value / volume.value.max) * 100
@@ -199,6 +228,7 @@ function pauseTrack() {
 }
 
 function setVolume(e) {
+  isMuted.value = false
   music.volume = volume.value.value / 100
   const precent = (e.target.value / e.target.max) * 100
   updateColorTracker(precent, volume.value)
@@ -237,6 +267,11 @@ input[type='range']::-webkit-slider-thumb {
   border: 2px solid #fff;
   cursor: pointer;
   transition: 0.2s ease-in-out;
+}
+
+input[type='range'].volum::-webkit-slider-thumb {
+  width: 15px;
+  height: 15px;
 }
 
 /* Thumb: Firefox */

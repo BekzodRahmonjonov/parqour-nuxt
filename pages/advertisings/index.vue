@@ -1,7 +1,8 @@
 <template>
-  <CommonBreadcrumb :menu="menu" class="mb-8" />
-  <div class="container">
-    <CommonPageWrapper :title="$t('advertisings')" class="my-10 md:my-16">
+  <div>
+    <CommonBreadcrumb :menu="menu" class="mb-8" />
+    <div class="max-w-[784px] px-4 mx-auto mb-10 md:mb-16">
+      <h2 class="page-title mt-12 md:mt-[84px]">{{ $t('advertisings') }}</h2>
       <CardsAds
         v-for="(item, index) in ads"
         :key="index"
@@ -9,7 +10,7 @@
         :count="ads?.length"
         class="min-h-[180px]"
       />
-    </CommonPageWrapper>
+    </div>
   </div>
 </template>
 <script setup lang="ts">
