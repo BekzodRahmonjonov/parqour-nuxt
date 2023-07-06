@@ -62,7 +62,7 @@
             <span class="w-[1px] h-[14px] inline-block bg-white/40"></span>
             <a
               href="#"
-              class="group flex-y-center transition-200 hover:gap-2 gap-1 text-white text-sm lg:text-base leading-130 font-semibold"
+              class="group flex-y-center transition-200 hover:gap-2 gap-1 hover:text-blue-300 text-white text-sm lg:text-base leading-130 font-semibold"
               >Telegram
               <i
                 class="icon-chevron-right text-white group-hover:text-blue-300"
@@ -105,7 +105,7 @@
             <i class="icon-instagram symbol-icon text-2xl lg:!text-3xl"></i>
           </div>
           <p class="contact__card_title">
-            {{ $t('channels_instragram') }}
+            {{ $t('channels_instagram') }}
           </p>
           <div class="flex items-center gap-x-2 mb-[10px]">
             <a
