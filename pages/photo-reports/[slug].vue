@@ -1,11 +1,13 @@
 <template>
-  <CommonBreadcrumb :menu="breadcrumbLinks" />
-  <div class="container mt-8">
-    <CommonSinglePageWrapper :single-photo="singlePhoto">
-      <template #aside>
-        <TempAdvetisimentBanner />
-      </template>
-    </CommonSinglePageWrapper>
+  <div>
+    <CommonBreadcrumb :menu="breadcrumbLinks" />
+    <div class="container mt-8">
+      <CommonSinglePageWrapper :single-photo="singlePhoto">
+        <template #aside>
+          <TempAdvetisimentBanner />
+        </template>
+      </CommonSinglePageWrapper>
+    </div>
   </div>
 </template>
 <script setup lang="ts">
