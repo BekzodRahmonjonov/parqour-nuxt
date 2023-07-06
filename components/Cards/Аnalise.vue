@@ -1,5 +1,6 @@
 <template>
-  <div
+  <NuxtLink
+    :to="`/analysis/${id}`"
     class="relative flex flex-col justify-between h-[362px] w-full lg:col-span-3 md:col-span-4 sm:col-span-6 col-span-12 rounded overflow-hidden hover:-translate-y-2 hover:cursor-pointer transition-200 hover:shadow-m"
   >
     <img
@@ -20,7 +21,7 @@
         {{ $t(text) }}
       </p>
     </article>
-  </div>
+  </NuxtLink>
 </template>
 
 <script setup lang="ts">

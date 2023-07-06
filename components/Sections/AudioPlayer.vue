@@ -16,10 +16,10 @@
           <ul class="mt-12 flex items-center gap-4">
             <li
               v-for="(item, i) in playerActions"
-              @click="onClick(item.handler)"
               :key="i"
               :class="item.icon"
               class="p-2 rounded-md text-white bg-[#0000004d] text-2xl cursor-pointer transition-300 ease-out hover:text-opacity-50"
+              @click="onClick(item.handler)"
             ></li>
           </ul>
 
@@ -27,18 +27,18 @@
             <img
               v-if="!isPlaying"
               class="cursor-pointer w-8 h-8"
-              @click="playpauseTrack"
               src="/podcast/play-btn.svg"
               alt=""
+              @click="playpauseTrack"
             />
             <svg
-              class="w-10 h-8 fill-white cursor-pointer"
-              @click="playpauseTrack"
               v-else
+              class="w-10 h-8 fill-white cursor-pointer"
               xmlns="http://www.w3.org/2000/svg"
               width="24"
               height="24"
               viewBox="0 0 24 24"
+              @click="playpauseTrack"
             >
               <path d="M6 4h4v16H6zm8 0h4v16h-4z" />
             </svg>
@@ -48,32 +48,32 @@
 
             <input
               id="default-range"
+              ref="seekSlider"
               type="range"
               value="0"
               min="1"
               max="100"
-              ref="seekSlider"
+              class="w-[90%] h-1 rounded-sm appearance-none cursor-pointer transition-300"
               @input="onUpdate"
-              class="w-[90%] h-1 rounded-sm appearance-none cursor-pointer"
             />
             <span class="text-white text-[13px] uppercase ml-3 mr-6">
               {{ totalDuration }}
             </span>
             <span
               v-if="!isMuted"
-              @click="mute"
               class="icon-volume text-white text-32 mr-2 cursor-pointer"
+              @click="mute"
             ></span>
             <span v-else class="icon-icon-muted mr-2"></span>
             <input
               id="default-range"
+              ref="volume"
               type="range"
               min="1"
               max="100"
               value="50"
-              ref="volume"
-              @input="setVolume"
               class="w-[10%] h-1 rounded-sm appearance-none cursor-pointer volum"
+              @input="setVolume"
             />
           </div>
         </div>
@@ -93,6 +93,7 @@ let music = {} as HTMLAudioElement
 
 const updateColorTracker = (progress: number, element: HTMLInputElement) => {
   element.style.background = `linear-gradient(to right, #52618F ${progress}%, #E6E6E6 ${progress}%)`
+  element.style.transition = '0.3s ease-in-out'
 }
 
 const calculateProgress = () => {
@@ -125,8 +126,8 @@ onMounted(() => {
     'https://files.freemusicarchive.org/storage-freemusicarchive-org/music/WFMU/Broke_For_Free/Directionless_EP/Broke_For_Free_-_01_-_Night_Owl.mp3'
   )
 
-  music.addEventListener('loadedmetadata', onLoadedmetadata),
-    music.addEventListener('timeupdate', onTimeupdate)
+  music.addEventListener('loadedmetadata', onLoadedmetadata)
+  music.addEventListener('timeupdate', onTimeupdate)
 })
 
 onBeforeUnmount(() => {
@@ -135,11 +136,11 @@ onBeforeUnmount(() => {
 })
 
 function formatTime(time: number) {
-  var minutes = Math.floor(time / 60)
-  var seconds = Math.floor(time % 60)
+  const minutes = Math.floor(time / 60)
+  const seconds = Math.floor(time % 60)
 
-  var formattedMinutes = minutes < 10 ? '0' + minutes : minutes
-  var formattedSeconds = seconds < 10 ? '0' + seconds : seconds
+  const formattedMinutes = minutes < 10 ? '0' + minutes : minutes
+  const formattedSeconds = seconds < 10 ? '0' + seconds : seconds
 
   return formattedMinutes + ':' + formattedSeconds
 }
