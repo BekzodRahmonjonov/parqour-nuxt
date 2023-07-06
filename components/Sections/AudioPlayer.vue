@@ -103,6 +103,7 @@ const isPlaying = ref(false)
 const volume = ref(null)
 const isMuted = ref(false)
 let music = {} as HTMLAudioElement
+const normalSpeed = ref(true)
 
 interface Props {
   fixed?: boolean
@@ -184,7 +185,11 @@ const playerActions = [
 ]
 
 function makeFaster() {
-  music.playbackRate = 2.0
+  if (normalSpeed) {
+    music.playbackRate = 1.0
+  } else {
+    music.playbackRate = 2.0
+  }
 }
 function back() {
   music.currentTime -= 15
