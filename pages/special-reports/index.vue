@@ -9,6 +9,7 @@
           :data="item"
           class="min-h-[180px]"
         />
+        <BlockLoaderSpecialReports v-if="isLoading" />
         <CommonButton
           v-if="counter !== specialReports?.length"
           :loading="isLoading"
