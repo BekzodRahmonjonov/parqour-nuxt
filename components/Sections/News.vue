@@ -1,7 +1,7 @@
 <template>
   <div>
     <div class="container">
-      <CommonSectionWrapper :title="$t('news')" />
+      <CommonSectionWrapper :title="$t('news')" all-link="/news" />
 
       <div
         class="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 sm:gap-6 mt-4 md:mt-6"

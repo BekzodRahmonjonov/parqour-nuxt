@@ -75,14 +75,23 @@ import 'swiper/css'
 
 import dayjs from 'dayjs'
 import { useI18n } from 'vue-i18n'
+import { Navigation } from 'swiper'
+import { Swiper, SwiperSlide } from 'swiper/vue'
 
 import { ISingleData } from '~/types'
 
 const { t } = useI18n()
-const menu = [
-  { title: t('special_reports'), link: '/special-reports' },
-  { title: t('reports_single'), link: '/special-reports' },
-]
+const settings = {
+  slidesPerView: 'auto',
+  spaceBetween: 44,
+  loop: true,
+  navigation: {
+    prevEl: '.button-report-prev',
+    nextEl: '.button-report-next',
+  },
+  modules: [Navigation],
+}
+
 interface Props {
   single: ISingleData
 }

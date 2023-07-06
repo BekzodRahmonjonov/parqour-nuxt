@@ -7,11 +7,13 @@
         <CommonNewsBlock
           v-if="active === 'popular'"
           :list="popularNews"
+          link="popular-news"
           :button-text="$t('all_popular')"
         />
         <CommonNewsBlock
           v-if="active === 'discussed'"
           :list="popularNews"
+          link="news"
           :button-text="$t('all_discussed')"
         />
       </div>
