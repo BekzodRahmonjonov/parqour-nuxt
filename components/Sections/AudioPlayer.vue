@@ -1,19 +1,29 @@
 <template>
-  <div class="relative player-bg-img h-[298px]">
+  <div
+    class="relative player-bg-img h-[298px]"
+    :class="{
+      '!fixed left-0 bottom-0 right-0 h-[88px] transition-all duration-300':
+        fixed,
+    }"
+  >
     <div class="player-bg absolute left-0 top-0 h-full w-full">
       <div class="container flex gap-8 py-8">
         <img
+          v-if="!fixed"
           src="/podcast/author.png"
           alt=""
           class="h-[234px] w-[234px] rounded border border-white"
         />
 
-        <div class="flex-1">
-          <h1 class="text-32 font-semibold text-white leading-140">
+        <div class="flex-1" :class="{ 'flex items-center gap-6': fixed }">
+          <h1
+            v-if="!fixed"
+            class="text-32 font-semibold text-white leading-140"
+          >
             Дело Азата Мифтахова: Как в России шьют дела против анархистов
           </h1>
 
-          <ul class="mt-12 flex items-center gap-4">
+          <ul class="mt-12 flex items-center gap-4" :class="{ '!mt-0': fixed }">
             <li
               v-for="(item, i) in playerActions"
               @click="onClick(item.handler)"
@@ -23,7 +33,10 @@
             ></li>
           </ul>
 
-          <div class="mt-6 flex items-center">
+          <div
+            class="mt-6 flex items-center"
+            :class="{ 'w-full !mt-0': fixed }"
+          >
             <img
               v-if="!isPlaying"
               class="cursor-pointer w-8 h-8"
@@ -62,9 +75,9 @@
             <span
               v-if="!isMuted"
               @click="mute"
-              class="icon-volume text-white text-32 mr-2 cursor-pointer"
+              class="icon-volume text-white text-32 mr-2 w-10 cursor-pointer"
             ></span>
-            <span v-else class="icon-icon-muted mr-2"></span>
+            <span v-else class="icon-icon-muted text-2xl w-10 mr-2"></span>
             <input
               id="default-range"
               type="range"
@@ -90,6 +103,12 @@ const isPlaying = ref(false)
 const volume = ref(null)
 const isMuted = ref(false)
 let music = {} as HTMLAudioElement
+
+interface Props {
+  fixed?: boolean
+}
+
+defineProps<Props>()
 
 const updateColorTracker = (progress: number, element: HTMLInputElement) => {
   element.style.background = `linear-gradient(to right, #52618F ${progress}%, #E6E6E6 ${progress}%)`
