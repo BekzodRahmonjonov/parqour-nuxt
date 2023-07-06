@@ -26,7 +26,7 @@ const emit = defineEmits<Emits>()
 
 const handleUpdateSearch = (value: string) => {
   debounce('searchOption', () => {
-    emit('handle-update-search', value)
+    emit('handle-update-search', value.toLowerCase())
   })
 }
 </script>

@@ -1,6 +1,6 @@
 <template>
-  <div>
-    <CommonBreadcrumb :menu="menu" />
+  <div class="pb-16">
+    <CommonBreadcrumb :menu="breadcrumb" />
     <div class="relative md:max-h-[580px] overflow-hidden">
       <div
         class="absolute top-0 left-0 w-full h-full cover-linear flex flex-col items-start justify-end p-6"
@@ -35,22 +35,9 @@
         alt=""
       />
     </div>
-    <div class="container">
-      <div class="grid grid-cols-12 gap-8 mt-8">
+    <div>
+      <div class="grid grid-cols-12 gap-6 mt-8">
         <main class="col-span-12 md:col-span-12">
-          <figure v-if="single?.image" class="max-h-[498px] h-full">
-            <img
-              :src="single.image"
-              class="w-full h-full object-cover rounded"
-              alt=""
-            />
-            <figcaption
-              v-if="single.author"
-              class="text-neutral-400 text-xs font-normal leading-none mt-2 italic"
-            >
-              © Фото: {{ single.author }}
-            </figcaption>
-          </figure>
           <div
             class="mx-auto my-10 text-dark-200 text-lg font-normal leading-relaxed transition-200 dark:text-white single-content"
             v-html="single.content"
@@ -59,21 +46,32 @@
         </main>
       </div>
     </div>
+    <div class="max-w-[988px] mx-auto">
+      <div class="flex items-center justify-between mb-6">
+        <div class="flex-y-center gap-3">
+          <NewsTags v-bind="{ tags: interviewTags }" />
+        </div>
+        <CommonLikeDislike />
+      </div>
+      <CardsSingleAuthor :data="single" />
+      <hr class="mt-6 mb-6 border-gray-300 inline-block w-full" />
+      <CommonShareLink @click="contactModal = true" />
+    </div>
+    <ModalContactModal :show="contactModal" @close="contactModal = false" />
   </div>
 </template>
 <script setup lang="ts">
-import 'swiper/css'
-
 import dayjs from 'dayjs'
-import { Navigation } from 'swiper'
-import { Swiper, SwiperSlide } from 'swiper/vue'
 import { useI18n } from 'vue-i18n'
 
-import { reportsData } from '~/data'
+import { interviewTags } from '~/data'
 import { ISingleData } from '~/types'
 
+const contactModal = ref(false)
+
 const { t } = useI18n()
-const menu = [
+
+const breadcrumb = [
   { title: t('special_reports'), link: '/special-reports' },
   { title: t('reports_single'), link: '/special-reports' },
 ]
@@ -82,14 +80,18 @@ interface Props {
 }
 defineProps<Props>()
 </script>
-<style>
+
+<style scoped>
 .single-content div {
-  max-width: 698px;
+  max-width: 988px;
   margin: 0 auto;
 }
 .single-content figure {
   margin: 24px auto 40px;
-  width: 100%;
+  min-width: 100vh;
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
   max-height: 498px;
   height: 100%;
 }
@@ -98,9 +100,9 @@ defineProps<Props>()
   height: 100%;
   max-height: 498px;
   object-fit: cover;
-  border-radius: 4px;
 }
 .single-content figure figcaption {
+  display: none;
   margin-top: 8px;
   color: #919299;
   font-size: 12px;
