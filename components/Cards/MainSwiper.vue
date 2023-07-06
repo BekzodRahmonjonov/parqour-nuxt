@@ -1,5 +1,6 @@
 <template>
-  <div
+  <NuxtLink
+    :to="`/news/${card?.id}`"
     class="w-full aspect-video lg:h-[466px] rounded-lg relative overflow-hidden group"
   >
     <div class="content-image relative w-full h-full">
@@ -30,7 +31,7 @@
         </div>
       </div>
     </div>
-  </div>
+  </NuxtLink>
 </template>
 
 <script setup lang="ts">
