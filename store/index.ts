@@ -14,7 +14,7 @@ export const useHomeStore = defineStore('homeStore', {
       const { locale, setLocaleMessage, setLocale, t } = useI18n()
       const cookieLocale = useCookie('i18n_redirected')
 
-      let defaultLocale = locale.value ?? 'uz'
+      let defaultLocale = locale.value ?? 'ru'
       defaultLocale = cookieLocale.value ?? defaultLocale
       // if (process.client) {
       //   defaultLocale = localStorage.getItem('locale') ?? 'uz'
