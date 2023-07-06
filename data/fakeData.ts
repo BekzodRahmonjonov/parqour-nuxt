@@ -202,3 +202,74 @@ export const newsTags = [
     value: 'people',
   },
 ]
+
+export const authorsSideData = [
+  {
+    name: 'Шахзод Юлдошбоев',
+    img: '/images/face.png',
+    about: 'Корреспондент',
+  },
+  {
+    name: 'Шахзод Юлдошбоев',
+    img: '/images/face.png',
+    about: 'Корреспондент',
+  },
+  {
+    name: 'Шахзод Юлдошбоев',
+    img: '/images/face.png',
+    about: 'Корреспондент',
+  },
+  {
+    name: 'Шахзод Юлдошбоев',
+    img: '/images/face.png',
+    about: 'Корреспондент',
+  },
+  {
+    name: 'Шахзод Юлдошбоев',
+    img: '/images/face.png',
+    about: 'Корреспондент',
+  },
+  {
+    name: 'Шахзод Юлдошбоев',
+    img: '/images/face.png',
+    about: 'Корреспондент',
+  },
+]
+
+export const authorSelect = [
+  {
+    id: 1,
+    name: 'Все',
+    value: 'all',
+  },
+  {
+    id: 2,
+    name: 'Новости',
+    value: 'news',
+  },
+  {
+    id: 3,
+    name: 'Статьи',
+    value: 'articles',
+  },
+  {
+    id: 4,
+    name: 'фоторепортажи',
+    value: 'photo-reports',
+  },
+  {
+    id: 5,
+    name: 'спецрепортажи',
+    value: 'special-reports',
+  },
+  {
+    id: 6,
+    name: 'колонки',
+    value: 'columns',
+  },
+  {
+    id: 7,
+    name: 'разборы',
+    value: 'analysis',
+  },
+]

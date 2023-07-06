@@ -1,6 +1,6 @@
 <template>
   <div class="grid md:grid-cols-12 gap-8">
-    <main class="col-span-9 md:col-span-9">
+    <main class="col-span-12 md:col-span-9">
       <h2 class="page-title">{{ title }}</h2>
       <p
         v-if="text"
@@ -10,7 +10,7 @@
       </p>
       <slot />
     </main>
-    <aside class="col-span-3 md:col-span-3">
+    <aside class="col-span-12 md:col-span-3">
       <div class="w-full h-full">
         <slot name="aside" />
       </div>
