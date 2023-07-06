@@ -46,6 +46,10 @@
           class="mx-auto my-10 text-dark-200 text-lg font-normal leading-relaxed transition-200 dark:text-white single-content"
           v-html="single.content"
         ></div>
+        <CommonAdBanner
+          image="/images/advertising/yellow.png"
+          class="mb-10 md:mb-20"
+        />
         <slot />
       </main>
       <aside class="max-md:hidden md:col-span-3">
@@ -55,20 +59,18 @@
       </aside>
     </div>
   </div>
-  <div class="bg-blue-700 pt-6 mt-5 pb-12 mb-12">
+  <div class="mb-6 container">
     <CommonSectionWrapper
       :title="$t('special_reports')"
       all-link="/special-reports"
-      dark-title
-      class="mb-6 container"
     />
     <Swiper v-bind="settings">
       <SwiperSlide
         v-for="(item, idx) in reportsData"
         :key="idx"
-        class="py-4 !w-[521px] h-[180px]"
+        class="py-5 !w-[333px] h-[147px]"
       >
-        <CardsSpecialReports :data="item" />
+        <CardsSpecialReports special-report :data="item" />
       </SwiperSlide>
     </Swiper>
   </div>
@@ -91,7 +93,7 @@ const menu = [
 ]
 const settings = {
   slidesPerView: 'auto',
-  spaceBetween: 44,
+  spaceBetween: 75,
   loop: true,
   navigation: {
     prevEl: '.button-report-prev',
