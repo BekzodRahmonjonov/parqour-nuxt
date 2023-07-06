@@ -101,6 +101,7 @@ export interface INewsSingleData {
   views_count: number
   content: string | HTMLAllCollection
   author: string
+  author_image: string
 }
 
 export interface ISinglePhoto {

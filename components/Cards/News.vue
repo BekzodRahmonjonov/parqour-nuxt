@@ -1,6 +1,6 @@
 <template>
   <NuxtLink
-    to="/"
+    :to="`/news/${card?.id}`"
     class="border-b last:border-b-[0px] sm:last:border-b sm:border border-solid border-blue-200/20 sm:rounded-lg relative overflow-visible transition-200 hover:bg-white-100 dark:hover:bg-blue-200/20 hover:border-transparent group flex items-center sm:items-start flex-row sm:flex-col flex-row-reverse gap-2 sm:gap-0 justify-between"
   >
     <div class="shrink-0 sm:w-full">
@@ -10,7 +10,7 @@
         <img
           :src="card?.image"
           alt="card-news-image"
-          class="w-full h-full object-cover"
+          class="w-full h-full object-cover sm:rounded-t-lg"
         />
       </div>
     </div>

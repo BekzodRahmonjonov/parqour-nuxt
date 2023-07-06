@@ -13,7 +13,10 @@
         >
           {{ placeholder }}
         </div>
-        <div v-else class="text-dark text-sm font-medium leading-130">
+        <div
+          v-else
+          class="text-dark text-sm font-medium leading-130 capitalize"
+        >
           {{ value[labelKey] || value }}
         </div>
         <slot name="chevron">
@@ -29,13 +32,11 @@
       <div
         v-if="showOptions"
         :key="showOptions"
-        class="absolute top-full w-full bg-white border border-gray-100 rounded z-10 translate-y-3 overflow-hidden max-h-[240px] overflow-y-auto relative"
+        class="absolute top-full w-full bg-white border border-gray-100 rounded z-10 translate-y-3 overflow-hidden max-h-[240px] overflow-y-auto"
       >
         <slot name="options">
           <div class="p-2 sticky w-full bg-white top-0">
-            <CommonSelectSearch
-              @handle-update-search="(e) => emit('handle-search', e)"
-            />
+            <CommonSelectSearch @handle-update-search="handleUpdateSearch" />
           </div>
           <template v-if="options?.length">
             <div
@@ -47,9 +48,12 @@
             >
               <div class="border-b border-gray-300 ml-4 w-full h-full py-2.5">
                 <slot name="option" :option="option" :index="idx">
-                  <div class="text-blue-600 text-sm leading-140 font-semibold">
-                    {{ option[labelKey] }}
-                  </div>
+                  <Highlighter
+                    class="text-blue-600 text-sm leading-140 font-semibold capitalize"
+                    highlight-class-name="bg-[#FFCD55] dark:bg-[#F9DCA3] dark:text-white dark:bg-opacity-[24%] rounded"
+                    :search-words="[searchOption ?? '']"
+                    :text-to-highlight="option[labelKey]"
+                  />
                 </slot>
               </div>
             </div>
@@ -75,8 +79,13 @@
 <script setup lang="ts">
 import { onClickOutside, useIntersectionObserver } from '@vueuse/core'
 import { defineEmits, defineProps, ref, watch } from 'vue'
+import Highlighter from 'vue-highlight-words'
 
 const searchOption = ref('')
+
+const handleUpdateSearch = (value: string) => {
+  searchOption.value = value
+}
 
 type TOption = string | number | { [key: string]: string | number }
 
