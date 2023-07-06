@@ -480,6 +480,13 @@ export const headerMainMenuData = [
 ]
 export const podcasts: IPodcast[] = [
   {
+    image: '/images/podcasts/image5.png',
+    type: 'audio',
+    title: 'Почему в Узбекистане не работает система образования?',
+    created_at: '2021-01-01',
+    typeTitle: 'Подкасты',
+  },
+  {
     image: '/images/podcasts/image.png',
     type: 'audio',
     title: 'Почему в Узбекистане не работает система образования?',
@@ -521,13 +528,7 @@ export const podcasts: IPodcast[] = [
     created_at: '2021-01-01',
     typeTitle: 'Подкасты',
   },
-  {
-    image: '/images/podcasts/image5.png',
-    type: 'audio',
-    title: 'Почему в Узбекистане не работает система образования?',
-    created_at: '2021-01-01',
-    typeTitle: 'Подкасты',
-  },
+
   {
     image: '/images/podcasts/image6.png',
     type: 'audio',

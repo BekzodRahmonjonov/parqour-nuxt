@@ -39,7 +39,10 @@
             {{ getTimeText(data.created_at, $t) }}
           </p>
         </div>
-        <p class="text-white line-clamp-2 text-base font-medium leading-130">
+        <p
+          class="text-white line-clamp-2 text-base font-medium leading-130"
+          :class="{ '!text-2xl !leading-136': isSingleBanner }"
+        >
           {{ data.title }}
         </p>
       </div>
@@ -53,6 +56,7 @@ import { getTimeText } from '../../helpers'
 
 interface Props {
   data: IPodcast
+  isSingleBanner?: boolean
 }
 defineProps<Props>()
 </script>
