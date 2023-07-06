@@ -30,14 +30,17 @@
           Шохрух Бахтияров
         </h3>
         <div class="flex-y-center mt-1">
-          <p
-            class="group-odd:text-white/60 group-even:text-gray flex-y-center text-sm leading-130"
-          >
-            <i
-              class="icon-eye group-odd:text-white/60 group-even:text-gray mr-1"
-            ></i>
-            {{ formatNumberWithSpaces(data.views_count) }}
-          </p>
+          <div>
+            <p
+              class="group-odd:text-white/60 group-even:text-gray flex-y-center text-sm leading-130"
+            >
+              <i
+                class="icon-eye group-odd:text-white/60 group-even:text-gray mr-1"
+              ></i>
+              {{ formatNumberWithSpaces(data.views_count) }}
+            </p>
+          </div>
+
           <span class="w-1 h-1 rounded-full bg-gray mx-1.5"></span>
           <p
             class="group-odd:text-white/60 group-even:text-gray flex-y-center text-sm leading-130"
@@ -50,23 +53,8 @@
   </NuxtLink>
 </template>
 <script setup lang="ts">
-import {getTimeText} from "../../helpers";
-import {IColony} from "~/types";
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+import { getTimeText } from '../../helpers'
+import { IColony } from '~/types'
 
 interface Props {
   data: IColony

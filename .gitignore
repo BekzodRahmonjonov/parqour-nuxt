@@ -8,6 +8,7 @@ node_modules
 dist
 .yarn/*
 yarn.lock
+.yarnrc.yml
 *.DS_Store
 
 # IDE & Editors

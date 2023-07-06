@@ -8,14 +8,18 @@
           class="h-[234px] w-[234px] rounded"
         />
         <div class="flex-1">
-          <h1 class="text-3xl font-semibold">
+          <h1 class="text-32 font-semibold text-white leading-140">
             Дело Азата Мифтахова: Как в России шьют дела против анархистов
           </h1>
 
-          <ul class="mt-12 flex items-center">
-            <li>1</li>
-            <li>2</li>
-            <li>3</li>
+          <ul class="mt-12 flex items-center gap-4">
+            <li
+              v-for="(item, i) in playerActions"
+              @click="onClick(item.handler)"
+              :key="i"
+              :class="item.icon"
+              class="p-2 rounded-md text-white bg-[#0000004d] text-2xl cursor-pointer transition-300 ease-out hover:text-opacity-50"
+            ></li>
           </ul>
 
           <div class="mt-6 flex items-center">
@@ -35,7 +39,9 @@
             >
               <path d="M6 4h4v16H6zm8 0h4v16h-4z" />
             </svg>
-            {{ currentTime }}
+            <span class="text-white text-[13px] uppercase ml-2 mr-3">
+              {{ currentTime }}
+            </span>
             <input
               id="default-range"
               type="range"
@@ -44,9 +50,12 @@
               max="100"
               ref="seekSlider"
               @change="seekTo"
-              class="w-[80%] h-2 bg-[#E6E6E6] rounded-lg appearance-none cursor-pointer"
+              class="w-[80%] h-2 bg-[#E6E6E6] rounded-sm appearance-none cursor-pointer"
             />
-            {{ totalDuration }}
+            <span class="text-white text-[13px] uppercase ml-3 mr-6">
+              {{ totalDuration }}
+            </span>
+
             <input
               id="default-range"
               type="range"
@@ -55,7 +64,7 @@
               value="99"
               ref="volume"
               @change="setVolume"
-              class="w-[20%] h-2 bg-[#E6E6E6] rounded-lg appearance-none cursor-pointer"
+              class="w-[20%] h-2 bg-[#E6E6E6] rounded-sm appearance-none cursor-pointer"
             />
           </div>
         </div>
@@ -87,6 +96,41 @@ onMounted(() => {
   currentTrack = document.createElement('audio')
   loadTrack(trackIndex)
 })
+
+const playerActions = [
+  {
+    icon: 'icon-multiplier-1x',
+    handler: makeFaster,
+  },
+  {
+    icon: 'icon-time-back',
+    handler: back,
+  },
+  {
+    icon: 'icon-time-forvard',
+    handler: forwardAudio,
+  },
+  {
+    icon: 'icon-download-stroke',
+    handler: download,
+  },
+]
+
+function makeFaster() {
+  currentTrack.playbackRate = 2.0
+}
+function back() {
+  currentTrack.currentTime -= 15
+}
+function forwardAudio() {
+  currentTrack.currentTime += 15
+}
+function download() {}
+
+const onClick = (handler: () => {}) => {
+  console.log(handler, 'handler')
+  handler()
+}
 
 function loadTrack(trackIndex: number) {
   currentTrack.src = track_list[trackIndex].path
@@ -176,5 +220,15 @@ function seekTo() {
 .player-bg {
   background: rgba(27, 27, 27, 0.7);
   backdrop-filter: blur(12.5px);
+}
+
+input[type='range']::-webkit-slider-thumb {
+  appearance: none;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background-color: #52618f;
+  border: 2px solid #fff;
+  cursor: pointer;
 }
 </style>

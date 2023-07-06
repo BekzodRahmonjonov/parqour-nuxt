@@ -6,6 +6,7 @@
   "discussed": "Muhokama qilingan",
   "podcasts": "Podkastlar",
   "special_reports": "Maxsus reportajlar",
+  "reports_single": "Maxsus reportaj: O‘zbekistonda ko‘mir qanday qazib olinadi - foto, video",
   "all": "Barchasi",
   "not_result": "Результатов не найдено",
   "not_result_detail": "По этому запросу ничего не найдено, попробуйте еще раз",
@@ -52,6 +53,7 @@
   "verified_tooltip": "Uznews xodimlari tomonidan tekshirilgan",
   "actual_comments": "Aktual sharxlar",
   "mail_for_contacts": "Biz bilan bog'lanish uchun elektron pochta",
+  "contacts": "Kontakt",
   "phone_reduction": "Redaksiya raqami",
   "for_advertising": "Reklama uchun",
   "channels_telegram": "Telegram kanallar",
@@ -61,6 +63,7 @@
   "contact_modal": "Biz bilan aloqa",
   "authors_text": "Добро пожаловать на раздел 'Авторы' нашего новостного сайта! В этом разделе мы хотели бы представить наших талантливых авторов, которые работают над созданием интересного и актуального контента для наших читателей.",
   "authors": "Авторы",
+  "search_result": "Результаты поиска",
   "how_do_you_connect": "Sizni qanday chaqirishimiz mumkin?",
   "enter_name": "Ismingizni kiriting",
   "phone_number": "Telefon raqami",
@@ -74,7 +77,8 @@
   "interview_sub": "Bu yerda siz eng dolzarb mavzular va voqealar haqida ko'proq ma'lumot olishga yordam beradigan qiziqarli shaxslar, ekspertlar va taniqli shaxslar bilan noyob va ma'lumotli suhbatlarni topasiz.",
   "all_authors": "Barcha mualliflar",
   "terms_of_use": "Foydalanish shartlari",
-  "advertisings":"Реклама на сайте",
+  "advertisings": "Реклама на сайте",
   "result_not_found": "Hech qanday natija topilmadi",
-  "try_again_text": "Bu qidiruv boʻyicha hech qanday natija topilmadi, qaytadan urinib koʻring"
+  "try_again_text": "Bu qidiruv boʻyicha hech qanday natija topilmadi, qaytadan urinib koʻring",
+  "others": "Другие авторы"
 }

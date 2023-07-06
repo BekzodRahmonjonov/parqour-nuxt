@@ -24,6 +24,7 @@ export default <Partial<Config>>{
       colors: {
         dark: {
           DEFAULT: '#2D2D2B',
+          200: '#222B3F',
         },
         blue: {
           100: '#A2BCDE',
@@ -70,14 +71,16 @@ export default <Partial<Config>>{
       fontSize: {
         44: ['44px', '52px'],
         28: '28px',
+        32: '32px',
       },
       fontFamily: {
-        ibm: "IBM Plex Serif', serif;"
+        ibm: "IBM Plex Serif', serif;",
       },
       boxShadow: {
         xs: '0px 12px 32px rgba(82, 97, 143, 0.52)',
         sm: '0px 2px 24px rgba(25, 31, 46, 0.24)',
         m: '0px 12px 32px rgba(82, 97, 143, 0.52)',
+        ml: '0px 2px 16px 0px rgba(25, 31, 46, 0.04)',
         xl: '0px 12px 24px 0px rgba(82, 97, 143, 0.12);',
       },
       dropShadow: {
@@ -90,6 +93,7 @@ export default <Partial<Config>>{
         126: '126%',
         125: '125%',
         140: '140%',
+        138: '138%',
         14: '14px',
         16: '16px',
         20: '20px',

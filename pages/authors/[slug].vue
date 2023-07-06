@@ -16,14 +16,15 @@
         <CommonButton
           @click="loadMore"
           :loading="isLoading"
-          class="w-full text-blue-600 !bg-[#52618f1a] font-medium leading-125 mt-8 dark:text-white"
+          class="w-full text-blue-600 !bg-[#52618f1a] font-medium leading-125 mt-8"
         >
           <span class="icon-double rotate-90 mr-[10px] text-xl"></span>
           {{ $t('load_more') }}</CommonButton
         >
       </div>
       <aside class="col-span-3">
-        <div class="mt-14 w-full h-full">
+        <div class="w-full h-full">
+          <CommonOtherAuthors :others="other_authors" class="mb-6" />
           <img src="https://picsum.photos/200/400" class="w-full" alt="" />
         </div>
       </aside>
@@ -32,7 +33,7 @@
 </template>
 <script setup lang="ts">
 import { authorSideData } from '~/data/fakeData'
-import { authorsData } from '~/data'
+import { authorsData, other_authors } from '~/data'
 
 const copyOfAuthorsData = ref([...authorsData])
 const isLoading = ref(false)

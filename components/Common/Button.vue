@@ -1,7 +1,8 @@
-`<template>
+`
+<template>
   <button
     v-bind="{ disabled, type }"
-    class="inline-block transition-200 rounded px-5 py-2 flex-center cursor-pointer relative group disabled:bg-blue-200/10 disabled:hover:bg-blue-200/10 disabled:text-gray-200 hover:!bg-blue-300 outline-none"
+    class="inline-block transition-200 rounded dark:hover:!text-white px-5 py-2 flex-center cursor-pointer relative group disabled:bg-blue-200/10 disabled:hover:bg-blue-200/10 disabled:text-gray-200 hover:!bg-blue-300 dark:hover:!bg-[#52618f33] outline-none"
     :style="{ '--box-shadow': shadowColor, '--spinnerColor': spinnerColor }"
     :class="[
       buttonClass,
@@ -80,13 +81,13 @@ const props = withDefaults(defineProps<Props>(), {
   variant: 'primary',
 })
 const variants = computed<{ [key in Props['variant']]: string }>(() => ({
-  primary: 's-button-primary',
+  primary: 's-button-primary hover:text-white dark:!text-blue-100',
   secondary: 's-button-secondary dark:bg-blue-100/[16%] dark:text-white',
   'primary-dark': 's-button-primary-dark',
   danger: 's-button-danger',
   'danger-outline': 's-button-danger-outline',
   light:
-    'bg-blue-transparent hover:bg-blue-200 text-blue-200 border border-blue-200',
+    'bg-blue-transparent hover:bg-[#52618f33] hover:text-white text-blue-200 border border-blue-200',
 }))
 
 const buttonVariantClass = computed<string>(() => variants.value[props.variant])

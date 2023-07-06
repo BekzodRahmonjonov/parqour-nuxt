@@ -66,13 +66,14 @@ const shimmerStyles = computed(() => {
 }
 
 .skeleton {
-  background-color: #dddbdd;
+  background-color: #dae0e8;
   background-image: linear-gradient(
-    to right,
-    rgba(194, 198, 204, 0.3) 5.93%,
-    rgba(255, 255, 255, 0.42) 26.56%,
-    rgba(194, 198, 204, 0.3) 62.69%
+    90deg,
+    #dae0e8 0%,
+    #f0f3f7 49.48%,
+    #dae0e8 100%
   );
+
   width: 100%;
   height: 100%;
   border-radius: var(--border-radius);
@@ -90,12 +91,14 @@ const shimmerStyles = computed(() => {
 .dark .skeleton {
   /*background-color: rgba(95, 94, 94, 0.99);*/
   background-color: rgba(114, 113, 114, 1);
-  background-image: linear-gradient(
+  /* background-image: linear-gradient(
     to right,
     rgba(120, 116, 118, 0.2) 5.93%,
     rgba(185, 181, 183, 0.6) 26.56%,
     rgba(135, 132, 134, 0.2) 62.69%
-  );
+  ); */
+
+  background: linear-gradient(90deg, #2f3d5b 0%, #435479 49.48%, #2f3d5b 100%);
 }
 @keyframes placeholderShimmer {
   0% {

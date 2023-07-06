@@ -8,28 +8,29 @@
         class="mt-8"
       >
         <div class="grid gap-5">
-          <div class="grid gap-5" v-if="preloader">
+          <div v-if="preloader" class="grid gap-5">
             <BlockAuthorsCardShimmer v-for="item in 6" :key="item" />
           </div>
           <nuxt-link
-            v-else
-            to="authors/1"
             v-for="(item, i) in copyOfAuthorsData"
+            v-else
             :key="i"
+            to="authors/1"
           >
             <CardsAuthorsCard :author="item" />
           </nuxt-link>
         </div>
         <CommonButton
-          @click="loadMore"
+          v-if="!preloader"
           :loading="isLoading"
-          class="w-full text-blue-600 !bg-[#52618f1a] font-medium leading-125 mt-8 dark:text-white"
+          class="w-full text-blue-600 !bg-[#52618f1a] font-medium leading-125 mt-8"
+          @click="loadMore"
         >
           <span class="icon-double rotate-90 mr-[10px] text-xl"></span>
           {{ $t('load_more') }}</CommonButton
         >
         <template #aside>
-          <img src="https://picsum.photos/200/400" class="w-full" alt="" />
+          <TempAdvetisimentBanner />
         </template>
       </CommonPageWrapper>
     </div>
@@ -37,6 +38,7 @@
 </template>
 <script setup lang="ts">
 import { authorsData } from '~/data/fakeData'
+
 const isLoading = ref(false)
 const preloader = ref(true)
 const copyOfAuthorsData = ref([...authorsData])
@@ -51,7 +53,7 @@ const loadMore = () => {
     name: 'Жасурбек Жабборов',
     img: '/images/face.png',
     about:
-      'Ведущий специалист организационно-социального отдела Центрального Правления Общества слепых Узбекистана',
+      'Ведущий специалист  Правления Общества слепых Узбекистана  Правления Общества слепых Узбекистана',
   }
   setTimeout(() => {
     isLoading.value = false

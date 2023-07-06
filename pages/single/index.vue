@@ -23,7 +23,7 @@
       налоги.
     </h4>
 
-    <img src="@/public/temp/singleImg.png" alt="image" />
+    <img src="../../public/temp/singleImg.png" alt="image" />
     <p class="main__img-author">© Фото: Джасурбек Нарзуллаев</p>
     <p>
       «Наши граждане, которые уехали за границу на заработки, ищут возможности.
@@ -67,7 +67,7 @@
       обеспечение их семей, но и на развитие страны.
     </p>
     <div class="banner">
-      <img src="@/public/temp/singleImg.png" alt="image" />
+      <img src="../../public/temp/singleImg.png" alt="image" />
       <p>
         Узбекистан и Кыргызстан подписали пакет соглашений на сумму более $1,6
         млрд — список

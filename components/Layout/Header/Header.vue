@@ -1,6 +1,6 @@
 <template>
   <header class="fixed top-0 left-0 w-full z-40">
-    <div class="relative z-30 !shadow-sm">
+    <div class="relative z-30 !shadow-ml">
       <CollapseTransition :duration="300" easing="linear" dimension="height">
         <div v-if="!windowIsScrolled" class="hidden lg:block">
           <LayoutHeaderActions />

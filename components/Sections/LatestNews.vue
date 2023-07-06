@@ -2,7 +2,7 @@
   <div class="container w-full">
     <button
       class="left-0 border border-solid border-blue-100 mb-3 rounded-lg w-full z-[12] px-4 py-2.5 flex lg:hidden justify-between gap-4 transition-200 dark:bg-blue-100/[16%] dark:border-transparent"
-      :class="{ 'bg-blue-200 ': isOpen}"
+      :class="{ 'bg-blue-200 ': isOpen }"
       @click="isOpen = !isOpen"
     >
       <div class="flex-y-center gap-2">
@@ -21,7 +21,7 @@
     </button>
     <button
       class="absolute top-[268px] left-0 border group border-solid border-blue-100 hover:border-blue-200 dark:hover:border-blue-100 rounded-r-lg z-[12] border-l-[0px] p-4 hidden lg:flex flex-col gap-4 transition-200 bg-white dark:bg-blue-100/[16%] dark:border-transparent"
-      :class="{ 'bg-blue-200 ': isOpen, 'animate-slide-left': !isOpen  }"
+      :class="{ 'bg-blue-200 ': isOpen, 'animate-slide-left': !isOpen }"
       @click="isOpen = !isOpen"
     >
       <i
@@ -58,7 +58,6 @@
         v-if="isOpen"
         class="flex-center w-12 h-12 bg-[#F0F4FA] dark:bg-opacity-10 hover:hover:bg-blue-200 transition-200 group -rotate-90 rounded-full absolute z-[12] bottom-16 right-8 active:scale-95"
         @click="toTop"
-      
       >
         <i
           class="icon-arrow-right text-blue-100 group-hover:text-white transition-200 text-xl"
@@ -111,7 +110,7 @@
             </div>
 
             <button
-              class="absolute top-[268px] right-0 border group border-solid border-blue-100 hover:border-blue-200 dark:hover:border-blue-100 rounded-l-lg z-[12] border-r-[0px] p-4 hidden lg:flex flex-col gap-4 transition-200 bg-white dark:bg-blue-100/[16%] dark:border-transparent"
+              class="fixed close-left top-[268px] right-0 group border border-solid border-transparent hover:border-blue-200 dark:hover:border-blue-100 rounded-l-lg z-[12] border-r-[0px] p-4 hidden lg:flex flex-col gap-4 transition-200 dark:bg-blue-100/[16%] dark:border-transparent"
               :class="{ 'bg-blue-200': isOpen, 'animate-slide-in': isOpen }"
               @click="isOpen = !isOpen"
             >
@@ -223,35 +222,6 @@ function nextMonth() {
   text-orientation: mixed;
 }
 
-.dots {
-  width: 40px;
-  height: 19.2px;
-  background: radial-gradient(circle closest-side, #a2bcde 90%, #0000) 0% 50%,
-    radial-gradient(circle closest-side, #a2bcde 90%, #0000) 50% 50%,
-    radial-gradient(circle closest-side, #a2bcde 90%, #0000) 100% 50%;
-  background-size: calc(100% / 3) 9.6px;
-  background-repeat: no-repeat;
-  animation: dots-7ar3yq 1s infinite linear;
-}
-
-@keyframes dots-7ar3yq {
-  20% {
-    background-position: 0% 0%, 50% 50%, 100% 50%;
-  }
-
-  40% {
-    background-position: 0% 100%, 50% 0%, 100% 50%;
-  }
-
-  60% {
-    background-position: 0% 50%, 50% 100%, 100% 0%;
-  }
-
-  80% {
-    background-position: 0% 50%, 50% 50%, 100% 100%;
-  }
-}
-
 .animate-slide-in {
   animation: open-right 0.6s ease;
 }
@@ -259,7 +229,6 @@ function nextMonth() {
 .animate-slide-left {
   animation: open-left 0.6s ease;
 }
-
 
 @keyframes open-left {
   0% {
@@ -278,5 +247,10 @@ function nextMonth() {
     right: 0px;
   }
 }
-
+.close-left {
+  background: rgba(162, 188, 222, 0.16) !important;
+}
+.close-left:hover {
+  background: transparent !important;
+}
 </style>

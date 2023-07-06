@@ -1,5 +1,24 @@
 <template>
   <div class="relative w-full aspect-video">
+    <!--    paginations-->
+    <div
+      v-if="$route?.path == '/'"
+      class="relative hidden md:flex justify-center top-2/4 translate-y-2/4 z-[2] swiper-cursor"
+    >
+      <div class="flex-y-center !justify-between w-[92%]">
+        <button
+          class="main-button-prev bg-black/[20%] w-7 h-7 rounded flex-center transition-200 hover:bg-black/[60%] active:scale-90"
+        >
+          <i class="icon-arrow-left text-white" />
+        </button>
+        <button
+          class="main-button-next bg-black/[20%] w-7 h-7 rounded flex-center transition-200 hover:bg-black/[60%] active:scale-90"
+        >
+          <i class="icon-arrow-right text-white" />
+        </button>
+      </div>
+    </div>
+    <!--    paginations-->
     <Swiper v-bind="settings" class="w-full h-full rounded relative z-10">
       <SwiperSlide
         v-for="(item, index) in card.images"
@@ -43,7 +62,7 @@ import 'swiper/css'
 import 'swiper/css/free-mode'
 import 'swiper/css/effect-cards'
 
-import { Autoplay, EffectCards } from 'swiper'
+import { Autoplay, EffectCards, Navigation } from 'swiper'
 import { Swiper, SwiperSlide } from 'swiper/vue'
 
 interface Props {
@@ -76,7 +95,11 @@ const settings = {
     disableOnInteraction: false,
     reverseDirection: true,
   },
-  modules: [Autoplay, EffectCards],
+  navigation: {
+    prevEl: '.main-button-prev',
+    nextEl: '.main-button-next',
+  },
+  modules: [Autoplay, EffectCards, Navigation],
 }
 </script>
 <style>

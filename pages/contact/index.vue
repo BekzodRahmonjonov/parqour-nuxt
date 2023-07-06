@@ -1,5 +1,6 @@
 <template>
-  <div class="py-8 md:pt-[84px] md:pb-16">
+  <CommonBreadcrumb :menu="menu" class="mb-8" />
+  <div class="py-8 md:py-16">
     <div class="container">
       <p class="page-title mb-4 md:mb-6">{{ $t('contacts') }}</p>
       <div
@@ -44,8 +45,11 @@
             <span class="w-[1px] h-[14px] inline-block bg-white/40"></span>
             <a
               href="#"
-              class="flex-y-center transition-200 hover:gap-2 gap-1 text-white text-sm lg:text-base leading-130 font-semibold hover:text-blue-300"
-              >Telegram <i class="icon-chevron-right text-white"></i
+              class="group flex-y-center transition-200 hover:gap-2 gap-1 text-white text-sm lg:text-base leading-130 font-semibold hover:text-blue-300"
+              >Telegram
+              <i
+                class="icon-chevron-right text-white group-hover:text-blue-300"
+              ></i
             ></a>
           </div>
           <div class="flex items-center gap-x-2">
@@ -58,8 +62,11 @@
             <span class="w-[1px] h-[14px] inline-block bg-white/40"></span>
             <a
               href="#"
-              class="flex-y-center transition-200 hover:gap-2 gap-1 text-white text-sm lg:text-base leading-130 font-semibold"
-              >Telegram <i class="icon-chevron-right text-white"></i
+              class="group flex-y-center transition-200 hover:gap-2 gap-1 text-white text-sm lg:text-base leading-130 font-semibold"
+              >Telegram
+              <i
+                class="icon-chevron-right text-white group-hover:text-blue-300"
+              ></i
             ></a>
           </div>
         </div>
@@ -74,18 +81,22 @@
             <a
               :href="'https://' + contactData.telegramChannels?.first"
               target="_blank"
-              class="flex-y-center transition-200 hover:gap-2 gap-1 text-white text-sm lg:text-base leading-130 font-semibold hover:text-blue-300"
+              class="group flex-y-center transition-200 hover:gap-2 gap-1 text-white text-sm lg:text-base leading-130 font-semibold hover:text-blue-300"
               >{{ contactData.telegramChannels?.first }}
-              <i class="icon-chevron-right text-white"></i
+              <i
+                class="icon-chevron-right text-white group-hover:text-blue-300"
+              ></i
             ></a>
           </div>
           <div class="flex items-center gap-x-2">
             <a
               :href="'https://' + contactData.telegramChannels?.second"
               target="_blank"
-              class="flex-y-center transition-200 hover:gap-2 gap-1 text-white text-sm lg:text-base leading-130 font-semibold hover:text-blue-300"
+              class="group flex-y-center transition-200 hover:gap-2 gap-1 text-white text-sm lg:text-base leading-130 font-semibold hover:text-blue-300"
               >{{ contactData.telegramChannels?.second }}
-              <i class="icon-chevron-right text-white"></i
+              <i
+                class="icon-chevron-right text-white group-hover:text-blue-300"
+              ></i
             ></a>
           </div>
         </div>
@@ -100,9 +111,11 @@
             <a
               :href="'https://' + contactData.instagram"
               target="_blank"
-              class="flex-y-center transition-200 hover:gap-2 gap-1 text-white text-sm lg:text-base leading-130 font-semibold hover:text-blue-300"
+              class="group flex-y-center transition-200 hover:gap-2 gap-1 text-white text-sm lg:text-base leading-130 font-semibold hover:text-blue-300"
               >{{ contactData.instagram }}
-              <i class="icon-chevron-right text-white"></i
+              <i
+                class="icon-chevron-right text-white group-hover:text-blue-300"
+              ></i
             ></a>
           </div>
         </div>
@@ -117,9 +130,11 @@
             <a
               :href="'https://' + contactData.facebook"
               target="_blank"
-              class="flex-y-center transition-200 hover:gap-2 gap-1 text-white text-sm lg:text-base leading-130 font-semibold hover:text-blue-300"
+              class="group flex-y-center transition-200 hover:gap-2 gap-1 text-white text-sm lg:text-base leading-130 font-semibold hover:text-blue-300"
               >{{ contactData.facebook }}
-              <i class="icon-chevron-right text-white"></i
+              <i
+                class="icon-chevron-right text-white group-hover:text-blue-300"
+              ></i
             ></a>
           </div>
         </div>
@@ -130,13 +145,20 @@
 
 <script setup lang="ts">
 import { contactData } from '~/data'
+import { useI18n } from 'vue-i18n'
+
+const { t } = useI18n()
+const menu = [{ title: t('contacts'), link: '/contact' }]
 </script>
 
 <style scoped>
 .contact__card {
-  @apply bg-blue-700 rounded-xl p-4 lg:p-5 flex flex-col items-start;
+  @apply bg-blue-700 dark:bg-dark-200 dark:hover:bg-blue-600 cursor-pointer hover:bg-blue-600 rounded-xl p-4 lg:p-5 flex flex-col items-start transition-all;
 }
-
+.contact__card:hover .contact__card_symbol {
+  transition: all 0.15s ease-in-out;
+  background: #52618f;
+}
 .contact__card_symbol {
   @apply w-12 lg:w-[72px] h-12 lg:h-[72px] flex items-center justify-center rounded-lg bg-blue-600 mb-4 lg:mb-7;
 }
