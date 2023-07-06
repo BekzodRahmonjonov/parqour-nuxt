@@ -21,7 +21,9 @@
       <p
         v-if="card?.actual"
         class="text-blue-200 text-xs leading-tight mb-3"
-        :class="{ '!text-base !text-blue-100': isHalf }"
+        :class="{
+          '!text-base !text-blue-100': isHalf,
+        }"
       >
         {{ $t('actual_comments') }}
       </p>
@@ -51,6 +53,7 @@ import { IAuthor } from '~/types'
 interface Props {
   card: IAuthor
   isHalf?: boolean
+  isDefault?: boolean
 }
 
 defineProps<Props>()
