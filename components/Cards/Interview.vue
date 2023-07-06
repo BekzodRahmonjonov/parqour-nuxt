@@ -1,6 +1,6 @@
 <template>
   <NuxtLink
-    to="/"
+    :to="`/interview/${data.id}`"
     class="transition-200 group flex flex-col items-start"
     :class="rowFormat ? 'sm:!flex-row gap-3 md:gap-5 sm:items-center' : ''"
   >

@@ -52,16 +52,16 @@ export default defineNuxtConfig({
       { code: 'ru', iso: 'ru-RU' },
       { code: 'uz', iso: 'uz-UZ' },
     ],
-    defaultLocale: 'uz',
+    defaultLocale: 'ru',
     vueI18n: {
-      fallbackLocale: 'uz',
+      fallbackLocale: 'ru',
       silentTranslationWarn: true,
       missingWarn: false,
       fallbackWarn: false,
     },
     detectBrowserLanguage: {
       useCookie: true,
-      cookieKey: 'locale',
+      cookieKey: 'i18n_redirected',
       redirectOn: 'root', // recommended
       alwaysRedirect: true,
     },
