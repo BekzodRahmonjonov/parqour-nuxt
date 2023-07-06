@@ -45,10 +45,12 @@
             {{ $t('load_more') }}</CommonButton
           >
         </div>
-        <div class="flex gap-5 mb-20">
+        <!--        this is skeleton-->
+        <div v-if="false" class="flex gap-5 mb-20">
           <BlockLoaderPhotoReports />
           <BlockLoaderPhotoReports />
         </div>
+        <!--        this is skeleton-->
         <template #aside>
           <TempAdvetisimentBanner />
         </template>
