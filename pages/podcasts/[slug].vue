@@ -1,6 +1,7 @@
 <template>
-  <div class="container mt-8">
-    <CommonSinglePageWrapper :single="singleData">
+  <div class="mt-8">
+    <SectionsAudioPlayer />
+    <CommonSinglePageWrapper class="container" :single="singleData">
       <template #aside>
         <img src="https://picsum.photos/200/400" class="w-full" alt="" />
       </template>
