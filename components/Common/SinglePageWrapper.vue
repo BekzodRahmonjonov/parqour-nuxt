@@ -74,11 +74,8 @@
 import 'swiper/css'
 
 import dayjs from 'dayjs'
-import { Navigation } from 'swiper'
-import { Swiper, SwiperSlide } from 'swiper/vue'
 import { useI18n } from 'vue-i18n'
 
-import { reportsData } from '~/data'
 import { ISingleData } from '~/types'
 
 const { t } = useI18n()

@@ -9,6 +9,7 @@
           :data="item"
           class="min-h-[180px]"
         />
+        <BlockLoaderSpecialReports v-if="isLoading" />
         <CommonButton
           v-if="counter !== specialReports?.length"
           :loading="isLoading"
@@ -26,8 +27,9 @@
   </div>
 </template>
 <script setup lang="ts">
-import { specialReports } from '~/data'
 import { useI18n } from 'vue-i18n'
+
+import { specialReports } from '~/data'
 
 const isLoading = ref(false)
 const { t } = useI18n()

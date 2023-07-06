@@ -102,3 +102,13 @@ export interface INewsSingleData {
   content: string | HTMLAllCollection
   author: string
 }
+
+export interface ISinglePhoto {
+  title: string
+  text: string
+  image: string
+  created_at: Date | string
+  views_count: number
+  content: string | HTMLAllCollection
+  author: string
+}

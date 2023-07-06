@@ -19,7 +19,11 @@
       </div>
     </div>
     <!--    paginations-->
-    <Swiper v-bind="settings" class="w-full h-full rounded relative z-10">
+    <Swiper
+      v-bind="settings"
+      :autoplay="auto"
+      class="w-full h-full rounded relative z-10"
+    >
       <SwiperSlide
         v-for="(item, index) in card.images"
         :key="index"
@@ -73,6 +77,11 @@ interface Props {
     imagesCount: number
     images: string[]
   }
+  auto: {
+    delay: number
+    disableOnInteraction: boolean
+    reverseDirection: boolean
+  }
   main?: boolean
   small?: boolean
 }
@@ -90,11 +99,6 @@ const settings = {
     shadow: 0,
   },
   center: true,
-  autoplay: {
-    delay: 3000,
-    disableOnInteraction: false,
-    reverseDirection: true,
-  },
   navigation: {
     prevEl: '.main-button-prev',
     nextEl: '.main-button-next',
