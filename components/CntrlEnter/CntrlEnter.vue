@@ -1,19 +1,19 @@
 <template>
   <div>
     <div v-if="showModal" class="modal flex flex-col bg-white">
-      <div class="bg-blue-700 w-full max-w-[382px] rounded-xl">
+      <div class="bg-white dark:bg-blue-700 w-full max-w-[382px] rounded-xl">
         <div
           class="flex items-center text-xl justify-between pb-4 border-b border-blue-100/20 px-5 py-4"
         >
-          <h3 class="text-xl font-bold text-white">Напишите нам</h3>
+          <h3 class="text-xl font-bold text-blue-700 dark:text-white">Напишите нам</h3>
           <i
-            class="icon-close text-2xl text-blue-100 cursor-pointer hover:text-red-600 duration-300"
+            class="icon-close text-2xl text-blue-100 cursor-pointer hover:text-blue-200 dark:hover:text-red-600 duration-300"
             @click="hideModal"
           ></i>
         </div>
         <form class="px-5 py-4">
           <div class="flex flex-col">
-            <label class="text-sm font-semibold text-blue-100 mb-2"
+            <label class="text-sm font-semibold text-blue-200 dark:text-blue-100 mb-2"
               >Как вам обращаться?</label
             >
             <FormInput
@@ -22,20 +22,20 @@
             />
           </div>
           <div class="flex flex-col mt-5">
-            <label class="text-sm font-semibold text-blue-100 mb-2"
+            <label class="text-sm font-semibold text-blue-200 dark:text-blue-100 mb-2"
               >Номер телефона</label
             >
             <FormInput
               v-maska="'## ### ## ##'"
               input-class=" cursor-pointer"
               placeholder="00 000 00 00"
-              prefix-class="text-white mr-1 font-normal text-sm"
+              prefix-class="text-blue-700 dark:text-white mr-1 font-normal text-sm"
             >
               <template #prefix> +998 </template>
             </FormInput>
           </div>
           <div class="flex flex-col mt-5">
-            <label class="text-sm font-semibold text-blue-100 mb-2"
+            <label class="text-sm font-semibold text-blue-200 dark:text-blue-100 mb-2"
               >Ваше обращение</label
             >
             <FormTextarea
