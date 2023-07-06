@@ -1,6 +1,6 @@
 <template>
   <NuxtLink
-    to="/"
+    :to="link ? `/${link}/${card?.id}` : `/news/${card?.id}`"
     class="pl-3 lg:pl-5 hover:bg-[#EDEFF4] dark:hover:bg-white/[4%] transition-200"
   >
     <div
@@ -36,6 +36,7 @@ const { locale } = useI18n()
 
 interface Props {
   card?: INews
+  link?: string
 }
 
 defineProps<Props>()

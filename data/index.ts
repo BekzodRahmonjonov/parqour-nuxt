@@ -32,6 +32,7 @@ export const popularNews = [
     views: 12432,
     image: '/images/news/president.png',
     isVideo: true,
+    id: 1,
   },
   {
     date: '2023-06-07',
@@ -39,6 +40,7 @@ export const popularNews = [
       '«Это абсолютно необоснованные слова» — Шавкат Мирзиёев о введении подоходного налога для мигрантов',
     views: 12432,
     image: '/images/news/president.png',
+    id: 1,
   },
   {
     date: '2023-06-07',
@@ -46,6 +48,7 @@ export const popularNews = [
       '«Это абсолютно необоснованные слова» — Шавкат Мирзиёев о введении подоходного налога для мигрантов',
     views: 12432,
     image: '/images/news/president.png',
+    id: 1,
   },
   {
     date: '2023-06-07',
@@ -53,6 +56,7 @@ export const popularNews = [
       '«Это абсолютно необоснованные слова» — Шавкат Мирзиёев о введении подоходного налога для мигрантов',
     views: 12432,
     image: '/images/news/president.png',
+    id: 1,
   },
   {
     date: '2023-06-07',
@@ -60,6 +64,7 @@ export const popularNews = [
       '«Это абсолютно необоснованные слова» — Шавкат Мирзиёев о введении подоходного налога для мигрантов',
     views: 12432,
     image: '/images/news/president.png',
+    id: 1,
   },
   {
     date: '2023-06-07',
@@ -67,6 +72,7 @@ export const popularNews = [
       '«Это абсолютно необоснованные слова» — Шавкат Мирзиёев о введении подоходного налога для мигрантов',
     views: 12432,
     image: '/images/news/president.png',
+    id: 1,
   },
   {
     date: '2023-06-07',
@@ -74,6 +80,7 @@ export const popularNews = [
       '«Это абсолютно необоснованные слова» — Шавкат Мирзиёев о введении подоходного налога для мигрантов',
     views: 12432,
     image: '/images/news/president.png',
+    id: 1,
   },
   {
     date: '2023-06-07',
@@ -81,6 +88,7 @@ export const popularNews = [
       '«Это абсолютно необоснованные слова» — Шавкат Мирзиёев о введении подоходного налога для мигрантов',
     views: 12432,
     image: '/images/news/president.png',
+    id: 1,
   },
   {
     date: '2023-06-07',
@@ -88,6 +96,7 @@ export const popularNews = [
       '«Это абсолютно необоснованные слова» — Шавкат Мирзиёев о введении подоходного налога для мигрантов',
     views: 12432,
     image: '/images/news/president.png',
+    id: 1,
   },
   {
     date: '2023-06-07',
@@ -95,6 +104,7 @@ export const popularNews = [
       '«Это абсолютно необоснованные слова» — Шавкат Мирзиёев о введении подоходного налога для мигрантов',
     views: 12432,
     image: '/images/news/president.png',
+    id: 1,
   },
 ]
 
@@ -280,6 +290,7 @@ export const newsData = [
 export const authorsData = [
   {
     id: 1,
+    slug: 'darya-penzova',
     actual: true,
     title:
       '«Сейчас население переплачивает за некачественное мясо» — российский экспер...',
@@ -288,6 +299,7 @@ export const authorsData = [
   },
   {
     id: 2,
+    slug: 'darya-penzova',
     actual: true,
     title:
       'Татары в Узбекистане: откуда они появились и как повлияли на историю страны',
@@ -296,6 +308,7 @@ export const authorsData = [
   },
   {
     id: 3,
+    slug: 'darya-penzova',
     actual: true,
     title:
       'Узбекистанцы присоединились к мировому флешмобу #сидимдома — #uydaqoldik',
@@ -304,6 +317,7 @@ export const authorsData = [
   },
   {
     id: 4,
+    slug: 'darya-penzova',
     actual: true,
     title: 'Что происходит с ценами на аренду жилья в Ташкенте',
     author: 'Дарья Пензова',
@@ -311,6 +325,7 @@ export const authorsData = [
   },
   {
     id: 5,
+    slug: 'darya-penzova',
     actual: true,
     title: 'Что происходит с ценами на аренду жилья в Ташкенте',
     author: 'Дарья Пензова',
@@ -465,6 +480,13 @@ export const headerMainMenuData = [
 ]
 export const podcasts: IPodcast[] = [
   {
+    image: '/images/podcasts/image5.png',
+    type: 'audio',
+    title: 'Почему в Узбекистане не работает система образования?',
+    created_at: '2021-01-01',
+    typeTitle: 'Подкасты',
+  },
+  {
     image: '/images/podcasts/image.png',
     type: 'audio',
     title: 'Почему в Узбекистане не работает система образования?',
@@ -506,13 +528,7 @@ export const podcasts: IPodcast[] = [
     created_at: '2021-01-01',
     typeTitle: 'Подкасты',
   },
-  {
-    image: '/images/podcasts/image5.png',
-    type: 'audio',
-    title: 'Почему в Узбекистане не работает система образования?',
-    created_at: '2021-01-01',
-    typeTitle: 'Подкасты',
-  },
+
   {
     image: '/images/podcasts/image6.png',
     type: 'audio',
@@ -524,21 +540,25 @@ export const podcasts: IPodcast[] = [
 
 export const socials = [
   {
+    url: '',
     title: 'YOUTUBE',
     subscribe: 15251,
     icon: 'icon-youtube',
   },
   {
+    url: 'https://t.me/uznews',
     title: 'telegram',
     subscribe: 142340,
     icon: 'icon-telegram',
   },
   {
+    url: 'https://www.instagram.com/uznews/',
     title: 'Instagram',
     subscribe: 1520214,
     icon: 'icon-instagram',
   },
   {
+    url: 'https://www.facebook.com/uznews.uz',
     title: 'FACEBOOK',
     subscribe: 310251,
     icon: 'icon-facebook',
@@ -739,14 +759,40 @@ export const specialReports = [
     views_count: 1234,
     userName: 'Абдулла',
   },
+  {
+    id: 3,
+    title: 'Что происходит с ценами на аренду жилья в Ташкенте',
+    image: '/images/news/bulid.jpg',
+    author: 'Дарья Пензова',
+    created_at: '2023-06-07',
+    views_count: 1234,
+    userName: 'Абдулла',
+  },
+  {
+    id: 4,
+    title: 'Что происходит с ценами на аренду жилья в Ташкенте',
+    image: '/images/news/bulid.jpg',
+    author: 'Дарья Пензова',
+    created_at: '2023-06-07',
+    views_count: 1234,
+    userName: 'Абдулла',
+  },
+  {
+    id: 5,
+    title: 'Что происходит с ценами на аренду жилья в Ташкенте',
+    image: '/images/news/bulid.jpg',
+    author: 'Дарья Пензова',
+    created_at: '2023-06-07',
+    views_count: 1234,
+    userName: 'Абдулла',
+  },
 ]
 
 export const ads = [
   {
     id: 1,
     title: 'Рекламный баннер',
-    description:
-      'Размещение анимированной или статичной рекламы в специальных зонах в мобильной и десктопной версиях сайта. Это возможность ярко заявить о своем бренде, продукте или акции сотням тысяч человек, которые ежедневно читают новости на UZNEWS.UZ',
+    description: `Размещение анимированной или статичной рекламы в специальных зонах в мобильной и десктопной версиях сайта. Это возможность ярко заявить о своем бренде, продукте или акции сотням тысяч человек, которые ежедневно читают новости на UZNEWS.UZ`,
     price: '7 350 000 UZS',
   },
   {
@@ -788,5 +834,28 @@ export const popular_news = [
     description:
       'Документы отражают сотрудничество в химической, электротехнической, автомобилестроительной, текстильной промышленности и других сферах.',
     views: 223,
+  },
+]
+
+export const other_authors = [
+  {
+    img: 'images/face.png',
+    name: 'Шахзод Юлдошбоев',
+  },
+  {
+    img: 'images/face.png',
+    name: 'Шахзод Юлдошбоев',
+  },
+  {
+    img: 'images/face.png',
+    name: 'Шахзод Юлдошбоев',
+  },
+  {
+    img: 'images/face.png',
+    name: 'Шахзод Юлдошбоев',
+  },
+  {
+    img: 'images/face.png',
+    name: 'Шахзод Юлдошбоев',
   },
 ]

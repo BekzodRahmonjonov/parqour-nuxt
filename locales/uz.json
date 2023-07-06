@@ -5,7 +5,9 @@
   "popular": "Ommabop",
   "discussed": "Muhokama qilingan",
   "podcasts": "Podkastlar",
+  "podcast_text": "Здесь вы найдете увлекательные и информативные аудио-передачи, которые позволят вам быть в курсе последних новостей и тенденций, даже когда времени для чтения становится все меньше.",
   "special_reports": "Maxsus reportajlar",
+  "reports_single": "Maxsus reportaj: O‘zbekistonda ko‘mir qanday qazib olinadi - foto, video",
   "all": "Barchasi",
   "not_result": "Результатов не найдено",
   "not_result_detail": "По этому запросу ничего не найдено, попробуйте еще раз",
@@ -52,6 +54,7 @@
   "verified_tooltip": "Uznews xodimlari tomonidan tekshirilgan",
   "actual_comments": "Aktual sharxlar",
   "mail_for_contacts": "Biz bilan bog'lanish uchun elektron pochta",
+  "contacts": "Kontakt",
   "phone_reduction": "Redaksiya raqami",
   "for_advertising": "Reklama uchun",
   "channels_telegram": "Telegram kanallar",
@@ -77,5 +80,8 @@
   "terms_of_use": "Foydalanish shartlari",
   "advertisings": "Реклама на сайте",
   "result_not_found": "Hech qanday natija topilmadi",
-  "try_again_text": "Bu qidiruv boʻyicha hech qanday natija topilmadi, qaytadan urinib koʻring"
+  "try_again_text": "Bu qidiruv boʻyicha hech qanday natija topilmadi, qaytadan urinib koʻring",
+  "others": "Другие авторы",
+  "see_also": "Shuningdek qarang",
+  "all_interviews": "Все интервью"
 }

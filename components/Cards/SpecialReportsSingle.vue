@@ -7,30 +7,28 @@
       class="p-3 !pl-[202px] h-full sm:p-5 bg-[#F5F5F8] w-full md:w-full dark:bg-dark-200 rounded-lg text-dark relative transition-200 group-hover:-translate-y-1"
     >
       <p
-        class="text-xs md:text-[14px] leading-20 mb-2 sm:mb-4 text-[#919299] dark:text-blue-100"
+        class="text-xs md:text-[14px] leading-20 mb-2 sm:mb-4 text-gray-200 dark:text-blue-100"
       >
-        <span
-          class="border border-[#A2BCDE] dark:text-blue-100 rounded-lg mr-4 leading-20 py-1 px-[10px] font-medium text-[12px] text-[#52618F]"
-          >{{ badgeText }}</span
-        >
-        {{ dayjs(data?.date).locale(locale).format('DD MMM YYYY, HH:mm') }}
+        {{
+          dayjs(data?.created_at).locale(locale).format('DD MMM YYYY, HH:MM')
+        }}
       </p>
       <p
-        class="mb-1 sm:mb-[6px] font-medium sm:font-bold text-sm sm:text-[20px] leading-136 line-clamp-2 dark:text-white"
+        class="mb-1 sm:mb-[6px] text-blue-700 font-medium sm:font-bold text-sm sm:text-[20px] leading-136 line-clamp-2 dark:text-white"
       >
         {{ data?.title }}
       </p>
       <p
-        class="mb-3 sm:mb-6 sm:font-medium text-xs leading-20 text-dark dark:text-gray-100"
+        class="mb-3 sm:mb-6 sm:font-medium text-blue-200 text-xs leading-20F dark:text-gray-100"
       >
         {{ data?.author }}
       </p>
       <div
         class="text-[14px] font-medium leading-14 text-blue-100 flex items-center gap-x-1"
       >
-        <i class="icon-eye dark:text-white"></i>
-        <span class="dark:text-white">{{
-          formatMoneyDecimal(data?.views)
+        <i class="text-blue-200 icon-eye dark:text-white"></i>
+        <span class="text-blue-200 dark:text-white">{{
+          formatMoneyDecimal(data?.views_count)
         }}</span>
       </div>
       <div

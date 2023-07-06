@@ -25,23 +25,42 @@ export default defineNuxtConfig({
       },
     ],
   ],
+  // i18n: {
+  //   locales: ['ru', 'uz'],
+  //   defaultLocale: 'ru',
+  //   vueI18n: {
+  //     fallbackLocale: 'ru',
+  //     silentTranslationWarn: true,
+  //     missingWarn: true,
+  //     fallbackWarn: true,
+  //     messages: {
+  //       ru,
+  //       uz,
+  //     },
+  //   },
+  //   // vueI18n: './i18n.config.ts', // if you are using custom path, default
+  //   detectBrowserLanguage: {
+  //     useCookie: true,
+  //     cookieKey: 'i18n_redirected',
+  //     redirectOn: 'root', // recommended
+  //     alwaysRedirect: true,
+  //   },
+  // },
   i18n: {
-    locales: ['ru', 'uz'],
-    defaultLocale: 'ru',
+    locales: [
+      { code: 'ru', iso: 'ru-RU' },
+      { code: 'uz', iso: 'uz-UZ' },
+    ],
+    defaultLocale: 'uz',
     vueI18n: {
-      fallbackLocale: 'ru',
+      fallbackLocale: 'uz',
       silentTranslationWarn: true,
-      missingWarn: true,
-      fallbackWarn: true,
-      messages: {
-        ru,
-        uz,
-      },
+      missingWarn: false,
+      fallbackWarn: false,
     },
-    // vueI18n: './i18n.config.ts', // if you are using custom path, default
     detectBrowserLanguage: {
       useCookie: true,
-      cookieKey: 'i18n_redirected',
+      cookieKey: 'locale',
       redirectOn: 'root', // recommended
       alwaysRedirect: true,
     },

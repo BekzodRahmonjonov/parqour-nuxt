@@ -1,6 +1,6 @@
 <template>
   <NuxtLink
-    to="/"
+    :to="`/news/${card.id}`"
     class="cursor-pointer flex gap-6 group border-b border-solid border-white-200 dark:border-blue-200/20 lg:!border-transparent pb-3 lg:pb-0"
   >
     <div
@@ -29,11 +29,11 @@
       </div>
 
       <div
-        class="text-sm lg:text-base leading-136 font-bold text-blue-700 mt-1 lg:mt-3 dark:text-white transition-200 group-hover:text-blue-200 dark:group-hover:text-blue-100"
+        class="text-sm line-clamp-3 lg:text-base leading-136 font-bold text-blue-700 mt-1 lg:mt-3 dark:text-white transition-200 group-hover:text-blue-200 dark:group-hover:text-blue-100"
       >
-        <p class="inline line-clamp-3 mr-1">
+        <span class="mr-1">
           {{ card?.title }}
-        </p>
+        </span>
         <CommonNewsTooltip
           :is-video="card?.isVideo"
           :is-verified="card?.isVerified"

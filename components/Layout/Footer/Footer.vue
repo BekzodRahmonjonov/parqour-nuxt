@@ -62,6 +62,7 @@
         </div>
       </div>
     </div>
+    <CntrlEnter />
     <div class="py-4 border-t border-solid border-blue-600">
       <div
         class="container flex items-start md:items-center justify-between flex-col md:flex-row gap-5"

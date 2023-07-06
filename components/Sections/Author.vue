@@ -1,7 +1,10 @@
 <template>
   <div class="bg-gray-800 dark:bg-blue-700">
     <div class="container">
-      <CommonSectionWrapper :title="$t('articles_author')" />
+      <CommonSectionWrapper
+        :title="$t('articles_author')"
+        :all-link="'/article-authors'"
+      />
 
       <div class="flex flex-col md:grid grid-cols-12 gap-6 mt-6">
         <CardsAuthor

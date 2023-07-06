@@ -40,6 +40,7 @@ export default <Partial<Config>>{
         white: {
           DEFAULT: '#ffffff',
           100: '#F5F6F9',
+          150: '#F8FAFC',
           200: '#D9D9D9',
           300: '#ECF2F8',
           700: '#F5F5F8',
