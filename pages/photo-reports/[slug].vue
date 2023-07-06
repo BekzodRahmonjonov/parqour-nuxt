@@ -9,9 +9,9 @@
   </div>
 </template>
 <script setup lang="ts">
-import { singleData } from '~/data/fakeData'
-import { singlePhoto } from '~/data/fakeData'
 import { useI18n } from 'vue-i18n'
+
+import { singleData } from '~/data/fakeData'
 
 const { t } = useI18n()
 const breadcrumbLinks = computed(() => [
