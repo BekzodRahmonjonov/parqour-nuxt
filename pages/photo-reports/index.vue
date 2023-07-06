@@ -7,49 +7,64 @@
         :text="$t('photo_reports_text')"
         class="mt-8"
       >
-        <CardsPhotoReportSliderCard :card="image" main class="mb-11" />
+        <CardsPhotoReportSliderCard
+          :card="image"
+          v-bind="{
+            auto: {
+              delay: 5000,
+              disableOnInteraction: true,
+              reverseDirection: true,
+            },
+          }"
+          main
+          class="mb-11"
+        />
         <div>
-          <div class="grid grid-cols-2 gap-8 mb-14">
+          <nuxt-link to="/photo-reports/1" class="grid grid-cols-2 gap-8 mb-14">
             <CardsPhotoReportSliderCard
-              v-for="(item, index) in 4"
+              v-for="(item, index) in counter"
               :key="index"
               :card="image"
+              v-bind="{
+                auto: {
+                  delay: 9000 + getRandomNumber() * 1000,
+                  disableOnInteraction: true,
+                  reverseDirection: true,
+                },
+              }"
               class="min-h-[250px]"
               :small="true"
             />
-          </div>
+          </nuxt-link>
           <CommonButton
             :loading="isLoading"
-            class="w-full text-blue-600 !bg-[#52618f1a] font-medium leading-125 mt-8 mb-16"
+            class="w-full text-blue-600 dark:hover:text-white !bg-[#52618f1a] font-medium leading-125 mt-8 mb-16"
             @click="loadMore"
           >
             <span class="icon-double rotate-90 mr-[10px] text-xl"></span>
             {{ $t('load_more') }}</CommonButton
           >
         </div>
+        <div class="flex gap-5 mb-20">
+          <BlockLoaderPhotoReports />
+          <BlockLoaderPhotoReports />
+        </div>
         <template #aside>
           <TempAdvetisimentBanner />
         </template>
       </CommonPageWrapper>
     </div>
-    <CommentsCommentUpload class="container mb-10" />
   </div>
 </template>
 <script setup lang="ts">
-import { analysisData } from '~/data/fakeData'
-
-const copyOfAnalysisData = ref([...analysisData])
 const isLoading = ref(false)
-
+const counter = ref(4)
 const loadMore = () => {
   isLoading.value = true
-  const additionData = {
-    title: 'business',
-    images: 'https://picsum.photos/800/701',
-  }
+
   setTimeout(() => {
+    counter.value += 1
     isLoading.value = false
-    copyOfAnalysisData.value.push(additionData)
   }, 1000)
 }
 const image = {
@@ -70,5 +85,9 @@ const image = {
     'https://picsum.photos/800/711',
     'https://picsum.photos/800/712',
   ],
+}
+
+function getRandomNumber() {
+  return Math.floor(Math.random() * 5) + 1
 }
 </script>

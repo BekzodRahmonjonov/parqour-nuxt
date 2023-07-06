@@ -1,8 +1,8 @@
 <template>
-  <div class="container mt-8">
+  <div>
     <CommonSinglePageWrapper :single="singleData">
       <template #aside>
-        <img src="https://picsum.photos/200/400" class="w-full" alt="" />
+        <TempAdvetisimentBanner />
       </template>
     </CommonSinglePageWrapper>
   </div>

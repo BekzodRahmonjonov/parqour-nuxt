@@ -1,12 +1,12 @@
 <template>
   <div class="container mt-8">
-    <CommonSinglePageWrapper :single="singleData">
+    <CommonSinglePageWrapper :single-photo="singlePhoto">
       <template #aside>
-        <img src="https://picsum.photos/200/400" class="w-full" alt="" />
+        <TempAdvetisimentBanner />
       </template>
     </CommonSinglePageWrapper>
   </div>
 </template>
 <script setup lang="ts">
-import { singleData } from '~/data/fakeData'
+import { singlePhoto } from '~/data/fakeData'
 </script>
