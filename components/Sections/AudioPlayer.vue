@@ -60,9 +60,11 @@
               {{ totalDuration }}
             </span>
             <span
+              v-if="!isMuted"
               @click="mute"
               class="icon-volume text-white text-32 mr-2 cursor-pointer"
             ></span>
+            <span v-else class="icon-icon-muted mr-2"></span>
             <input
               id="default-range"
               type="range"
@@ -71,7 +73,7 @@
               value="50"
               ref="volume"
               @input="setVolume"
-              class="w-[10%] h-1 rounded-sm appearance-none cursor-pointer"
+              class="w-[10%] h-1 rounded-sm appearance-none cursor-pointer volum"
             />
           </div>
         </div>
@@ -86,6 +88,7 @@ const totalDuration = ref('00:00')
 const seekSlider = ref({} as HTMLInputElement)
 const isPlaying = ref(false)
 const volume = ref(null)
+const isMuted = ref(false)
 let music = {} as HTMLAudioElement
 
 const updateColorTracker = (progress: number, element: HTMLInputElement) => {
@@ -182,6 +185,7 @@ function playpauseTrack() {
 }
 
 function mute() {
+  isMuted.value = true
   music.volume = 0
   volume.value.value = 0
   const precent = (volume.value.value / volume.value.max) * 100
@@ -199,6 +203,7 @@ function pauseTrack() {
 }
 
 function setVolume(e) {
+  isMuted.value = false
   music.volume = volume.value.value / 100
   const precent = (e.target.value / e.target.max) * 100
   updateColorTracker(precent, volume.value)
@@ -237,6 +242,11 @@ input[type='range']::-webkit-slider-thumb {
   border: 2px solid #fff;
   cursor: pointer;
   transition: 0.2s ease-in-out;
+}
+
+input[type='range'].volum::-webkit-slider-thumb {
+  width: 15px;
+  height: 15px;
 }
 
 /* Thumb: Firefox */
