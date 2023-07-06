@@ -1,13 +1,13 @@
 <template>
   <div
-    class="cursor-pointer relative bg-white flex items-center justify-between rounded group transition-200 relative"
+    class="cursor-pointer relative bg-transparent flex items-center justify-between rounded group transition-200 relative"
     @click="copyUrl"
   >
     <span
-      class="border border-gray-100 rounded-full w-[50px] h-[48px] flex-center bg-white transition-200 hover:bg-blue-600 hover:border-blue-600 group cursor-pointer relative"
+      class="border border-gray-100 dark:border-blue-600 rounded-full w-[50px] h-[48px] flex-center bg-white dark:bg-blue-700 transition-200 hover:bg-blue-600 hover:border-blue-600 group cursor-pointer relative"
     >
       <i
-        class="icon-link text-2xl opacity-50 group-hover:text-white group-hover:opacity-100 transition-200"
+        class="icon-link text-dark dark:text-blue-100 text-2xl opacity-50 group-hover:text-white group-hover:opacity-100 transition-200"
       ></i>
       <CommonTooltip with-trigger :show="copied">{{
         $t('copied')

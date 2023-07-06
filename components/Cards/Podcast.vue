@@ -1,6 +1,6 @@
 <template>
   <NuxtLink
-    to="/"
+    :to="`/podcasts/${data?.id}`"
     class="rounded-md w-full h-full relative max-h-[296px] group transition-200 overflow-hidden bg-transparent hover:shadow-xs hover:-translate-y-2"
   >
     <img
