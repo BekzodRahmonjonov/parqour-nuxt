@@ -1,5 +1,5 @@
 <template>
-  <div class="w-40 overflow-hidden">
+  <div class="w-auto overflow-hidden">
     <Swiper v-bind="settings" class="h-5">
       <SwiperSlide>
         <LayoutHeaderSalary />
