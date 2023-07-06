@@ -15,10 +15,10 @@ import { useI18n } from 'vue-i18n'
 
 const { t } = useI18n()
 const breadcrumbLinks = computed(() => [
-  { title: t('podcasts'), link: '/popular' },
+  { title: t('podcasts'), link: '/podcasts' },
   {
-    title: 'Дело Азата Мифтахова: Как в России шьют дела против анархистов',
-    link: '/popular',
+    title: singleData.title,
+    link: '/podcasts',
   },
 ])
 </script>
