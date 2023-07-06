@@ -1,12 +1,14 @@
 <template>
-  <CommonBreadcrumb :menu="breadcrumbLinks" />
-  <div class="mt-8">
-    <SectionsAudioPlayer />
-    <CommonSinglePageWrapper class="container" :single="singleData">
-      <template #aside>
-        <img src="https://picsum.photos/200/400" class="w-full" alt="" />
-      </template>
-    </CommonSinglePageWrapper>
+  <div>
+    <CommonBreadcrumb :menu="breadcrumbLinks" />
+    <div class="mt-8">
+      <SectionsAudioPlayer />
+      <CommonSinglePageWrapper class="container" :single="singleData">
+        <template #aside>
+          <img src="https://picsum.photos/200/400" class="w-full" alt="" />
+        </template>
+      </CommonSinglePageWrapper>
+    </div>
   </div>
 </template>
 <script setup lang="ts">

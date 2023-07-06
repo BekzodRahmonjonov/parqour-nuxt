@@ -1,11 +1,13 @@
 <template>
-  <CommonBreadcrumb :menu="menu" />
-  <div class="container">
-    <CommonPageWrapper
-      :title="$t('interview')"
-      :text="$t('interview_sub')"
-      class="mt-8"
-    ></CommonPageWrapper>
+  <div>
+    <CommonBreadcrumb :menu="menu" />
+    <div class="container">
+      <CommonPageWrapper
+        :title="$t('interview')"
+        :text="$t('interview_sub')"
+        class="mt-8"
+      ></CommonPageWrapper>
+    </div>
   </div>
 </template>
 <script setup lang="ts">
