@@ -16,16 +16,23 @@
       </div>
       <p>{{ data.comment_text }}</p>
       <button @click="onSubmit" class="text-[#919299]">Ответить....</button>
+      <br>
+      <button class="text-[#48A4E3]">4 ответа</button>
       <CommentsCommentChildUpload
           @ItemCommnetChildAdd="childCommnetAdd"
           :index="data.id" v-if="isChildTextOpen"/>
-         <div v-show="isFocus">
+      <div v-show="isFocus">
         <div class="ml-5" v-for="(item , ind) in data.comment_child " :key="ind">
-          <div class="w-1/2 flex gap-2">
-            <img class="rounded-full blok mt-2" width="33" height="33" :src="item.user_img" alt="">
+          <div class="flex w-full justify-between">
+            <div class="w-1/2 flex gap-2">
+              <img class="rounded-full blok mt-2" width="33" height="33" :src="item.user_img" alt="">
+              <div>
+                <b>{{ item.last_name }} {{ item.first_name }}</b>
+                <p class="text-[#919299]">{{ item.time }}</p>
+              </div>
+            </div>
             <div>
-              <b>{{ item.last_name }} {{ item.first_name }}</b>
-              <p class="text-[#919299]">{{ item.time }}</p>
+              <CommentsVote/>
             </div>
           </div>
           <p>{{ item.comment_text }}</p>
@@ -65,7 +72,7 @@ const isChildTextOpen = ref<Boolean>(false);
 const ischildCommnet = ref<Boolean>(false)
 
 function onSubmit() {
-  if(props.data?.comment_child.length){
+  if (props.data?.comment_child.length) {
     isFocus.value = !isFocus.value
   } else {
     isChildTextOpen.value = !isChildTextOpen.value

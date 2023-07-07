@@ -7,6 +7,9 @@
              :index="ind"
           class="mt-8" :data="item"/>
     </div>
+    <div class="flex mb-5">
+      <CommonButton>Еще</CommonButton>
+    </div>
   </div>
 </template>
 
