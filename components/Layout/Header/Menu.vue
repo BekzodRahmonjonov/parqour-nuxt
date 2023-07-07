@@ -48,7 +48,7 @@
               <NuxtLink
                 v-for="(link, i) of navigationData"
                 :key="i"
-                :to="localePath(`/${link?.url}`)"
+                :to="localePath(link?.url)"
                 class="text-blue-600 text-xl md:text-44 font-medium transition-200 hover:text-blue-200 cursor-pointer dark:text-white dark:hover:text-blue-100 hover:translate-x-2"
               >
                 {{ $t(link?.title) }}
