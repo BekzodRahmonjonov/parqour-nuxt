@@ -9,7 +9,7 @@
       <SectionsNews class="py-6 lg:py-10" v-bind="{ newsData: newsList }" />
       <CommonAdBanner image="/images/advertising/adver.png" />
       <SectionsAuthor class="py-6 lg:py-10" />
-      <SectionsReports :data="reportsData" />
+      <SectionsReports :data="specialReports" />
       <CommonAdBanner
         image="/images/advertising/yellow.png"
         class="pt-6 lg:pt-10"
@@ -34,8 +34,12 @@
 <script setup lang="ts">
 import { reportsData } from '@/data'
 import { useHomeStore } from '~/store'
+import {useSpecialReports} from "~/store/special-reports";
 
 const homeStore = useHomeStore()
+const reportsStore = useSpecialReports()
+reportsStore.fetchSpecialReports()
+const specialReports = computed(() => reportsStore.specialReports)
 const newsList = computed(() => homeStore.newsList)
 const popularList = computed(() => homeStore.popularList)
 const discussionList = computed(() => homeStore.discussionList)
