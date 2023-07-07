@@ -130,3 +130,13 @@ export interface ISinglePhoto {
   content: string | HTMLAllCollection
   author: string
 }
+
+export interface INewsList {
+  id: number
+  slug: string
+  title: string
+  views_count: number
+  published_at: string
+  cover_image: string
+  comment_count: number
+}

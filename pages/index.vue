@@ -16,7 +16,10 @@
       />
       <SectionsPhotoReports class="pt-6 lg:pt-10" />
       <SectionsPodcasts class="py-6 lg:py-10" />
-      <SectionsInterviews class="pb-6 lg:pb-10" />
+      <SectionsInterviews
+        class="pb-6 lg:pb-10"
+        v-bind="{ newsData: fetchInterviewList }"
+      />
       <CommonAdBanner
         image="/images/advertising/airways.png"
         class="pb-6 lg:pb-10"
@@ -36,6 +39,7 @@ const homeStore = useHomeStore()
 const newsList = computed(() => homeStore.newsList)
 const popularList = computed(() => homeStore.popularList)
 const discussionList = computed(() => homeStore.discussionList)
+const interviewList = computed(() => homeStore.interviewList)
 
 const loading = ref(true)
 
@@ -43,6 +47,7 @@ Promise.allSettled([
   homeStore.fetchNewsList(),
   homeStore.fetchPopularList(),
   homeStore.fetchDiscussionList(),
+  homeStore.fetchInterviewList(),
 ]).finally(() => {
   loading.value = false
 })
