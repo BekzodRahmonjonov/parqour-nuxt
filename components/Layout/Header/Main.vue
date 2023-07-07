@@ -20,11 +20,10 @@ import { Swiper, SwiperSlide } from 'swiper/vue'
 import { Autoplay } from 'swiper'
 
 const settings = {
-  spaceBetween: 40,
   loop: true,
   direction: 'vertical',
   autoplay: {
-    delay: 2000,
+    delay: 4000,
     disableOnInteraction: true,
   },
   modules: [Autoplay],

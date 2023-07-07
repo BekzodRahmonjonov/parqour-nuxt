@@ -49,4 +49,9 @@ interface Props {
 defineProps<Props>()
 </script>
 
-<style scoped></style>
+<style scoped>
+.hover-effect:hover {
+  background: white;
+  box-shadow: 0px 12px 24px 0px rgba(82, 97, 143, 0.12);
+}
+</style>

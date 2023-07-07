@@ -28,18 +28,55 @@
         >
           {{ single?.text }}
         </p>
-        <iframe
-          v-if="single?.youtube_video"
-          width="100%"
-          height="456px"
-          :src="`https://www.youtube.com/embed/${toEmbed(
-            single?.youtube_video
-          )}`"
-          frameborder="0"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-          allowfullscreen
-          class="h-[245px] sm:h-[345px] md:h-[456px]"
-        ></iframe>
+        <div class="max-w-[886px] mb-20">
+          <PhotoReportSlider :images="images" />
+        </div>
+        <div
+          class="mx-auto my-10 text-dark-200 text-lg font-normal leading-relaxed transition-200 dark:text-white single-content"
+          v-html="single.content"
+        ></div>
+        <figure v-if="single?.image" class="mt-6 max-h-[498px] h-full">
+          <img
+            :src="single.image"
+            class="w-full h-full object-cover rounded"
+            alt=""
+          />
+          <figcaption
+            v-if="single.author"
+            class="text-neutral-400 text-xs font-normal leading-none mt-2 italic"
+          >
+            © Фото: {{ single.author }}
+          </figcaption>
+        </figure>
+        <div
+          class="mx-auto my-10 text-dark-200 text-lg font-normal leading-relaxed transition-200 dark:text-white single-content"
+          v-html="single.content"
+        ></div>
+        <figure v-if="single?.image" class="mt-6 max-h-[498px] h-full">
+          <img
+            :src="single.image"
+            class="w-full h-full object-cover rounded"
+            alt=""
+          />
+          <figcaption
+            v-if="single.author"
+            class="text-neutral-400 text-xs font-normal leading-none mt-2 italic"
+          >
+            © Фото: {{ single.author }}
+          </figcaption>
+        </figure>
+
+        <figure v-if="single?.image" class="mt-6 max-h-[498px] h-full">
+          <img
+            :src="single.image"
+            class="w-full h-full object-cover rounded"
+            alt=""
+          />
+        </figure>
+        <div
+          class="mx-auto my-10 text-dark-200 text-lg font-normal leading-relaxed transition-200 dark:text-white single-content"
+          v-html="single.content"
+        ></div>
         <figure v-if="single?.image" class="mt-6 max-h-[498px] h-full">
           <img
             :src="single.image"
@@ -70,33 +107,17 @@
         </div>
       </aside>
     </div>
-    <div v-if="isSpecialReport" class="mb-6">
-      <CommonSectionWrapper
-        :title="$t('special_reports')"
-        all-link="/special-reports"
-      />
-      <Swiper v-bind="settings">
-        <SwiperSlide
-          v-for="(item, idx) in reportsData"
-          :key="idx"
-          class="py-5 !w-[333px] h-[147px]"
-        >
-          <CardsSpecialReports special-report :data="item" />
-        </SwiperSlide>
-      </Swiper>
-    </div>
   </div>
 </template>
 <script setup lang="ts">
 import 'swiper/css'
-import { useRoute } from 'vue-router'
+
 import dayjs from 'dayjs'
 import { useI18n } from 'vue-i18n'
-import { Navigation } from 'swiper'
-import { Swiper, SwiperSlide } from 'swiper/vue'
+import { useRoute } from 'vue-router'
 
+import PhotoReportSlider from '~/components/Slider/PhotoReportSlider.vue'
 import { ISingleData } from '~/types'
-import { reportsData } from '~/data'
 
 const { t } = useI18n()
 const route = useRoute()
@@ -107,17 +128,6 @@ const menu = [
 const isSpecialReport = computed(() => {
   return route.path.includes('special-reports')
 })
-
-const settings = {
-  slidesPerView: 'auto',
-  spaceBetween: 75,
-  loop: true,
-  navigation: {
-    prevEl: '.button-report-prev',
-    nextEl: '.button-report-next',
-  },
-  modules: [Navigation],
-}
 
 interface Props {
   single: ISingleData
@@ -139,7 +149,6 @@ defineProps<Props>()
   width: 100%;
   height: 100%;
   max-height: 498px;
-  aspect-ratio: 4 / 4;
   object-fit: cover;
   border-radius: 4px;
 }
