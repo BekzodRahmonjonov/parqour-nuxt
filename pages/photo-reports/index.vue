@@ -1,6 +1,6 @@
 <template>
   <div>
-    <CommonBreadcrumb :menu="[{ title: 'Разборы', link: '/' }]" />
+    <CommonBreadcrumb :menu="menu" />
     <div class="container">
       <CommonPageWrapper
         :title="$t('photo_reports')"
@@ -60,7 +60,6 @@
 </template>
 <script setup lang="ts">
 import { useI18n } from 'vue-i18n'
-
 const isLoading = ref(false)
 const counter = ref(4)
 const loadMore = () => {
@@ -96,8 +95,5 @@ function getRandomNumber() {
 }
 
 const { t } = useI18n()
-const breadcrumbLinks = computed(() => [
-  { title: 'Разборы', link: '/photo-reports' },
-  { title: singlePhoto.title, link: '/photo-reports' },
-])
+const menu = [{ title: t('photo_reports'), link: '/photo-reports' }]
 </script>
