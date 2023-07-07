@@ -831,6 +831,7 @@ export const popular_news = [
     publishedTime: 'Сегодня, 13:25',
     title:
       'В ташкентском аэропортах горизонт отменили и задержали около 40 рейсов',
+    slug: 'v-tashkentskom-aeroportah-gorizont-otmenili-i-zaderzhali-oko',
     description:
       'Документы отражают сотрудничество в химической, электротехнической, автомобилестроительной, текстильной промышленности и других сферах.',
     views: 223,
@@ -841,6 +842,7 @@ export const popular_news = [
     publishedTime: 'Сегодня, 13:25',
     title:
       'В ташкентском аэропортах горизонт отменили и задержали около 40 рейсов',
+    slug: 'v-tashkentskom-aeroportah-gorizont-otmenili-i-zaderzhali-oko',
     description:
       'Документы отражают сотрудничество в химической, электротехнической, автомобилестроительной, текстильной промышленности и других сферах.',
     views: 223,
@@ -851,6 +853,7 @@ export const popular_news = [
     publishedTime: 'Сегодня, 13:25',
     title:
       'В ташкентском аэропортах горизонт отменили и задержали около 40 рейсов',
+    slug: 'v-tashkentskom-aeroportah-gorizont-otmenili-i-zaderzhali-oko',
     description:
       'Документы отражают сотрудничество в химической, электротехнической, автомобилестроительной, текстильной промышленности и других сферах.',
     views: 223,

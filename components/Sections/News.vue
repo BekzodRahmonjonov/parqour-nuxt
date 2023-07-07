@@ -17,7 +17,13 @@
 </template>
 
 <script setup lang="ts">
-import { newsData } from '~/data'
+import { INewsList } from '~/types'
+
+interface Props {
+  newsData?: INewsList[]
+}
+
+defineProps<Props>()
 </script>
 
 <style scoped></style>
