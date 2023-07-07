@@ -4,17 +4,17 @@
     <CommonPageWrapper
       :title="$t('podcasts')"
       :text="$t('podcast_text')"
-      class="mt-8 container"
+      class="mt-8 container flex flex-col"
     >
-      <div class="grid grid-cols-3 gap-8">
+      <div class="grid grid-cols-12 gap-8">
         <client-only>
           <CardsPodcast
             to="/podcasts/1"
             v-for="(item, index) in copyOfpodcasts"
             :key="index"
             :data="item"
-            class="col-span-1"
-            :class="{ '!col-span-3 !max-h-[472px]': index == 0 }"
+            class="col-span-12 md:col-span-6 lg:col-span-4"
+            :class="{ '!col-span-12 !md:max-h-[472px]': index == 0 }"
             :isSingleBanner="index == 0"
           />
         </client-only>
