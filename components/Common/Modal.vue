@@ -62,7 +62,6 @@
 </template>
 
 <script setup lang="ts">
-// import Circle from '~/components/Common/Counter/Circle.vue'
 import { ref } from 'vue'
 
 interface Props {
