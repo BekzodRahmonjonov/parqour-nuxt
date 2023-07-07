@@ -18,7 +18,7 @@
       <SectionsPodcasts class="py-6 lg:py-10" />
       <SectionsInterviews
         class="pb-6 lg:pb-10"
-        v-bind="{ newsData: fetchInterviewList }"
+        v-bind="{ Data: interviewList }"
       />
       <CommonAdBanner
         image="/images/advertising/airways.png"
