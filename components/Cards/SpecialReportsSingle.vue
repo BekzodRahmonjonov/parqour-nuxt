@@ -10,7 +10,7 @@
         class="text-xs md:text-[14px] leading-20 mb-2 sm:mb-4 text-gray-200 dark:text-blue-100"
       >
         {{
-          dayjs(data?.created_at).locale(locale).format('DD MMM YYYY, HH:MM')
+          dayjs(data?.published_at).locale(locale).format('DD MMM YYYY, HH:MM')
         }}
       </p>
       <p
@@ -21,7 +21,7 @@
       <p
         class="mb-3 sm:mb-6 sm:font-medium text-blue-200 text-xs leading-20F dark:text-gray-100"
       >
-        {{ data?.author }}
+        {{ data?.author?.full_name }}
       </p>
       <div
         class="text-[14px] font-medium leading-14 text-blue-100 flex items-center gap-x-1"
@@ -36,7 +36,7 @@
       ></div>
       <img
         class="absolute-y-center -left-5 rounded-lg w-[138px] h-[96px] sm:w-[202px] sm:h-[140px] object-cover"
-        :src="data?.image"
+        :src="data?.cover_image"
         alt="card-img"
       />
     </div>
