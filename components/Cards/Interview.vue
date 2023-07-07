@@ -9,8 +9,8 @@
       :class="rowFormat ? 'sm:w-[274px] sm:h-[160px]' : ''"
     >
       <img
-        :src="data.image"
-        alt=""
+        :src="data.cover_image"
+        alt="image"
         class="aspect-video w-full h-full object-cover rounded"
       />
       <div
@@ -33,7 +33,7 @@
         class="text-blue-700 leading-5 transition-200 dark:text-white mb-1"
         :class="rowFormat ? 'text-sm' : 'mt-4 text-xs'"
       >
-        {{ '27 ноя 2022, 20:00' }}
+        {{ dayjs(data?.published_at).format('DD.MM.YYYY') }}
       </p>
       <p
         class="font-bold text-blue-700 line-clamp-2 transition-200 dark:text-white leading-136 group-hover:text-blue-200 dark:group-hover:text-blue-100"
@@ -49,12 +49,16 @@
           class="icon-eye text-blue-200 transition-200 dark:text-blue-100"
           :class="rowFormat ? 'mr-2' : 'mr-1'"
         ></i>
-        {{ formatNumberWithSpaces(1234) }}
+        <!--        {{ formatNumberWithSpaces(1234) }}-->
+
+        {{ data.views_count }}
       </p>
     </div>
   </NuxtLink>
 </template>
 <script setup lang="ts">
+import dayjs from 'dayjs'
+
 import { IInterview } from '~/types'
 
 interface Props {

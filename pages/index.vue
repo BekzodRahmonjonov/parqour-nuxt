@@ -18,7 +18,7 @@
       <SectionsPodcasts class="py-6 lg:py-10" />
       <SectionsInterviews
         class="pb-6 lg:pb-10"
-        v-bind="{ Data: interviewList }"
+        v-bind="{ interviewData: interviewList }"
       />
       <CommonAdBanner
         image="/images/advertising/airways.png"
@@ -34,7 +34,7 @@
 <script setup lang="ts">
 import { reportsData } from '@/data'
 import { useHomeStore } from '~/store'
-import {useSpecialReports} from "~/store/special-reports";
+import { useSpecialReports } from '~/store/special-reports'
 
 const homeStore = useHomeStore()
 const reportsStore = useSpecialReports()
