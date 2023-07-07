@@ -1,6 +1,4 @@
 <template>
-  <div>
-    <CommonBreadcrumb :menu="menu" />
     <div class="container mt-8">
       <div class="grid grid-cols-12 gap-8">
         <main class="col-span-12 md:col-span-9">
@@ -72,22 +70,45 @@
           </div>
         </aside>
       </div>
+      <div v-if="isSpecialReport" class="mb-6">
+        <CommonSectionWrapper
+            :title="$t('special_reports')"
+            all-link="/special-reports"
+        />
+        <Swiper v-bind="settings">
+          <SwiperSlide
+              v-for="(item, idx) in reportsData"
+              :key="idx"
+              class="py-5 !w-[333px] h-[147px]"
+          >
+            <CardsSpecialReports special-report :data="item" />
+          </SwiperSlide>
+        </Swiper>
+      </div>
     </div>
-  </div>
 </template>
 <script setup lang="ts">
 import dayjs from 'dayjs'
+import { Navigation } from 'swiper'
+import { Swiper, SwiperSlide } from 'swiper/vue'
 import { useI18n } from 'vue-i18n'
 import { useRoute } from 'vue-router'
 
 import { ISingleData } from '~/types'
+import {reportsData} from "~/data";
 
 const { t } = useI18n()
 const route = useRoute()
-const menu = [
-  { title: t('special_reports'), link: '/special-reports' },
-  { title: t('reports_single'), link: '/special-reports' },
-]
+const settings = {
+  slidesPerView: 'auto',
+  spaceBetween: 75,
+  loop: true,
+  navigation: {
+    prevEl: '.button-report-prev',
+    nextEl: '.button-report-next',
+  },
+  modules: [Navigation],
+}
 const isSpecialReport = computed(() => {
   return route.path.includes('special-reports')
 })
