@@ -24,7 +24,7 @@
         </div>
         <div class="interview-card-bg px-5 py-3 text-white font-bold">
           <h3 class="text-lg uppercase">{{ $t('interview') }}</h3>
-          <p class="text-sm uppercase">{{ data.with_whom }}</p>
+          <!--          <p class="text-sm uppercase">{{ data.with_whom }}</p>-->
         </div>
       </div>
     </div>

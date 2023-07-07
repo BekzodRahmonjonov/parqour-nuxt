@@ -71,11 +71,12 @@ export interface IPodcast {
 }
 
 export interface IInterview {
+  id: number
+  slug: string
   image: string
   views_count: number
   title: string
-  created_at: Date | string
-  with_whom: string
+  cover_image: string
   rowFormat?: boolean
 }
 export interface IColony {
@@ -129,14 +130,4 @@ export interface ISinglePhoto {
   views_count: number
   content: string | HTMLAllCollection
   author: string
-}
-
-export interface INewsList {
-  id: number
-  slug: string
-  title: string
-  views_count: number
-  published_at: string
-  cover_image: string
-  comment_count: number
 }
