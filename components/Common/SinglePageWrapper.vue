@@ -77,7 +77,7 @@
         />
         <Swiper v-bind="settings">
           <SwiperSlide
-              v-for="(item, idx) in reportsData"
+              v-for="(item, idx) in specialReports"
               :key="idx"
               class="py-5 !w-[333px] h-[147px]"
           >
@@ -93,9 +93,11 @@ import { Navigation } from 'swiper'
 import { Swiper, SwiperSlide } from 'swiper/vue'
 import { useI18n } from 'vue-i18n'
 import { useRoute } from 'vue-router'
-
 import { ISingleData } from '~/types'
-import {reportsData} from "~/data";
+import {useSpecialReports} from "~/store/special-reports";
+const reportsStore = useSpecialReports()
+reportsStore.fetchSpecialReports()
+const specialReports = computed(() => reportsStore.specialReports)
 
 const { t } = useI18n()
 const route = useRoute()
