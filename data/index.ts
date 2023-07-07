@@ -171,8 +171,8 @@ export const navigationData = [
   },
   {
     icon: 'icon-pen',
-    title: 'meaning',
-    url: '/meaning',
+    title: 'articles_author',
+    url: '/article-authors',
   },
   {
     icon: 'icon-document',
@@ -476,6 +476,26 @@ export const headerMainMenuData = [
     title: 'culture',
     url: '/materials',
     icon: 'filters',
+  },
+  {
+    title: 'interview',
+    url: '/interview',
+    icon: 'play-stroke',
+  },
+  {
+    title: 'podcast',
+    url: '/podcasts',
+    icon: 'microphone-stroke',
+  },
+  {
+    title: 'analysis',
+    url: '/analysis',
+    icon: 'document-stroke',
+  },
+  {
+    title: 'column',
+    url: '/columns',
+    icon: 'columns',
   },
 ]
 export const podcasts: IPodcast[] = [

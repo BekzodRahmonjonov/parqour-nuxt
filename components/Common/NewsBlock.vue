@@ -13,14 +13,16 @@
       class="absolute bottom-0 w-full h-[100px] pointer-events-none transition-200 news-side-bg-linear"
     />
     <div class="w-full absolute bottom-0 z-[1] p-3 lg:p-5">
-      <CommonButton variant="primary-dark" class="w-full group px-0">
-        <div class="flex-center-between w-full pl-4 pr-2.5">
-          <p>{{ buttonText }}</p>
-          <i
-            class="icon-arrow-right text-white group-hover:translate-x-1 transition-200"
-          />
-        </div>
-      </CommonButton>
+      <NuxtLink :to="localePath('/popular-news')">
+        <CommonButton variant="primary-dark" class="w-full group px-0">
+          <div class="flex-center-between w-full pl-4 pr-2.5">
+            <p>{{ buttonText }}</p>
+            <i
+              class="icon-arrow-right text-white group-hover:translate-x-1 transition-200"
+            />
+          </div>
+        </CommonButton>
+      </NuxtLink>
     </div>
   </div>
 </template>

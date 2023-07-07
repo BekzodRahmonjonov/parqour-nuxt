@@ -68,9 +68,9 @@ export const newsData: INewsSingleData = {
   created_at: new Date(),
   image: 'https://picsum.photos/seed/picsum/1024/544',
   views_count: 223,
-  default: false,
+  default: true,
   standard: false,
-  full_width: true,
+  full_width: false,
   author: 'Джасурбек Нарзуллаев',
   author_image: 'https://picsum.photos/seed/picsum/65/65',
   text: 'Кандидат в президенты Шавкат Мирзиёев отреагировал на предложение Алишера Кадырова о том, что мигранты, работающие за рубежом, должны платить налоги.',
@@ -271,5 +271,43 @@ export const authorSelect = [
     id: 7,
     name: 'разборы',
     value: 'analysis',
+  },
+]
+
+export const newsCategories = [
+  {
+    id: 1,
+    name: 'Общество',
+    value: 'society',
+  },
+  {
+    id: 2,
+    name: 'Происшествия',
+    value: 'incidents',
+  },
+  {
+    id: 3,
+    name: 'Экономика',
+    value: 'economy',
+  },
+  {
+    id: 4,
+    name: 'Интервью',
+    value: 'interview',
+  },
+  {
+    id: 5,
+    name: 'Спорт',
+    value: 'sport',
+  },
+  {
+    id: 6,
+    name: 'Назначения',
+    value: 'appointments',
+  },
+  {
+    id: 7,
+    name: 'Культура',
+    value: 'culture',
   },
 ]
