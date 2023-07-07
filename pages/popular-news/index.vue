@@ -18,9 +18,9 @@
 
           <CommonDropdown
             class="bg-[#F5F6F9] rounded-md md:ml-auto dark:bg-blue-800"
+            button-class="py-2.5 px-3"
             @change="onChange"
             @clickAway="onClickAway"
-            buttonClass="py-2.5 px-3"
           >
             <template #head>
               <div
@@ -39,29 +39,25 @@
             <li
               v-for="(item, i) in sort"
               :key="i"
-              @click="onClick(i)"
               class="p-3 hover:bg-[#F5F6F9] dark:text-white dark:hover:bg-[#a2bcde29] rounded-md font-medium leading-130 text-blue-700 transition-300"
+              @click="onClick(i)"
             >
               {{ item }}
             </li>
           </CommonDropdown>
         </div>
-        <div class="flex flex-col gap-6 mt-8" v-if="preloader">
+        <div v-if="newsStore.loading" class="flex flex-col gap-6 mt-8">
           <BlockLoaderSpecialReports v-for="item in 5" :key="item" />
         </div>
         <div v-else class="flex flex-col gap-6 mt-8">
-          <CardsPopularCard
-            v-for="(item, i) in copyOfpopularNews"
-            :key="i"
-            :news="item"
-          />
+          <CardsPopularCard v-for="(item, i) in list" :key="i" :news="item" />
         </div>
 
         <CommonButton
-          v-if="!preloader"
-          @click="loadMore"
+          v-if="!newsStore.loading && list?.length < newsStore.newsCount"
           :loading="isLoading"
           class="w-full text-blue-600 !bg-[#52618f1a] font-medium leading-125 mt-8 dark:text-white"
+          @click="loadMore"
         >
           <span class="icon-double rotate-90 mr-[10px] text-xl"></span>
           {{ $t('load_more') }}</CommonButton
@@ -75,12 +71,15 @@
   </div>
 </template>
 <script setup lang="ts">
-import { popular_news } from '~/data'
 import { useI18n } from 'vue-i18n'
 
+import { usePopularNewsStore } from '~/store/popularNews'
+
+const newsStore = usePopularNewsStore()
 const { t } = useI18n()
 const sort = ref(['За неделью', 'За все время'])
 const activeSortI = ref(0)
+const list = computed(() => newsStore.news)
 const filters = ref([
   {
     isActive: false,
@@ -115,8 +114,6 @@ const activeDropdown = ref(false)
 const breadCrumbLinks = computed(() => [
   { title: t('popular'), link: '/popular' },
 ])
-const preloader = ref(true)
-
 const onClick = (index: number) => {
   activeSortI.value = index
 }
@@ -129,29 +126,17 @@ const onClickAway = () => {
   activeDropdown.value = false
 }
 
-const copyOfpopularNews = ref([...popular_news])
 const isLoading = ref(false)
 
 const loadMore = () => {
   isLoading.value = true
-  const additionData = {
-    img: '/images/news/bulid.jpg',
-    badge: 'Экономика',
-    publishedTime: 'Сегодня, 13:25',
-    title:
-      'В ташкентском аэропортах горизонт отменили и задержали около 40 рейсов',
-    description:
-      'Документы отражают сотрудничество в химической, электротехнической, автомобилестроительной, текстильной промышленности и других сферах.',
-    views: 223,
-  }
-
+  newsStore.params.offset += 5
+  newsStore.fetchPopularNews(newsStore.params, true)
+  //   .finally(() => {
   setTimeout(() => {
     isLoading.value = false
-    copyOfpopularNews.value.push(additionData)
-  }, 1000)
+  }, 300)
+  // })
 }
-
-setTimeout(() => {
-  preloader.value = false
-}, 1000)
+newsStore.fetchPopularNews(newsStore.params, false)
 </script>

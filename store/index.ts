@@ -24,7 +24,7 @@ export const useHomeStore = defineStore('homeStore', {
         const data = await fetch(
           `${
             import.meta.env.VITE_APP_BASE_URL
-          }front-translation/FrontTranslationList/`,
+          }front-translation/FrontTranslationList/?lang=${defaultLocale}`,
           {
             headers: {
               'Accept-Language': defaultLocale,

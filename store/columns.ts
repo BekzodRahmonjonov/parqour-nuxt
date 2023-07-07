@@ -10,7 +10,7 @@ export const useColumnsStore = defineStore('columnsStore', {
         useApi()
           .$get('news/SpeakersList/')
           .then((res) => {
-            this.columns = res.data
+            this.columns = res
             resolve(res)
           })
           .catch((err) => {

@@ -1,33 +1,43 @@
 import { defineStore } from 'pinia'
 
-import { INewsParams, INewsResponse, INewsSearch } from '~/types/news'
+import { INewsResponse, INewsSearch, INewsSearchListParams } from '~/types/news'
 
 export const useNewsStore = defineStore('columnsStore', {
   state: () => ({
     newsSearchList: [] as INewsSearch[],
+    newsSearchListCount: 0,
     params: {
       offset: 0,
-      limit: 10,
-      hashtags: undefined,
+      limit: 5,
+      hashtags__slug: undefined,
       model_type: undefined,
       search: undefined,
-    } as INewsParams,
+    } as INewsSearchListParams,
+    searchListLoading: true,
   }),
   actions: {
-    fetchNews(params: INewsParams) {
+    fetchNews(params: INewsSearchListParams) {
+      if (this.params.offset === 0) {
+        this.searchListLoading = true
+      }
       return new Promise((resolve, reject) => {
         useApi()
           .$get('news/SearchList/', {
             params,
           })
           .then((res: INewsResponse) => {
-            console.log(res)
-            this.newsSearchList = res.results
+            this.newsSearchListCount = res.count
+            this.newsSearchList = [...this.newsSearchList, ...res.results]
             resolve(res)
           })
           .catch((err) => {
             console.log(err)
             reject(err)
+          })
+          .finally(() => {
+            setTimeout(() => {
+              this.searchListLoading = false
+            }, 300)
           })
       })
     },
