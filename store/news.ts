@@ -17,10 +17,10 @@ export const useNewsStore = defineStore('columnsStore', {
     fetchNews(params: INewsParams) {
       return new Promise((resolve, reject) => {
         useApi()
-          .$get('news/SearchList/', {
+          .$get<INewsResponse>('news/SearchList/', {
             params,
           })
-          .then((res: INewsResponse) => {
+          .then((res) => {
             console.log(res)
             this.newsSearchList = res.results
             resolve(res)
