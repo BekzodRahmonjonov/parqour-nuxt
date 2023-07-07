@@ -10,6 +10,23 @@ export interface INews {
   comments?: number
 }
 
+export interface INewsList {
+  id: number
+  slug: string
+  title: string
+  views_count: number
+  published_at: string
+  cover_image: string
+  comment_count: number
+  is_verified: boolean
+  is_video: boolean
+  category: {
+    id: number
+    title: string
+    type: string
+  }
+}
+
 export interface ILatest {
   id?: number
   title?: string

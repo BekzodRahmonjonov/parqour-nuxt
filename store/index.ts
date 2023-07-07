@@ -5,6 +5,9 @@ export const useHomeStore = defineStore('homeStore', {
     showMobile: false,
     languageSwitch: false,
     localeMessagesFetched: false,
+    newsList: [],
+    popularList: [],
+    discussionList: [],
   }),
   actions: {
     // languageTrigger(value) {
@@ -37,6 +40,45 @@ export const useHomeStore = defineStore('homeStore', {
       } catch (e) {
         console.error(e)
       }
+    },
+    fetchNewsList() {
+      return new Promise((resolve, reject) => {
+        useApi()
+          .$get('/news/NewsList/')
+          .then((data: any) => {
+            this.newsList = data.results
+            resolve(data)
+          })
+          .catch((error) => {
+            reject(error)
+          })
+      })
+    },
+    fetchPopularList() {
+      return new Promise((resolve, reject) => {
+        useApi()
+          .$get('/news/PopularList/')
+          .then((data: any) => {
+            this.popularList = data.results
+            resolve(data)
+          })
+          .catch((error) => {
+            reject(error)
+          })
+      })
+    },
+    fetchDiscussionList() {
+      return new Promise((resolve, reject) => {
+        useApi()
+          .$get('/news/DiscussionList/')
+          .then((data: any) => {
+            this.discussionList = data.results
+            resolve(data)
+          })
+          .catch((error) => {
+            reject(error)
+          })
+      })
     },
   },
   getters: {},

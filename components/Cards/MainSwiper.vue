@@ -1,10 +1,14 @@
 <template>
   <NuxtLink
-    :to="`/news/${card?.id}`"
+    :to="`/news/${card?.slug}`"
     class="w-full aspect-video lg:h-[466px] rounded-lg relative overflow-hidden group block"
   >
     <div class="content-image relative w-full h-full">
-      <img :src="card?.image" alt="news" class="w-full h-full object-cover" />
+      <img
+        :src="card?.cover_image"
+        alt="news"
+        class="w-full h-full object-cover"
+      />
       <div
         class="linear-bg-news absolute w-full h-full inset-0 transition-200"
       />
@@ -14,7 +18,11 @@
         <p
           class="text-xs sm:text-sm leading-5 text-white font-normal content__first"
         >
-          {{ dayjs(card?.date).locale(locale).format('DD MMM YYYY, HH:mm') }}
+          {{
+            dayjs(card?.published_at)
+              .locale(locale)
+              .format('DD MMM YYYY, HH:mm')
+          }}
         </p>
         <div class="content__second">
           <p
@@ -26,7 +34,7 @@
         <div class="flex-y-center gap-1 content__third">
           <i class="icon-eye text-lg text-white" />
           <p class="text-xs leading-14 text-white font-medium">
-            {{ formatNumberWithSpaces(card?.views) }}
+            {{ formatNumberWithSpaces(card?.views_count) }}
           </p>
         </div>
       </div>
@@ -37,12 +45,12 @@
 <script setup lang="ts">
 import dayjs from 'dayjs'
 
-import { INews } from '~/types'
+import { INewsList } from '~/types'
 import { formatNumberWithSpaces } from '~/utils'
 
 const { locale } = useI18n()
 interface Props {
-  card?: INews
+  card?: INewsList
 }
 
 defineProps<Props>()

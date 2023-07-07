@@ -3,8 +3,10 @@
     <LayoutHeaderBreakingNews />
     <div class="pt-8">
       <SectionsLatestNews />
-      <SectionsMainNews />
-      <SectionsNews class="py-6 lg:py-10" />
+      <SectionsMainNews
+        v-bind="{ newsData: newsList, popularList, discussionList }"
+      />
+      <SectionsNews class="py-6 lg:py-10" v-bind="{ newsData: newsList }" />
       <CommonAdBanner image="/images/advertising/adver.png" />
       <SectionsAuthor class="py-6 lg:py-10" />
       <SectionsReports :data="reportsData" />
@@ -28,4 +30,20 @@
 
 <script setup lang="ts">
 import { reportsData } from '@/data'
+import { useHomeStore } from '~/store'
+
+const homeStore = useHomeStore()
+const newsList = computed(() => homeStore.newsList)
+const popularList = computed(() => homeStore.popularList)
+const discussionList = computed(() => homeStore.discussionList)
+
+const loading = ref(true)
+
+Promise.allSettled([
+  homeStore.fetchNewsList(),
+  homeStore.fetchPopularList(),
+  homeStore.fetchDiscussionList(),
+]).finally(() => {
+  loading.value = false
+})
 </script>
