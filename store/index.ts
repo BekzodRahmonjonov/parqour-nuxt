@@ -8,6 +8,7 @@ export const useHomeStore = defineStore('homeStore', {
     newsList: [],
     popularList: [],
     discussionList: [],
+    interviewList: [],
   }),
   actions: {
     // languageTrigger(value) {
