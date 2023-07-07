@@ -28,8 +28,11 @@
 </template>
 <script setup lang="ts">
 import { useI18n } from 'vue-i18n'
+import { useSpecialReports } from '~/store/special-reports'
 
-import { specialReports } from '~/data'
+const reportsStore = useSpecialReports()
+reportsStore.fetchSpecialReports()
+const specialReports = computed(() => reportsStore.specialReports)
 
 const isLoading = ref(false)
 const { t } = useI18n()

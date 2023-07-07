@@ -1,13 +1,13 @@
 <template>
   <NuxtLink
-    :to="`/news/${card.id}`"
+    :to="`/news/${card?.slug}`"
     class="cursor-pointer flex gap-6 group border-b border-solid border-white-200 dark:border-blue-200/20 lg:!border-transparent pb-3 lg:pb-0"
   >
     <div
       class="w-[80px] lg:w-[100px] h-[80px] lg:h-[100px] rounded relative overflow-hidden shrink-0"
     >
       <img
-        src="/images/news/president.png"
+        :src="card?.cover_image"
         alt="news-list"
         class="w-full h-full object-cover"
       />
@@ -18,13 +18,13 @@
         <p
           class="border border-solid border-blue-100 rounded-md px-2 py-0.5 text-[10px] lg:text-xs leading-5 font-medium text-blue-200 dark:text-blue-100 transition-200"
         >
-          {{ card?.category }}
+          {{ card?.category?.title }}
         </p>
 
         <p
           class="text-[10px] lg:text-xs leading-5 text-blue-600 dark:text-blue-100 transition-200 font-medium"
         >
-          {{ dayjs(card?.date).format('DD.MM.YYYY') }}
+          {{ dayjs(card?.published_at).format('DD.MM.YYYY') }}
         </p>
       </div>
 
@@ -34,11 +34,11 @@
         <span class="mr-1">
           {{ card?.title }}
         </span>
-        <CommonNewsTooltip
-          :is-video="card?.isVideo"
-          :is-verified="card?.isVerified"
-          @click.prevent.stop
-        />
+        <!--        <CommonNewsTooltip-->
+        <!--          :is-video="card?.isVideo"-->
+        <!--          :is-verified="card?.isVerified"-->
+        <!--          @click.prevent.stop-->
+        <!--        />-->
       </div>
     </div>
   </NuxtLink>
@@ -47,10 +47,10 @@
 <script setup lang="ts">
 import dayjs from 'dayjs'
 
-import { INews } from '~/types'
+import { INewsList } from '~/types'
 
 interface Props {
-  card: INews
+  card: INewsList
 }
 
 defineProps<Props>()

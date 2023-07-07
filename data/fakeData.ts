@@ -1,4 +1,9 @@
-import { INewsSingleData, ISingleData, ISinglePhoto } from '~/types'
+import {
+  INewsSingleData,
+  IPhotoReportsData,
+  ISingleData,
+  ISinglePhoto,
+} from '~/types'
 
 interface IAnalysis {
   id: number
@@ -129,7 +134,6 @@ export const photoData: IPhotoReportsData = {
         </ul>
         По его словам, деньги, которые зарабатывают мигранты и присылают на родину, должны идти не только на обеспечение их семей, но и на развитие страны.</div>
 `,
-  author_image: 'https://picsum.photos/seed/picsum/65/65',
 }
 
 export const authorsData = [

@@ -21,3 +21,31 @@ export interface INewsSearch {
 export interface INewsResponse extends IResponse {
   results: INewsSearch[]
 }
+
+export interface IPopularList {
+  id: number
+  title: string
+  subtitle: string
+  published_at: string
+  cover_image: string
+  views_count: number
+}
+export interface IDiscussionList {
+  id: number
+  slug: string
+  title: string
+  subtitle: string
+  author: {
+    id: number
+    full_name: string
+    avatar: string
+  }
+  category: {
+    id: number
+    title: string
+    type: string
+    slug: string
+  }
+  created_at: string
+  views_count: number
+}
