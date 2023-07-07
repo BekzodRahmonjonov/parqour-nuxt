@@ -16,7 +16,7 @@
       >
         <div
           id="Modal"
-          class="Modal bg-white w-full rounded-xl relative"
+          class="Modal bg-white dark:bg-blue-700 w-full rounded-xl relative"
           :class="[
             maxWidth ? 'max-w-[382px]' : 'max-w-[382px]',
             bodyWrapperClass,
@@ -31,7 +31,7 @@
               <div class="flex-y-center gap-2">
                 <slot name="pre-title" />
                 <h5
-                  class="text-blue-700 text-xl font-bold leading-24"
+                  class="text-blue-700 dark:text-white text-xl font-bold leading-24"
                   :class="textStyle"
                 >
                   {{ title }}
@@ -62,7 +62,6 @@
 </template>
 
 <script setup lang="ts">
-// import Circle from '~/components/Common/Counter/Circle.vue'
 import { ref } from 'vue'
 
 interface Props {

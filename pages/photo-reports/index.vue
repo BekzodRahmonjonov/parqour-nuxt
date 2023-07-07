@@ -59,6 +59,8 @@
   </div>
 </template>
 <script setup lang="ts">
+import { useI18n } from 'vue-i18n'
+
 const isLoading = ref(false)
 const counter = ref(4)
 const loadMore = () => {
@@ -92,4 +94,10 @@ const image = {
 function getRandomNumber() {
   return Math.floor(Math.random() * 5) + 1
 }
+
+const { t } = useI18n()
+const breadcrumbLinks = computed(() => [
+  { title: 'Разборы', link: '/photo-reports' },
+  { title: singlePhoto.title, link: '/photo-reports' },
+])
 </script>

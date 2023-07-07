@@ -2,14 +2,14 @@
   <div ref="select" class="relative">
     <!--  SELECTED OPTION  -->
     <div
-      class="bg-white-100 rounded px-3 py-2.5 cursor-pointer flex items-center justify-between"
+      class="bg-white-100 dark:bg-blue-800 rounded px-3 py-2.5 cursor-pointer flex items-center justify-between"
       :class="selectedOptionStyles"
       @click="toggleSelect(!showOptions)"
     >
       <slot name="selectedOption" :value="value">
         <div
           v-if="!value"
-          class="text-blue-700 font-medium text-sm leading-130"
+          class="text-blue-700 dark:text-white font-medium text-sm leading-130"
         >
           {{ placeholder }}
         </div>
@@ -21,7 +21,7 @@
         </div>
         <slot name="chevron">
           <span
-            class="icon-chevron-right rotate-90 transition-all text-sm duration-200 inline-block text-blue-150"
+            class="icon-chevron-right rotate-90 transition-all text-sm duration-200 inline-block text-blue-150 dark:text-white"
             :class="{ '-rotate-[90deg]': showOptions }"
           ></span>
         </slot>
@@ -32,10 +32,10 @@
       <div
         v-if="showOptions"
         :key="showOptions"
-        class="absolute top-full w-full bg-white border border-gray-100 rounded z-10 translate-y-3 overflow-hidden max-h-[240px] overflow-y-auto"
+        class="absolute top-full w-full bg-white dark:bg-blue-700 border border-gray-100 dark:border-blue-100/10 rounded z-10 translate-y-3 overflow-hidden max-h-[240px] overflow-y-auto"
       >
         <slot name="options">
-          <div class="p-2 sticky w-full bg-white top-0">
+          <div class="p-2 sticky w-full bg-white dark:bg-blue-700 top-0">
             <CommonSelectSearch @handle-update-search="handleUpdateSearch" />
           </div>
           <template v-if="options?.length">
@@ -43,14 +43,16 @@
               v-for="(option, idx) in options"
               :key="idx"
               :class="{ 'bg-gray-300': isActive(option) }"
-              class="transition-all duration-200 hover:bg-gray-300/30 cursor-pointer"
+              class="transition-all duration-200 hover:bg-gray-300/30 dark:hover:bg-white/10 cursor-pointer"
               @click="onSelect(option)"
             >
-              <div class="border-b border-gray-300 ml-4 w-full h-full py-2.5">
+              <div
+                class="border-b border-gray-300 dark:border-blue-100/20 ml-4 w-full h-full py-2.5"
+              >
                 <slot name="option" :option="option" :index="idx">
                   <Highlighter
-                    class="text-blue-600 text-sm leading-140 font-semibold capitalize"
-                    highlight-class-name="bg-[#FFCD55] dark:bg-[#F9DCA3] dark:text-white dark:bg-opacity-[24%] rounded"
+                    class="text-blue-600 dark:text-white text-sm leading-140 font-semibold capitalize"
+                    highlight-class-name="bg-[#FFCD55] dark:bg-[#DBAD48]  dark:text-white  rounded"
                     :search-words="[searchOption ?? '']"
                     :text-to-highlight="option[labelKey]"
                   />
