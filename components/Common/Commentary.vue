@@ -1,11 +1,11 @@
 <template>
   <div>
-    <h2 class="text-gray-900 mt-[24px] text-[20px] font-bold leading-relaxed">Комментарии</h2>
+    <h2 class="text-gray-900 mt-[24px] text-[20px] font-bold leading-relaxed">
+      Комментарии
+    </h2>
     <form @submit.prevent="submitForm">
-        <div class=" relative ">
-            <FormGroup
-          class="!text-blue-200 mb-5"
-        >
+      <div class="relative">
+        <FormGroup class="!text-blue-200 mb-5">
           <FormTextarea
             id="letter"
             v-model="form.values.description"
@@ -13,36 +13,31 @@
             :placeholder="$t('Комментарии...')"
             input-class="text-gray pt-3 bg-gray lg:hover:!bg-blue-100/20 !text-blue-700 lg:hover:!bg-transparent !font-medium"
             :class="{
-              'min-h-[120px]':
-                isFocused,
+              'min-h-[120px]': isFocused,
               'h-[36px]': !isFocused,
             }"
             @focus="isFocused = true"
             @blur="isFocused = false"
           />
-        </FormGroup>  
-        
+        </FormGroup>
+
         <CommonButton
+          v-show="isFocused"
           class="!absolute bottom-3 !text-[#919299] right-[150px] py-3 !font-normal !bg-transparent !text-[12px] !leading-125"
           :text="$t('submit')"
           button-class="rounded-lg"
-          v-show="isFocused"
         />
-        
+
         <CommonButton
+          v-show="isFocused"
           class="!absolute bottom-3 right-[12px] py-3 !bg-[#48A4E3] !text-white !font-medium !text-base !leading-125"
           :text="$t('submit')"
           button-class="rounded-lg"
-          v-show="isFocused"
         />
-        </div>
-      
-       
+      </div>
     </form>
-
   </div>
 </template>
-
 
 <script setup lang="ts">
 import { required } from '@vuelidate/validators'
