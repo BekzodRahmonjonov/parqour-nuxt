@@ -1,19 +1,34 @@
 <template>
-  <div class="py-3 border-b-[0.5px] border-solid border-blue-200/10">
-    <div class="container flex-y-center justify-between">
-      <div class="flex-y-center space-x-5">
+  <div class="w-auto overflow-hidden">
+    <Swiper v-bind="settings" class="h-5">
+      <SwiperSlide>
         <LayoutHeaderSalary />
-        <LayoutHeaderTime :date="new Date()" />
-      </div>
-      <LayoutHeaderLogo />
-      <div class="flex-y-center space-x-3">
+      </SwiperSlide>
+      <SwiperSlide>
         <LayoutHeaderLegal :salary="970000" type="МПОТ" currency="UZS" />
+      </SwiperSlide>
+      <SwiperSlide>
         <LayoutHeaderLegal :salary="330000" type="БРВ" currency="UZS" />
-      </div>
-    </div>
+      </SwiperSlide>
+    </Swiper>
   </div>
 </template>
 
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import { mainSwiperData } from '~/data'
+import { Swiper, SwiperSlide } from 'swiper/vue'
+import { Autoplay } from 'swiper'
+
+const settings = {
+  spaceBetween: 40,
+  loop: true,
+  direction: 'vertical',
+  autoplay: {
+    delay: 2000,
+    disableOnInteraction: true,
+  },
+  modules: [Autoplay],
+}
+</script>
 
 <style scoped></style>
