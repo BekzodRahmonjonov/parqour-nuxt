@@ -16,7 +16,7 @@
             v-model="form.values.full_name"
             :error="form.$v.value.full_name.$error"
             :placeholder="$t('enter_name')"
-            input-class="text-gray bg-gray lg:hover:!bg-blue-100/20 !text-blue-700 lg:hover:!bg-transparent !font-medium"
+            input-class="text-gray dark:text-white bg-gray lg:hover:!bg-blue-100/20 !text-blue-700 lg:hover:!bg-transparent !font-medium"
           /> </FormGroup
         ><FormGroup
           label="phone_number"
@@ -32,7 +32,8 @@
             input-class="text-gray bg-gray lg:hover:!bg-blue-100/20 !text-blue-700 lg:hover:!bg-transparent !font-medium"
           >
             <template #prefix>
-              <span class="mr-1.5 text-sm font-medium text-blue-700 leading-130"
+              <span
+                class="mr-1.5 text-sm font-medium text-blue-700 dark:text-white leading-130"
                 >+998</span
               >
             </template>

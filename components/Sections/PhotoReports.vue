@@ -2,7 +2,7 @@
   <div class="container">
     <CommonSectionWrapper
       :title="$t('photo_reports')"
-      :all-link="'/special-reports'"
+      :all-link="'/photo-reports'"
       :all-title="$t('all')"
       class="mb-5 md:mb-4"
     />
@@ -10,12 +10,29 @@
       <CardsPhotoReportSliderCard
         :card="image"
         main
-        class="mb-11 w-[787px] h-[472px]"
+        class="!w-[787px]"
+        v-bind="{
+          auto: {
+            delay: 3000 + getRandomNumber() * 1000,
+            disableOnInteraction: true,
+            reverseDirection: true,
+          },
+        }"
       />
       <div
         class="grid lg:justify-between justify-center lg:flex-nowrap flex-wrap gap-4 pr-10"
       >
-        <CardsPhotoReports v-for="(item, index) in 3" :key="index" />
+        <CardsPhotoReports
+          v-for="(item, index) in 3"
+          :key="index"
+          v-bind="{
+            auto: {
+              delay: 3000 + getRandomNumber() * 1000,
+              disableOnInteraction: true,
+              reverseDirection: true,
+            },
+          }"
+        />
       </div>
     </div>
   </div>
@@ -56,4 +73,7 @@ interface Props {
   data: object
 }
 defineProps<Props>()
+function getRandomNumber() {
+  return Math.floor(Math.random() * 5) + 1
+}
 </script>

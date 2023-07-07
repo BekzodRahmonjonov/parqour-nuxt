@@ -3,16 +3,16 @@
     <!--    paginations-->
     <div
       v-if="$route?.path == '/'"
-      class="relative hidden md:flex justify-center top-2/4 translate-y-2/4 z-[2] swiper-cursor"
+      class="absolute hidden md:flex justify-center top-2/4 translate-y-2/4 z-[2] swiper-cursor w-[100%]"
     >
-      <div class="flex-y-center !justify-between w-[92%]">
+      <div class="relative flex-y-center !justify-between w-[100%]">
         <button
-          class="main-button-prev bg-black/[20%] w-7 h-7 rounded flex-center transition-200 hover:bg-black/[60%] active:scale-90"
+          class="main-button-prev bg-black/[20%] w-7 h-7 rounded flex-center transition-200 hover:bg-black/[60%] active:scale-90 absolute left-3"
         >
           <i class="icon-arrow-left text-white" />
         </button>
         <button
-          class="main-button-next bg-black/[20%] w-7 h-7 rounded flex-center transition-200 hover:bg-black/[60%] active:scale-90"
+          class="main-button-next bg-black/[20%] w-7 h-7 rounded flex-center transition-200 hover:bg-black/[60%] active:scale-90 absolute right-3"
         >
           <i class="icon-arrow-right text-white" />
         </button>
@@ -28,6 +28,7 @@
         v-for="(item, index) in card.images"
         :key="index"
         class="w-full h-full aspect-video rounded"
+        :class="main ? 'w-40' : 'w-full'"
       >
         <img
           :src="item"
@@ -108,7 +109,6 @@ const settings = {
 </script>
 <style>
 .photo-report-overlay {
-  border: 0.5px solid #f2f2f6;
   background: linear-gradient(
     180deg,
     rgba(255, 255, 255, 0) 0%,
