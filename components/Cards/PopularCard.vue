@@ -1,6 +1,6 @@
 <template>
   <nuxt-link
-    class="py-5 rounded-lg bg-white-100 dark:bg-dark-200 group dark:hover:bg-blue-600 transition-200"
+    class="py-5 rounded-lg bg-white-100 hover-effect dark:bg-dark-200 group dark:hover:!bg-blue-600 transition-200"
     href="/"
   >
     <div class="flex gap-0.5">
@@ -12,7 +12,7 @@
       <div class="flex flex-col gap-4">
         <div class="flex items-center gap-4">
           <span
-            class="border border-[#A2BCDE] dark:text-blue-100 rounded-lg leading-20 py-1 px-2.5 font-medium text-[12px] text-[#52618F]"
+            class="border hover:text-dark-200 transition-200 border-[#A2BCDE] dark:text-blue-100 rounded-lg leading-20 py-1 px-2.5 font-medium text-[12px] text-[#52618F]"
             >{{ news?.badge }}</span
           >
           <p class="text-dark text-xs leading-20 dark:text-blue-100">
@@ -56,4 +56,9 @@ interface Props {
 defineProps<Props>()
 </script>
 
-<style scoped></style>
+<style scoped>
+.hover-effect:hover {
+  background: white;
+  box-shadow: 0px 12px 24px 0px rgba(82, 97, 143, 0.12);
+}
+</style>
