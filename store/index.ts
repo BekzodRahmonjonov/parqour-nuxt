@@ -80,6 +80,19 @@ export const useHomeStore = defineStore('homeStore', {
           })
       })
     },
+    fetchInterviewList() {
+      return new Promise((resolve, reject) => {
+        useApi()
+          .$get('/news/InterviewList/')
+          .then((data: any) => {
+            this.interviewList = data.results
+            resolve(data)
+          })
+          .catch((error) => {
+            reject(error)
+          })
+      })
+    },
   },
   getters: {},
 })
