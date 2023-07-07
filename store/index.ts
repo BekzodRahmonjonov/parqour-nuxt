@@ -5,6 +5,7 @@ export const useHomeStore = defineStore('homeStore', {
     showMobile: false,
     languageSwitch: false,
     localeMessagesFetched: false,
+    newsList: [],
   }),
   actions: {
     // languageTrigger(value) {
@@ -23,7 +24,7 @@ export const useHomeStore = defineStore('homeStore', {
       try {
         const data = await fetch(
           `${
-            import.meta.env.VITE_APP_BASE_URL
+            import.meta.env.VITE_API_BASE_URL
           }front-translation/FrontTranslationList/`,
           {
             headers: {
@@ -37,6 +38,19 @@ export const useHomeStore = defineStore('homeStore', {
       } catch (e) {
         console.error(e)
       }
+    },
+    fetchNewsList() {
+      return new Promise((resolve, reject) => {
+        useApi()
+          .$get('/news/NewsList/')
+          .then((data: any) => {
+            this.newsList = data.results
+            resolve(data)
+          })
+          .catch((error) => {
+            reject(error)
+          })
+      })
     },
   },
   getters: {},

@@ -1,27 +1,33 @@
 import { defineStore } from 'pinia'
 
-import { ICommonDataResponse } from '~/types/common'
-import { TNewsItem } from '~/types/news'
+import { INewsParams, INewsResponse, INewsSearch } from '~/types/news'
 
-export const useNewsStore = defineStore('news', {
+export const useNewsStore = defineStore('columnsStore', {
   state: () => ({
-    news: [] as TNewsItem[],
+    newsSearchList: [] as INewsSearch[],
+    params: {
+      offset: 0,
+      limit: 10,
+      hashtags: undefined,
+      model_type: undefined,
+      search: undefined,
+    } as INewsParams,
   }),
   actions: {
-    fetchNews() {
+    fetchNews(params: INewsParams) {
       return new Promise((resolve, reject) => {
-        if (this.news.length) {
-          resolve(this.news)
-          return
-        }
         useApi()
-          .$get<ICommonDataResponse<TNewsItem>>('News')
-          .then((data) => {
-            this.news = data.results
-            resolve(data)
+          .$get('news/SearchList/', {
+            params,
           })
-          .catch((error) => {
-            reject(error)
+          .then((res: INewsResponse) => {
+            console.log(res)
+            this.newsSearchList = res.results
+            resolve(res)
+          })
+          .catch((err) => {
+            console.log(err)
+            reject(err)
           })
       })
     },
