@@ -12,7 +12,7 @@
       <div class="flex flex-col gap-4">
         <div class="flex items-center gap-4">
           <span
-            class="border hover:text-dark-200 transition-200 border-[#A2BCDE] dark:text-blue-100 rounded-lg leading-20 py-1 px-2.5 font-medium text-[12px] text-[#52618F]"
+            class="border hover:text-dark-200 transition-200 border-blue-100 dark:text-blue-100 rounded-lg leading-20 py-1 px-2.5 font-medium text-[12px] text-blue-200"
             >{{ news?.badge }}</span
           >
           <p class="text-dark text-xs leading-20 dark:text-blue-100">

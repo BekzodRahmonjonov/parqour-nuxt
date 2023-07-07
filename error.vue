@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="dark:bg-dark-200">
     <LayoutHeader ref="header" />
     <div class="flex items-center justify-center h-screen container">
       <div class="flex items-center justify-center flex-col">
