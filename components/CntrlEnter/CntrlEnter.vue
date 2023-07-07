@@ -59,9 +59,8 @@
             button-class="w-full mt-5"
             :text="$t('submit')"
             :button-type="success ? undefined : 'gray'"
-            :disabled="success ? false : true"
             :type="success ? 'button' : 'submit'"
-            @click="clickToButton"
+            @click="submitForm"
             >{{ $t('send') }}</CommonButton
           >
         </form>
@@ -95,12 +94,6 @@ const submitForm = () => {
   if (form.$v.value.$invalid) return
   success.value = true
 }
-const clickToButton = () => {
-  if (success.value) {
-    hideModal()
-  }
-}
-
 const success = ref(false)
 
 onMounted(() => {

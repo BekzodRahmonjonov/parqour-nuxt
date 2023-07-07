@@ -30,34 +30,36 @@
         class="w-full h-full aspect-video rounded"
         :class="main ? 'w-40' : 'w-full'"
       >
-        <img
-          :src="item"
-          :alt="card?.title"
-          class="aspect-video object-cover rounded absolute w-full h-full photo-report-overlay"
-        />
-        <div
-          class="absolute inset-0 w-full h-full photo-report-overlay pt-4 px-4 pb-5 !rounded z-20 flex flex-col pointer-events-none"
-          :class="
-            small ? 'justify-between items-end' : 'justify-end items-start'
-          "
-        >
+        <nuxt-link to="/photo-reports/1">
+          <img
+            :src="item"
+            :alt="card?.title"
+            class="aspect-video object-cover rounded absolute w-full h-full photo-report-overlay"
+          />
           <div
-            class="text-xs text-white font-bold px-[10px] py-[6px] bg-blue-700/40 rounded mb-3"
-            :class="small ? 'hidden' : 'block'"
+            class="absolute inset-0 w-full h-full photo-report-overlay pt-4 px-4 pb-5 !rounded z-20 flex flex-col pointer-events-none"
+            :class="
+              small ? 'justify-between items-end' : 'justify-end items-start'
+            "
           >
-            {{ index + 1 }}/{{ card?.images.length }}
+            <div
+              class="text-xs text-white font-bold px-[10px] py-[6px] bg-blue-700/40 rounded mb-3"
+              :class="small ? 'hidden' : 'block'"
+            >
+              {{ index + 1 }}/{{ card?.images.length }}
+            </div>
+            <div
+              class="text-lg text-white font-bold px-3 py-2.5 bg-blue-700/40 rounded mb-3 leading-130"
+              :class="small ? 'flex' : 'hidden'"
+            >
+              {{ card?.images.length }}
+              <p v-if="card?.images.length > 1">+</p>
+            </div>
+            <p class="text-white text-base font-medium leading-6">
+              {{ card?.title }}
+            </p>
           </div>
-          <div
-            class="text-lg text-white font-bold px-3 py-2.5 bg-blue-700/40 rounded mb-3 leading-130"
-            :class="small ? 'flex' : 'hidden'"
-          >
-            {{ card?.images.length }}
-            <p v-if="card?.images.length > 1">+</p>
-          </div>
-          <p class="text-white text-base font-medium leading-6">
-            {{ card?.title }}
-          </p>
-        </div>
+        </nuxt-link>
       </SwiperSlide>
     </Swiper>
   </div>
