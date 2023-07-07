@@ -16,7 +16,8 @@
             >{{ news.model_type }}</span
           >
           <p class="text-dark text-xs leading-20 dark:text-blue-100">
-            {{ news?.created_at }}
+            <!--   Todo: format date   -->
+            {{ dayjs(news?.published_at).format('DD.MM.YYYY') }}
           </p>
         </div>
         <div>
@@ -30,9 +31,11 @@
           </p>
         </div>
         <span
+          v-if="news.views_count"
           class="mt-2 text-blue-200 text-xs font-medium flex items-center gap-1 dark:text-white"
         >
-          <i class="icon-eye text-sm"></i> {{ news.views_count }}</span
+          <i class="icon-eye text-sm"></i>
+          {{ formatNumber(news.views_count) }}</span
         >
       </div>
     </div>
@@ -40,6 +43,9 @@
 </template>
 
 <script setup lang="ts">
+import dayjs from 'dayjs'
+
+import { formatNumber } from '~/helpers'
 import { INewsSearch } from '~/types/news'
 
 interface Props {

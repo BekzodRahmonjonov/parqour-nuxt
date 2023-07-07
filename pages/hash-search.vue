@@ -1,6 +1,6 @@
 <template>
   <div class="container pb-16">
-    <CommonPageWrapper :title="route.query?.hash" class="mt-8">
+    <CommonPageWrapper :title="`#${route.query?.hash}`" class="mt-8">
       <div class="flex items-center gap-3">
         <CommonFilter
           v-for="(item, i) in filters"
@@ -14,14 +14,17 @@
           @click="makeActive(i)"
         />
       </div>
-      <div v-if="preloader" class="flex flex-col gap-6 mt-8">
+      <div v-if="newsStore.searchListLoading" class="flex flex-col gap-6 mt-8">
         <BlockLoaderSpecialReports v-for="item in 4" :key="item" />
       </div>
       <div v-else class="grid gap-6 mt-6">
         <CardsPopularCard v-for="(item, i) in list" :key="i" :news="item" />
       </div>
 
-      <div ref="target"></div>
+      <div
+        v-if="newsStore.newsSearchListCount > newsStore.newsSearchList?.length"
+        ref="target"
+      ></div>
       <Transition name="fade">
         <div v-if="loading" class="flex-center py-10">
           <div class="dots" />
@@ -44,17 +47,11 @@ const loading = ref(false)
 const target = ref(null)
 const preloader = ref(true)
 
-newsStore.params.category = route.query?.hash
-console.log(route)
+newsStore.params.hashtags__slug = String(route.query?.hash)
 
 newsStore.fetchNews(newsStore.params)
 
 const list = computed(() => newsStore.newsSearchList)
-
-// watch(route, () => {
-//   console.log(route.query.q)
-//   search.value = route.query.q
-// })
 
 const filters = ref([
   {
@@ -89,9 +86,12 @@ const makeActive = (index: number) => {
 
 function loadMore() {
   loading.value = true
-  setTimeout(() => {
-    loading.value = false
-  }, 1000)
+  newsStore.params.offset += 5
+  newsStore.fetchNews(newsStore.params).finally(() => {
+    setTimeout(() => {
+      loading.value = false
+    }, 300)
+  })
 }
 
 const { stop } = useIntersectionObserver(
