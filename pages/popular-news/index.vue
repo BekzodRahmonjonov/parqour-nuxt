@@ -3,7 +3,7 @@
     <CommonBreadcrumb :menu="breadCrumbLinks" />
     <div class="container pb-16">
       <CommonPageWrapper class="mt-8">
-        <h1 class="page-title">{{ $t(popular) }}</h1>
+        <h1 class="page-title">{{ $t('popular') }}</h1>
         <div class="flex items-center gap-3 flex-wrap mt-4">
           <CommonFilter
             v-for="(item, i) in filters"
@@ -112,9 +112,9 @@ const makeActive = (index: number) => {
   })
 }
 const activeDropdown = ref(false)
-const breadCrumbLinks = computed(() => {
-  ;[{ title: t('popular'), link: '/popular' }]
-})
+const breadCrumbLinks = computed(() => [
+  { title: t('popular'), link: '/popular' },
+])
 const preloader = ref(true)
 
 const onClick = (index: number) => {
