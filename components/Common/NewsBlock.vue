@@ -28,12 +28,10 @@
 </template>
 
 <script setup lang="ts">
-import { useColorMode } from '@vueuse/core'
-
-import { INews } from '~/types'
+import { IPopularList } from '~/types/news'
 
 interface Props {
-  list?: INews[]
+  list?: IPopularList
   buttonText?: string
   link?: string
 }

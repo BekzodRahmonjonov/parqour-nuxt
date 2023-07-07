@@ -18,6 +18,8 @@ export interface INewsList {
   published_at: string
   cover_image: string
   comment_count: number
+  is_verified: boolean
+  is_video: boolean
   category: {
     id: number
     title: string

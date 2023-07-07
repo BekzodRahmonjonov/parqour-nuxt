@@ -2,7 +2,7 @@
   <div class="container">
     <div class="lg:grid grid-cols-12 gap-8">
       <div class="col-span-8">
-        <SectionsMainSwiper />
+        <SectionsMainSwiper v-bind="{ newsData }" />
         <div class="z-30 relative mt-8 flex flex-col gap-3 lg:gap-6">
           <div class="grid lg:grid-cols-2 gap-3 lg:gap-8">
             <CardsNewsSmall
@@ -27,14 +27,23 @@
       <div
         class="col-span-4 bg-white-100 dark:bg-blue-100/[16%] transition-200 rounded-lg mt-6 lg:mt-0"
       >
-        <SectionsSidebarNews />
+        <SectionsSidebarNews v-bind="{ popularList, discussionList }" />
       </div>
     </div>
   </div>
 </template>
 
 <script setup lang="ts">
-import { newsData } from '~/data'
+import { INewsList } from '~/types'
+import { IDiscussionList, IPopularList } from '~/types/news'
+
+interface Props {
+  newsData: INewsList
+  popularList: IPopularList
+  discussionList: IDiscussionList
+}
+
+defineProps<Props>()
 </script>
 
 <style scoped></style>
