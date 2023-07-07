@@ -1,11 +1,11 @@
 <template>
   <div class="container pb-16">
-    <CommonPageWrapper :title="$route.hash" class="mt-8">
+    <CommonPageWrapper :title="route.query?.hash" class="mt-8">
       <div class="flex items-center gap-3">
         <CommonFilter
           v-for="(item, i) in filters"
-          class="mt-4"
           :key="i"
+          class="mt-4"
           :text="item.text"
           :class="{
             'bg-blue-200 text-white dark:text-blue-600 dark:bg-white':
@@ -14,15 +14,11 @@
           @click="makeActive(i)"
         />
       </div>
-      <div class="flex flex-col gap-6 mt-8" v-if="preloader">
+      <div v-if="preloader" class="flex flex-col gap-6 mt-8">
         <BlockLoaderSpecialReports v-for="item in 4" :key="item" />
       </div>
       <div v-else class="grid gap-6 mt-6">
-        <CardsPopularCard
-          v-for="(item, i) in copyOfpopularNews"
-          :key="i"
-          :news="item"
-        />
+        <CardsPopularCard v-for="(item, i) in list" :key="i" :news="item" />
       </div>
 
       <div ref="target"></div>
@@ -39,12 +35,21 @@
 </template>
 
 <script setup lang="ts">
-import { searchContent, popular_news } from '~/data'
+import { useNewsStore } from '~/store/news'
+
+const newsStore = useNewsStore()
 
 const route = useRoute()
 const loading = ref(false)
 const target = ref(null)
 const preloader = ref(true)
+
+newsStore.params.category = route.query?.hash
+console.log(route)
+
+newsStore.fetchNews(newsStore.params)
+
+const list = computed(() => newsStore.newsSearchList)
 
 // watch(route, () => {
 //   console.log(route.query.q)
@@ -97,7 +102,6 @@ const { stop } = useIntersectionObserver(
     }
   }
 )
-const copyOfpopularNews = ref([...popular_news])
 
 setTimeout(() => {
   preloader.value = false

@@ -94,7 +94,6 @@
           class="mx-auto my-10 text-dark-200 text-lg font-normal leading-relaxed transition-200 dark:text-white single-content"
           v-html="single.content"
         ></div>
-
         <CommonAdBanner
           v-if="isSpecialReport"
           image="/images/advertising/yellow.png"
@@ -108,34 +107,16 @@
         </div>
       </aside>
     </div>
-    <div v-if="isSpecialReport" class="mb-6">
-      <CommonSectionWrapper
-        :title="$t('special_reports')"
-        all-link="/special-reports"
-      />
-      <Swiper v-bind="settings">
-        <SwiperSlide
-          v-for="(item, idx) in reportsData"
-          :key="idx"
-          class="py-5 !w-[333px] h-[147px]"
-        >
-          <CardsSpecialReports special-report :data="item" />
-        </SwiperSlide>
-      </Swiper>
-    </div>
   </div>
 </template>
 <script setup lang="ts">
 import 'swiper/css'
 
 import dayjs from 'dayjs'
-import { Navigation } from 'swiper'
-import { Swiper, SwiperSlide } from 'swiper/vue'
 import { useI18n } from 'vue-i18n'
 import { useRoute } from 'vue-router'
 
 import PhotoReportSlider from '~/components/Slider/PhotoReportSlider.vue'
-import { reportsData } from '~/data'
 import { ISingleData } from '~/types'
 
 const { t } = useI18n()
@@ -147,17 +128,6 @@ const menu = [
 const isSpecialReport = computed(() => {
   return route.path.includes('special-reports')
 })
-
-const settings = {
-  slidesPerView: 'auto',
-  spaceBetween: 75,
-  loop: true,
-  navigation: {
-    prevEl: '.button-report-prev',
-    nextEl: '.button-report-next',
-  },
-  modules: [Navigation],
-}
 
 interface Props {
   single: ISingleData

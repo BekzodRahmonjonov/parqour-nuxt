@@ -2,7 +2,7 @@
   <div
     class="relative player-bg-img h-[298px]"
     :class="{
-      '!fixed left-0 bottom-0 right-0 h-[88px] transition-all duration-300 z-20':
+      '!fixed left-0 bottom-0 right-0 h-[88px] transition-all duration-300 z-50':
         fixed,
     }"
   >

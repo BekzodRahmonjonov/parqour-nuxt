@@ -11,19 +11,24 @@
 </template>
 <script setup lang="ts">
 import { singleData } from '~/data/fakeData'
+import { useAudioStore } from '~/store/audio'
 
+const audioStore = useAudioStore()
 const isFixed = ref(false)
 const target = ref(null)
 
 onMounted(() => {
+  // audioStore.makeUnfixed()
   const { stop } = useIntersectionObserver(
     target,
     ([{ isIntersecting }], observerElement) => {
       console.log('inter', isIntersecting)
       if (!isIntersecting) {
         isFixed.value = true
+        audioStore.makeFixed()
       } else {
         isFixed.value = false
+        audioStore.makeUnfixed()
       }
     }
   )

@@ -1,9 +1,20 @@
 <template>
-  <div>
+  <div class="dark:bg-dark-200">
     <LayoutHeader ref="header" />
     <div class="flex items-center justify-center h-screen container">
       <div class="flex items-center justify-center flex-col">
-        <img src="/images/uz404.png" alt="404" class="pointer-events-none" />
+        <img
+          v-if="isDark == 'dark'"
+          src="/images/404-dark.png"
+          alt="404"
+          class="pointer-events-none"
+        />
+        <img
+          v-else
+          src="/images/uz404.png"
+          alt="404"
+          class="pointer-events-none"
+        />
         <h2 class="font-bold text-28 text-blue-700 mt-8">
           {{ $t('not_found') }}
         </h2>
@@ -27,9 +38,18 @@ import { useTheme } from '~/store/theme'
 
 const homeStore = useHomeStore()
 const themeStore = useTheme()
+const isDark = ref('')
 
 homeStore.nuxtServerInit()
 themeStore.initTheme()
+
+watch(
+  themeStore,
+  () => {
+    isDark.value = themeStore.theme
+  },
+  { immediate: true }
+)
 
 interface Props {
   error: NuxtError

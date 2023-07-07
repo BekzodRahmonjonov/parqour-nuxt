@@ -2,7 +2,7 @@ import { NitroFetchRequest } from 'nitropack'
 import { FetchOptions } from 'ofetch'
 
 export const useApi = (apiUrl?: string) => {
-  const baseURL = apiUrl || (import.meta.env.VITE_API_BASE_URL as string)
+  const baseURL = apiUrl || (import.meta.env.VITE_APP_BASE_URL as string)
   const locale = useCookie('locale')
   const loading = ref(false)
 
