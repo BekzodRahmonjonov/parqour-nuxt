@@ -1,7 +1,7 @@
 <template>
   <nuxt-link
     class="py-5 rounded-lg bg-white-100 hover-effect dark:bg-dark-200 group dark:hover:!bg-blue-600 transition-200"
-    href="/"
+    :to="localePath('/news/' + news?.slug)"
   >
     <div class="flex gap-0.5">
       <img
@@ -42,6 +42,7 @@
 <script setup lang="ts">
 interface INews {
   img: string
+  slug: string
   badge: string
   publishedTime: string
   title: string
