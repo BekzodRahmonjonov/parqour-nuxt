@@ -8,6 +8,8 @@ export const useHomeStore = defineStore('homeStore', {
     newsList: [],
     popularList: [],
     discussionList: [],
+    interviewList: [],
+    authorsList: [],
   }),
   actions: {
     async nuxtServerInit() {
@@ -67,6 +69,32 @@ export const useHomeStore = defineStore('homeStore', {
           .$get('/news/DiscussionList/')
           .then((data: any) => {
             this.discussionList = data.results
+            resolve(data)
+          })
+          .catch((error) => {
+            reject(error)
+          })
+      })
+    },
+    fetchInterviewList() {
+      return new Promise((resolve, reject) => {
+        useApi()
+          .$get('/news/InterviewList/')
+          .then((data: any) => {
+            this.interviewList = data.results
+            resolve(data)
+          })
+          .catch((error) => {
+            reject(error)
+          })
+      })
+    },
+    fetchAuthorsList() {
+      return new Promise((resolve, reject) => {
+        useApi()
+          .$get('/news/AuthorArticlesList/')
+          .then((data: any) => {
+            this.authorsList = data.results
             resolve(data)
           })
           .catch((error) => {

@@ -2,6 +2,13 @@
   <CommonBreadcrumb :menu="menu" class="mb-8" />
   <div class="container mb-12 md:mb-16">
     <CommonPageWrapper :title="$t('special_reports')" :text="$t('column_text')">
+      <pre>{{isThereReports}}</pre>
+      <div v-if="!specialReports?.length>0" class="grid grid-cols-1 gap-8">
+        <BlockLoaderSpecialReports />
+        <BlockLoaderSpecialReports />
+        <BlockLoaderSpecialReports />
+        <BlockLoaderSpecialReports />
+      </div>
       <div class="grid grid-cols-1 gap-8">
         <CardsSpecialReportsSingle
           v-for="(item, index) in specialReports.slice(0, counter)"
@@ -11,7 +18,7 @@
         />
         <BlockLoaderSpecialReports v-if="isLoading" />
         <CommonButton
-          v-if="counter !== specialReports?.length"
+          v-if="counter !== specialReports?.length && specialReports?.length>0"
           :loading="isLoading"
           class="w-full text-blue-600 dark:hover:text-white !bg-[#52618f1a] font-medium leading-125 mb-16"
           @click="loadMore"

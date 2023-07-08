@@ -15,7 +15,7 @@
             : ''
         "
       >
-        {{ dayjs(data?.date).locale(locale).format('DD MMM YYYY, HH:mm') }},
+        {{ dayjs(data?.published_at).locale(locale).format('DD MMM YYYY, HH:mm') }},
       </p>
       <p
         class="font-medium sm:font-bold leading-136 line-clamp-2"
@@ -35,7 +35,7 @@
             : 'text-blue-100 text-xs'
         "
       >
-        {{ data?.author }}
+        {{ data?.author?.full_name }}
       </p>
       <div
         class="font-medium leading-14 flex items-center gap-x-1"
@@ -46,7 +46,7 @@
         "
       >
         <i class="icon-eye"></i>
-        <span>{{ formatMoneyDecimal(data?.views) }}</span>
+        <span>{{ formatMoneyDecimal(data?.views_count) }}</span>
       </div>
       <div
         class="absolute-y-center rounded-lg overflow-hidden bg-blue-200 blur-[0] group-hover:blur-[14.5px] transition-200"
@@ -63,7 +63,7 @@
             ? '-right-5 md:-right-11 w-[114px] h-[70px] sm:w-[156px] sm:h-[96px]'
             : '-right-5 w-[138px] h-[96px] sm:w-[202px] sm:h-[140px]'
         "
-        :src="data?.img"
+        :src="data?.cover_image"
         alt="card-img"
       />
     </div>
@@ -73,11 +73,11 @@
 <script setup lang="ts">
 import dayjs from 'dayjs'
 import { formatMoneyDecimal } from '../../helpers'
-
+import {ISpecialReports} from "~/types/special-reports";
 const { locale } = useI18n()
 
 interface Props {
-  data: object
+  data: ISpecialReports
   specialReport?: boolean
 }
 defineProps<Props>()
