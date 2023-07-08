@@ -87,7 +87,7 @@ const variants = computed<{ [key in Props['variant']]: string }>(() => ({
   danger: 's-button-danger',
   'danger-outline': 's-button-danger-outline',
   light:
-    'bg-blue-transparent hover:bg-[#52618f33] hover:text-white text-blue-200 border border-blue-200',
+    'bg-blue-transparent hover:bg-[#52618f33] hover:text-white text-blue-200 border border-blue-200 hover:border-[#52618f33] dark:hover:',
 }))
 
 const buttonVariantClass = computed<string>(() => variants.value[props.variant])

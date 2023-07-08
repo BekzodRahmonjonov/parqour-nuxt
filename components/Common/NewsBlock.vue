@@ -14,7 +14,7 @@
     />
     <div class="w-full absolute bottom-0 z-[1] p-3 lg:p-5">
       <NuxtLink :to="localePath('/popular-news')">
-        <CommonButton variant="primary-dark" class="w-full group px-0">
+        <CommonButton variant="primary-dark" class="w-full group !px-0">
           <div class="flex-center-between w-full pl-4 pr-2.5">
             <p>{{ buttonText }}</p>
             <i
