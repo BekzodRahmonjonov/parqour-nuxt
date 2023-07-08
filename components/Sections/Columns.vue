@@ -3,7 +3,7 @@
     <CommonSectionWrapper :title="$t('column')" is-centered />
     <div class="grid grid-cols-12 sm:gap-x-8 gap-y-6 mt-7">
       <CardsColumn
-        v-for="(item, index) in articlesData"
+        v-for="(item, index) in columns"
         :key="index"
         :data="item"
         class="lg:col-span-3 md:col-span-4 sm:col-span-6 col-span-12"
@@ -12,14 +12,10 @@
   </div>
 </template>
 <script setup lang="ts">
-import { IArticlesData } from '~/types'
+import { columns, interviewTags } from '~/data'
 
 const loading = ref(true)
 
-interface Props {
-  articlesData?: IArticlesData[]
-}
-defineProps<Props>()
 onMounted(() => {
   setTimeout(() => {
     loading.value = false

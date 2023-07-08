@@ -9,7 +9,7 @@ export const useHomeStore = defineStore('homeStore', {
     popularList: [],
     discussionList: [],
     interviewList: [],
-    articlesList: [],
+    authorsList: [],
   }),
   actions: {
     // languageTrigger(value) {
@@ -28,7 +28,7 @@ export const useHomeStore = defineStore('homeStore', {
       try {
         const data = await fetch(
           `${
-            import.meta.env.VITE_APP_BASE_URL
+            import.meta.env.VITE_API_BASE_URL
           }front-translation/FrontTranslationList/?lang=${defaultLocale}`,
           {
             headers: {
@@ -95,12 +95,12 @@ export const useHomeStore = defineStore('homeStore', {
           })
       })
     },
-    fetchArticlesList() {
+    fetchAuthorsList() {
       return new Promise((resolve, reject) => {
         useApi()
           .$get('/news/AuthorArticlesList/')
           .then((data: any) => {
-            this.articlesList = data.results
+            this.authorsList = data.results
             resolve(data)
           })
           .catch((error) => {

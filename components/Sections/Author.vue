@@ -21,7 +21,14 @@
 </template>
 
 <script setup lang="ts">
-import { authorsData } from '~/data'
+// import { authorsData } from '~/data'
+import { IAuthorsData } from '~/types'
+
+interface Props {
+  authorsData?: IAuthorsData[]
+}
+
+defineProps<Props>()
 </script>
 
 <style scoped></style>

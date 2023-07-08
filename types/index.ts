@@ -34,15 +34,6 @@ export interface ILatest {
   time: string
 }
 
-export interface IAuthor {
-  id: number
-  slug: string
-  actual: boolean
-  title: string
-  author: string
-  image: string
-}
-
 export interface ITabItem {
   label: string
   value: string
@@ -132,11 +123,12 @@ export interface ISinglePhoto {
   content: string | HTMLAllCollection
   author: string
 }
-export interface IArticlesData {
+export interface IAuthorsData {
   id: number
   title: string
   slug: string
   type: string
+  actual: boolean
   author: {
     id: number
     full_name: string

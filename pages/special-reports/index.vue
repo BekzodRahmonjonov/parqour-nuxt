@@ -3,7 +3,7 @@
   <div class="container mb-12 md:mb-16">
     <CommonPageWrapper :title="$t('special_reports')" :text="$t('column_text')">
       <pre>{{isThereReports}}</pre>
-      <div v-if="!specialReports?.length>0">
+      <div v-if="!specialReports?.length>0" class="grid grid-cols-1 gap-8">
         <BlockLoaderSpecialReports />
         <BlockLoaderSpecialReports />
         <BlockLoaderSpecialReports />
@@ -40,6 +40,7 @@ import { useSpecialReports } from '~/store/special-reports'
 const reportsStore = useSpecialReports()
 reportsStore.fetchSpecialReports()
 const specialReports = computed(() => reportsStore.specialReports)
+
 const isLoading = ref(false)
 const { t } = useI18n()
 const menu = [{ title: t('special_reports'), link: '/special-reports' }]
