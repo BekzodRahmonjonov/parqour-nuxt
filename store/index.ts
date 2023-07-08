@@ -9,29 +9,26 @@ export const useHomeStore = defineStore('homeStore', {
     popularList: [],
     discussionList: [],
     interviewList: [],
-<<<<<<< HEAD
     auth: {
       loggedIn: false,
       user: null,
-    }
-  }),
-  actions: {
-    async fetchMe (){
-      const { $get } = useApi()
-      try {
-        const data = await $get('users/Me/')
-        this.auth.loggedIn = true
-        this.auth.user = data
-      } catch (e) {
-   // throw new Error(e)
-        console.log(e);
-      }
     },
-=======
     authorsList: [],
   }),
+
   actions: {
->>>>>>> ee5c541034eb5887ea062336ba59d1a4bfb867e5
+    async fetchMe (){
+  const { $get } = useApi()
+  try {
+    const data = await $get('users/Me/')
+    this.auth.loggedIn = true
+    this.auth.user = data
+  } catch (e) {
+    // throw new Error(e)
+    console.log(e);
+  }
+},
+
     async nuxtServerInit() {
       const { locale, setLocaleMessage, setLocale, t } = useI18n()
       const cookieLocale = useCookie('i18n_redirected')
