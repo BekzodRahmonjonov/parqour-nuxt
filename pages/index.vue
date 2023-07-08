@@ -24,7 +24,10 @@
         image="/images/advertising/airways.png"
         class="pb-6 lg:pb-10"
       />
-      <SectionsColumns class="pb-6 lg:pb-10" />
+      <SectionsColumns
+        class="pb-6 lg:pb-10"
+        v-bind="{ articlesData: articlesList }"
+      />
       <SectionsSocial />
       <SectionsAnalysis class="py-6 lg:py-10" />
     </div>
@@ -44,6 +47,7 @@ const newsList = computed(() => homeStore.newsList)
 const popularList = computed(() => homeStore.popularList)
 const discussionList = computed(() => homeStore.discussionList)
 const interviewList = computed(() => homeStore.interviewList)
+const articlesList = computed(() => homeStore.articlesList)
 
 const loading = ref(true)
 
@@ -52,6 +56,7 @@ Promise.allSettled([
   homeStore.fetchPopularList(),
   homeStore.fetchDiscussionList(),
   homeStore.fetchInterviewList(),
+  homeStore.fetchArticlesList(),
 ]).finally(() => {
   loading.value = false
 })

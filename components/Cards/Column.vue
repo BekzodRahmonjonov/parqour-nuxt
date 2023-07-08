@@ -54,10 +54,11 @@
 </template>
 <script setup lang="ts">
 import { getTimeText } from '../../helpers'
-import { IColony } from '~/types'
+// import { IColony, articlesData } from '~/types'
 
-interface Props {
-  data: IColony
-}
+// interface Props {
+//   data: IColony
+//   data: articlesData
+// }
 defineProps<Props>()
 </script>

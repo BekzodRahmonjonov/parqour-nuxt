@@ -9,6 +9,7 @@ export const useHomeStore = defineStore('homeStore', {
     popularList: [],
     discussionList: [],
     interviewList: [],
+    articlesList: [],
   }),
   actions: {
     // languageTrigger(value) {
@@ -87,6 +88,19 @@ export const useHomeStore = defineStore('homeStore', {
           .$get('/news/InterviewList/')
           .then((data: any) => {
             this.interviewList = data.results
+            resolve(data)
+          })
+          .catch((error) => {
+            reject(error)
+          })
+      })
+    },
+    fetchArticlesList() {
+      return new Promise((resolve, reject) => {
+        useApi()
+          .$get('/news/AuthorArticlesList/')
+          .then((data: any) => {
+            this.articlesList = data.results
             resolve(data)
           })
           .catch((error) => {
