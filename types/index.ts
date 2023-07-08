@@ -71,11 +71,12 @@ export interface IPodcast {
 }
 
 export interface IInterview {
+  id: number
+  slug: string
   image: string
   views_count: number
   title: string
-  created_at: Date | string
-  with_whom: string
+  cover_image: string
   rowFormat?: boolean
 }
 export interface IColony {
