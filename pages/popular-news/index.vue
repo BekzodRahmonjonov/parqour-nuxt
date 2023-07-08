@@ -95,12 +95,15 @@ import { useSpecialReportsStore } from '~/store/special-reports'
 
 const newsStore = usePopularNewsStore()
 const columnsStore = useColumnsStore()
+const specialReportsStore = useSpecialReportsStore()
 const { t } = useI18n()
 enum Sections {
   news = 'news',
   articles = 'articles',
   photo = 'photo',
   columns = 'columns',
+  specialReports = 'specialReports',
+  discussions = 'discussions',
 }
 const sort = ref(['За неделью', 'За все время'])
 const activeSortI = ref(0)
@@ -182,9 +185,67 @@ const buttons = reactive({
       }, 300)
     },
   },
+  [Sections.specialReports]: {
+    text: 'Спецрепортажи',
+    value: 'specialReports',
+    btnLoading: false,
+    dataCount: computed(() => specialReportsStore.count),
+    data: computed(() => specialReportsStore.specialReports),
+    fetchLoading: computed(() => specialReportsStore.loading),
+    get isActive() {
+      return this.value == activeSection.value
+    },
+    fetchData() {
+      console.log('fetchData: columns')
+      specialReportsStore.fetchSpecialReports(specialReportsStore.params)
+    },
+    onClick() {
+      activeSection.value = this.value
+      if (this.data?.length == 0) {
+        this.fetchData()
+      }
+    },
+    loadMore() {
+      this.btnLoading = true
+      specialReportsStore.params.offset += 1
+      specialReportsStore.fetchSpecialReports(specialReportsStore.params, true)
+      setTimeout(() => {
+        this.btnLoading = false
+      }, 300)
+    },
+  },
   [Sections.columns]: {
     text: 'Колонки',
     value: 'columns',
+    btnLoading: false,
+    dataCount: computed(() => columnsStore.columns.length),
+    data: computed(() => columnsStore.columns),
+    fetchLoading: computed(() => newsStore.loading),
+    get isActive() {
+      return this.value == activeSection.value
+    },
+    fetchData() {
+      console.log('fetchData: columns')
+      columnsStore.fetchColumns()
+    },
+    onClick() {
+      activeSection.value = this.value
+      if (this.data?.length == 0) {
+        this.fetchData()
+      }
+    },
+    loadMore() {
+      this.btnLoading = true
+      // newsStore.params.offset += 5
+      // newsStore.fetchPopularNews(newsStore.params, true)
+      setTimeout(() => {
+        this.btnLoading = false
+      }, 300)
+    },
+  },
+  [Sections.discussions]: {
+    text: 'Разборы',
+    value: 'discussions',
     btnLoading: false,
     dataCount: computed(() => columnsStore.columns.length),
     data: computed(() => columnsStore.columns),

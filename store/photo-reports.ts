@@ -7,19 +7,19 @@ import {
   ISpecialReportsParams,
 } from '~/types/special-reports'
 
-export const useSpecialReportsStore = defineStore('specialReports', {
+export const usePhotoReportsStore = defineStore('photoReports', {
   state: () => ({
-    specialReports: [] as ISpecialReports[],
+    reports: [] as ISpecialReports[],
     count: 0,
     loading: true,
     params: {
       offset: 0,
-      limit: 1,
+      limit: 2,
       search: undefined,
     },
   }),
   actions: {
-    fetchSpecialReports(params: ISpecialReportsParams, force?: boolean) {
+    fetchPhotoReports(params: ISpecialReportsParams, force?: boolean) {
       if (this.specialReports.length > 0 && !force) {
         return new Promise((resolve, reject) => {
           resolve(this.specialReports)
@@ -30,7 +30,7 @@ export const useSpecialReportsStore = defineStore('specialReports', {
         }
         return new Promise((resolve, reject) => {
           useApi()
-            .$get<IReportsResponse>('news/SpecialReportsList/', {
+            .$get<IReportsResponse>('news/PhotoReportsListView/', {
               params,
             })
             .then((res) => {
