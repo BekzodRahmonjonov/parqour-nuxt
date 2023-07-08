@@ -3,6 +3,7 @@
     <CommonBreadcrumb :menu="breadCrumbLinks" />
     <div class="container pb-16">
       <CommonPageWrapper class="mt-8" :title="$t('all_news')">
+        <!--        <h1 class="page-title">{{ $t('all_news') }}</h1>-->
         <div class="flex items-center gap-3 flex-wrap mt-4">
           <CommonFilter
             v-for="(item, i) in filters"
@@ -45,19 +46,15 @@
             </li>
           </CommonDropdown>
         </div>
-        <div v-if="preloader" class="flex flex-col gap-6 mt-8">
+        <div v-if="newsStore.loading" class="flex flex-col gap-6 mt-8">
           <BlockLoaderSpecialReports v-for="item in 5" :key="item" />
         </div>
         <div v-else class="flex flex-col gap-6 mt-8">
-          <CardsPopularCard
-            v-for="(item, i) in copyOfpopularNews"
-            :key="i"
-            :news="item"
-          />
+          <CardsPopularCard v-for="(item, i) in list" :key="i" :news="item" />
         </div>
 
         <CommonButton
-          v-if="!preloader"
+          v-if="!newsStore.loading && list?.length < newsStore.newsListCount"
           :loading="isLoading"
           class="w-full text-blue-600 !bg-[#52618f1a] font-medium leading-125 mt-8 dark:text-white"
           @click="loadMore"
@@ -76,11 +73,13 @@
 <script setup lang="ts">
 import { useI18n } from 'vue-i18n'
 
-import { popular_news } from '~/data'
+import { useNewsStore } from '~/store/news'
 
+const newsStore = useNewsStore()
 const { t } = useI18n()
 const sort = ref(['За неделью', 'За все время'])
 const activeSortI = ref(0)
+const list = computed(() => newsStore.newsList)
 const filters = ref([
   {
     isActive: false,
@@ -112,9 +111,9 @@ const makeActive = (index: number) => {
   })
 }
 const activeDropdown = ref(false)
-const breadCrumbLinks = computed(() => [{ title: t('news'), link: '/news' }])
-const preloader = ref(true)
-
+const breadCrumbLinks = computed(() => [
+  { title: t('popular'), link: '/popular' },
+])
 const onClick = (index: number) => {
   activeSortI.value = index
 }
@@ -127,29 +126,17 @@ const onClickAway = () => {
   activeDropdown.value = false
 }
 
-const copyOfpopularNews = ref([...popular_news])
 const isLoading = ref(false)
 
 const loadMore = () => {
   isLoading.value = true
-  const additionData = {
-    img: '/images/news/bulid.jpg',
-    badge: 'Экономика',
-    publishedTime: 'Сегодня, 13:25',
-    title:
-      'В ташкентском аэропортах горизонт отменили и задержали около 40 рейсов',
-    description:
-      'Документы отражают сотрудничество в химической, электротехнической, автомобилестроительной, текстильной промышленности и других сферах.',
-    views: 223,
-  }
-
+  newsStore.params.offset += 5
+  newsStore.fetchNewsList(newsStore.params, true)
+  //   .finally(() => {
   setTimeout(() => {
     isLoading.value = false
-    copyOfpopularNews.value.push(additionData)
-  }, 1000)
+  }, 300)
+  // })
 }
-
-setTimeout(() => {
-  preloader.value = false
-}, 1000)
+newsStore.fetchNewsList(newsStore.params, false)
 </script>

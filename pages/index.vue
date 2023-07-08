@@ -8,7 +8,10 @@
       />
       <SectionsNews class="py-6 lg:py-10" v-bind="{ newsData: newsList }" />
       <CommonAdBanner image="/images/advertising/adver.png" />
-      <SectionsAuthor class="py-6 lg:py-10" />
+      <SectionsAuthor
+        class="py-6 lg:py-10"
+        v-bind="{ authorsData: authorsList }"
+      />
       <SectionsReports :data="specialReports" />
       <CommonAdBanner
         image="/images/advertising/yellow.png"
@@ -44,6 +47,7 @@ const newsList = computed(() => homeStore.newsList)
 const popularList = computed(() => homeStore.popularList)
 const discussionList = computed(() => homeStore.discussionList)
 const interviewList = computed(() => homeStore.interviewList)
+const authorsList = computed(() => homeStore.authorsList)
 
 const loading = ref(true)
 
@@ -52,6 +56,7 @@ Promise.allSettled([
   homeStore.fetchPopularList(),
   homeStore.fetchDiscussionList(),
   homeStore.fetchInterviewList(),
+  homeStore.fetchAuthorsList(),
 ]).finally(() => {
   loading.value = false
 })

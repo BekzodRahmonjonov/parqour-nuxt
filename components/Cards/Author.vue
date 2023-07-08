@@ -7,7 +7,7 @@
     <div>
       <div class="aspect-video">
         <img
-          :src="card?.image"
+          :src="card?.cover_image"
           alt="author-image"
           class="w-full h-full object-cover"
         />
@@ -41,17 +41,17 @@
         class="text-xs text-blue-700 leading-130 font-medium mt-auto"
         :class="{ 'md:!text-sm !text-white !mt-[53px]': isHalf }"
       >
-        {{ card?.author }}
+        {{ card?.author?.full_name }}
       </p>
     </div>
   </NuxtLink>
 </template>
 
 <script setup lang="ts">
-import { IAuthor } from '~/types'
+import { IAuthorsData } from '~/types'
 
 interface Props {
-  card: IAuthor
+  card: IAuthorsData
   isHalf?: boolean
   isDefault?: boolean
 }

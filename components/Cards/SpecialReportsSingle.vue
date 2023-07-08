@@ -45,13 +45,13 @@
 
 <script setup lang="ts">
 import dayjs from 'dayjs'
-
 import { formatMoneyDecimal } from '../../helpers'
+import {ISpecialReports} from "~/types/special-reports";
 
 const { locale } = useI18n()
 
 interface Props {
-  data: object
+  data: ISpecialReports
   badgeText: string
 }
 defineProps<Props>()
