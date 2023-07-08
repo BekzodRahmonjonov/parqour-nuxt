@@ -9,11 +9,23 @@ export const useHomeStore = defineStore('homeStore', {
     popularList: [],
     discussionList: [],
     interviewList: [],
+    auth: {
+      loggedIn: false,
+      user: null,
+    }
   }),
   actions: {
-    // languageTrigger(value) {
-    //   this.languageSwitch = value
-    // },
+    async fetchMe (){
+      const { $get } = useApi()
+      try {
+        const data = await $get('users/Me/')
+        this.auth.loggedIn = true
+        this.auth.user = data
+      } catch (e) {
+   // throw new Error(e)
+        console.log(e);
+      }
+    },
     async nuxtServerInit() {
       const { locale, setLocaleMessage, setLocale, t } = useI18n()
       const cookieLocale = useCookie('i18n_redirected')
