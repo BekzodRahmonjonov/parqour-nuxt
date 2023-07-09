@@ -17,25 +17,29 @@ export const useHomeStore = defineStore('homeStore', {
   }),
 
   actions: {
-    async fetchMe (){
+      async fetchMe (){
   const { $get } = useApi()
   try {
     const data = await $get('users/Me/')
     this.auth.loggedIn = true
-    this.auth.user = data
-  } catch (e) {
-    // throw new Error(e)
-    console.log(e);
+    this.auth.user = data;
+    return data
+  } catch (error:any) {
+    throw new Error(error)
   }
 },
 
     async nuxtServerInit() {
       const { locale, setLocaleMessage, setLocale, t } = useI18n()
-      const cookieLocale = useCookie('i18n_redirected')
-
+      const cookieLocale = useCookie('i18n_redirected');
+      const check_token = useCookie('access');
+      if(check_token.value) {
+          await this.fetchMe()
+      }
+        console.log('useCookie ===>>>')
       let defaultLocale = locale.value ?? 'ru'
-      defaultLocale = cookieLocale.value ?? defaultLocale
-
+      defaultLocale = cookieLocale.value ?? defaultLocale;
+        // console.log(list)
       try {
         const data = await fetch(
           `${

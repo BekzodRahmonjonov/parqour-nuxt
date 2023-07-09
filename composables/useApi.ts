@@ -1,22 +1,27 @@
 import { NitroFetchRequest } from 'nitropack'
 import { FetchOptions} from 'ofetch'
-
 export const useApi = (apiUrl?: string) => {
   const baseURL = apiUrl || (import.meta.env.VITE_API_BASE_URL as string)
   const locale = useCookie('locale')
   const loading = ref(false)
-
+  const token  = useCookie('access')
   function $service(options?: FetchOptions) {
+    let headers_obj:any = {
+      ...options?.headers
+    };
+    if(token.value) {
+      headers_obj['Authorization'] =`Bearer ${token.value}`
+    }
     return $fetch.create({
       ...options,
       baseURL,
       headers: {
         ...options?.headers,
+        ...headers_obj,
         'Accept-Language': locale.value || 'uz',
       },
     })
   }
-
   function $get<T = never>(
     endpoint: NitroFetchRequest,
     options?: FetchOptions

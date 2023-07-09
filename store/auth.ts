@@ -12,16 +12,12 @@ export const useAuthStore = defineStore('authStore', {
     // interviewList: [],
   }),
   actions: {
-    userLogin(data: IAuthLogin) {
-      return new Promise((resolve, reject) => {
-        useApi()
-          .$post('users/SignIn/', {
-            body: data,
-          })
-          .then((data: IAuthLoginResponse) => {
-            resolve(data)
-          })
-      })
+   async  userLogin(data: IAuthLogin) {
+      try {
+        return await useApi().$post('users/SignIn/', {body: data});
+      } catch (error:any) {
+        throw new Error(error)
+      }
     },
     userRegistor(data: IAuthRegister) {
       return new Promise((resolve, reject) => {
@@ -33,58 +29,6 @@ export const useAuthStore = defineStore('authStore', {
           })
       })
     }
-    // fetchNewsList() {
-    //   return new Promise((resolve, reject) => {
-    //     useApi()
-    //       .$get('/news/NewsList/')
-    //       .then((data: any) => {
-    //         this.newsList = data.results
-    //         resolve(data)
-    //       })
-    //       .catch((error) => {
-    //         reject(error)
-    //       })
-    //   })
-    // },
-    // fetchPopularList() {
-    //   return new Promise((resolve, reject) => {
-    //     useApi()
-    //       .$get('/news/PopularList/')
-    //       .then((data: any) => {
-    //         this.popularList = data.results
-    //         resolve(data)
-    //       })
-    //       .catch((error) => {
-    //         reject(error)
-    //       })
-    //   })
-    // },
-    // fetchDiscussionList() {
-    //   return new Promise((resolve, reject) => {
-    //     useApi()
-    //       .$get('/news/DiscussionList/')
-    //       .then((data: any) => {
-    //         this.discussionList = data.results
-    //         resolve(data)
-    //       })
-    //       .catch((error) => {
-    //         reject(error)
-    //       })
-    //   })
-    // },
-    // fetchInterviewList() {
-    //   return new Promise((resolve, reject) => {
-    //     useApi()
-    //       .$get('/news/InterviewList/')
-    //       .then((data: any) => {
-    //         this.interviewList = data.results
-    //         resolve(data)
-    //       })
-    //       .catch((error) => {
-    //         reject(error)
-    //       })
-    //   })
-    // },
   },
   getters: {},
 })

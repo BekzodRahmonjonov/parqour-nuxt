@@ -2,10 +2,8 @@
   <!-- COMMENT SECTION -->
   <div class="container">
     <div class="mt-4">
-<!--      <CommentsComment/>-->
       <CommentsCommentUpload
-          @ItemCommnetAdd="itemCommnetAdd"
-          ref="comment"/>
+          @ItemCommnetAdd="itemCommnetAdd"/>
            <CommentsCommentRecursion
           :data="dataCommnets"
           @itemCommnetChildAdd="itemCommnetChildAdd"
@@ -18,7 +16,7 @@
 <script setup lang="ts">
 import {ref} from "vue";
 import img from '~/assets/images/user.jpg'
-import {cjsRequire} from "@pkgr/utils";
+// import ContactModal from "~/components/Modal/ContactModal.vue";
 const dataCommnets = ref ([
   {
     id: 1,
@@ -77,8 +75,7 @@ const dataCommnets = ref ([
     }]
   }
 ])
-const comment = ref<any>(null)
-const contactModal = ref(false)
+const show = ref<Boolean>(false)
 function onSubmit () {
 }
 function childUploadCloce(array:any) {

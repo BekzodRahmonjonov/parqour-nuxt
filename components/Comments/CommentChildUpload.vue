@@ -52,6 +52,7 @@ va filter chiuzilmagan qanaqa content chiqishi ?
 -->
 
 <script setup lang="ts">
+import {defineEmits, defineProps} from "vue"
 import img from '~/assets/images/comment.jpg'
 
 interface Props {
