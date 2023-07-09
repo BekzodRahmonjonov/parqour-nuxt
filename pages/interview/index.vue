@@ -11,7 +11,7 @@
 
         <div class="grid grid-cols-1 gap-4 md:gap-6 mb-8">
           <CardsInterview
-            v-for="(item, index) in interviews"
+            v-for="(item, index) in interviewData"
             :key="index"
             :data="item"
             :row-format="true"
@@ -28,8 +28,14 @@
 </template>
 <script setup lang="ts">
 import { useI18n } from 'vue-i18n'
-import { interviews } from '~/data'
+
 import { coverData } from '~/data/fakeData'
+import { IInterview } from '~/types'
+
+interface Props {
+  interviewData?: IInterview[]
+}
+defineProps<Props>()
 
 const { t } = useI18n()
 

@@ -6,21 +6,19 @@
         <h1 class="page-title">{{ $t('popular') }}</h1>
         <div class="flex items-center gap-3 flex-wrap mt-4">
           <CommonFilter
-            v-for="(item, i) in filters"
-            :key="i"
+            v-for="item in buttons"
+            :key="item.value"
             :text="item.text"
             :class="{
               'bg-blue-200 text-white dark:text-blue-600 dark:bg-white':
                 item.isActive,
             }"
-            @click="makeActive(i)"
+            @click="item?.onClick?.()"
           />
-
           <CommonDropdown
             class="bg-white-100 rounded-md md:ml-auto dark:bg-blue-800"
             @change="onChange"
             @clickAway="onClickAway"
-            buttonClass="py-2.5 px-3"
           >
             <template #head>
               <div
@@ -39,34 +37,47 @@
             <li
               v-for="(item, i) in sort"
               :key="i"
-              @click="onClick(i)"
               class="p-3 hover:bg-[#F5F6F9] dark:text-white dark:hover:bg-[#a2bcde29] rounded-md font-medium leading-130 text-blue-700 transition-300"
+              @click="onClick(i)"
             >
               {{ item }}
             </li>
           </CommonDropdown>
         </div>
-        <div class="flex flex-col gap-6 mt-8" v-if="preloader">
+        <pre>
+ loading: {{ buttons[activeSection]?.fetchLoading }} storeLoading: {{
+            newsStore.loading
+          }} </pre
+        >
+        <div
+          v-if="buttons[activeSection]?.fetchLoading"
+          class="flex flex-col gap-6 mt-8"
+        >
           <BlockLoaderSpecialReports v-for="item in 5" :key="item" />
         </div>
         <div v-else class="flex flex-col gap-6 mt-8">
-          <CardsPopularCard
-            v-for="(item, i) in copyOfpopularNews"
-            :key="i"
-            :news="item"
-          />
+          <pre> {{ buttons[activeSection]?.data }} </pre>
+          <!--          <CardsPopularCard-->
+          <!--            v-for="(item, i) in buttons[activeSection]?.data"-->
+          <!--            :key="i"-->
+          <!--            :news="item"-->
+          <!--          />-->
         </div>
 
         <CommonButton
-          v-if="!preloader"
-          @click="loadMore"
-          :loading="isLoading"
+          v-if="
+            !buttons[activeSection].fetchLoading &&
+            buttons[activeSection].data?.length <
+              buttons[activeSection].dataCount
+          "
+          :loading="buttons[activeSection].btnLoading"
           class="w-full text-blue-600 !bg-[#52618f1a] font-medium leading-125 mt-8 dark:text-white"
+          @click="buttons[activeSection]?.loadMore?.()"
         >
           <span class="icon-double rotate-90 mr-[10px] text-xl"></span>
           {{ $t('load_more') }}</CommonButton
         >
-
+        <pre> btnLoading: {{ buttons[activeSection].btnLoading }} </pre>
         <template #aside>
           <TempAdvetisimentBanner />
         </template>
@@ -75,48 +86,196 @@
   </div>
 </template>
 <script setup lang="ts">
-import { popular_news } from '~/data'
 import { useI18n } from 'vue-i18n'
 
+import { useColumnsStore } from '~/store/columns'
+import { usePopularNewsStore } from '~/store/popularNews'
+import { useSpecialReportsStore } from '~/store/special-reports'
+
+const newsStore = usePopularNewsStore()
+const columnsStore = useColumnsStore()
+const specialReportsStore = useSpecialReportsStore()
 const { t } = useI18n()
+enum Sections {
+  news = 'news',
+  articles = 'articles',
+  photo = 'photo',
+  columns = 'columns',
+  specialReports = 'specialReports',
+  discussions = 'discussions',
+}
 const sort = ref(['За неделью', 'За все время'])
 const activeSortI = ref(0)
-const filters = ref([
-  {
-    isActive: false,
-    text: 'Все',
-  },
-  {
-    isActive: false,
+const list = computed(() => newsStore.news)
+const activeSection = ref('news')
+const buttons = reactive({
+  [Sections.news]: {
     text: 'Новости',
+    value: 'news',
+    btnLoading: false,
+    dataCount: computed(() => newsStore.newsCount),
+    data: computed(() => newsStore.news),
+    fetchLoading: computed(() => newsStore.loading),
+    get isActive() {
+      return this.value == activeSection.value
+    },
+    fetchData() {
+      newsStore.fetchPopularNews(newsStore.params, false)
+    },
+    onClick() {
+      activeSection.value = this.value
+      if (this.data?.length === 0) {
+        this.fetchData?.()
+      }
+    },
+    loadMore() {
+      this.btnLoading = true
+      newsStore.params.offset += 5
+      newsStore.fetchPopularNews(newsStore.params, true)
+      setTimeout(() => {
+        this.btnLoading = false
+      }, 300)
+    },
   },
-  {
-    isActive: false,
+  [Sections.articles]: {
     text: 'Статьи',
+    value: 'articles',
+    btnLoading: false,
+    dataCount: computed(() => newsStore.newsCount),
+    data: computed(() => newsStore.news),
+    fetchLoading: computed(() => newsStore.loading),
+    get isActive() {
+      return this.value == activeSection.value
+    },
+    onClick() {
+      activeSection.value = this.value
+      if (this.data?.length == 0) {
+        this.fetchData?.()
+      }
+    },
+    loadMore() {
+      this.btnLoading = true
+      // newsStore.params.offset += 5
+      // newsStore.fetchPopularNews(newsStore.params, true)
+      setTimeout(() => {
+        this.btnLoading = false
+      }, 300)
+    },
   },
-  {
-    isActive: false,
+  [Sections.photo]: {
     text: 'Фоторепортажи',
+    value: 'photo',
+    btnLoading: false,
+    dataCount: computed(() => newsStore.newsCount),
+    data: computed(() => newsStore.news),
+    fetchLoading: computed(() => newsStore.loading),
+    get isActive() {
+      return this.value == activeSection.value
+    },
+    onClick() {
+      activeSection.value = this.value
+    },
+    loadMore() {
+      this.btnLoading = true
+      // newsStore.params.offset += 5
+      // newsStore.fetchPopularNews(newsStore.params, true)
+      setTimeout(() => {
+        this.btnLoading = false
+      }, 300)
+    },
   },
-  {
-    isActive: false,
+  [Sections.specialReports]: {
+    text: 'Спецрепортажи',
+    value: 'specialReports',
+    btnLoading: false,
+    dataCount: computed(() => specialReportsStore.count),
+    data: computed(() => specialReportsStore.specialReports),
+    fetchLoading: computed(() => specialReportsStore.loading),
+    get isActive() {
+      return this.value == activeSection.value
+    },
+    fetchData() {
+      console.log('fetchData: columns')
+      specialReportsStore.fetchSpecialReports(specialReportsStore.params)
+    },
+    onClick() {
+      activeSection.value = this.value
+      if (this.data?.length == 0) {
+        this.fetchData()
+      }
+    },
+    loadMore() {
+      this.btnLoading = true
+      specialReportsStore.params.offset += 1
+      specialReportsStore.fetchSpecialReports(specialReportsStore.params, true)
+      setTimeout(() => {
+        this.btnLoading = false
+      }, 300)
+    },
+  },
+  [Sections.columns]: {
     text: 'Колонки',
+    value: 'columns',
+    btnLoading: false,
+    dataCount: computed(() => columnsStore.columns.length),
+    data: computed(() => columnsStore.columns),
+    fetchLoading: computed(() => newsStore.loading),
+    get isActive() {
+      return this.value == activeSection.value
+    },
+    fetchData() {
+      console.log('fetchData: columns')
+      columnsStore.fetchColumns()
+    },
+    onClick() {
+      activeSection.value = this.value
+      if (this.data?.length == 0) {
+        this.fetchData()
+      }
+    },
+    loadMore() {
+      this.btnLoading = true
+      // newsStore.params.offset += 5
+      // newsStore.fetchPopularNews(newsStore.params, true)
+      setTimeout(() => {
+        this.btnLoading = false
+      }, 300)
+    },
   },
-])
-
-const makeActive = (index: number) => {
-  filters.value.forEach((item, i) => {
-    if (index == i) {
-      item.isActive = !item.isActive
-    }
-  })
-}
+  [Sections.discussions]: {
+    text: 'Разборы',
+    value: 'discussions',
+    btnLoading: false,
+    dataCount: computed(() => columnsStore.columns.length),
+    data: computed(() => columnsStore.columns),
+    fetchLoading: computed(() => newsStore.loading),
+    get isActive() {
+      return this.value == activeSection.value
+    },
+    fetchData() {
+      console.log('fetchData: columns')
+      columnsStore.fetchColumns()
+    },
+    onClick() {
+      activeSection.value = this.value
+      if (this.data?.length == 0) {
+        this.fetchData()
+      }
+    },
+    loadMore() {
+      this.btnLoading = true
+      // newsStore.params.offset += 5
+      // newsStore.fetchPopularNews(newsStore.params, true)
+      setTimeout(() => {
+        this.btnLoading = false
+      }, 300)
+    },
+  },
+})
 const activeDropdown = ref(false)
 const breadCrumbLinks = computed(() => [
   { title: t('popular'), link: '/popular' },
 ])
-const preloader = ref(true)
-
 const onClick = (index: number) => {
   activeSortI.value = index
 }
@@ -129,29 +288,5 @@ const onClickAway = () => {
   activeDropdown.value = false
 }
 
-const copyOfpopularNews = ref([...popular_news])
-const isLoading = ref(false)
-
-const loadMore = () => {
-  isLoading.value = true
-  const additionData = {
-    img: '/images/news/bulid.jpg',
-    badge: 'Экономика',
-    publishedTime: 'Сегодня, 13:25',
-    title:
-      'В ташкентском аэропортах горизонт отменили и задержали около 40 рейсов',
-    description:
-      'Документы отражают сотрудничество в химической, электротехнической, автомобилестроительной, текстильной промышленности и других сферах.',
-    views: 223,
-  }
-
-  setTimeout(() => {
-    isLoading.value = false
-    copyOfpopularNews.value.push(additionData)
-  }, 1000)
-}
-
-setTimeout(() => {
-  preloader.value = false
-}, 1000)
+buttons[activeSection.value].fetchData?.()
 </script>

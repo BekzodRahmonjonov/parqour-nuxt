@@ -605,37 +605,6 @@ export const socials = [
     icon: 'icon-network',
   },
 ]
-
-export const interviews: IInterview[] = [
-  {
-    image: '/images/interviews/image1.png',
-    title: 'Почему в Узбекистане не работает система образования?',
-    created_at: '2023-06-07',
-    with_whom: 'с Шерматовым',
-    views_count: 1234,
-  },
-  {
-    image: '/images/interviews/image2.png',
-    title: 'Почему в Узбекистане не работает система образования?',
-    created_at: '2023-05-28',
-    with_whom: 'с кушербаевым',
-    views_count: 1234,
-  },
-  {
-    image: '/images/interviews/image3.png',
-    title: 'Почему в Узбекистане не работает система образования?',
-    created_at: '2023-05-01',
-    with_whom: 'с лебедевым',
-    views_count: 1234,
-  },
-  {
-    image: '/images/interviews/image4.png',
-    title: 'Почему в Узбекистане не работает система образования?',
-    created_at: '2022-11-01',
-    with_whom: 'с ЛОЛОЙ',
-    views_count: 1234,
-  },
-]
 export const columns: IColony[] = [
   {
     id: 1,
@@ -831,6 +800,7 @@ export const popular_news = [
     publishedTime: 'Сегодня, 13:25',
     title:
       'В ташкентском аэропортах горизонт отменили и задержали около 40 рейсов',
+    slug: 'v-tashkentskom-aeroportah-gorizont-otmenili-i-zaderzhali-oko',
     description:
       'Документы отражают сотрудничество в химической, электротехнической, автомобилестроительной, текстильной промышленности и других сферах.',
     views: 223,
@@ -841,6 +811,7 @@ export const popular_news = [
     publishedTime: 'Сегодня, 13:25',
     title:
       'В ташкентском аэропортах горизонт отменили и задержали около 40 рейсов',
+    slug: 'v-tashkentskom-aeroportah-gorizont-otmenili-i-zaderzhali-oko',
     description:
       'Документы отражают сотрудничество в химической, электротехнической, автомобилестроительной, текстильной промышленности и других сферах.',
     views: 223,
@@ -851,6 +822,7 @@ export const popular_news = [
     publishedTime: 'Сегодня, 13:25',
     title:
       'В ташкентском аэропортах горизонт отменили и задержали около 40 рейсов',
+    slug: 'v-tashkentskom-aeroportah-gorizont-otmenili-i-zaderzhali-oko',
     description:
       'Документы отражают сотрудничество в химической, электротехнической, автомобилестроительной, текстильной промышленности и других сферах.',
     views: 223,

@@ -1,22 +1,23 @@
 <template>
-  <nuxt-link
-    class="py-5 rounded-lg bg-white-100 hover-effect dark:bg-dark-200 group dark:hover:!bg-blue-600 transition-200"
-    href="/"
+  <NuxtLink
+    :to="`/news/${news?.slug}`"
+    class="py-5 rounded-lg bg-white-100 dark:bg-dark-200 group dark:hover:bg-blue-600 transition-200"
   >
     <div class="flex gap-0.5">
       <img
         class="w-[202px] -translate-x-4 rounded-lg object-cover transition-300 group-hover:-translate-y-1"
-        :src="news?.img"
+        :src="news?.cover_image"
         alt=""
       />
       <div class="flex flex-col gap-4">
         <div class="flex items-center gap-4">
           <span
-            class="border hover:text-dark-200 transition-200 border-blue-100 dark:text-blue-100 rounded-lg leading-20 py-1 px-2.5 font-medium text-[12px] text-blue-200"
-            >{{ news?.badge }}</span
+            class="border border-[#A2BCDE] dark:text-blue-100 rounded-lg leading-20 py-1 px-2.5 font-medium text-xs text-[#52618F]"
+            >{{ news.model_type }}</span
           >
           <p class="text-dark text-xs leading-20 dark:text-blue-100">
-            {{ news?.publishedTime }}
+            <!--   Todo: format date   -->
+            {{ dayjs(news?.published_at).format('DD.MM.YYYY') }}
           </p>
         </div>
         <div>
@@ -26,31 +27,29 @@
             {{ news?.title }}
           </h1>
           <p class="text-xs leading-138 dark:text-white-100 text-blue-700">
-            {{ news?.description }}
+            {{ news.subtitle }}
           </p>
         </div>
         <span
+          v-if="news.views_count"
           class="mt-2 text-blue-200 text-xs font-medium flex items-center gap-1 dark:text-white"
         >
-          <i class="icon-eye text-sm"></i> {{ news?.views }}</span
+          <i class="icon-eye text-sm"></i>
+          {{ formatNumber(news.views_count) }}</span
         >
       </div>
     </div>
-  </nuxt-link>
+  </NuxtLink>
 </template>
 
 <script setup lang="ts">
-interface INews {
-  img: string
-  badge: string
-  publishedTime: string
-  title: string
-  description: string
-  views: number
-}
+import dayjs from 'dayjs'
+
+import { formatNumber } from '~/helpers'
+import { INewsSearch } from '~/types/news'
 
 interface Props {
-  news: INews
+  news: INewsSearch
 }
 
 defineProps<Props>()

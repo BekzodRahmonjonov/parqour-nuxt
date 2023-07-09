@@ -9,7 +9,9 @@
       <p
         class="text-blue-200 text-xs leading-140 font-medium text-xs mb-1 transition-200 dark:text-white"
       >
-        {{ dayjs(card?.date).locale(locale).format('DD MMM YYYY, HH:mm') }}
+        {{
+          dayjs(card?.published_at).locale(locale).format('DD MMM YYYY, HH:mm')
+        }}
       </p>
       <p
         class="text-sm leading-140 font-medium text-blue-600 transition-200 dark:text-white"
@@ -31,11 +33,12 @@
 import dayjs from 'dayjs'
 
 import { INews } from '~/types'
+import { IPopularList } from '~/types/news'
 
 const { locale } = useI18n()
 
 interface Props {
-  card?: INews
+  card?: IPopularList
   link?: string
 }
 

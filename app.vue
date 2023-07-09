@@ -16,9 +16,9 @@
   </div>
 </template>
 <script setup lang="ts">
+import { useAudioStore } from '~/store/audio'
 import { useHomeStore } from '~/store/index'
 import { useTheme } from '~/store/theme'
-import { useAudioStore } from '~/store/audio'
 
 const router = useRoute()
 const isPodcastPage = computed(

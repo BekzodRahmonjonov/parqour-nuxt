@@ -10,20 +10,28 @@ export interface INews {
   comments?: number
 }
 
+export interface INewsList {
+  id: number
+  slug: string
+  title: string
+  views_count: number
+  published_at: string
+  cover_image: string
+  comment_count: number
+  is_verified: boolean
+  is_video: boolean
+  category: {
+    id: number
+    title: string
+    type: string
+  }
+}
+
 export interface ILatest {
   id?: number
   title?: string
   date: string
   time: string
-}
-
-export interface IAuthor {
-  id: number
-  slug: string
-  actual: boolean
-  title: string
-  author: string
-  image: string
 }
 
 export interface ITabItem {
@@ -54,12 +62,14 @@ export interface IPodcast {
 }
 
 export interface IInterview {
+  id: number
+  slug: string
   image: string
   views_count: number
   title: string
-  created_at: Date | string
-  with_whom: string
+  cover_image: string
   rowFormat?: boolean
+  published_at: number
 }
 export interface IColony {
   id: number
@@ -112,4 +122,16 @@ export interface ISinglePhoto {
   views_count: number
   content: string | HTMLAllCollection
   author: string
+}
+export interface IAuthorsData {
+  id: number
+  title: string
+  slug: string
+  type: string
+  actual: boolean
+  author: {
+    id: number
+    full_name: string
+  }
+  cover_image: string
 }

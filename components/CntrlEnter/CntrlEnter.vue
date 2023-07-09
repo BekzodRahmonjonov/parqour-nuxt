@@ -71,10 +71,6 @@ const handleKeypress = (e) => {
     }
   }
 }
-
-const hideModal = () => {
-  contactModal.value = false
-}
 </script>
 
 <style scoped>

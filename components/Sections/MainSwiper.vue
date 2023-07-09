@@ -22,13 +22,13 @@
       <div
         class="absolute top-0 left-0 w-full h-full bg-white-100 dark:bg-blue-100/[16%] rounded-lg"
       />
-      <SwiperSlide v-for="(card, index) in mainSwiperData" :key="index">
+      <SwiperSlide v-for="(card, index) in newsData" :key="index">
         <CardsMainSwiper v-bind="{ card }" />
       </SwiperSlide>
     </Swiper>
     <div class="flex-y-center gap-1 absolute z-[2] bottom-6 right-6">
       <div
-        v-for="(pagination, index) in mainSwiperData"
+        v-for="(pagination, index) in newsData.slice(0, 3)"
         :key="index"
         class="h-0.5 bg-blue-100/20 w-6 md:w-16 rounded-lg relative overflow-hidden"
       >
@@ -50,6 +50,7 @@ import { Autoplay, EffectFade, Navigation } from 'swiper'
 import { Swiper, SwiperSlide } from 'swiper/vue'
 
 import { mainSwiperData } from '~/data'
+import { INewsList } from '~/types'
 
 const activeIndex = ref(0)
 
@@ -78,6 +79,12 @@ function sliderChange(e: any) {
 function onInit(swiper: any) {
   imageSlider.value = swiper
 }
+
+interface Props {
+  newsData: INewsList
+}
+
+defineProps<Props>()
 </script>
 
 <style scoped>
