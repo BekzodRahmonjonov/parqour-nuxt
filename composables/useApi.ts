@@ -1,18 +1,26 @@
 import { NitroFetchRequest } from 'nitropack'
 import { FetchOptions} from 'ofetch'
+import {useAuthStore} from '~/store/auth';
+const authStore = useAuthStore()
+function errorHandling (status:number) {
+  switch (status) {
+    case 401: return authStore.Logout();
+  }
+}
 export const useApi = (apiUrl?: string) => {
   const baseURL = apiUrl || (import.meta.env.VITE_API_BASE_URL as string)
   const locale = useCookie('locale')
   const loading = ref(false)
-  const token  = useCookie('token')
+  const token  = useCookie('access_token')
   function $service(options?: FetchOptions) {
-    let headers_obj:any = {
+    const headers_obj:any = {
       ...options?.headers
     };
-    if(token.value) {
-      headers_obj['Authorization'] =`Bearer ${token.value}`
-    }
-    return $fetch.create({
+    // if(token.value) {
+    //   // eslint-disable-next-line camelcase
+    //   headers_obj.Authorization =`Bearer ${token.value}`
+    // }
+    const fetch = $fetch.create({
       ...options,
       baseURL,
       headers: {
@@ -20,7 +28,12 @@ export const useApi = (apiUrl?: string) => {
         ...headers_obj,
         'Accept-Language': locale.value || 'uz',
       },
-    })
+      onResponseError({ response:{status}}): Promise<void> | void {
+        errorHandling(status)
+      }
+    });
+    console.log('====>>',fetch);
+    return fetch;
   }
   function $get<T = never>(
     endpoint: NitroFetchRequest,
