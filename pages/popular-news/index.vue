@@ -4,65 +4,50 @@
     <div class="container pb-16">
       <CommonPageWrapper class="mt-8">
         <h1 class="page-title">{{ $t('popular') }}</h1>
-        <div class="flex items-center gap-3 flex-wrap mt-4">
-          <CommonFilter
-            v-for="item in buttons"
-            :key="item.value"
-            :text="item.text"
-            :class="{
-              'bg-blue-200 text-white dark:text-blue-600 dark:bg-white':
-                item.isActive,
-            }"
-            @click="item?.onClick?.()"
+        <div class="flex items-center gap-3 justify-between mt-4">
+          <div class="flex items-center gap-3">
+            <CommonFilter
+              v-for="item in buttons"
+              :key="item.value"
+              :text="item.text"
+              :class="{
+                'bg-blue-200 text-white dark:text-blue-600 dark:bg-white':
+                  item.isActive,
+              }"
+              @click="item?.onClick?.()"
+            />
+          </div>
+          <FormSelect
+            :options="sort"
+            label-key="text"
+            value-key="value"
+            class="shrink-0 min-w-[180px]"
           />
-          <CommonDropdown
-            class="bg-white-100 rounded-md md:ml-auto dark:bg-blue-800"
-            @change="onChange"
-            @clickAway="onClickAway"
-          >
-            <template #head>
-              <div
-                class="flex dark:text-white items-center gap-[23px] font-medium leading-130 text-blue-700"
-              >
-                <span :key="activeSortI">
-                  {{ sort[activeSortI] }}
-                </span>
-
-                <span
-                  class="icon-icon-chevron-down text-sm transition-200"
-                  :class="{ '-rotate-180': activeDropdown }"
-                ></span>
-              </div>
-            </template>
-            <li
-              v-for="(item, i) in sort"
-              :key="i"
-              class="p-3 hover:bg-[#F5F6F9] dark:text-white dark:hover:bg-[#a2bcde29] rounded-md font-medium leading-130 text-blue-700 transition-300"
-              @click="onClick(i)"
-            >
-              {{ item }}
-            </li>
-          </CommonDropdown>
         </div>
-        <pre>
- loading: {{ buttons[activeSection]?.fetchLoading }} storeLoading: {{
-            newsStore.loading
-          }} </pre
-        >
         <div
-          v-if="buttons[activeSection]?.fetchLoading"
-          class="flex flex-col gap-6 mt-8"
+          v-if="!buttons[activeSection]?.data?.length"
+          class="mt-8 w-full h-full"
         >
-          <BlockLoaderSpecialReports v-for="item in 5" :key="item" />
+          <CommonNoData class="w-full" />
         </div>
-        <div v-else class="flex flex-col gap-6 mt-8">
-          <pre> {{ buttons[activeSection]?.data }} </pre>
-          <!--          <CardsPopularCard-->
-          <!--            v-for="(item, i) in buttons[activeSection]?.data"-->
-          <!--            :key="i"-->
-          <!--            :news="item"-->
-          <!--          />-->
-        </div>
+        <template v-else>
+          <div>
+            <div
+              v-if="buttons[activeSection]?.fetchLoading"
+              class="flex flex-col gap-6 mt-8"
+            >
+              <BlockLoaderSpecialReports v-for="item in 5" :key="item" />
+            </div>
+            <div v-else class="flex flex-col gap-6 mt-8">
+              <!--          <pre> {{ buttons[activeSection]?.data }} </pre>-->
+              <CardsPopularCard
+                v-for="(item, i) in buttons[activeSection]?.data"
+                :key="i"
+                :news="item"
+              />
+            </div>
+          </div>
+        </template>
 
         <CommonButton
           v-if="
@@ -77,7 +62,6 @@
           <span class="icon-double rotate-90 mr-[10px] text-xl"></span>
           {{ $t('load_more') }}</CommonButton
         >
-        <pre> btnLoading: {{ buttons[activeSection].btnLoading }} </pre>
         <template #aside>
           <TempAdvetisimentBanner />
         </template>
@@ -90,6 +74,7 @@ import { useI18n } from 'vue-i18n'
 
 import { useAuthorsStore } from '~/store/authors'
 import { useColumnsStore } from '~/store/columns'
+import { useDiscussionsStore } from '~/store/discussions'
 import { usePhotoReportsStore } from '~/store/photo-reports'
 import { usePopularNewsStore } from '~/store/popularNews'
 import { useSpecialReportsStore } from '~/store/special-reports'
@@ -99,6 +84,9 @@ const columnsStore = useColumnsStore()
 const specialReportsStore = useSpecialReportsStore()
 const photoReportsStore = usePhotoReportsStore()
 const authorsStore = useAuthorsStore()
+const discussionsStore = useDiscussionsStore()
+// components
+
 const { t } = useI18n()
 enum Sections {
   news = 'news',
@@ -108,7 +96,20 @@ enum Sections {
   specialReports = 'specialReports',
   discussions = 'discussions',
 }
-const sort = ref(['За неделью', 'За все время'])
+const sort = ref([
+  {
+    text: 'По дате',
+    value: 'date',
+  },
+  {
+    text: 'По популярности',
+    value: 'popular',
+  },
+  {
+    text: 'По комментариям',
+    value: 'comments',
+  },
+])
 const activeSortI = ref(0)
 const list = computed(() => newsStore.news)
 const activeSection = ref('news')
@@ -163,7 +164,7 @@ const buttons = reactive({
     loadMore() {
       this.btnLoading = true
       authorsStore.params.offset += 5
-      authorsStore.fetchAuthorArticles(newsStore.params, true)
+      authorsStore.fetchAuthorArticles(authorsStore.params, true)
       setTimeout(() => {
         this.btnLoading = false
       }, 300)
@@ -191,7 +192,7 @@ const buttons = reactive({
     loadMore() {
       this.btnLoading = true
       photoReportsStore.params.offset += 5
-      photoReportsStore.fetchPhotoReports(newsStore.params, true)
+      photoReportsStore.fetchPhotoReports(photoReportsStore.params, true)
       setTimeout(() => {
         this.btnLoading = false
       }, 300)
@@ -218,7 +219,7 @@ const buttons = reactive({
     },
     loadMore() {
       this.btnLoading = true
-      specialReportsStore.params.offset += 1
+      specialReportsStore.params.offset += 5
       specialReportsStore.fetchSpecialReports(specialReportsStore.params, true)
       setTimeout(() => {
         this.btnLoading = false
@@ -258,15 +259,14 @@ const buttons = reactive({
     text: 'Разборы',
     value: 'discussions',
     btnLoading: false,
-    dataCount: computed(() => columnsStore.columns.length),
-    data: computed(() => columnsStore.columns),
-    fetchLoading: computed(() => newsStore.loading),
+    dataCount: computed(() => discussionsStore.count),
+    data: computed(() => discussionsStore.discussions),
+    fetchLoading: computed(() => discussionsStore.loading),
     get isActive() {
       return this.value == activeSection.value
     },
     fetchData() {
-      console.log('fetchData: columns')
-      columnsStore.fetchColumns()
+      discussionsStore.fetchDiscussions(discussionsStore.params)
     },
     onClick() {
       activeSection.value = this.value
@@ -276,8 +276,8 @@ const buttons = reactive({
     },
     loadMore() {
       this.btnLoading = true
-      // newsStore.params.offset += 5
-      // newsStore.fetchPopularNews(newsStore.params, true)
+      discussionsStore.params.offset += 5
+      discussionsStore.fetchDiscussions(discussionsStore.params, true)
       setTimeout(() => {
         this.btnLoading = false
       }, 300)

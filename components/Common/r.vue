@@ -22,17 +22,17 @@
         </FormGroup>
 
         <CommonButton
+          v-show="isFocused"
           class="!absolute bottom-3 !text-[#919299] right-[150px] py-3 !font-normal !bg-transparent !text-[12px] !leading-125"
           :text="$t('submit')"
           button-class="rounded-lg"
-          v-show="isFocused"
         />
 
         <CommonButton
+          v-show="isFocused"
           class="!absolute bottom-3 right-[12px] py-3 !bg-[#48A4E3] !text-white !font-medium !text-base !leading-125"
           :text="$t('submit')"
           button-class="rounded-lg"
-          v-show="isFocused"
         />
       </div>
     </form>
@@ -40,8 +40,8 @@
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue'
 import { required } from '@vuelidate/validators'
+
 import { useForm } from '~/composables/useForm'
 
 const success = ref(false)

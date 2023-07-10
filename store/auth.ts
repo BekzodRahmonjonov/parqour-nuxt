@@ -1,5 +1,5 @@
 import { defineStore } from 'pinia'
-
+import { useApi } from '~/composables/useApi'
 import {
   IAuthLogin,
   IAuthLoginResponse,
@@ -9,15 +9,46 @@ import {
 
 export const useAuthStore = defineStore('authStore', {
   state: () => ({
-    // showMobile: false,
-    // languageSwitch: false,
-    // localeMessagesFetched: false,
-    // newsList: [],
-    // popularList: [],
-    // discussionList: [],
-    // interviewList: [],
+    auth: {
+      loggedIn: false,
+      user: null,
+    },
   }),
   actions: {
+    async fetchMe() {
+      const { $get } = useApi()
+      try {
+        const data = await $get('users/GetUser/')
+        this.auth.loggedIn = true
+        this.auth.user = data
+        return data
+      } catch (error: any) {
+        throw new Error(error)
+      }
+    },
+    async fetchLocaleJson(i18n:any) {
+      const { $get } = useApi()
+      const { locale, setLocaleMessage, setLocale, t } = i18n;
+      const cookieLocale: any = useCookie('i18n_redirected')
+      // eslint-disable-next-line camelcase
+      let defaultLocale = locale.value ?? 'ru'
+      defaultLocale = cookieLocale.value ?? defaultLocale
+      try {
+        const data = await $get(
+          `front-translation/FrontTranslationList/?lang=${defaultLocale}`,
+          {
+            headers: {
+              'Accept-Language': defaultLocale,
+            },
+          }
+        )
+        const messages = data
+        setLocale(defaultLocale)
+        await setLocaleMessage(defaultLocale, messages)
+      } catch (e) {
+        console.error(e)
+      }
+    },
     async userLogin(body: IAuthLogin) {
       try {
         return await useApi().$post('users/SignIn/', { body })
@@ -27,11 +58,14 @@ export const useAuthStore = defineStore('authStore', {
     },
     Logout() {
       try {
-        const access_token:any = useCookie('access_token');
-        const refresh_token:any = useCookie('refresh_token');
-        access_token.remove();
-        refresh_token.remove();
-        console.log('logout');
+        // eslint-disable-next-line camelcase
+        const access_token = useCookie('access_token');
+        // eslint-disable-next-line camelcase
+        const refresh_token = useCookie('refresh_token');
+        // eslint-disable-next-line camelcase
+        access_token.value = null;
+        // eslint-disable-next-line camelcase
+        refresh_token.value = null;
       } catch (error: any) {
         throw new Error(error)
       }

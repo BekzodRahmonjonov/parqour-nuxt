@@ -14,7 +14,7 @@ export const useAuthorsStore = defineStore('authors', {
     articlesLoading: true,
     params: {
       offset: 0,
-      limit: 2,
+      limit: 5,
       search: undefined,
     },
   }),

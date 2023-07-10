@@ -93,8 +93,10 @@ import { Navigation } from 'swiper'
 import { Swiper, SwiperSlide } from 'swiper/vue'
 import { useI18n } from 'vue-i18n'
 import { useRoute } from 'vue-router'
-import { ISingleData } from '~/types'
+
 import { useSpecialReportsStore } from '~/store/special-reports'
+import { ISingleData } from '~/types'
+
 const reportsStore = useSpecialReportsStore()
 reportsStore.fetchSpecialReports()
 const specialReports = computed(() => reportsStore.specialReports)
