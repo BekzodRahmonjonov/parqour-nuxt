@@ -4,7 +4,7 @@ export const useApi = (apiUrl?: string) => {
   const baseURL = apiUrl || (import.meta.env.VITE_API_BASE_URL as string)
   const locale = useCookie('locale')
   const loading = ref(false)
-  const token  = useCookie('access')
+  const token  = useCookie('token')
   function $service(options?: FetchOptions) {
     let headers_obj:any = {
       ...options?.headers
