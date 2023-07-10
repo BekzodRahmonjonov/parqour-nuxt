@@ -32,8 +32,8 @@
       <div class="flex items-center gap-3">
         <CommonFilter
           v-for="(item, i) in filters"
-          class="mt-4"
           :key="i"
+          class="mt-4"
           :text="item.text"
           :class="{
             'bg-blue-200 text-white dark:text-blue-600 dark:bg-white':
@@ -42,7 +42,7 @@
           @click="makeActive(i)"
         />
       </div>
-      <div class="flex flex-col gap-6 mt-8" v-if="preloader">
+      <div v-if="preloader" class="flex flex-col gap-6 mt-8">
         <BlockLoaderSpecialReports v-for="item in 5" :key="item" />
       </div>
       <div v-if="search.length < 6" class="grid gap-6 mt-6">
@@ -67,7 +67,7 @@
 </template>
 
 <script setup lang="ts">
-import { searchContent, popular_news } from '~/data'
+import { popular_news, searchContent } from '~/data'
 
 const search = ref('')
 const searchTrigger = ref(false)
@@ -150,5 +150,3 @@ setTimeout(() => {
   preloader.value = false
 }, 1000)
 </script>
-
-<style scoped></style>

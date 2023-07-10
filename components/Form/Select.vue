@@ -35,7 +35,10 @@
         class="absolute top-full w-full bg-white dark:bg-blue-700 border border-gray-100 dark:border-blue-100/10 rounded z-10 translate-y-3 overflow-hidden max-h-[240px] overflow-y-auto"
       >
         <slot name="options">
-          <div class="p-2 sticky w-full bg-white dark:bg-blue-700 top-0">
+          <div
+            v-if="search"
+            class="p-2 sticky w-full bg-white dark:bg-blue-700 top-0"
+          >
             <CommonSelectSearch @handle-update-search="handleUpdateSearch" />
           </div>
           <template v-if="options?.length">

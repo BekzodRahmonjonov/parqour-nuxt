@@ -15,9 +15,10 @@
 </template>
 
 <script setup lang="ts">
-import { mainSwiperData } from '~/data'
-import { Swiper, SwiperSlide } from 'swiper/vue'
 import { Autoplay } from 'swiper'
+import { Swiper, SwiperSlide } from 'swiper/vue'
+
+import { mainSwiperData } from '~/data'
 
 const settings = {
   loop: true,
@@ -29,5 +30,3 @@ const settings = {
   modules: [Autoplay],
 }
 </script>
-
-<style scoped></style>

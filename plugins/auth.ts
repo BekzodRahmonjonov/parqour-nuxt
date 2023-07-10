@@ -1,7 +1,17 @@
-// export default function ({ store }: any) {
-//   console.log("store", store);
-// }
-export default defineNuxtPlugin((nuxtApp) => {
-    // const locale = useCookie('locale')
-    console.log("nuxtApp ==>>", nuxtApp)
-});
+import { useAuthStore } from '~/store/auth'
+// eslint-disable-next-line camelcase
+export default defineNuxtPlugin(async (nuxtApp) => {
+  try {
+    const access_token = useCookie('access_token');
+    const authStore = useAuthStore(nuxtApp.$pinia)
+    await authStore.fetchLocaleJson(nuxtApp.$i18n)
+    // eslint-disable-next-line camelcase
+    if (access_token.value) {
+      await authStore.fetchMe()
+    }
+  } catch (e) {
+    console.error(e)
+    // return e;
+  }
+
+})

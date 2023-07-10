@@ -1,6 +1,6 @@
 <template>
   <div>
-    <CommonBreadcrumb :menu="menu"/>
+    <CommonBreadcrumb :menu="breadcrumbRoutes" />
     <div class="container mt-8">
       <CommonSinglePageWrapper :single="singleData">
         <template #aside>
@@ -16,7 +16,8 @@ import { useI18n } from 'vue-i18n'
 import { singleData } from '~/data/fakeData'
 
 const { t } = useI18n()
-const menu = [
+
+const breadcrumbRoutes = [
   { title: t('popular_head'), link: '/popular-news' },
   { title: singleData.title, link: '/popular-news' },
 ]

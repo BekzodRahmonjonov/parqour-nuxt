@@ -1,6 +1,5 @@
 import { defineStore } from 'pinia'
 
-import { INewsSearchListParams } from '~/types/news'
 import {
   IReportsResponse,
   ISpecialReports,
@@ -14,12 +13,16 @@ export const useSpecialReportsStore = defineStore('specialReports', {
     loading: true,
     params: {
       offset: 0,
-      limit: 1,
+      limit: 5,
       search: undefined,
     },
   }),
   actions: {
-    fetchSpecialReports(params?: ISpecialReportsParams, force?: boolean) {
+    fetchSpecialReports(
+      params?: ISpecialReportsParams,
+      force?: boolean,
+      filter?: boolean
+    ) {
       if (this.specialReports.length > 0 && !force) {
         return new Promise((resolve, reject) => {
           resolve(this.specialReports)
@@ -35,11 +38,14 @@ export const useSpecialReportsStore = defineStore('specialReports', {
             })
             .then((res) => {
               this.count = res.count
-              this.specialReports = [...this.specialReports, ...res.results]
+              if (filter) {
+                this.specialReports = res.results
+              } else {
+                this.specialReports.push(...res.results)
+              }
               resolve(res)
             })
             .catch((err) => {
-              console.log(err)
               reject(err)
             })
             .finally(() => {

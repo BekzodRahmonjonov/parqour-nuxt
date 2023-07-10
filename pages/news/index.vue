@@ -112,7 +112,7 @@ const makeActive = (index: number) => {
 }
 const activeDropdown = ref(false)
 const breadCrumbLinks = computed(() => [
-  { title: t('popular'), link: '/popular' },
+  { title: t('all_news'), link: '/news' },
 ])
 const onClick = (index: number) => {
   activeSortI.value = index

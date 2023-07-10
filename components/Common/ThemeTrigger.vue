@@ -20,5 +20,3 @@ const toggleTheme = (value: boolean) => {
   themeStore.changeTheme()
 }
 </script>
-
-<style scoped></style>

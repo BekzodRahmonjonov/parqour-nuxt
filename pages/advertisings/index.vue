@@ -1,6 +1,6 @@
 <template>
   <div>
-    <CommonBreadcrumb :menu="menu" class="mb-8" />
+    <CommonBreadcrumb :menu="breadcrumbRoutes" class="mb-8" />
     <div class="max-w-[784px] px-4 mx-auto mb-10 md:mb-16">
       <h2 class="page-title mt-12 md:mt-[84px]">{{ $t('advertisings') }}</h2>
       <CardsAds
@@ -14,9 +14,11 @@
   </div>
 </template>
 <script setup lang="ts">
-import { ads } from '~/data'
 import { useI18n } from 'vue-i18n'
 
+import { ads } from '~/data'
+
 const { t } = useI18n()
-const menu = [{ title: t('advertisings'), link: '/advertisings' }]
+
+const breadcrumbRoutes = [{ title: t('advertisings'), link: '/advertisings' }]
 </script>

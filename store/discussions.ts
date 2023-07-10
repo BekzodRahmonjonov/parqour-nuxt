@@ -6,11 +6,11 @@ import {
   ISpecialReportsParams,
 } from '~/types/special-reports'
 
-export const useAuthorsStore = defineStore('authors', {
+export const useDiscussionsStore = defineStore('discussions', {
   state: () => ({
-    articles: [] as ISpecialReports[],
-    articlesCount: 0,
-    articlesLoading: true,
+    discussions: [] as ISpecialReports[],
+    count: 0,
+    loading: true,
     params: {
       offset: 0,
       limit: 5,
@@ -18,23 +18,23 @@ export const useAuthorsStore = defineStore('authors', {
     },
   }),
   actions: {
-    fetchAuthorArticles(params: ISpecialReportsParams, force?: boolean) {
-      if (this.articles.length > 0 && !force) {
+    fetchDiscussions(params: ISpecialReportsParams, force?: boolean) {
+      if (this.discussions.length > 0 && !force) {
         return new Promise((resolve, reject) => {
-          resolve(this.articles)
+          resolve(this.discussions)
         })
       } else {
-        if (this.articles.length === 0) {
-          this.articlesLoading = true
+        if (this.discussions.length === 0) {
+          this.loading = true
         }
         return new Promise((resolve, reject) => {
           useApi()
-            .$get<IReportsResponse>('news/AuthorArticlesList/', {
+            .$get<IReportsResponse>('news/DiscussionList/', {
               params,
             })
             .then((res) => {
-              this.articlesCount = res.count
-              this.articles.push(...res.results)
+              this.count = res.count
+              this.discussions.push(...res.results)
               resolve(res)
             })
             .catch((err) => {
@@ -42,7 +42,7 @@ export const useAuthorsStore = defineStore('authors', {
             })
             .finally(() => {
               setTimeout(() => {
-                this.articlesLoading = false
+                this.loading = false
               }, 300)
             })
         })

@@ -22,7 +22,6 @@
 <script setup lang="ts">
 import { interviewTags } from '~/data'
 import { newsData, singleData } from '~/data/fakeData'
-import { ISingleData } from '~/types'
 
 const contactModal = ref(false)
 </script>

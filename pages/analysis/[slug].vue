@@ -11,12 +11,14 @@
   </div>
 </template>
 <script setup lang="ts">
-import { singleData } from '~/data/fakeData'
 import { useI18n } from 'vue-i18n'
 
+import { singleData } from '~/data/fakeData'
+
 const { t } = useI18n()
+
 const menu = [
   { title: t('analyzes'), link: '/analysis' },
-  { title: singleData.title, link: '/analysis' },
+  { title: singleData.title, link: '#' },
 ]
 </script>
