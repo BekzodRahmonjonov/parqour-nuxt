@@ -3,10 +3,8 @@
     <LayoutHeaderBreakingNews />
     <div class="pt-8">
       <SectionsLatestNews />
-      <SectionsMainNews
-        v-bind="{ newsData: homeStore.newsList, discussionList }"
-      />
-      <SectionsNews class="py-6 lg:py-10" :news-data="homeStore.newsList" />
+      <SectionsMainNews v-bind="{ newsData: newsList, discussionList }" />
+      <SectionsNews class="py-6 lg:py-10" :news-data="newsList" />
       <CommonAdBanner image="/images/advertising/adver.png" />
       <SectionsAuthor class="py-6 lg:py-10" :authors-data="authorsList" />
       <CommonAdBanner
@@ -38,32 +36,28 @@ import { useHomeStore } from '~/store'
 import { useSpecialReportsStore } from '~/store/special-reports'
 
 const {
-  newsList,
-  popularList,
-  discussionList,
-  interviewList,
-  authorsList,
   fetchNewsList,
   fetchDiscussionList,
   fetchInterviewList,
   fetchAuthorsList,
+  fetchPopularList,
 } = useHomeStore()
 const reportsStore = useSpecialReportsStore()
 const homeStore = useHomeStore()
-reportsStore.fetchSpecialReports()
 
 const specialReports = computed(() => reportsStore.specialReports)
-// const newsList = computed(() => homeStore.newsList)
-// const popularList = computed(() => homeStore.popularList)
-// const discussionList = computed(() => homeStore.discussionList)
-// const interviewList = computed(() => homeStore.interviewList)
-// const authorsList = computed(() => homeStore.authorsList)
+const newsList = computed(() => homeStore.newsList)
+const popularList = computed(() => homeStore.popularList)
+const discussionList = computed(() => homeStore.discussionList)
+const interviewList = computed(() => homeStore.interviewList)
+const authorsList = computed(() => homeStore.authorsList)
 
 const loading = ref(true)
 
 Promise.allSettled([
+  reportsStore.fetchSpecialReports(),
   fetchNewsList(),
-  // homeStore.fetchPopularList(),
+  fetchPopularList(),
   fetchDiscussionList(),
   fetchInterviewList(),
   fetchAuthorsList(),
