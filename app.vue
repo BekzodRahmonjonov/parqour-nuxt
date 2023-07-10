@@ -1,7 +1,9 @@
 <template>
   <div>
     <SectionsAudioPlayer class="mt-[132px]" v-show="isPodcastPage" />
-    <SectionsMiniAudio />
+
+    <SectionsMiniAudio v-show="!isPodcastPage && audioStore.isPlaying" />
+
     <NuxtLayout>
       <Transition name="fade" mode="out-in">
         <div :key="$route.path">

@@ -4,14 +4,6 @@ function calculateProgress(audioCurrentTime: number, audioTotalTime: number) {
   return (audioCurrentTime / audioTotalTime) * 100
 }
 
-// export function updateColorTracker(progress: number) {
-//   console.log(progress, 'PROGRESS')
-//   console.log('upgrading SLider')
-
-//   return `linear-gradient(to right, #52618F ${progress}%, #E6E6E6 ${progress}%)`
-//   // element.style.transition = '0.3s ease-in-out'
-// }
-
 function formatTime(time: number) {
   const minutes = Math.floor(time / 60)
   const seconds = Math.floor(time % 60)
@@ -22,23 +14,12 @@ function formatTime(time: number) {
   return formattedMinutes + ':' + formattedSeconds
 }
 
-// const onTimeupdate = () => {
-// const progress = (music.currentTime / music.duration) * 100
-// updateColorTracker(calculateProgress(), seekSlider.value)
-// seekSlider.value.value = '' + (music.currentTime / music.duration) * 100
-// const formattedTime = formatTime(music.currentTime)
-// currentTime.value = formattedTime
-// audioStore.setCurrentTime(currentTime.value)
-// audioStore.trackSeekSliderValue(seekSlider.value.value)
-// }
-
 export const useAudioStore = defineStore('audio', {
   state: () => ({
     isAudioFixed: false,
     currentTime: '00:00',
     totalDuration: '00:00',
     seekSliderVal: '0',
-    seekSlider: {} as HTMLInputElement,
     isPlaying: false,
     progress: 'linear-gradient(to right, #52618F 0%, #E6E6E6 0%)',
     volumeColor: 'linear-gradient(to right, #52618F 0%, #E6E6E6 0%)',
@@ -47,16 +28,13 @@ export const useAudioStore = defineStore('audio', {
     normalSpeed: true,
     audio: {} as HTMLAudioElement,
   }),
+
   actions: {
     makeFixed() {
       this.$state.isAudioFixed = true
     },
     makeUnfixed() {
       this.$state.isAudioFixed = false
-    },
-
-    setSeekSlider(tag: HTMLInputElement) {
-      this.seekSlider = tag
     },
 
     trackSeekSliderValue(val: string) {
@@ -147,6 +125,11 @@ export const useAudioStore = defineStore('audio', {
     backward() {
       this.audio.currentTime -= 15
     },
+
+    makeFaster() {
+      // music.playbackRate = 1.0
+      this.audio.playbackRate = 2.0
+    },
   },
 
   getters: {
@@ -162,11 +145,6 @@ export const useAudioStore = defineStore('audio', {
       return this.seekSliderVal
     },
 
-    getSeekSlider(): HTMLInputElement {
-      console.log(this.seekSlider, 'global seek')
-      return this.seekSlider
-    },
-
     getProgress(): string {
       return this.progress
     },
@@ -175,13 +153,13 @@ export const useAudioStore = defineStore('audio', {
       return this.volume
     },
 
-    getProgress(): number {
-      if (this.audio) {
-        console.log(this.audio.duration)
-        // const progress = (this.audio.currentTime / this.audio.duration) * 100
-        console.log(progress, 'audio')
-        return progress
-      }
-    },
+    // getProgress(): number {
+    //   if (this.audio) {
+    //     console.log(this.audio.duration)
+    //     // const progress = (this.audio.currentTime / this.audio.duration) * 100
+    //     console.log(progress, 'audio')
+    //     return progress
+    //   }
+    // },
   },
 })

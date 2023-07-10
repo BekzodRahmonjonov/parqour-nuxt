@@ -59,7 +59,7 @@
 </template>
 
 <script setup lang="ts">
-import { useAudioStore, updateColorTracker } from '~/store/audio'
+import { useAudioStore } from '~/store/audio'
 
 const audioStore = useAudioStore()
 const seekSlider = ref(null)

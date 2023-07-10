@@ -1,21 +1,26 @@
 <template>
   <div class="flex items-center gap-4">
     <button
-      class="p-2 rounded-md text-white bg-[#0000004d] text-2xl cursor-pointer transition-300 ease-out hover:text-opacity-50"
-      v-for="(item, i) in icons"
-      :key="i"
-      :class="item"
+      @click="audioStore.makeFaster()"
+      class="btn icon-multiplier-1x"
     ></button>
+    <button @click="audioStore.backward()" class="btn icon-time-back"></button>
+    <button
+      @click="audioStore.forward()"
+      class="btn icon-time-forvard"
+    ></button>
+    <button class="btn icon-download-stroke"></button>
   </div>
 </template>
 
 <script setup lang="ts">
-const icons = [
-  'icon-multiplier-1x',
-  'icon-time-back',
-  'icon-time-forvard',
-  'icon-download-stroke',
-]
+import { useAudioStore } from '~/store/audio'
+
+const audioStore = useAudioStore()
 </script>
 
-<style scoped></style>
+<style scoped>
+.btn {
+  @apply p-2 rounded-md text-white bg-[#0000004d] text-2xl cursor-pointer transition duration-200 ease-out hover:text-opacity-50;
+}
+</style>
