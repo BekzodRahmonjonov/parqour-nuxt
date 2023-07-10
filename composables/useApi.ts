@@ -18,16 +18,11 @@ export const useApi = (apiUrl?: string) => {
     const headersObj:any = {
       ...options?.headers,
     }
-<<<<<<< HEAD
     const access_token = useCookie('access_token');
     // eslint-disable-next-line camelcase
     if (access_token.value) {
       // eslint-disable-next-line camelcase
       headersObj['Authorization'] = `Bearer ${access_token.value}`
-=======
-    if (token.value) {
-      headersObj.Authorization = `Bearer ${token.value}`
->>>>>>> 707c72b93155db07f277f43711afa285363186d2
     }
     return $fetch.create({
       ...options,
