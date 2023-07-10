@@ -96,3 +96,7 @@ export const isValidPhone = (val: string) => {
   const phone = val.replace(/[\s)(-]/g, '')
   return phone.length === 9 && validPhones.includes(phone.substring(0, 2))
 }
+
+export const formatPhoneNumber = (phone: string) => {
+  return phone.replace(/(\d{3})(\d{2})(\d{2})(\d{2})/, '$1 $2 $3 $4')
+}

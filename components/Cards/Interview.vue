@@ -49,8 +49,6 @@
           class="icon-eye text-blue-200 transition-200 dark:text-blue-100"
           :class="rowFormat ? 'mr-2' : 'mr-1'"
         ></i>
-        <!--        {{ formatNumberWithSpaces(1234) }}-->
-
         {{ data.views_count }}
       </p>
     </div>

@@ -77,7 +77,7 @@ export interface IInterview {
   views_count: number
   title: string
   cover_image: string
-  rowFormat?: boolean
+  rowFormat: boolean
 }
 export interface IColony {
   id: number
@@ -130,4 +130,8 @@ export interface ISinglePhoto {
   views_count: number
   content: string | HTMLAllCollection
   author: string
+}
+
+export interface IObject<T = any> {
+  [key: string]: T //eslint-disable-line
 }

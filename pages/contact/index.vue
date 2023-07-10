@@ -7,138 +7,61 @@
         <div
           class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-5 lg:gap-x-8 gap-y-5"
         >
-          <div class="contact__card">
+          <div
+            v-for="(contactItem, index) in formattedContacts"
+            :key="index"
+            class="contact__card"
+          >
             <div class="contact__card_symbol">
-              <i class="icon-mail symbol-icon"></i>
+              <BlockPreloader v-bind="{ loading }" width="100%" height="100%">
+                <img :src="contactItem?.icon" alt="" />
+              </BlockPreloader>
             </div>
-            <p class="contact__card_title">
-              {{ $t('mail_for_contacts') }}
-            </p>
-            <a
-              :href="'mailto:' + contactData.email"
-              class="contact__card_link"
-              >{{ contactData.email }}</a
-            >
-          </div>
-          <div class="contact__card">
-            <div class="contact__card_symbol">
-              <i class="icon-phone symbol-icon"></i>
-            </div>
-            <p class="contact__card_title">
-              {{ $t('phone_reduction') }}
-            </p>
-            <a :href="'tel:' + contactData.phone" class="contact__card_link">{{
-              contactData.phone
-            }}</a>
-          </div>
-          <div class="contact__card">
-            <div class="contact__card_symbol">
-              <i class="icon-message symbol-icon"></i>
-            </div>
-            <p class="contact__card_title">
-              {{ $t('for_advertising') }}
-            </p>
-            <div class="flex items-center gap-x-2 mb-[10px]">
-              <a
-                :href="'tel:' + contactData.telegramNumbers?.first"
-                target="_blank"
-                class="contact__card_link"
-                >{{ contactData.telegramNumbers?.first }}</a
+            <BlockPreloader>
+              <p class="contact__card_title">
+                {{ contactItem?.title }}
+              </p>
+            </BlockPreloader>
+
+            <div v-if="contactItem?.type === 'mixed'" class="flex flex-col">
+              <div
+                v-for="(sortedItems, sortedIdx) in contactItem?.midexItems"
+                :key="'A' + sortedIdx"
+                class="flex-y-center space-x-2"
               >
-              <span class="w-[1px] h-[14px] inline-block bg-white/40"></span>
-              <a
-                href="#"
-                class="group flex-y-center transition-200 hover:gap-2 gap-1 text-white text-sm lg:text-base leading-130 font-semibold hover:text-blue-300"
-                >Telegram
-                <i
-                  class="icon-chevron-right text-white group-hover:text-blue-300"
-                ></i
-              ></a>
+                <a
+                  v-for="(item, idx) in sortedItems"
+                  :key="'A' + idx"
+                  :href="getItemValue(item).href"
+                  class="contact__card_link space-x-1 flex items-center space-x-1 group"
+                  :class="getItemValue(item).style"
+                >
+                  <span class="inline-block">{{
+                    getItemValue(item).title
+                  }}</span>
+                  <i
+                    :class="getItemValue(item).icon"
+                    class="text-xs inline-block group-hover:translate-x-1 transition-transform"
+                  ></i>
+                  <span v-if="idx % 2 === 0" class="text-white/40">|</span>
+                </a>
+              </div>
             </div>
-            <div class="flex items-center gap-x-2">
+
+            <div v-else class="flex items-start flex-col">
               <a
-                :href="'tel:' + contactData.telegramNumbers?.second"
-                target="_blank"
-                class="contact__card_link"
-                >{{ contactData.telegramNumbers?.second }}</a
+                v-for="(item, idx) in contactItem?.items"
+                :key="'A' + idx"
+                :href="getItemValue(item).href"
+                class="contact__card_link space-x-1 flex items-center group"
+                :class="getItemValue(item).style"
               >
-              <span class="w-[1px] h-[14px] inline-block bg-white/40"></span>
-              <a
-                href="#"
-                class="group flex-y-center transition-200 hover:gap-2 gap-1 hover:text-blue-300 text-white text-sm lg:text-base leading-130 font-semibold"
-                >Telegram
+                <span class="inline-block">{{ getItemValue(item).title }}</span>
                 <i
-                  class="icon-chevron-right text-white group-hover:text-blue-300"
-                ></i
-              ></a>
-            </div>
-          </div>
-          <div class="contact__card">
-            <div class="contact__card_symbol">
-              <i class="icon-telegram symbol-icon text-2xl lg:!text-3xl"></i>
-            </div>
-            <p class="contact__card_title">
-              {{ $t('channels_telegram') }}
-            </p>
-            <div class="flex items-center gap-x-2 mb-[10px]">
-              <a
-                :href="'https://' + contactData.telegramChannels?.first"
-                target="_blank"
-                class="group flex-y-center transition-200 hover:gap-2 gap-1 text-white text-sm lg:text-base leading-130 font-semibold hover:text-blue-300"
-                >{{ contactData.telegramChannels?.first }}
-                <i
-                  class="icon-chevron-right text-white group-hover:text-blue-300"
-                ></i
-              ></a>
-            </div>
-            <div class="flex items-center gap-x-2">
-              <a
-                :href="'https://' + contactData.telegramChannels?.second"
-                target="_blank"
-                class="group flex-y-center transition-200 hover:gap-2 gap-1 text-white text-sm lg:text-base leading-130 font-semibold hover:text-blue-300"
-                >{{ contactData.telegramChannels?.second }}
-                <i
-                  class="icon-chevron-right text-white group-hover:text-blue-300"
-                ></i
-              ></a>
-            </div>
-          </div>
-          <div class="contact__card">
-            <div class="contact__card_symbol">
-              <i class="icon-instagram symbol-icon text-2xl lg:!text-3xl"></i>
-            </div>
-            <p class="contact__card_title">
-              {{ $t('channels_instagram') }}
-            </p>
-            <div class="flex items-center gap-x-2 mb-[10px]">
-              <a
-                :href="'https://' + contactData.instagram"
-                target="_blank"
-                class="group flex-y-center transition-200 hover:gap-2 gap-1 text-white text-sm lg:text-base leading-130 font-semibold hover:text-blue-300"
-                >{{ contactData.instagram }}
-                <i
-                  class="icon-chevron-right text-white group-hover:text-blue-300"
-                ></i
-              ></a>
-            </div>
-          </div>
-          <div class="contact__card">
-            <div class="contact__card_symbol">
-              <i class="icon-facebook symbol-icon text-2xl lg:!text-3xl"></i>
-            </div>
-            <p class="contact__card_title">
-              {{ $t('channels_facebook') }}
-            </p>
-            <div class="flex items-center gap-x-2 mb-[10px]">
-              <a
-                :href="'https://' + contactData.facebook"
-                target="_blank"
-                class="group flex-y-center transition-200 hover:gap-2 gap-1 text-white text-sm lg:text-base leading-130 font-semibold hover:text-blue-300"
-                >{{ contactData.facebook }}
-                <i
-                  class="icon-chevron-right text-white group-hover:text-blue-300"
-                ></i
-              ></a>
+                  :class="getItemValue(item).icon"
+                  class="text-xs inline-block group-hover:translate-x-1 transition-transform"
+                ></i>
+              </a>
             </div>
           </div>
         </div>
@@ -148,11 +71,114 @@
 </template>
 
 <script setup lang="ts">
-import { contactData } from '~/data'
 import { useI18n } from 'vue-i18n'
+
+import { useContactStore } from '~/store/contact'
+import { IObject } from '~/types'
+import { IContactItem } from '~/types/contact'
+import { formatPhoneNumber } from '~/utils'
+
+const contactStore = useContactStore()
+const contact = computed(() => contactStore.contact)
+
+const loading = ref(true)
+
+Promise.allSettled([contactStore.fetchContact()]).finally(() => {
+  loading.value = false
+})
 
 const { t } = useI18n()
 const menu = [{ title: t('contacts'), link: '/contact' }]
+
+const getItemValue = computed(() => (item: IContactItem) => {
+  const valueKeys: IObject<string> = {
+    email: 'email',
+    phone: 'phone_number',
+    link: 'link',
+    telegram: 'telegram_link',
+  }
+
+  const value = valueKeys[item?.type]
+    ? item[valueKeys[item?.type] as keyof typeof item]
+    : []
+  if (item?.type === 'phone') {
+    return {
+      title: formatPhoneNumber(value as string),
+      href: `tel:${value}`,
+    }
+  } else if (item?.type === 'email') {
+    return {
+      title: value,
+      href: `mailto:${value}`,
+    }
+  } else if (item?.type === 'telegram') {
+    if (item.id == 7 || item.id == 8) {
+      return {
+        title: value,
+        href: `https://${value}`,
+        icon: 'icon-chevron-right',
+      }
+    } else {
+      return {
+        title: 'Telegram',
+        href: `https://${value}`,
+        icon: 'icon-chevron-right',
+        style: 'inline',
+      }
+    }
+  } else {
+    return {
+      title: value,
+      href: value,
+      icon: 'icon-chevron-right',
+    }
+  }
+})
+
+function containsPhoneAndTelegram(contactItems: IContactItem[]) {
+  const hasPhone = contactItems.some((item) => item.type === 'phone')
+  const hasTelegram = contactItems.some((item) => item?.type === 'telegram')
+  return hasPhone && hasTelegram
+}
+
+function collectPhoneAndTelegram(contactItems: IContactItem[]) {
+  const phoneObjects = []
+  const telegramObjects = []
+
+  for (const object of contactItems) {
+    if (object.type === 'phone') {
+      phoneObjects.push(object)
+    } else {
+      telegramObjects.push(object)
+    }
+  }
+
+  const result = []
+
+  for (let i = 0; i < phoneObjects.length; i++) {
+    for (let j = 0; j < telegramObjects.length; j++) {
+      if (i === j) {
+        result.push([phoneObjects[i], telegramObjects[j]])
+      }
+    }
+  }
+
+  return result
+}
+
+const formattedContacts = computed(() => {
+  const contactClone = [...contact.value]
+  contactClone.forEach((c) => {
+    const items = c.items
+
+    if (containsPhoneAndTelegram(items)) {
+      c.midexItems = collectPhoneAndTelegram(items)
+      c.type = 'mixed'
+    }
+  })
+
+  return contactClone
+})
 </script>
 
 <style scoped>
@@ -178,4 +204,14 @@ const menu = [{ title: t('contacts'), link: '/contact' }]
 .contact__card_link {
   @apply font-semibold text-sm lg:text-base leading-130 text-white duration-200 transition-all hover:text-blue-300;
 }
+
+/*.contact__card:nth-child(4) {*/
+/*  display: none;*/
+/*}*/
+/*.contact__card:nth-child(1) {*/
+/*  order: 3;*/
+/*}*/
+/*.contact__card:nth-child(3) {*/
+/*  order: 1;*/
+/*}*/
 </style>
