@@ -134,19 +134,6 @@ const image = ref<File | null>(null)
 const toggleText = () => {
   showText.value = !showText.value
 }
-// function onFileChanged(event: Event) {
-//   const fileInput = event.target as HTMLInputElement
-//   const files = fileInput.files
-//   const fileReader = new FileReader();
-//   if (files && files.length > 0) {
-//     image.value = files[0];
-//     fileReader.onload = function (event:any) {
-//       images.value.push(event.target.result)
-//     };
-//     fileReader.readAsDataURL(image.value);
-// const images = ref<File[]>([])
-// const image = ref<File | null>(null)
-
 function onFileChanged(event: Event) {
   const fileInput = event.target as HTMLInputElement
   const files = fileInput.files
@@ -174,10 +161,17 @@ function InputBlur(event: Event) {
   isCommentEmpty.value = false
 }
 function onSubmit() {
+  const formData = new FormData()
+  formData.append('comment', comment.value)
+  formData.append('news', image.value as Blob)
+  formData.append('image', image.value as Blob)
+  formData.append('image', image.value as Blob)
+  formData.append('image', image.value as Blob)
+
   const _data = {
     last_name: 'Eljahon',
     first_name: "Normo'minov",
-    comment_text: comment.value,
+    comment: comment.value,
     user_img: img,
     images,
     time: '30 минут назад',

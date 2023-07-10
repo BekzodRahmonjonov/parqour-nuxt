@@ -1,7 +1,7 @@
 import { defineStore } from 'pinia'
 
 import { INewsList } from '~/types'
-import { INewsResponse, INewsSearch, INewsSearchListParams } from '~/types/news'
+import { INewsCommentRequest, INewsCommentSlug, INewsResponse, INewsSearch, INewsSearchListParams } from "~/types/news";
 
 export const useNewsStore = defineStore('columnsStore', {
   state: () => ({
@@ -9,6 +9,7 @@ export const useNewsStore = defineStore('columnsStore', {
     newsList: [] as INewsList[],
     newsListCount: 0,
     newsSearchListCount: 0,
+    newsCommnetList:[],
     params: {
       offset: 0,
       limit: 5,
@@ -32,6 +33,30 @@ export const useNewsStore = defineStore('columnsStore', {
           .then((res: INewsResponse) => {
             this.newsSearchListCount = res.count
             this.newsSearchList = [...this.newsSearchList, ...res.results]
+            resolve(res)
+          })
+          .catch((err) => {
+            reject(err)
+          })
+          .finally(() => {
+            setTimeout(() => {
+              this.searchListLoading = false
+            }, 300)
+          })
+      })
+    },
+    fetchNewsBySlug(params: INewsCommentSlug) {
+      return new Promise((resolve, reject) => {
+        useApi()
+          .$get(`news/CommentList/${params.slug}/`, {
+          })
+          .then((res:any) => {
+            const data:any =[...res.results].map((item:any)=>{
+              return {
+                ...item,
+                is_open:false
+            }});
+            this.newsCommnetList = data;
             resolve(res)
           })
           .catch((err) => {

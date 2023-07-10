@@ -9,6 +9,7 @@ import {
 
 export const useAuthStore = defineStore('authStore', {
   state: () => ({
+    showLoginModal: false,
     auth: {
       loggedIn: false,
       user: null,
@@ -79,6 +80,12 @@ export const useAuthStore = defineStore('authStore', {
           })
       })
     },
+    showLoginModalAction() {
+      this.showLoginModal = true
+    },
+    showRegisterModalClose() {
+      this.showLoginModal = false
+    }
   },
   getters: {},
 })
