@@ -6,9 +6,6 @@
         v-for="(item, index) in discussionData"
         :key="index"
         v-bind="{ item }"
-        :title="item.title"
-        :text="item.subtitle"
-        :bg="item.author.avatar"
       />
     </div>
   </div>

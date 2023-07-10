@@ -61,7 +61,7 @@ const loading = ref(true)
 Promise.allSettled([
   reportsStore.fetchSpecialReports(),
   fetchNewsList(),
-  fetchPopularList(),
+  // fetchPopularList(),
   fetchDiscussionList(),
   fetchInterviewList(),
   fetchAuthorsList(),

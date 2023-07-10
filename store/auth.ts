@@ -1,5 +1,5 @@
 import { defineStore } from 'pinia'
-
+import { useApi } from '~/composables/useApi'
 import {
   IAuthLogin,
   IAuthLoginResponse,
@@ -9,19 +9,64 @@ import {
 
 export const useAuthStore = defineStore('authStore', {
   state: () => ({
-    // showMobile: false,
-    // languageSwitch: false,
-    // localeMessagesFetched: false,
-    // newsList: [],
-    // popularList: [],
-    // discussionList: [],
-    // interviewList: [],
+    auth: {
+      loggedIn: false,
+      user: null,
+    },
   }),
   actions: {
-   async  userLogin(body: IAuthLogin) {
+    async fetchMe(token: string) {
+      const { $get } = useApi()
       try {
-        return await useApi().$post('users/SignIn/', {body});
-      } catch (error:any) {
+        const data = await $get('users/UserProfile/',{headers: { Authorization: `Bearer ${token}` }})
+        this.auth.loggedIn = true
+        this.auth.user = data
+        return data
+      } catch (error: any) {
+        throw new Error(error)
+      }
+    },
+    async fetchLocaleJson(i18n:any) {
+      const { $get } = useApi()
+      const { locale, setLocaleMessage, setLocale, t } = i18n;
+      const cookieLocale: any = useCookie('i18n_redirected')
+      // eslint-disable-next-line camelcase
+      let defaultLocale = locale.value ?? 'ru'
+      defaultLocale = cookieLocale.value ?? defaultLocale
+      try {
+        const data = await $get(
+          `front-translation/FrontTranslationList/?lang=${defaultLocale}`,
+          {
+            headers: {
+              'Accept-Language': defaultLocale,
+            },
+          }
+        )
+        const messages = data
+        setLocale(defaultLocale)
+        await setLocaleMessage(defaultLocale, messages)
+      } catch (e) {
+        console.error(e)
+      }
+    },
+    async userLogin(body: IAuthLogin) {
+      try {
+        return await useApi().$post('users/SignIn/', { body })
+      } catch (error: any) {
+        throw new Error(error)
+      }
+    },
+    Logout() {
+      try {
+        // eslint-disable-next-line camelcase
+        const access_token = useCookie('access_token');
+        // eslint-disable-next-line camelcase
+        const refresh_token = useCookie('refresh_token');
+        // eslint-disable-next-line camelcase
+        access_token.value = null;
+        // eslint-disable-next-line camelcase
+        refresh_token.value = null;
+      } catch (error: any) {
         throw new Error(error)
       }
     },

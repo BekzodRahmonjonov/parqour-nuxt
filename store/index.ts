@@ -9,56 +9,12 @@ export const useHomeStore = defineStore('homeStore', {
     popularList: [],
     discussionList: [],
     interviewList: [],
-    auth: {
-      loggedIn: false,
-      user: null,
-    },
     authorsArticleList: [],
     authorsList: [],
   }),
 
   actions: {
-    async fetchMe() {
-      const { $get } = useApi()
-      try {
-        const data = await $get('users/GetUser/')
-        this.auth.loggedIn = true
-        this.auth.user = data
-        return data
-      } catch (error: any) {
-        throw new Error(error)
-      }
-    },
-
-    async nuxtServerInit() {
-      const { $get } = useApi()
-      const { locale, setLocaleMessage, setLocale, t } = useI18n()
-      const cookieLocale: any = useCookie('i18n_redirected')
-      // eslint-disable-next-line camelcase
-      const check_token: any = useCookie('access')
-      // eslint-disable-next-line camelcase
-      if (check_token.value) {
-        await this.fetchMe()
-      }
-      let defaultLocale = locale.value ?? 'ru'
-      defaultLocale = cookieLocale.value ?? defaultLocale
-      // console.log(list)
-      try {
-        const data = await $get(
-          `front-translation/FrontTranslationList/?lang=${defaultLocale}`,
-          {
-            headers: {
-              'Accept-Language': defaultLocale,
-            },
-          }
-        )
-        const messages = data
-        setLocale(defaultLocale)
-        await setLocaleMessage(defaultLocale, messages)
-      } catch (e) {
-        console.error(e)
-      }
-    },
+    async nuxtServerInit() {},
     fetchNewsList() {
       return new Promise((resolve, reject) => {
         useApi()
