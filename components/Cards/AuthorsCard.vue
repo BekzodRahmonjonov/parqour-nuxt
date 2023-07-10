@@ -22,8 +22,10 @@
           </p>
         </div>
       </div>
-
-      <CommonSocials class="absolute top-5 right-5 flex items-center gap-2" />
+      <CommonSocials
+        v-bind="author"
+        class="absolute top-5 right-5 flex items-center gap-2"
+      />
     </NuxtLink>
   </div>
 </template>
