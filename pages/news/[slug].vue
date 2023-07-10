@@ -15,16 +15,22 @@
       v-if="newsData?.full_width"
       :single="newsData"
     />
+    <CommentsCommentMain/>
   </div>
 </template>
 <script setup lang="ts">
+import {useNewsStore} from '~/store/news'
 import { useI18n } from 'vue-i18n'
 
 import { newsData } from '~/data/fakeData'
-
+const router = useRouter()
+const {params: {slug} } = useRoute()
+const {fetchNewsBySlug} = useNewsStore();
 const { t } = useI18n()
 const menu = [
   { title: t('all_news'), link: '/news' },
   { title: newsData.title, link: '/news' },
-]
+];
+console.log(slug)
+Promise.allSettled([fetchNewsBySlug({ slug })])
 </script>

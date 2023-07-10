@@ -53,14 +53,6 @@ export const buttonVariants = [
 ] as const
 export type ButtonVariants = (typeof buttonVariants)[number]
 
-export interface IPodcast {
-  image: string
-  type: string
-  title: string
-  created_at: Date | string
-  typeTitle: string
-}
-
 export interface IInterview {
   id: number
   slug: string

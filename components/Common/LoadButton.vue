@@ -33,7 +33,9 @@
       </svg>
     </i>
     <slot v-if="!loading">
-      <i class="icon-double rotate-90 text-blue-200 dark:text-blue-100"></i>
+      <i
+        class="icon-double text-xl rotate-90 text-blue-200 dark:text-blue-100"
+      ></i>
       <span class="s-transition">
         {{ text }}
       </span>

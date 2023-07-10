@@ -10,6 +10,26 @@ export interface IHashtag {
   title: string
   slug: string
 }
+export interface INewsCommentSlug {
+  slug: string
+}
+interface INewsCommentItem {
+  answers_count: number,
+  children:INewsCommentItem,
+  comment: string,
+  id: number,
+  rate_count: number,
+  status: string,
+  user:{
+    avatar: string,
+    full_name: string,
+    id: number,
+    created_at: string,
+  }
+}
+export interface INewsCommentRequest {
+data:INewsCommentItem[]
+}
 export interface INewsSearch {
   cover_image: string
   hashtags: IHashtag[]

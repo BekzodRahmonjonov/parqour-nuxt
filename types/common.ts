@@ -3,8 +3,9 @@ export interface IPagination {
   limit: number
 }
 
-export interface IResponse {
+export interface IResponse<T> {
   count: number
   next: string | null
   previous: null | string
+  results: T[]
 }

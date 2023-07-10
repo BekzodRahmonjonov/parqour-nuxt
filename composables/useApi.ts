@@ -31,9 +31,9 @@ export const useApi = (apiUrl?: string) => {
         ...headersObj,
         'Accept-Language': locale.value || 'uz',
       },
-      onResponseError({ response:{status}}): Promise<void> | void {
-        // errorHandling(status)
-      }
+      // onResponseError({ response:{status}}): Promise<void> | void {
+      //   // errorHandling(status)
+      // }
     });
   }
   function $get<T = never>(

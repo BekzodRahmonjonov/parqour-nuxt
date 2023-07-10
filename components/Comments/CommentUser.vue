@@ -4,35 +4,37 @@
     <div>
       <div class="flex w-full justify-between">
         <div class="w-1/2 flex gap-2">
-          <img class="rounded-full blok mt-2" width="33" height="33" :src="data.user_img" alt="">
+          <img v-if="data.user_img" class="rounded-full blok mt-2" width="33" height="33" :src="data.user_img" alt="">
+          <img v-else class="rounded-full blok mt-2" width="33" height="33" :src="img" alt="">
+
           <div>
-            <b>{{ data.last_name }} {{ data.first_name }}</b>
+            <b>{{ data.user.full_name }}</b>
             <p class="text-[#919299]">{{ data.time }}</p>
           </div>
         </div>
         <div>
-          <CommentsVote :count="data.comment_child.length"/>
+          <CommentsVote :count="data.children.length"/>
         </div>
       </div>
-      <p>{{ data.comment_text }}</p>
-      <button @click="onSubmit" class="text-[#919299]">Ответить....</button>
+      <p>{{ data.comment }}</p>
+      <button @click="onSubmit(data.id)" class="text-[#919299]">Ответить....</button>
       <br>
-      <button class="text-[#48A4E3]">4 ответа</button>
+      <button class="text-[#48A4E3]">{{data.answers_count}} ответа</button>
       <CommentsCommentChildUpload
           @ItemCommnetChildAdd="childCommnetAdd"
           :index="data.id" v-if="isChildTextOpen"/>
       <div v-show="isFocus">
-        <div class="ml-5" v-for="(item , ind) in data.comment_child " :key="ind">
+        <div class="ml-5" v-for="(item , ind) in data.children " :key="ind">
           <div class="flex w-full justify-between">
             <div class="w-1/2 flex gap-2">
               <img class="rounded-full blok mt-2" width="33" height="33" :src="item.user_img" alt="">
               <div>
-                <b>{{ item.last_name }} {{ item.first_name }}</b>
+                <b>{{ item.full_name }}</b>
                 <p class="text-[#919299]">{{ item.time }}</p>
               </div>
             </div>
             <div>
-              <CommentsVote/>
+              <CommentsVote :count="item.rate_count"/>
             </div>
           </div>
           <p>{{ item.comment_text }}</p>
@@ -48,13 +50,9 @@
 </template>
 <script setup lang="ts">
 import img from '~/assets/images/user.jpg'
-import CommentUpload from "~/components/Comments/CommentUpload.vue";
-import {addExtension} from "@rollup/pluginutils";
-
 interface itemData {
   user_img: String,
-  last_name: String,
-  first_name: String,
+  full_name: String,
   comment_text: String,
   commnet_child: itemData,
   time: String,
@@ -71,8 +69,8 @@ const isFocus = ref<Boolean>(false);
 const isChildTextOpen = ref<Boolean>(false);
 const ischildCommnet = ref<Boolean>(false)
 
-function onSubmit() {
-  if (props.data?.comment_child.length) {
+function onSubmit(id:number) {
+  if (props.data?.children.length) {
     isFocus.value = !isFocus.value
   } else {
     isChildTextOpen.value = !isChildTextOpen.value
