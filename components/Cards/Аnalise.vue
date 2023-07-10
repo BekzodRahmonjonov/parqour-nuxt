@@ -15,11 +15,10 @@
       <h4
         class="font-semibold text-white pb-3 text-center uppercase border-white/20 border-b-2 text-xs"
       >
-        {{ $t(title) }}
-        {{ item?.title }}
+        {{ item?.category?.title }}
       </h4>
-      <p v-if="text" class="text-xl text-white font-semibold">
-        {{ $t(text) }}
+      <p v-if="item?.title" class="text-xl text-white font-semibold">
+        {{ item?.title }}
       </p>
     </article>
   </NuxtLink>
@@ -30,10 +29,6 @@ import { IDiscussionData } from '~/types'
 
 interface Props {
   item: IDiscussionData
-  id: number
-  title: string
-  text: string
-  bg: string
 }
 
 defineProps<Props>()
