@@ -42,5 +42,3 @@ function modalsClose() {
   emit('close')
 }
 </script>
-
-<style scoped></style>

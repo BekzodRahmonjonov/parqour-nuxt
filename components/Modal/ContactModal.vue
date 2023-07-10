@@ -130,5 +130,3 @@ function closeModal() {
   emit('close')
 }
 </script>
-
-<style scoped></style>

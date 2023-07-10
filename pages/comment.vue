@@ -133,5 +133,3 @@ function childCommnetOpen(perentInd: number, childInd: number) {
   console.log(dataCommnets.value[perentInd].comment_child)
 }
 </script>
-
-<style scoped></style>
