@@ -98,8 +98,6 @@ import { useSpecialReportsStore } from '~/store/special-reports'
 import { ISingleData } from '~/types'
 
 const reportsStore = useSpecialReportsStore()
-import { useSpecialReportsStore } from '~/store/special-reports'
-const reportsStore = useSpecialReportsStore()
 reportsStore.fetchSpecialReports()
 const specialReports = computed(() => reportsStore.specialReports)
 
