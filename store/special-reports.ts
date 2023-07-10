@@ -1,6 +1,5 @@
 import { defineStore } from 'pinia'
 
-import { INewsSearchListParams } from '~/types/news'
 import {
   IReportsResponse,
   ISpecialReports,
@@ -47,7 +46,6 @@ export const useSpecialReportsStore = defineStore('specialReports', {
               resolve(res)
             })
             .catch((err) => {
-              console.log(err)
               reject(err)
             })
             .finally(() => {

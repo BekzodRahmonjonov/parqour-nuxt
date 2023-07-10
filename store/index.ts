@@ -13,6 +13,7 @@ export const useHomeStore = defineStore('homeStore', {
       loggedIn: false,
       user: null,
     },
+    authorsArticleList: [],
     authorsList: [],
   }),
 
@@ -110,10 +111,23 @@ export const useHomeStore = defineStore('homeStore', {
           })
       })
     },
-    fetchAuthorsList() {
+    fetchAuthorsArticlesList() {
       return new Promise((resolve, reject) => {
         useApi()
           .$get('/news/AuthorArticlesList/')
+          .then((data: any) => {
+            this.authorsArticleList = data.results
+            resolve(data)
+          })
+          .catch((error) => {
+            reject(error)
+          })
+      })
+    },
+    fetchAuthorsList() {
+      return new Promise((resolve, reject) => {
+        useApi()
+          .$get('/news/AuthorList/')
           .then((data: any) => {
             this.authorsList = data.results
             resolve(data)

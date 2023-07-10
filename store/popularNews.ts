@@ -1,6 +1,5 @@
 import { defineStore } from 'pinia'
 
-import { usePhotoReportsStore } from '~/store/photo-reports'
 import { INewsResponse, INewsSearch, INewsSearchListParams } from '~/types/news'
 
 export const usePopularNewsStore = defineStore('popularNewsStore', {
@@ -36,7 +35,6 @@ export const usePopularNewsStore = defineStore('popularNewsStore', {
               resolve(res)
             })
             .catch((err) => {
-              console.log(err)
               reject(err)
             })
             .finally(() => {

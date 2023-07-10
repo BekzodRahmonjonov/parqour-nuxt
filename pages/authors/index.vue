@@ -11,11 +11,12 @@
           <div v-if="preloader" class="grid gap-5">
             <BlockAuthorsCardShimmer v-for="item in 6" :key="item" />
           </div>
+
           <nuxt-link
-            v-for="(item, i) in copyOfAuthorsData"
+            v-for="(item, index) in authorsList"
             v-else
-            :key="i"
-            to="authors/1"
+            :key="index"
+            :author="item"
           >
             <CardsAuthorsCard :author="item" />
           </nuxt-link>
@@ -37,11 +38,15 @@
   </div>
 </template>
 <script setup lang="ts">
-import { authorsData } from '~/data/fakeData'
+import { useHomeStore } from '~/store'
 
-const isLoading = ref(false)
+const homeStore = useHomeStore()
+
+const authorsList = computed(() => homeStore.authorsList)
+
+const isLoading = ref(true)
 const preloader = ref(true)
-const copyOfAuthorsData = ref([...authorsData])
+// const copyOfAuthorsData = ref([...authorsData])
 
 setTimeout(() => {
   preloader.value = false
@@ -60,4 +65,8 @@ const loadMore = () => {
     copyOfAuthorsData.value.push(additionData)
   }, 1000)
 }
+
+Promise.allSettled([homeStore.fetchAuthorsList()]).finally(() => {
+  isLoading.value = false
+})
 </script>

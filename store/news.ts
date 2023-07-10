@@ -60,7 +60,6 @@ export const useNewsStore = defineStore('columnsStore', {
               resolve(res)
             })
             .catch((err) => {
-              console.log(err)
               reject(err)
             })
             .finally(() => {

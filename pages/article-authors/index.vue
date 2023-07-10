@@ -35,8 +35,7 @@
   </div>
 </template>
 <script setup lang="ts">
-import { authorsData } from '~/data'
-import { authorSelect, authorsSideData } from '~/data/fakeData'
+import { authorsData, authorSelect, authorsSideData } from '~/data/fakeData'
 
 const search = ref('')
 
