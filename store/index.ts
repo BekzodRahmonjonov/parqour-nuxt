@@ -13,33 +13,34 @@ export const useHomeStore = defineStore('homeStore', {
       loggedIn: false,
       user: null,
     },
+    authorsArticleList: [],
     authorsList: [],
   }),
 
   actions: {
-      async fetchMe (){
-  const { $get } = useApi()
-  try {
-    const data = await $get('users/Me/')
-    this.auth.loggedIn = true
-    this.auth.user = data;
-    return data
-  } catch (error:any) {
-    throw new Error(error)
-  }
-},
+    async fetchMe() {
+      const { $get } = useApi()
+      try {
+        const data = await $get('users/Me/')
+        this.auth.loggedIn = true
+        this.auth.user = data
+        return data
+      } catch (error: any) {
+        throw new Error(error)
+      }
+    },
 
     async nuxtServerInit() {
       const { locale, setLocaleMessage, setLocale, t } = useI18n()
-      const cookieLocale = useCookie('i18n_redirected');
-      const check_token = useCookie('access');
-      if(check_token.value) {
-          await this.fetchMe()
+      const cookieLocale = useCookie('i18n_redirected')
+      const check_token = useCookie('access')
+      if (check_token.value) {
+        await this.fetchMe()
       }
-        console.log('useCookie ===>>>')
+      console.log('useCookie ===>>>')
       let defaultLocale = locale.value ?? 'ru'
-      defaultLocale = cookieLocale.value ?? defaultLocale;
-        // console.log(list)
+      defaultLocale = cookieLocale.value ?? defaultLocale
+      // console.log(list)
       try {
         const data = await fetch(
           `${
@@ -110,10 +111,23 @@ export const useHomeStore = defineStore('homeStore', {
           })
       })
     },
-    fetchAuthorsList() {
+    fetchAuthorsArticlesList() {
       return new Promise((resolve, reject) => {
         useApi()
           .$get('/news/AuthorArticlesList/')
+          .then((data: any) => {
+            this.authorsArticleList = data.results
+            resolve(data)
+          })
+          .catch((error) => {
+            reject(error)
+          })
+      })
+    },
+    fetchAuthorsList() {
+      return new Promise((resolve, reject) => {
+        useApi()
+          .$get('/news/AuthorList/')
           .then((data: any) => {
             this.authorsList = data.results
             resolve(data)

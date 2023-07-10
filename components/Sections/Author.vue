@@ -5,7 +5,6 @@
         :title="$t('articles_author')"
         :all-link="'/article-authors'"
       />
-
       <div class="flex flex-col md:grid grid-cols-12 gap-6 mt-6">
         <CardsAuthor
           v-for="(card, index) in authorsData"
@@ -22,9 +21,11 @@
 
 <script setup lang="ts">
 import { IAuthorsData } from '~/types'
+import { IAuthorCard } from '~/types/author'
 
 interface Props {
   authorsData?: IAuthorsData[]
+  authorsList?: IAuthorCard[]
 }
 
 defineProps<Props>()
