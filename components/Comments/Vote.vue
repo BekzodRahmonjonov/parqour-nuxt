@@ -48,7 +48,7 @@
 </template>
 <script setup lang="ts">
 interface Props {
-  count: Number
+  count?: Number
 }
 defineProps<Props>()
 const num = ref<number>(0)

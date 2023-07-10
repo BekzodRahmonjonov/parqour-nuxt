@@ -19,7 +19,7 @@ export const useSpecialReportsStore = defineStore('specialReports', {
     },
   }),
   actions: {
-    fetchSpecialReports(params: ISpecialReportsParams, force?: boolean) {
+    fetchSpecialReports(params?: ISpecialReportsParams, force?: boolean) {
       if (this.specialReports.length > 0 && !force) {
         return new Promise((resolve, reject) => {
           resolve(this.specialReports)
