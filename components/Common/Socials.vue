@@ -1,5 +1,6 @@
 <template>
   <div>
+    {{ mediaList }}
     <div
       v-for="(item, i) in icons"
       :key="i"
@@ -18,6 +19,13 @@
 </template>
 
 <script setup lang="ts">
+import { ISocials } from '~/types'
+
+interface Props {
+  mediaList?: ISocials[]
+}
+
+defineProps<Props>()
 const icons = [
   {
     url: '/asd',

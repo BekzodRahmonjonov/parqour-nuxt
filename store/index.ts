@@ -15,6 +15,7 @@ export const useHomeStore = defineStore('homeStore', {
     },
     authorsArticleList: [],
     authorsList: [],
+    mediaList: [],
   }),
 
   actions: {
@@ -131,6 +132,19 @@ export const useHomeStore = defineStore('homeStore', {
           .$get('/news/AuthorList/')
           .then((data: any) => {
             this.authorsList = data.results
+            resolve(data)
+          })
+          .catch((error) => {
+            reject(error)
+          })
+      })
+    },
+    fetchSocialMediaList() {
+      return new Promise((resolve, reject) => {
+        useApi()
+          .$get('/common/SocialMediaList')
+          .then((data: any) => {
+            this.mediaList = data.results
             resolve(data)
           })
           .catch((error) => {

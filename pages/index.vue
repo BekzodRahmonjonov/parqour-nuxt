@@ -8,7 +8,7 @@
       <CommonAdBanner image="/images/advertising/adver.png" />
       <SectionsAuthor
         class="py-6 lg:py-10"
-        v-bind="{ authorsData: authorsArticleList, authorsList }"
+        v-bind="{ authorsData: authorsArticleList, authorsList, mediaList }"
       />
       <!--      <SectionsReports :data="specialReports" />-->
       <CommonAdBanner
@@ -45,6 +45,8 @@ const {
   fetchInterviewList,
   fetchAuthorsList,
   fetchPopularList,
+  fetchAuthorsArticlesList,
+  fetchSocialMediaList,
 } = useHomeStore()
 const reportsStore = useSpecialReportsStore()
 const homeStore = useHomeStore()
@@ -55,6 +57,8 @@ const popularList = computed(() => homeStore.popularList)
 const discussionList = computed(() => homeStore.discussionList)
 const interviewList = computed(() => homeStore.interviewList)
 const authorsList = computed(() => homeStore.authorsList)
+const authorsArticleList = computed(() => homeStore.authorsArticleList)
+const mediaList = computed(() => homeStore.mediaList)
 
 const loading = ref(true)
 
@@ -65,6 +69,8 @@ Promise.allSettled([
   fetchDiscussionList(),
   fetchInterviewList(),
   fetchAuthorsList(),
+  fetchAuthorsArticlesList(),
+  fetchSocialMediaList(),
 ]).finally(() => {
   loading.value = false
 })

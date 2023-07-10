@@ -148,6 +148,12 @@ export interface IDiscussionData {
   }
 }
 
+export interface ISocials {
+  id: number
+  title: string
+  link: string
+  follower_count: number
+}
 export interface IObject<T = any> {
   [key: string]: T //eslint-disable-line
 }

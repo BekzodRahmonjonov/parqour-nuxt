@@ -15,17 +15,19 @@
           :class="{ 'col-span-6': index === 0 || index === 1 }"
         />
       </div>
+      {{ mediaList }}
     </div>
   </div>
 </template>
 
 <script setup lang="ts">
-import { IAuthorsData } from '~/types'
+import { IAuthorsData, ISocials } from '~/types'
 import { IAuthorCard } from '~/types/author'
 
 interface Props {
   authorsData?: IAuthorsData[]
   authorsList?: IAuthorCard[]
+  mediaList?: ISocials[]
 }
 
 defineProps<Props>()
