@@ -54,7 +54,6 @@ const emailRegex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/
 const success = ref(false)
 const router = useRouter()
 const authStore = useAuthStore()
-const homeStore = useHomeStore()
 const captchaToken = ref('')
 const onVerify = (token: string) => {
   captchaToken.value = token
@@ -84,16 +83,20 @@ const submitForm = async () => {
         sendData.phone_number = sendData.phoneOrEmail
       }
       delete sendData.phoneOrEmail
-      const tokens = await authStore.userLogin(sendData)
-      // console.log(tokerns);
-      const access = useCookie('access')
-      access.value = tokens?.access
-      const refresh = useCookie('refresh')
-      refresh.value = tokens?.refresh
-      await homeStore.fetchMe()
+      const {access, refresh} = await authStore.userLogin(sendData)
+      // eslint-disable-next-line camelcase
+      const access_token:any = useCookie('access_token')
+      // eslint-disable-next-line camelcase
+      access_token.value = access
+      // eslint-disable-next-line camelcase
+      const refresh_token:any = useCookie('refresh_token')
+      // eslint-disable-next-line camelcase
+      refresh_token.value = refresh;
+      console.log(access, refresh)
+      await authStore.fetchMe(access)
       emit('close')
     }
-  } catch (e: unknown) {
+  } catch (e: any) {
     emit('close')
     throw new Error(e)
   }

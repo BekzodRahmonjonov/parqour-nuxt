@@ -12,6 +12,9 @@ export const usePopularNewsStore = defineStore('popularNewsStore', {
       hashtags__slug: undefined,
       model_type: undefined,
       search: undefined,
+      is_popular: undefined,
+      published_at__before: undefined,
+      published_at__after: undefined,
     } as INewsSearchListParams,
     loading: true,
   }),
@@ -35,9 +38,7 @@ export const usePopularNewsStore = defineStore('popularNewsStore', {
               reject(err)
             })
             .finally(() => {
-              setTimeout(() => {
-                this.loading = false
-              }, 300)
+              this.loading = false
             })
         })
       }

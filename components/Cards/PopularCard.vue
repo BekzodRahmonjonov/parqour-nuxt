@@ -1,6 +1,6 @@
 <template>
   <NuxtLink
-    :to="`/news/${news?.slug}`"
+    :to="`/${link}/${news?.slug}`"
     class="py-5 rounded-lg bg-white-100 dark:bg-dark-200 group dark:hover:bg-blue-600 transition-200"
     :class="{ 'px-5': !news?.cover_image }"
   >
@@ -53,6 +53,7 @@ import { INewsSearch } from '~/types/news'
 
 interface Props {
   news: INewsSearch
+  link?: string
 }
 
 defineProps<Props>()
