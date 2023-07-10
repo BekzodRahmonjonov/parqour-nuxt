@@ -41,7 +41,7 @@ export const useSpecialReportsStore = defineStore('specialReports', {
               if (filter) {
                 this.specialReports = res.results
               } else {
-                this.specialReports = [...this.specialReports, ...res.results]
+                this.specialReports.push(...res.results)
               }
               resolve(res)
             })

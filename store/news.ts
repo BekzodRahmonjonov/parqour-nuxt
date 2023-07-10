@@ -13,9 +13,6 @@ export const useNewsStore = defineStore('columnsStore', {
     params: {
       offset: 0,
       limit: 5,
-      hashtags__slug: undefined,
-      model_type: undefined,
-      search: undefined,
     } as INewsSearchListParams,
     searchListLoading: true,
     loading: true,
@@ -45,6 +42,7 @@ export const useNewsStore = defineStore('columnsStore', {
           })
       })
     },
+<<<<<<< HEAD
     fetchNewsBySlug(params: INewsCommentSlug) {
       return new Promise((resolve, reject) => {
         useApi()
@@ -74,6 +72,21 @@ export const useNewsStore = defineStore('columnsStore', {
         this.loading = true
       }
       if (!this.newsList?.length || force) {
+=======
+    fetchNewsList(
+      params: INewsSearchListParams,
+      force?: boolean,
+      filter?: boolean
+    ) {
+      if (this.newsList.length > 0 && !force) {
+        return new Promise((resolve, reject) => {
+          resolve(this.newsList)
+        })
+      } else {
+        if (!this.newsList.length) {
+          this.loading = true
+        }
+>>>>>>> 58ea240df06b2b8cfb1aaf9efe9dfd46abac74b4
         return new Promise((resolve, reject) => {
           useApi()
             .$get<INewsResponse>('news/NewsList/', {
@@ -81,7 +94,11 @@ export const useNewsStore = defineStore('columnsStore', {
             })
             .then((res) => {
               this.newsListCount = res.count
-              this.newsList.push(...res.results)
+              if (filter) {
+                this.newsList = res.results
+              } else {
+                this.newsList.push(...res.results)
+              }
               resolve(res)
             })
             .catch((err) => {

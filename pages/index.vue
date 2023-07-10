@@ -37,7 +37,7 @@
 
 <script setup lang="ts">
 import { useHomeStore } from '~/store'
-import { useSpecialReportsStore } from '~/store/special-reports'
+import { useSpecialReportsStore } from '~/store/specialReports'
 
 const {
   fetchNewsList,
