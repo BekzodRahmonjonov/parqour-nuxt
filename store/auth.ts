@@ -15,10 +15,10 @@ export const useAuthStore = defineStore('authStore', {
     },
   }),
   actions: {
-    async fetchMe() {
+    async fetchMe(token: string) {
       const { $get } = useApi()
       try {
-        const data = await $get('users/GetUser/')
+        const data = await $get('users/UserProfile/',{headers: { Authorization: `Bearer ${token}` }})
         this.auth.loggedIn = true
         this.auth.user = data
         return data

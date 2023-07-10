@@ -54,7 +54,6 @@ const emailRegex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/
 const success = ref(false)
 const router = useRouter()
 const authStore = useAuthStore()
-const homeStore = useHomeStore()
 const captchaToken = ref('')
 const onVerify = (token: string) => {
   captchaToken.value = token
@@ -92,8 +91,9 @@ const submitForm = async () => {
       // eslint-disable-next-line camelcase
       const refresh_token:any = useCookie('refresh_token')
       // eslint-disable-next-line camelcase
-      refresh_token.value = refresh
-      await homeStore.fetchMe()
+      refresh_token.value = refresh;
+      console.log(access, refresh)
+      await authStore.fetchMe(access)
       emit('close')
     }
   } catch (e: any) {
