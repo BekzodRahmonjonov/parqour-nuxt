@@ -1,6 +1,6 @@
 <template>
   <div>
-    <CommonBreadcrumb :menu="menu" />
+    <CommonBreadcrumb :menu="breadcrumbRoutes" />
     <div class="container">
       <CommonPageWrapper
         :title="$t('photo_reports')"
@@ -33,7 +33,7 @@
                 },
               }"
               class="min-h-[250px]"
-              :small="true"
+              small
             />
           </nuxt-link>
           <CommonButton
@@ -60,8 +60,12 @@
 </template>
 <script setup lang="ts">
 import { useI18n } from 'vue-i18n'
+
+const { t } = useI18n()
+
 const isLoading = ref(false)
 const counter = ref(4)
+
 const loadMore = () => {
   isLoading.value = true
 
@@ -94,6 +98,5 @@ function getRandomNumber() {
   return Math.floor(Math.random() * 5) + 1
 }
 
-const { t } = useI18n()
-const menu = [{ title: t('photo_reports'), link: '/photo-reports' }]
+const breadcrumbRoutes = [{ title: t('photo_reports'), link: '/photo-reports' }]
 </script>

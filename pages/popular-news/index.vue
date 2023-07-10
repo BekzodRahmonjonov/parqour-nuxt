@@ -110,9 +110,8 @@ const sort = ref([
     value: 'comments',
   },
 ])
-const activeSortI = ref(0)
-const list = computed(() => newsStore.news)
 const activeSection = ref('news')
+
 const buttons = reactive({
   [Sections.news]: {
     text: 'Новости',
@@ -284,21 +283,9 @@ const buttons = reactive({
     },
   },
 })
-const activeDropdown = ref(false)
 const breadCrumbLinks = computed(() => [
   { title: t('popular'), link: '/popular' },
 ])
-const onClick = (index: number) => {
-  activeSortI.value = index
-}
-
-const onChange = (e) => {
-  activeDropdown.value = e
-}
-
-const onClickAway = () => {
-  activeDropdown.value = false
-}
 
 buttons[activeSection.value].fetchData?.()
 </script>
