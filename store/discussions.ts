@@ -7,9 +7,9 @@ import {
   ISpecialReportsParams,
 } from '~/types/special-reports'
 
-export const usePhotoReportsStore = defineStore('photoReports', {
+export const useDiscussionsStore = defineStore('discussions', {
   state: () => ({
-    reports: [] as ISpecialReports[],
+    discussions: [] as ISpecialReports[],
     count: 0,
     loading: true,
     params: {
@@ -19,23 +19,23 @@ export const usePhotoReportsStore = defineStore('photoReports', {
     },
   }),
   actions: {
-    fetchPhotoReports(params: ISpecialReportsParams, force?: boolean) {
-      if (this.reports.length > 0 && !force) {
+    fetchDiscussions(params: ISpecialReportsParams, force?: boolean) {
+      if (this.discussions.length > 0 && !force) {
         return new Promise((resolve, reject) => {
-          resolve(this.reports)
+          resolve(this.discussions)
         })
       } else {
-        if (this.reports.length === 0) {
+        if (this.discussions.length === 0) {
           this.loading = true
         }
         return new Promise((resolve, reject) => {
           useApi()
-            .$get<IReportsResponse>('news/PhotoReportsListView/', {
+            .$get<IReportsResponse>('news/DiscussionList/', {
               params,
             })
             .then((res) => {
               this.count = res.count
-              this.reports.push(...res.results)
+              this.discussions.push(...res.results)
               resolve(res)
             })
             .catch((err) => {
