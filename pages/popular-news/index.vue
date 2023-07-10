@@ -16,8 +16,7 @@
             @click="item?.onClick?.()"
           />
           <CommonDropdown
-            class="bg-[#F5F6F9] rounded-md md:ml-auto dark:bg-blue-800"
-            button-class="py-2.5 px-3"
+            class="bg-white-100 rounded-md md:ml-auto dark:bg-blue-800"
             @change="onChange"
             @clickAway="onClickAway"
           >

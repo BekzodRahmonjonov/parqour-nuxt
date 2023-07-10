@@ -286,52 +286,6 @@ export const newsData = [
     comments: 144,
   },
 ]
-
-export const authorsData = [
-  {
-    id: 1,
-    slug: 'darya-penzova',
-    actual: true,
-    title:
-      '«Сейчас население переплачивает за некачественное мясо» — российский экспер...',
-    author: 'Дарья Пензова',
-    image: '/images/news/older.png',
-  },
-  {
-    id: 2,
-    slug: 'darya-penzova',
-    actual: true,
-    title:
-      'Татары в Узбекистане: откуда они появились и как повлияли на историю страны',
-    author: 'Дарья Пензова',
-    image: '/images/news/report.png',
-  },
-  {
-    id: 3,
-    slug: 'darya-penzova',
-    actual: true,
-    title:
-      'Узбекистанцы присоединились к мировому флешмобу #сидимдома — #uydaqoldik',
-    author: 'Дарья Пензова',
-    image: '/images/news/hashtag.png',
-  },
-  {
-    id: 4,
-    slug: 'darya-penzova',
-    actual: true,
-    title: 'Что происходит с ценами на аренду жилья в Ташкенте',
-    author: 'Дарья Пензова',
-    image: '/images/news/meeting.png',
-  },
-  {
-    id: 5,
-    slug: 'darya-penzova',
-    actual: true,
-    title: 'Что происходит с ценами на аренду жилья в Ташкенте',
-    author: 'Дарья Пензова',
-    image: '/images/news/family.png',
-  },
-]
 export const podcastTags = ['#Короткие', '#Подкасты']
 export const interviewTags = ['#Общество', '#Политика', '#Образоание']
 

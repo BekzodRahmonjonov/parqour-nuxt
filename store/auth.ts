@@ -18,17 +18,17 @@ export const useAuthStore = defineStore('authStore', {
     // interviewList: [],
   }),
   actions: {
-    async userLogin(data: IAuthLogin) {
+   async  userLogin(body: IAuthLogin) {
       try {
-        return await useApi().$post('users/SignIn/', { body: data })
-      } catch (error: any) {
+        return await useApi().$post('users/SignIn/', {body});
+      } catch (error:any) {
         throw new Error(error)
       }
     },
-    userRegistor(data: IAuthRegister) {
+    userRegistor(body: IAuthRegister) {
       return new Promise((resolve, reject) => {
         useApi()
-          .$post<IAuthRegisterResponse>('users/SignUp/', {})
+          .$post<IAuthRegisterResponse>('users/SignUp/', { body })
           .then((data: IAuthRegisterResponse) => {
             resolve(data)
           })

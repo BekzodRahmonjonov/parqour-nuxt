@@ -6,7 +6,8 @@ export  interface IAuthLogin {
 export  interface IAuthRegister {
   full_name: string,
   password: string,
-  phoneOrEmail: string,
+  email?:string,
+  phone_number?:string
 }
 export interface IAuthLoginResponse {
   refresh: string,

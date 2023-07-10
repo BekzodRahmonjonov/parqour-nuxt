@@ -23,7 +23,10 @@
       />
       <SectionsColumns class="pb-6 lg:pb-10" />
       <SectionsSocial />
-      <SectionsAnalysis class="py-6 lg:py-10" />
+      <SectionsAnalysis
+        class="py-6 lg:py-10"
+        v-bind="{ discussionData: discussionList }"
+      />
     </div>
   </div>
 </template>
@@ -32,22 +35,35 @@
 import { useHomeStore } from '~/store'
 import { useSpecialReportsStore } from '~/store/special-reports'
 
-const homeStore = useHomeStore()
+const {
+  newsList,
+  popularList,
+  discussionList,
+  interviewList,
+  authorsList,
+  fetchNewsList,
+  fetchDiscussionList,
+  fetchInterviewList,
+  fetchAuthorsList} = useHomeStore()
 const reportsStore = useSpecialReportsStore()
-reportsStore.fetchSpecialReports()
+  reportsStore.fetchSpecialReports()
+
+
 const specialReports = computed(() => reportsStore.specialReports)
-const newsList = computed(() => homeStore.newsList)
-const discussionList = computed(() => homeStore.discussionList)
-const interviewList = computed(() => homeStore.interviewList)
-const authorsList = computed(() => homeStore.authorsList)
+// const newsList = computed(() => homeStore.newsList)
+// const popularList = computed(() => homeStore.popularList)
+// const discussionList = computed(() => homeStore.discussionList)
+// const interviewList = computed(() => homeStore.interviewList)
+// const authorsList = computed(() => homeStore.authorsList)
 
 const loading = ref(true)
 
 Promise.allSettled([
-  homeStore.fetchNewsList(),
-  homeStore.fetchDiscussionList(),
-  homeStore.fetchInterviewList(),
-  homeStore.fetchAuthorsList(),
+  fetchNewsList(),
+  // homeStore.fetchPopularList(),
+  fetchDiscussionList(),
+  fetchInterviewList(),
+  fetchAuthorsList(),
 ]).finally(() => {
   loading.value = false
 })
