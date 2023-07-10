@@ -51,7 +51,6 @@ export const useHomeStore = defineStore('homeStore', {
             },
           }
         )
-        console.log('lang: ', data)
         const messages = data
         setLocale(defaultLocale)
         await setLocaleMessage(defaultLocale, messages)

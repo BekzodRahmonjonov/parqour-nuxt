@@ -19,7 +19,11 @@ export const useSpecialReportsStore = defineStore('specialReports', {
     },
   }),
   actions: {
-    fetchSpecialReports(params?: ISpecialReportsParams, force?: boolean) {
+    fetchSpecialReports(
+      params?: ISpecialReportsParams,
+      force?: boolean,
+      filter?: boolean
+    ) {
       if (this.specialReports.length > 0 && !force) {
         return new Promise((resolve, reject) => {
           resolve(this.specialReports)
@@ -35,7 +39,11 @@ export const useSpecialReportsStore = defineStore('specialReports', {
             })
             .then((res) => {
               this.count = res.count
-              this.specialReports = [...this.specialReports, ...res.results]
+              if (filter) {
+                this.specialReports = res.results
+              } else {
+                this.specialReports = [...this.specialReports, ...res.results]
+              }
               resolve(res)
             })
             .catch((err) => {

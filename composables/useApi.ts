@@ -10,7 +10,6 @@ export const useApi = (apiUrl?: string) => {
     const headersObj: any = {
       ...options?.headers,
     }
-    console.log('token: ', token.value)
     if (token.value) {
       headersObj.Authorization = `Bearer ${token.value}`
     }

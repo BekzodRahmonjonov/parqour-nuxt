@@ -1,3 +1,5 @@
+import dayjs from 'dayjs'
+
 export function formatMoneyDecimal(number: any, fix = 0, option = 'decimal') {
   let style: string
   if (['USD', 'RUB'].includes(option)) {
@@ -49,4 +51,12 @@ export function getTimeText(time: Date, t: Function) {
 }
 export function formatNumber(number: string | number) {
   return number && number.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ' ')
+}
+export function getSevenDaysBeforeToday() {
+  const today = new Date() // Get the current date
+  const sevenDaysBefore = new Date(today) // Create a new Date object with the same date as today
+
+  sevenDaysBefore.setDate(today.getDate() - 7) // Subtract 7 days from the current date
+
+  return dayjs(sevenDaysBefore).format('YYYY.MM.DD') // Output the result in the given format
 }

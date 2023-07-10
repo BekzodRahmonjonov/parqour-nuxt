@@ -14,10 +14,11 @@
                 'bg-blue-200 text-white dark:text-blue-600 dark:bg-white':
                   item.isActive,
               }"
-              @click="item?.onClick?.()"
+              @click="onClick(item.value)"
             />
           </div>
           <FormSelect
+            v-model="filter"
             :options="sort"
             label-key="text"
             value-key="value"
@@ -25,26 +26,26 @@
           />
         </div>
         <div
-          v-if="!buttons[activeSection]?.data?.length"
-          class="mt-8 w-full h-full"
+          v-if="buttons[activeSection]?.fetchLoading"
+          class="flex flex-col gap-6 mt-8"
         >
-          <CommonNoData class="w-full" />
+          <BlockLoaderSpecialReports v-for="item in 5" :key="item" />
         </div>
         <template v-else>
           <div>
             <div
-              v-if="buttons[activeSection]?.fetchLoading"
+              v-if="buttons[activeSection]?.data?.length"
               class="flex flex-col gap-6 mt-8"
             >
-              <BlockLoaderSpecialReports v-for="item in 5" :key="item" />
-            </div>
-            <div v-else class="flex flex-col gap-6 mt-8">
-              <!--          <pre> {{ buttons[activeSection]?.data }} </pre>-->
               <CardsPopularCard
                 v-for="(item, i) in buttons[activeSection]?.data"
                 :key="i"
                 :news="item"
+                :link="buttons[activeSection]?.link"
               />
+            </div>
+            <div v-else class="mt-8 w-full h-full">
+              <CommonNoData class="w-full" />
             </div>
           </div>
         </template>
@@ -57,7 +58,7 @@
           "
           :loading="buttons[activeSection].btnLoading"
           class="w-full text-blue-600 !bg-[#52618f1a] font-medium leading-125 mt-8 dark:text-white"
-          @click="buttons[activeSection]?.loadMore?.()"
+          @click="loadMore"
         >
           <span class="icon-double rotate-90 mr-[10px] text-xl"></span>
           {{ $t('load_more') }}</CommonButton
@@ -70,8 +71,10 @@
   </div>
 </template>
 <script setup lang="ts">
+import dayjs from 'dayjs'
 import { useI18n } from 'vue-i18n'
 
+import { getSevenDaysBeforeToday } from '~/helpers'
 import { useAuthorsStore } from '~/store/authors'
 import { useColumnsStore } from '~/store/columns'
 import { useDiscussionsStore } from '~/store/discussions'
@@ -88,6 +91,11 @@ const discussionsStore = useDiscussionsStore()
 // components
 
 const { t } = useI18n()
+const router = useRouter()
+const route = useRoute()
+
+const filter = ref(route.query?.filter || 'for_a_whole_time')
+
 enum Sections {
   news = 'news',
   articles = 'articles',
@@ -98,132 +106,91 @@ enum Sections {
 }
 const sort = ref([
   {
-    text: 'По дате',
-    value: 'date',
+    text: t('for_a_week'),
+    value: 'for_a_week',
   },
   {
-    text: 'По популярности',
-    value: 'popular',
-  },
-  {
-    text: 'По комментариям',
-    value: 'comments',
+    text: t('for_a_whole_time'),
+    value: 'for_a_whole_time',
   },
 ])
-const activeSortI = ref(0)
 const list = computed(() => newsStore.news)
-const activeSection = ref('news')
+const activeSection = ref(route.query?.section || 'news')
 const buttons = reactive({
   [Sections.news]: {
-    text: 'Новости',
+    text: t('news'),
     value: 'news',
     btnLoading: false,
+    link: 'news',
     dataCount: computed(() => newsStore.newsCount),
     data: computed(() => newsStore.news),
     fetchLoading: computed(() => newsStore.loading),
+    params: {
+      ...newsStore.params,
+      is_popular: true,
+      published_at__before: undefined,
+      published_at__after: undefined,
+    },
+    fetcher: newsStore.fetchPopularNews,
     get isActive() {
       return this.value == activeSection.value
-    },
-    fetchData() {
-      newsStore.fetchPopularNews(newsStore.params, false)
-    },
-    onClick() {
-      activeSection.value = this.value
-      if (this.data?.length === 0) {
-        this.fetchData?.()
-      }
-    },
-    loadMore() {
-      this.btnLoading = true
-      newsStore.params.offset += 5
-      newsStore.fetchPopularNews(newsStore.params, true)
-      setTimeout(() => {
-        this.btnLoading = false
-      }, 300)
     },
   },
   [Sections.articles]: {
     text: 'Статьи',
     value: 'articles',
     btnLoading: false,
+    link: 'article-authors',
     dataCount: computed(() => authorsStore.articlesCount),
     data: computed(() => authorsStore.articles),
     fetchLoading: computed(() => authorsStore.articlesLoading),
+    params: {
+      ...newsStore.params,
+      is_popular: true,
+      published_at__before: undefined,
+      published_at__after: undefined,
+    },
+    fetcher: authorsStore.fetchAuthorArticles,
     get isActive() {
       return this.value == activeSection.value
-    },
-    fetchData() {
-      authorsStore.fetchAuthorArticles(authorsStore.params, false)
-    },
-    onClick() {
-      activeSection.value = this.value
-      if (this.data?.length === 0) {
-        this.fetchData?.()
-      }
-    },
-    loadMore() {
-      this.btnLoading = true
-      authorsStore.params.offset += 5
-      authorsStore.fetchAuthorArticles(authorsStore.params, true)
-      setTimeout(() => {
-        this.btnLoading = false
-      }, 300)
     },
   },
   [Sections.photo]: {
     text: 'Фоторепортажи',
     value: 'photo',
+    link: 'photo-reports',
     btnLoading: false,
     dataCount: computed(() => photoReportsStore.count),
     data: computed(() => photoReportsStore.reports),
     fetchLoading: computed(() => photoReportsStore.loading),
+    params: {
+      ...photoReportsStore.params,
+      is_popular: true,
+      published_at__before: undefined,
+      published_at__after: undefined,
+    },
+    fetcher: photoReportsStore.fetchPhotoReports,
     get isActive() {
       return this.value == activeSection.value
-    },
-    fetchData() {
-      photoReportsStore.fetchPhotoReports(specialReportsStore.params)
-    },
-    onClick() {
-      activeSection.value = this.value
-      if (this.data?.length == 0) {
-        this.fetchData()
-      }
-    },
-    loadMore() {
-      this.btnLoading = true
-      photoReportsStore.params.offset += 5
-      photoReportsStore.fetchPhotoReports(photoReportsStore.params, true)
-      setTimeout(() => {
-        this.btnLoading = false
-      }, 300)
     },
   },
   [Sections.specialReports]: {
     text: 'Спецрепортажи',
     value: 'specialReports',
     btnLoading: false,
+    link: 'special-reports',
     dataCount: computed(() => specialReportsStore.count),
     data: computed(() => specialReportsStore.specialReports),
     fetchLoading: computed(() => specialReportsStore.loading),
+    params: {
+      ...specialReportsStore.params,
+      is_popular: true,
+      published_at__before: undefined,
+      published_at__after: undefined,
+    },
+    fetcher: specialReportsStore.fetchSpecialReports,
     get isActive() {
       return this.value == activeSection.value
-    },
-    fetchData() {
-      specialReportsStore.fetchSpecialReports(specialReportsStore.params)
-    },
-    onClick() {
-      activeSection.value = this.value
-      if (this.data?.length == 0) {
-        this.fetchData()
-      }
-    },
-    loadMore() {
-      this.btnLoading = true
-      specialReportsStore.params.offset += 5
-      specialReportsStore.fetchSpecialReports(specialReportsStore.params, true)
-      setTimeout(() => {
-        this.btnLoading = false
-      }, 300)
     },
   },
   [Sections.columns]: {
@@ -233,72 +200,94 @@ const buttons = reactive({
     dataCount: computed(() => columnsStore.columns.length),
     data: computed(() => columnsStore.columns),
     fetchLoading: computed(() => newsStore.loading),
+    params: {
+      ...columnsStore.params,
+      is_popular: true,
+      published_at__before: undefined,
+      published_at__after: undefined,
+    },
+    fetcher: columnsStore.fetchColumns,
     get isActive() {
       return this.value == activeSection.value
-    },
-    fetchData() {
-      console.log('fetchData: columns')
-      columnsStore.fetchColumns()
-    },
-    onClick() {
-      activeSection.value = this.value
-      if (this.data?.length == 0) {
-        this.fetchData()
-      }
-    },
-    loadMore() {
-      this.btnLoading = true
-      // newsStore.params.offset += 5
-      // newsStore.fetchPopularNews(newsStore.params, true)
-      setTimeout(() => {
-        this.btnLoading = false
-      }, 300)
     },
   },
   [Sections.discussions]: {
     text: 'Разборы',
     value: 'discussions',
     btnLoading: false,
+    link: 'analysis',
     dataCount: computed(() => discussionsStore.count),
     data: computed(() => discussionsStore.discussions),
     fetchLoading: computed(() => discussionsStore.loading),
+    params: {
+      ...discussionsStore.params,
+      is_popular: true,
+      published_at__before: undefined,
+      published_at__after: undefined,
+    },
+    fetcher: discussionsStore.fetchDiscussions,
     get isActive() {
       return this.value == activeSection.value
     },
-    fetchData() {
-      discussionsStore.fetchDiscussions(discussionsStore.params)
-    },
-    onClick() {
-      activeSection.value = this.value
-      if (this.data?.length == 0) {
-        this.fetchData()
-      }
-    },
-    loadMore() {
-      this.btnLoading = true
-      discussionsStore.params.offset += 5
-      discussionsStore.fetchDiscussions(discussionsStore.params, true)
-      setTimeout(() => {
-        this.btnLoading = false
-      }, 300)
-    },
   },
 })
-const activeDropdown = ref(false)
 const breadCrumbLinks = computed(() => [
   { title: t('popular'), link: '/popular' },
 ])
-const onClick = (index: number) => {
-  activeSortI.value = index
+
+function updateQueries(name: string, value: string) {
+  const queries = {
+    ...route.query,
+    [name]: value,
+  }
+  router.replace({ query: queries })
 }
 
-const onChange = (e) => {
-  activeDropdown.value = e
+watch(
+  () => filter.value,
+  (val) => {
+    filterMaintainer()
+    fetchData(true, true)
+    updateQueries('filter', val)
+  }
+)
+
+function filterMaintainer() {
+  if (filter.value == 'for_a_week') {
+    buttons[activeSection.value].params.published_at__after =
+      getSevenDaysBeforeToday()
+    buttons[activeSection.value].params.published_at__before = dayjs(
+      new Date()
+    ).format('YYYY.MM.DD')
+  } else {
+    buttons[activeSection.value].params.published_at__after = undefined
+    buttons[activeSection.value].params.published_at__before = undefined
+  }
+}
+function loadMore() {
+  buttons[activeSection.value].btnLoading = true
+  buttons[activeSection.value].params.offset += 5
+  buttons[activeSection.value].fetcher(
+    buttons[activeSection.value]?.params,
+    true
+  )
+  buttons[activeSection.value].btnLoading = false
+}
+function onClick(value: string) {
+  activeSection.value = value
+  updateQueries('section', value)
+  if (buttons[activeSection.value]?.data?.length == 0) {
+    fetchData()
+  }
+}
+function fetchData(force?: boolean, filter?: boolean) {
+  filterMaintainer()
+  buttons[activeSection.value].fetcher?.(
+    buttons[activeSection.value]?.params,
+    force,
+    filter
+  )
 }
 
-const onClickAway = () => {
-  activeDropdown.value = false
-}
-
-buttons[activeSection.value].fetchData?.()
+fetchData()
 </script>
