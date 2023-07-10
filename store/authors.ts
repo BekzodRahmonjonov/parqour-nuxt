@@ -7,11 +7,11 @@ import {
   ISpecialReportsParams,
 } from '~/types/special-reports'
 
-export const usePhotoReportsStore = defineStore('photoReports', {
+export const useAuthorsStore = defineStore('authors', {
   state: () => ({
-    reports: [] as ISpecialReports[],
-    count: 0,
-    loading: true,
+    articles: [] as ISpecialReports[],
+    articlesCount: 0,
+    articlesLoading: true,
     params: {
       offset: 0,
       limit: 2,
@@ -19,23 +19,23 @@ export const usePhotoReportsStore = defineStore('photoReports', {
     },
   }),
   actions: {
-    fetchPhotoReports(params: ISpecialReportsParams, force?: boolean) {
-      if (this.reports.length > 0 && !force) {
+    fetchAuthorArticles(params: ISpecialReportsParams, force?: boolean) {
+      if (this.articles.length > 0 && !force) {
         return new Promise((resolve, reject) => {
-          resolve(this.reports)
+          resolve(this.articles)
         })
       } else {
-        if (this.reports.length === 0) {
-          this.loading = true
+        if (this.articles.length === 0) {
+          this.articlesLoading = true
         }
         return new Promise((resolve, reject) => {
           useApi()
-            .$get<IReportsResponse>('news/PhotoReportsListView/', {
+            .$get<IReportsResponse>('news/AuthorArticlesList/', {
               params,
             })
             .then((res) => {
-              this.count = res.count
-              this.reports.push(...res.results)
+              this.articlesCount = res.count
+              this.articles.push(...res.results)
               resolve(res)
             })
             .catch((err) => {
@@ -44,7 +44,7 @@ export const usePhotoReportsStore = defineStore('photoReports', {
             })
             .finally(() => {
               setTimeout(() => {
-                this.loading = false
+                this.articlesLoading = false
               }, 300)
             })
         })
