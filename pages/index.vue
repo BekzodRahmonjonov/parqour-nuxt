@@ -29,7 +29,10 @@
       />
       <SectionsColumns class="pb-6 lg:pb-10" />
       <SectionsSocial />
-      <SectionsAnalysis class="py-6 lg:py-10" />
+      <SectionsAnalysis
+        class="py-6 lg:py-10"
+        v-bind="{ discussionData: discussionList }"
+      />
     </div>
   </div>
 </template>

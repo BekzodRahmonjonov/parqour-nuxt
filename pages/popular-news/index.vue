@@ -88,13 +88,17 @@
 <script setup lang="ts">
 import { useI18n } from 'vue-i18n'
 
+import { useAuthorsStore } from '~/store/authors'
 import { useColumnsStore } from '~/store/columns'
+import { usePhotoReportsStore } from '~/store/photo-reports'
 import { usePopularNewsStore } from '~/store/popularNews'
 import { useSpecialReportsStore } from '~/store/special-reports'
 
 const newsStore = usePopularNewsStore()
 const columnsStore = useColumnsStore()
 const specialReportsStore = useSpecialReportsStore()
+const photoReportsStore = usePhotoReportsStore()
+const authorsStore = useAuthorsStore()
 const { t } = useI18n()
 enum Sections {
   news = 'news',
@@ -141,22 +145,25 @@ const buttons = reactive({
     text: 'Статьи',
     value: 'articles',
     btnLoading: false,
-    dataCount: computed(() => newsStore.newsCount),
-    data: computed(() => newsStore.news),
-    fetchLoading: computed(() => newsStore.loading),
+    dataCount: computed(() => authorsStore.articlesCount),
+    data: computed(() => authorsStore.articles),
+    fetchLoading: computed(() => authorsStore.articlesLoading),
     get isActive() {
       return this.value == activeSection.value
     },
+    fetchData() {
+      authorsStore.fetchAuthorArticles(authorsStore.params, false)
+    },
     onClick() {
       activeSection.value = this.value
-      if (this.data?.length == 0) {
+      if (this.data?.length === 0) {
         this.fetchData?.()
       }
     },
     loadMore() {
       this.btnLoading = true
-      // newsStore.params.offset += 5
-      // newsStore.fetchPopularNews(newsStore.params, true)
+      authorsStore.params.offset += 5
+      authorsStore.fetchAuthorArticles(newsStore.params, true)
       setTimeout(() => {
         this.btnLoading = false
       }, 300)
@@ -166,19 +173,25 @@ const buttons = reactive({
     text: 'Фоторепортажи',
     value: 'photo',
     btnLoading: false,
-    dataCount: computed(() => newsStore.newsCount),
-    data: computed(() => newsStore.news),
-    fetchLoading: computed(() => newsStore.loading),
+    dataCount: computed(() => photoReportsStore.count),
+    data: computed(() => photoReportsStore.reports),
+    fetchLoading: computed(() => photoReportsStore.loading),
     get isActive() {
       return this.value == activeSection.value
     },
+    fetchData() {
+      photoReportsStore.fetchPhotoReports(specialReportsStore.params)
+    },
     onClick() {
       activeSection.value = this.value
+      if (this.data?.length == 0) {
+        this.fetchData()
+      }
     },
     loadMore() {
       this.btnLoading = true
-      // newsStore.params.offset += 5
-      // newsStore.fetchPopularNews(newsStore.params, true)
+      photoReportsStore.params.offset += 5
+      photoReportsStore.fetchPhotoReports(newsStore.params, true)
       setTimeout(() => {
         this.btnLoading = false
       }, 300)
@@ -195,7 +208,6 @@ const buttons = reactive({
       return this.value == activeSection.value
     },
     fetchData() {
-      console.log('fetchData: columns')
       specialReportsStore.fetchSpecialReports(specialReportsStore.params)
     },
     onClick() {
