@@ -135,3 +135,15 @@ export interface IAuthorsData {
   }
   cover_image: string
 }
+
+export interface IDiscussionData {
+  id: number
+  slug: string
+  title: string
+  subtitle: string
+  author: {
+    id: number
+    full_name: string
+    avatar: string
+  }
+}

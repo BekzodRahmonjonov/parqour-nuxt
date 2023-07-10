@@ -22,7 +22,7 @@ export const useHomeStore = defineStore('homeStore', {
       try {
         const data = await $get('users/GetUser/')
         this.auth.loggedIn = true
-        this.auth.user = data
+        this.auth.user = data;
         return data
       } catch (error: any) {
         throw new Error(error)
