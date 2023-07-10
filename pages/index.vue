@@ -36,31 +36,28 @@ import { useHomeStore } from '~/store'
 import { useSpecialReportsStore } from '~/store/special-reports'
 
 const {
-  newsList,
-  popularList,
-  discussionList,
-  interviewList,
-  authorsList,
   fetchNewsList,
   fetchDiscussionList,
   fetchInterviewList,
-  fetchAuthorsList} = useHomeStore()
+  fetchAuthorsList,
+  fetchPopularList,
+} = useHomeStore()
 const reportsStore = useSpecialReportsStore()
-  reportsStore.fetchSpecialReports()
-
+const homeStore = useHomeStore()
 
 const specialReports = computed(() => reportsStore.specialReports)
-// const newsList = computed(() => homeStore.newsList)
-// const popularList = computed(() => homeStore.popularList)
-// const discussionList = computed(() => homeStore.discussionList)
-// const interviewList = computed(() => homeStore.interviewList)
-// const authorsList = computed(() => homeStore.authorsList)
+const newsList = computed(() => homeStore.newsList)
+const popularList = computed(() => homeStore.popularList)
+const discussionList = computed(() => homeStore.discussionList)
+const interviewList = computed(() => homeStore.interviewList)
+const authorsList = computed(() => homeStore.authorsList)
 
 const loading = ref(true)
 
 Promise.allSettled([
+  reportsStore.fetchSpecialReports(),
   fetchNewsList(),
-  // homeStore.fetchPopularList(),
+  fetchPopularList(),
   fetchDiscussionList(),
   fetchInterviewList(),
   fetchAuthorsList(),
