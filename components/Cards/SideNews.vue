@@ -32,7 +32,6 @@
 <script setup lang="ts">
 import dayjs from 'dayjs'
 
-import { INews } from '~/types'
 import { IPopularList } from '~/types/news'
 
 const { locale } = useI18n()
