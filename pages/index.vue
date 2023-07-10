@@ -3,8 +3,10 @@
     <LayoutHeaderBreakingNews />
     <div class="pt-8">
       <SectionsLatestNews />
-      <SectionsMainNews v-bind="{ newsData: newsList, discussionList }" />
-      <SectionsNews class="py-6 lg:py-10" :news-data="newsList" />
+      <SectionsMainNews
+        v-bind="{ newsData: homeStore.newsList, discussionList }"
+      />
+      <SectionsNews class="py-6 lg:py-10" :news-data="homeStore.newsList" />
       <CommonAdBanner image="/images/advertising/adver.png" />
       <SectionsAuthor class="py-6 lg:py-10" :authors-data="authorsList" />
       <CommonAdBanner
@@ -44,10 +46,11 @@ const {
   fetchNewsList,
   fetchDiscussionList,
   fetchInterviewList,
-  fetchAuthorsList} = useHomeStore()
+  fetchAuthorsList,
+} = useHomeStore()
 const reportsStore = useSpecialReportsStore()
-  reportsStore.fetchSpecialReports()
-
+const homeStore = useHomeStore()
+reportsStore.fetchSpecialReports()
 
 const specialReports = computed(() => reportsStore.specialReports)
 // const newsList = computed(() => homeStore.newsList)

@@ -4,45 +4,25 @@
     <div class="container pb-16">
       <CommonPageWrapper class="mt-8">
         <h1 class="page-title">{{ $t('popular') }}</h1>
-        <div class="flex items-center gap-3 flex-wrap mt-4">
-          <CommonFilter
-            v-for="item in buttons"
-            :key="item.value"
-            :text="item.text"
-            :class="{
-              'bg-blue-200 text-white dark:text-blue-600 dark:bg-white':
-                item.isActive,
-            }"
-            @click="item?.onClick?.()"
+        <div class="flex items-center gap-3 justify-between mt-4">
+          <div class="flex items-center gap-3">
+            <CommonFilter
+              v-for="item in buttons"
+              :key="item.value"
+              :text="item.text"
+              :class="{
+                'bg-blue-200 text-white dark:text-blue-600 dark:bg-white':
+                  item.isActive,
+              }"
+              @click="item?.onClick?.()"
+            />
+          </div>
+          <FormSelect
+            :options="sort"
+            label-key="text"
+            value-key="value"
+            class="shrink-0 min-w-[180px]"
           />
-          <CommonDropdown
-            class="bg-white-100 rounded-md md:ml-auto dark:bg-blue-800"
-            @change="onChange"
-            @clickAway="onClickAway"
-          >
-            <template #head>
-              <div
-                class="flex dark:text-white items-center gap-[23px] font-medium leading-130 text-blue-700"
-              >
-                <span :key="activeSortI">
-                  {{ sort[activeSortI] }}
-                </span>
-
-                <span
-                  class="icon-icon-chevron-down text-sm transition-200"
-                  :class="{ '-rotate-180': activeDropdown }"
-                ></span>
-              </div>
-            </template>
-            <li
-              v-for="(item, i) in sort"
-              :key="i"
-              class="p-3 hover:bg-[#F5F6F9] dark:text-white dark:hover:bg-[#a2bcde29] rounded-md font-medium leading-130 text-blue-700 transition-300"
-              @click="onClick(i)"
-            >
-              {{ item }}
-            </li>
-          </CommonDropdown>
         </div>
         <div
           v-if="!buttons[activeSection]?.data?.length"
@@ -116,7 +96,20 @@ enum Sections {
   specialReports = 'specialReports',
   discussions = 'discussions',
 }
-const sort = ref(['За неделью', 'За все время'])
+const sort = ref([
+  {
+    text: 'По дате',
+    value: 'date',
+  },
+  {
+    text: 'По популярности',
+    value: 'popular',
+  },
+  {
+    text: 'По комментариям',
+    value: 'comments',
+  },
+])
 const activeSortI = ref(0)
 const list = computed(() => newsStore.news)
 const activeSection = ref('news')

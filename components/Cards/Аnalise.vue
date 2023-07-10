@@ -18,7 +18,7 @@
         {{ $t(title) }}
         {{ item?.title }}
       </h4>
-      <p class="text-xl text-white font-semibold">
+      <p v-if="text" class="text-xl text-white font-semibold">
         {{ $t(text) }}
       </p>
     </article>
