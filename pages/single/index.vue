@@ -123,7 +123,6 @@
   </div>
 </template>
 
-<script setup lang="ts"></script>
 <style scoped>
 .vhtml-text h3 {
   color: #191f2e;
@@ -243,7 +242,7 @@
 .results {
   font-size: 14px;
   line-height: 130%;
-  color: #52618F;
+  color: #52618f;
 }
 @media screen and (max-width: 768px) {
   .vhtml-text h3 {

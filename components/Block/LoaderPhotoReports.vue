@@ -18,4 +18,3 @@
     <!-- no need to set :loading="true" just loading -->
   </div>
 </template>
-<script setup lang="ts"></script>

@@ -1,9 +1,9 @@
 <template>
   <div>
     <div
-      class="rounded-md flex group transition-200 items-center justify-center"
       v-for="(item, i) in icons"
       :key="i"
+      class="rounded-md flex group transition-200 items-center justify-center"
       :href="item.url"
     >
       <a
@@ -37,5 +37,3 @@ const icons = [
   },
 ]
 </script>
-
-<style scoped></style>

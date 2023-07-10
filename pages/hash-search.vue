@@ -107,5 +107,3 @@ setTimeout(() => {
   preloader.value = false
 }, 1000)
 </script>
-
-<style scoped></style>
