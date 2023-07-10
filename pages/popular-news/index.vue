@@ -78,11 +78,11 @@ import { getSevenDaysBeforeToday } from '~/helpers'
 import { useAuthorsStore } from '~/store/authors'
 import { useColumnsStore } from '~/store/columns'
 import { useDiscussionsStore } from '~/store/discussions'
-import { usePhotoReportsStore } from '~/store/photo-reports'
-import { usePopularNewsStore } from '~/store/popularNews'
-import { useSpecialReportsStore } from '~/store/special-reports'
+import { useNewsStore } from '~/store/news'
+import { usePhotoReportsStore } from '~/store/photoReports'
+import { useSpecialReportsStore } from '~/store/specialReports'
 
-const newsStore = usePopularNewsStore()
+const newsStore = useNewsStore()
 const columnsStore = useColumnsStore()
 const specialReportsStore = useSpecialReportsStore()
 const photoReportsStore = usePhotoReportsStore()
@@ -122,16 +122,19 @@ const buttons = reactive({
     value: 'news',
     btnLoading: false,
     link: 'news',
-    dataCount: computed(() => newsStore.newsCount),
-    data: computed(() => newsStore.news),
+    dataCount: computed(() => newsStore.newsListCount),
+    data: computed(() => newsStore.newsList),
     fetchLoading: computed(() => newsStore.loading),
     params: {
       ...newsStore.params,
       is_popular: true,
       published_at__before: undefined,
       published_at__after: undefined,
+      // hashtags__slug: undefined,
+      // model_type: undefined,
+      // search: undefined,
     },
-    fetcher: newsStore.fetchPopularNews,
+    fetcher: newsStore.fetchNewsList,
     get isActive() {
       return this.value == activeSection.value
     },

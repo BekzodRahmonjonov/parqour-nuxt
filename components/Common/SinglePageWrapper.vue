@@ -94,7 +94,7 @@ import { Swiper, SwiperSlide } from 'swiper/vue'
 import { useI18n } from 'vue-i18n'
 import { useRoute } from 'vue-router'
 
-import { useSpecialReportsStore } from '~/store/special-reports'
+import { useSpecialReportsStore } from '~/store/specialReports'
 import { ISingleData } from '~/types'
 
 const reportsStore = useSpecialReportsStore()

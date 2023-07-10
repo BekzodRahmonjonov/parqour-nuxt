@@ -42,7 +42,7 @@
 <script setup lang="ts">
 import { useI18n } from 'vue-i18n'
 
-import { useSpecialReportsStore } from '~/store/special-reports'
+import { useSpecialReportsStore } from '~/store/specialReports'
 
 const { t } = useI18n()
 
