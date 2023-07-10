@@ -1,5 +1,17 @@
+export interface IContactItem {
+  id: number
+  type: string
+  link: string
+  email: string
+  telegram_link: string
+  phone_number: string
+}
+
 export interface IContactApplication {
-  full_name: string
-  phone: string
-  description: string
+  id: number
+  title: string
+  icon: string
+  items: IContactItem[]
+  mixedItems?: IContactItem[][]
+  type?: string
 }

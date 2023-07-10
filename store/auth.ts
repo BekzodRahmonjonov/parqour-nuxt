@@ -1,6 +1,12 @@
 import { defineStore } from 'pinia'
-// eslint-disable-next-line import/named
-import { IAuthLogin, IAuthLoginResponse,IAuthRegisterResponse, IAuthRegister} from '~/types/auth'
+
+import {
+  IAuthLogin,
+  IAuthLoginResponse,
+  IAuthRegister,
+  IAuthRegisterResponse,
+} from '~/types/auth'
+
 export const useAuthStore = defineStore('authStore', {
   state: () => ({
     // showMobile: false,
@@ -12,23 +18,22 @@ export const useAuthStore = defineStore('authStore', {
     // interviewList: [],
   }),
   actions: {
-   async  userLogin(data: IAuthLogin) {
+   async  userLogin(body: IAuthLogin) {
       try {
-        return await useApi().$post('users/SignIn/', {body: data});
+        return await useApi().$post('users/SignIn/', {body});
       } catch (error:any) {
         throw new Error(error)
       }
     },
-    userRegistor(data: IAuthRegister) {
+    userRegistor(body: IAuthRegister) {
       return new Promise((resolve, reject) => {
         useApi()
-          .$post<IAuthRegisterResponse>('users/SignUp/', {
-          })
+          .$post<IAuthRegisterResponse>('users/SignUp/', { body })
           .then((data: IAuthRegisterResponse) => {
             resolve(data)
           })
       })
-    }
+    },
   },
   getters: {},
 })

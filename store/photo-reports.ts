@@ -1,6 +1,5 @@
 import { defineStore } from 'pinia'
 
-import { INewsSearchListParams } from '~/types/news'
 import {
   IReportsResponse,
   ISpecialReports,
@@ -14,7 +13,7 @@ export const usePhotoReportsStore = defineStore('photoReports', {
     loading: true,
     params: {
       offset: 0,
-      limit: 2,
+      limit: 5,
       search: undefined,
     },
   }),
@@ -39,7 +38,6 @@ export const usePhotoReportsStore = defineStore('photoReports', {
               resolve(res)
             })
             .catch((err) => {
-              console.log(err)
               reject(err)
             })
             .finally(() => {

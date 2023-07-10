@@ -1,6 +1,5 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
-import ru from './locales/ru.json'
-import uz from './locales/uz.json'
+
 export default defineNuxtConfig({
   ssr: true,
   app: {
@@ -8,6 +7,7 @@ export default defineNuxtConfig({
       link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.svg' }],
       title: 'UzNews.uz - Новости Узбекистана',
     },
+    pageTransition: { name: 'fade', mode: 'out-in' },
   },
   css: ['/assets/style.css', '/assets/icomoon/style.css'],
   modules: [
@@ -25,27 +25,7 @@ export default defineNuxtConfig({
       },
     ],
   ],
-  // i18n: {
-  //   locales: ['ru', 'uz'],
-  //   defaultLocale: 'ru',
-  //   vueI18n: {
-  //     fallbackLocale: 'ru',
-  //     silentTranslationWarn: true,
-  //     missingWarn: true,
-  //     fallbackWarn: true,
-  //     messages: {
-  //       ru,
-  //       uz,
-  //     },
-  //   },
-  //   // vueI18n: './i18n.config.ts', // if you are using custom path, default
-  //   detectBrowserLanguage: {
-  //     useCookie: true,
-  //     cookieKey: 'i18n_redirected',
-  //     redirectOn: 'root', // recommended
-  //     alwaysRedirect: true,
-  //   },
-  // },
+
   i18n: {
     locales: [
       { code: 'ru', iso: 'ru-RU' },

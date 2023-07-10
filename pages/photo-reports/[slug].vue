@@ -25,13 +25,4 @@ const breadcrumbLinks = computed(() => [
   { title: 'Разборы', link: '/photo-reports' },
   { title: photoData.title, link: '/photo-reports' },
 ])
-
-const images = [
-  {
-    id: 1,
-    title: 'Brand 1',
-    default:
-      'https://toshkent-parfum.uicgroup.tech/media/manufacturers/saint.svg',
-  },
-]
 </script>

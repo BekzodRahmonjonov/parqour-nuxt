@@ -68,7 +68,7 @@ export interface IInterview {
   views_count: number
   title: string
   cover_image: string
-  rowFormat?: boolean
+  rowFormat: boolean
   published_at: number
 }
 export interface IColony {
@@ -146,4 +146,8 @@ export interface IDiscussionData {
     full_name: string
     avatar: string
   }
+}
+
+export interface IObject<T = any> {
+  [key: string]: T //eslint-disable-line
 }

@@ -21,7 +21,7 @@ export const useHomeStore = defineStore('homeStore', {
     async fetchMe() {
       const { $get } = useApi()
       try {
-        const data = await $get('users/Me/')
+        const data = await $get('users/GetUser/')
         this.auth.loggedIn = true
         this.auth.user = data
         return data
@@ -31,28 +31,29 @@ export const useHomeStore = defineStore('homeStore', {
     },
 
     async nuxtServerInit() {
+      const { $get } = useApi()
       const { locale, setLocaleMessage, setLocale, t } = useI18n()
-      const cookieLocale = useCookie('i18n_redirected')
-      const check_token = useCookie('access')
+      const cookieLocale: any = useCookie('i18n_redirected')
+      // eslint-disable-next-line camelcase
+      const check_token: any = useCookie('access')
+      // eslint-disable-next-line camelcase
       if (check_token.value) {
         await this.fetchMe()
       }
-      console.log('useCookie ===>>>')
       let defaultLocale = locale.value ?? 'ru'
       defaultLocale = cookieLocale.value ?? defaultLocale
       // console.log(list)
       try {
-        const data = await fetch(
-          `${
-            import.meta.env.VITE_API_BASE_URL
-          }front-translation/FrontTranslationList/?lang=${defaultLocale}`,
+        const data = await $get(
+          `front-translation/FrontTranslationList/?lang=${defaultLocale}`,
           {
             headers: {
               'Accept-Language': defaultLocale,
             },
           }
         )
-        const messages = await data.json()
+        console.log('lang: ', data)
+        const messages = data
         setLocale(defaultLocale)
         await setLocaleMessage(defaultLocale, messages)
       } catch (e) {

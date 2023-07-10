@@ -1,8 +1,4 @@
-import {
-  INewsSingleData,
-  ISingleData,
-  ISinglePhoto,
-} from '~/types'
+import { INewsSingleData, ISingleData } from '~/types'
 
 interface IAnalysis {
   id: number
@@ -187,29 +183,6 @@ export const coverData = {
   video: 'https://youtu.be/KJwYBJMSbPI',
 }
 
-export const fakeFotoData = {
-  title: 'Министру цифровых технологий Узбекистана определили заместителей',
-  image: 'https://picsum.photos/1024/968',
-}
-
-export const newsTags = [
-  {
-    id: 1,
-    name: 'Политика',
-    value: 'politics',
-  },
-  {
-    id: 2,
-    name: 'Общество',
-    value: 'society',
-  },
-  {
-    id: 3,
-    name: 'Народ',
-    value: 'people',
-  },
-]
-
 export const authorsSideData = [
   {
     name: 'Шахзод Юлдошбоев',
@@ -278,43 +251,5 @@ export const authorSelect = [
     id: 7,
     name: 'разборы',
     value: 'analysis',
-  },
-]
-
-export const newsCategories = [
-  {
-    id: 1,
-    name: 'Общество',
-    value: 'society',
-  },
-  {
-    id: 2,
-    name: 'Происшествия',
-    value: 'incidents',
-  },
-  {
-    id: 3,
-    name: 'Экономика',
-    value: 'economy',
-  },
-  {
-    id: 4,
-    name: 'Интервью',
-    value: 'interview',
-  },
-  {
-    id: 5,
-    name: 'Спорт',
-    value: 'sport',
-  },
-  {
-    id: 6,
-    name: 'Назначения',
-    value: 'appointments',
-  },
-  {
-    id: 7,
-    name: 'Культура',
-    value: 'culture',
   },
 ]
