@@ -11,14 +11,15 @@
           быть в курсе последними новостями
         </p>
       </div>
-      <button class="telegram px-5 py-2.5 rounded-lg font-medium text-sm text-white h-min w-min">
+      <button
+        class="telegram px-5 py-2.5 rounded-lg font-medium text-sm text-white h-min w-min"
+      >
         Перейти
       </button>
     </div>
   </div>
 </template>
 
-<script setup lang="ts"></script>
 <style scoped>
 .main_container {
   width: 681px;

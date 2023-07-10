@@ -45,23 +45,21 @@ export const useNewsStore = defineStore('columnsStore', {
       })
     },
     fetchNewsList(params: INewsSearchListParams, force: boolean) {
-      console.log('fetchNewsList', params, force)
       if (!this.newsList.length) {
         this.loading = true
       }
       if (!this.newsList?.length || force) {
         return new Promise((resolve, reject) => {
           useApi()
-            .$get('news/NewsList/', {
+            .$get<INewsResponse>('news/NewsList/', {
               params,
             })
-            .then((res: INewsResponse) => {
+            .then((res) => {
               this.newsListCount = res.count
-              this.newsList = [...this.newsList, ...res.results]
+              this.newsList.push(...res.results)
               resolve(res)
             })
             .catch((err) => {
-              console.log(err)
               reject(err)
             })
             .finally(() => {

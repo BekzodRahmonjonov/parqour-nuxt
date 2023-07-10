@@ -1,26 +1,52 @@
 import { defineStore } from 'pinia'
 
-import { IReportsResponse, ISpecialReports } from '~/types/special-reports'
+import {
+  IReportsResponse,
+  ISpecialReports,
+  ISpecialReportsParams,
+} from '~/types/special-reports'
 
-export const useSpecialReports = defineStore('specialReports', {
+export const useSpecialReportsStore = defineStore('specialReports', {
   state: () => ({
     specialReports: [] as ISpecialReports[],
+    count: 0,
+    loading: true,
+    params: {
+      offset: 0,
+      limit: 5,
+      search: undefined,
+    },
   }),
   actions: {
-    fetchSpecialReports() {
-      return new Promise((resolve, reject) => {
-        useApi()
-          .$get('news/SpecialReportsList/')
-          .then((res: IReportsResponse) => {
-            console.log(res)
-            this.specialReports = res.results
-            resolve(res)
-          })
-          .catch((err) => {
-            console.log(err)
-            reject(err)
-          })
-      })
+    fetchSpecialReports(params?: ISpecialReportsParams, force?: boolean) {
+      if (this.specialReports.length > 0 && !force) {
+        return new Promise((resolve, reject) => {
+          resolve(this.specialReports)
+        })
+      } else {
+        if (this.specialReports.length === 0) {
+          this.loading = true
+        }
+        return new Promise((resolve, reject) => {
+          useApi()
+            .$get<IReportsResponse>('news/SpecialReportsList/', {
+              params,
+            })
+            .then((res) => {
+              this.count = res.count
+              this.specialReports = [...this.specialReports, ...res.results]
+              resolve(res)
+            })
+            .catch((err) => {
+              reject(err)
+            })
+            .finally(() => {
+              setTimeout(() => {
+                this.loading = false
+              }, 300)
+            })
+        })
+      }
     },
   },
 })

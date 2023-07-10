@@ -4,7 +4,7 @@
       <h2 class="text-xl font-bold leading-130 text-dark dark:text-white">
         {{ $t('others') }}
       </h2>
-      <div class="flex items-center gap-3" v-for="(item, i) in others" :key="i">
+      <div v-for="(item, i) in others" :key="i" class="flex items-center gap-3">
         <img
           class="rounded-full h-[57px] w-[57px]"
           src="/images/face.png"
@@ -45,5 +45,3 @@ interface Props {
 }
 defineProps<Props>()
 </script>
-
-<style scoped></style>

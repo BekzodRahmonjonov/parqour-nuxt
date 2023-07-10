@@ -5,18 +5,25 @@ export const useApi = (apiUrl?: string) => {
   const baseURL = apiUrl || (import.meta.env.VITE_API_BASE_URL as string)
   const locale = useCookie('locale')
   const loading = ref(false)
-
+  const token = useCookie('access')
   function $service(options?: FetchOptions) {
+    const headersObj: any = {
+      ...options?.headers,
+    }
+    console.log('token: ', token.value)
+    if (token.value) {
+      headersObj.Authorization = `Bearer ${token.value}`
+    }
     return $fetch.create({
       ...options,
       baseURL,
       headers: {
         ...options?.headers,
+        ...headersObj,
         'Accept-Language': locale.value || 'uz',
       },
     })
   }
-
   function $get<T = never>(
     endpoint: NitroFetchRequest,
     options?: FetchOptions

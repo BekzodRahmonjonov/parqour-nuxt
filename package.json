@@ -6,7 +6,7 @@
     "generate": "nuxt generate",
     "preview": "nuxt preview",
     "postinstall": "nuxt prepare",
-    "lint": "eslint --ext .ts,.js,.vue nuxt3-boilerplate"
+    "lint": "eslint --ext .ts,.js,.vue"
   },
   "devDependencies": {
     "eslint-config-prettier": "^8.6.0",

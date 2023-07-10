@@ -1,20 +1,21 @@
 import { defineStore } from 'pinia'
 
+import { INewsResponse, INewsSearch } from '~/types/news'
+
 export const useColumnsStore = defineStore('columnsStore', {
   state: () => ({
-    columns: [],
+    columns: [] as INewsSearch[],
   }),
   actions: {
     fetchColumns() {
       return new Promise((resolve, reject) => {
         useApi()
-          .$get('news/SpeakersList/')
+          .$get<INewsResponse>('news/SpeakersList/')
           .then((res) => {
-            this.columns = res
+            this.columns = res.results
             resolve(res)
           })
           .catch((err) => {
-            console.log(err)
             reject(err)
           })
       })

@@ -20,5 +20,3 @@
 import SectionWrapper from '~/components/Common/SectionWrapper.vue'
 import { socials } from '~/data'
 </script>
-
-<style scoped></style>

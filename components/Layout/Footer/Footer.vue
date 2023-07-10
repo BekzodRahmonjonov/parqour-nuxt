@@ -181,5 +181,3 @@ const about = [
   },
 ]
 </script>
-
-<style scoped></style>

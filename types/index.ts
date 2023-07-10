@@ -34,15 +34,6 @@ export interface ILatest {
   time: string
 }
 
-export interface IAuthor {
-  id: number
-  slug: string
-  actual: boolean
-  title: string
-  author: string
-  image: string
-}
-
 export interface ITabItem {
   label: string
   value: string
@@ -78,6 +69,7 @@ export interface IInterview {
   title: string
   cover_image: string
   rowFormat: boolean
+  published_at: number
 }
 export interface IColony {
   id: number
@@ -130,6 +122,30 @@ export interface ISinglePhoto {
   views_count: number
   content: string | HTMLAllCollection
   author: string
+}
+export interface IAuthorsData {
+  id: number
+  title: string
+  slug: string
+  type: string
+  actual: boolean
+  author: {
+    id: number
+    full_name: string
+  }
+  cover_image: string
+}
+
+export interface IDiscussionData {
+  id: number
+  slug: string
+  title: string
+  subtitle: string
+  author: {
+    id: number
+    full_name: string
+    avatar: string
+  }
 }
 
 export interface IObject<T = any> {

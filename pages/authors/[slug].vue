@@ -14,9 +14,9 @@
           />
         </div>
         <CommonButton
-          @click="loadMore"
           :loading="isLoading"
           class="w-full text-blue-600 !bg-[#52618f1a] font-medium leading-125 mt-8"
+          @click="loadMore"
         >
           <span class="icon-double rotate-90 mr-[10px] text-xl"></span>
           {{ $t('load_more') }}</CommonButton
@@ -32,8 +32,7 @@
   </div>
 </template>
 <script setup lang="ts">
-import { authorSideData } from '~/data/fakeData'
-import { authorsData, other_authors } from '~/data'
+import { authorsData, authorSideData } from '~/data/fakeData'
 
 const copyOfAuthorsData = ref([...authorsData])
 const isLoading = ref(false)

@@ -286,52 +286,6 @@ export const newsData = [
     comments: 144,
   },
 ]
-
-export const authorsData = [
-  {
-    id: 1,
-    slug: 'darya-penzova',
-    actual: true,
-    title:
-      '«Сейчас население переплачивает за некачественное мясо» — российский экспер...',
-    author: 'Дарья Пензова',
-    image: '/images/news/older.png',
-  },
-  {
-    id: 2,
-    slug: 'darya-penzova',
-    actual: true,
-    title:
-      'Татары в Узбекистане: откуда они появились и как повлияли на историю страны',
-    author: 'Дарья Пензова',
-    image: '/images/news/report.png',
-  },
-  {
-    id: 3,
-    slug: 'darya-penzova',
-    actual: true,
-    title:
-      'Узбекистанцы присоединились к мировому флешмобу #сидимдома — #uydaqoldik',
-    author: 'Дарья Пензова',
-    image: '/images/news/hashtag.png',
-  },
-  {
-    id: 4,
-    slug: 'darya-penzova',
-    actual: true,
-    title: 'Что происходит с ценами на аренду жилья в Ташкенте',
-    author: 'Дарья Пензова',
-    image: '/images/news/meeting.png',
-  },
-  {
-    id: 5,
-    slug: 'darya-penzova',
-    actual: true,
-    title: 'Что происходит с ценами на аренду жилья в Ташкенте',
-    author: 'Дарья Пензова',
-    image: '/images/news/family.png',
-  },
-]
 export const podcastTags = ['#Короткие', '#Подкасты']
 export const interviewTags = ['#Общество', '#Политика', '#Образоание']
 
@@ -603,37 +557,6 @@ export const socials = [
     title: 'FEED',
     subscribe: 15921,
     icon: 'icon-network',
-  },
-]
-
-export const interviews: IInterview[] = [
-  {
-    image: '/images/interviews/image1.png',
-    title: 'Почему в Узбекистане не работает система образования?',
-    created_at: '2023-06-07',
-    with_whom: 'с Шерматовым',
-    views_count: 1234,
-  },
-  {
-    image: '/images/interviews/image2.png',
-    title: 'Почему в Узбекистане не работает система образования?',
-    created_at: '2023-05-28',
-    with_whom: 'с кушербаевым',
-    views_count: 1234,
-  },
-  {
-    image: '/images/interviews/image3.png',
-    title: 'Почему в Узбекистане не работает система образования?',
-    created_at: '2023-05-01',
-    with_whom: 'с лебедевым',
-    views_count: 1234,
-  },
-  {
-    image: '/images/interviews/image4.png',
-    title: 'Почему в Узбекистане не работает система образования?',
-    created_at: '2022-11-01',
-    with_whom: 'с ЛОЛОЙ',
-    views_count: 1234,
   },
 ]
 export const columns: IColony[] = [

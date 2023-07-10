@@ -1,10 +1,10 @@
 <template>
   <NuxtLink
-    :to="`/analysis/${id}`"
+    :to="`/analysis/${item.slug}`"
     class="relative flex flex-col justify-between h-[362px] w-full lg:col-span-3 md:col-span-4 sm:col-span-6 col-span-12 rounded overflow-hidden hover:-translate-y-2 hover:cursor-pointer transition-200 hover:shadow-m"
   >
     <img
-      :src="bg"
+      :src="item?.author?.avatar"
       alt=""
       class="absolute inset-0 w-full h-full rounded object-cover z-0"
     />
@@ -16,8 +16,9 @@
         class="font-semibold text-white pb-3 text-center uppercase border-white/20 border-b-2 text-xs"
       >
         {{ $t(title) }}
+        {{ item?.title }}
       </h4>
-      <p class="text-xl text-white font-semibold">
+      <p v-if="text" class="text-xl text-white font-semibold">
         {{ $t(text) }}
       </p>
     </article>
@@ -25,7 +26,10 @@
 </template>
 
 <script setup lang="ts">
+import { IDiscussionData } from '~/types'
+
 interface Props {
+  item: IDiscussionData
   id: number
   title: string
   text: string

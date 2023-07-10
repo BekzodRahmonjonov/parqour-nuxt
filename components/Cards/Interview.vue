@@ -49,7 +49,7 @@
           class="icon-eye text-blue-200 transition-200 dark:text-blue-100"
           :class="rowFormat ? 'mr-2' : 'mr-1'"
         ></i>
-        {{ data.views_count }}
+        {{ formatNumberWithSpaces(data.views_count) }}
       </p>
     </div>
   </NuxtLink>
