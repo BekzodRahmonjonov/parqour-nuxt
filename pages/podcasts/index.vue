@@ -9,8 +9,8 @@
       <div class="grid grid-cols-12 gap-8">
         <client-only>
           <CardsPodcast
-            to="/podcasts/1"
-            v-for="(item, index) in copyOfpodcasts"
+            :to="'podcasts/' + item.slug"
+            v-for="(item, index) in podcastsList"
             :key="index"
             :data="item"
             class="col-span-12 md:col-span-6 lg:col-span-4"
@@ -19,15 +19,13 @@
           />
         </client-only>
       </div>
-      <CommonButton
-        v-if="!preloader"
-        @click="loadMore"
+      <CommonLoadButton
+        class="mt-8"
+        v-if="podcastsStore.next"
         :loading="isLoading"
-        class="w-full text-blue-600 !bg-[#52618f1a] font-medium leading-125 mt-8 dark:text-white"
-      >
-        <span class="icon-double rotate-90 mr-[10px] text-xl"></span>
-        {{ $t('load_more') }}</CommonButton
-      >
+        text="Загрузить еще"
+        @click="loadMore"
+      />
       <template #aside>
         <img src="https://picsum.photos/200/400" class="w-full mt-11" alt="" />
       </template>
@@ -36,26 +34,28 @@
 </template>
 <script setup lang="ts">
 import { useI18n } from 'vue-i18n'
-import { podcastTags, podcasts } from '~/data'
+import { usePodcastsStore } from '~/store/podcasts'
+import { IPodcast } from '~/types/podcast'
+
+const podcastsStore = usePodcastsStore()
+const podcastsList = ref<IPodcast[]>([])
+
+podcastsStore.getPodcasts.then((res) => {
+  console.log(res, 'REspo')
+  podcastsList.value = res
+})
 
 const { t } = useI18n()
 const preloader = ref(false)
 const isLoading = ref(false)
-const copyOfpodcasts = ref([...podcasts])
 
 const loadMore = () => {
   isLoading.value = true
-  const additionData = {
-    image: '/images/podcasts/image5.png',
-    type: 'audio',
-    title: 'Почему в Узбекистане не работает система образования?',
-    created_at: '2021-01-01',
-    typeTitle: 'Подкасты',
-  }
+  podcastsStore.params.offset += 10
 
   setTimeout(() => {
     isLoading.value = false
-    copyOfpodcasts.value.push(additionData)
+    podcastsStore.fetchPodcasts(true)
   }, 1000)
 }
 

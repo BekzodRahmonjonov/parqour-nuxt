@@ -1,12 +1,12 @@
 <template>
   <NuxtLink
     :to="`/podcasts/${data?.id}`"
-    class="rounded-md w-full h-full relative max-h-[296px] group transition-200 overflow-hidden bg-transparent hover:shadow-xs hover:-translate-y-2"
+    class="rounded-md w-full h-full relative group transition-200 overflow-hidden bg-transparent hover:shadow-xs hover:-translate-y-2"
   >
     <img
-      :src="data.image"
+      :src="data.cover_image"
       alt="podcast_image"
-      class="w-full h-full object-cover rounded-md aspect-auto relative z-0 box transition-200"
+      class="w-full h-full object-cover rounded-md aspect-auto min-h-[296px] max-h-[472px] relative z-0 box transition-200"
     />
     <div
       class="absolute top-0 podcast-overlay translate-y-[35px] w-full rounded-md h-full z-0 transition-200 group-hover:translate-y-0"
@@ -17,26 +17,28 @@
       <div
         class="bg-blue-700/40 px-2.5 py-1.5 transition-200 rounded w-fit flex-center group-hover:bg-blue-150"
       >
-        <span class="text-white text-xs font-medium leading-130">
-          {{ data.typeTitle }}
+        <span class="text-white text-xs font-semibold leading-130 uppercase">
+          {{ data.podcast_type && 'аудио-Подкасты' }}
         </span>
         <span class="w-1 h-1 rounded-full bg-gray-100 mx-1.5"></span>
         <i
           class="text-white"
           :class="
-            data.type === 'video' ? 'icon-videocamera' : 'icon-microphone-side'
+            data.podcast_type == 'video'
+              ? 'icon-videocamera'
+              : 'icon-microphone-side'
           "
         ></i>
       </div>
       <div class="w-full">
         <div class="flex-y-center mb-3">
-          <p class="text-white font-medium text-sm leading-5">
+          <p class="text-white font-medium text-sm leading-5 flex gap-1">
             <i class="icon-eye text-white text-lg mr-1"></i>
-            {{ formatNumberWithSpaces(12344) }}
+            {{ formatNumberWithSpaces(data.views_count) }}
           </p>
           <span class="w-1 h-1 rounded-full bg-gray-100 mx-1.5"></span>
           <p class="text-white font-medium text-sm leading-5">
-            {{ getTimeText(data.created_at, $t) }}
+            {{ getTimeText(data.published_at, $t) }}
           </p>
         </div>
         <p
@@ -50,8 +52,7 @@
   </NuxtLink>
 </template>
 <script setup lang="ts">
-import { IPodcast } from '~/types'
-
+import { IPodcast } from '~/types/podcast'
 import { getTimeText } from '../../helpers'
 
 interface Props {
