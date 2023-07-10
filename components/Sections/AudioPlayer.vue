@@ -1,42 +1,23 @@
 <template>
-  <div
-    class="relative player-bg-img h-[298px]"
-    :class="{
-      '!fixed left-0 bottom-0 right-0 h-[88px] transition-all duration-300 z-50':
-        fixed,
-    }"
-  >
+  <div class="relative player-bg-img h-[298px]">
     <div class="player-bg absolute left-0 top-0 h-full w-full">
       <div class="container flex gap-8 py-8">
         <img
-          v-if="!fixed"
           src="/podcast/author.png"
           alt=""
           class="h-[234px] w-[234px] rounded border border-white"
         />
 
-        <div class="flex-1" :class="{ 'flex items-center gap-6': fixed }">
-          <h1
-            v-if="!fixed"
-            class="text-32 font-semibold text-white leading-140"
-          >
+        <div class="flex-1">
+          <h1 class="text-32 font-semibold text-white leading-140">
             Дело Азата Мифтахова: Как в России шьют дела против анархистов
           </h1>
 
-          <ul class="mt-12 flex items-center gap-4" :class="{ '!mt-0': fixed }">
-            <li
-              v-for="(item, i) in playerActions"
-              :key="i"
-              :class="item.icon"
-              class="p-2 rounded-md text-white bg-[#0000004d] text-2xl cursor-pointer transition-300 ease-out hover:text-opacity-50"
-              @click="onClick(item.handler)"
-            ></li>
+          <ul class="mt-12 flex items-center gap-4">
+            <CommonPlayerControllers />
           </ul>
 
-          <div
-            class="mt-6 flex items-center"
-            :class="{ 'w-full !mt-0': fixed }"
-          >
+          <div class="mt-6 flex items-center">
             <img
               v-if="!audioStore.isPlaying"
               class="cursor-pointer w-8 h-8"

@@ -1,9 +1,5 @@
 <template>
   <div class="mt-8" ref="content">
-    <!-- <SectionsAudioPlayer ref="target" /> -->
-
-    <!-- <SectionsAudioPlayer :fixed="isFixed" v-show="isFixed" /> -->
-
     <CommonSinglePageWrapper class="container mt-8" :single="singleData">
       <template #aside>
         <img src="https://picsum.photos/200/400" class="w-full" alt="" />
