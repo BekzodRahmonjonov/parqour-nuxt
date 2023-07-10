@@ -35,10 +35,12 @@
 </template>
 <script setup lang="ts">
 import { useI18n } from 'vue-i18n'
-import { useSpecialReports } from '~/store/special-reports'
 
-const reportsStore = useSpecialReports()
-reportsStore.fetchSpecialReports()
+import { useSpecialReportsStore } from '~/store/special-reports'
+
+const reportsStore = useSpecialReportsStore()
+
+reportsStore.fetchSpecialReports(reportsStore.params)
 const specialReports = computed(() => reportsStore.specialReports)
 
 const isLoading = ref(false)

@@ -24,7 +24,7 @@ export const usePopularNewsStore = defineStore('popularNewsStore', {
       if (!this.news?.length || force) {
         return new Promise((resolve, reject) => {
           useApi()
-            .$get('news/PopularList/', {
+            .$get<INewsResponse>('news/PopularList/', {
               params,
             })
             .then((res: INewsResponse) => {

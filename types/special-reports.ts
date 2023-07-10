@@ -17,3 +17,8 @@ export interface ISpecialReports {
 export interface IReportsResponse extends IResponse {
   results: ISpecialReports[]
 }
+export interface ISpecialReportsParams {
+  offset: number
+  limit: number
+  search?: string
+}

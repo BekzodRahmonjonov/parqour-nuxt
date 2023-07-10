@@ -1,6 +1,5 @@
 import {
   INewsSingleData,
-  IPhotoReportsData,
   ISingleData,
   ISinglePhoto,
 } from '~/types'
@@ -106,7 +105,7 @@ export const newsData: INewsSingleData = {
         По его словам, деньги, которые зарабатывают мигранты и присылают на родину, должны идти не только на обеспечение их семей, но и на развитие страны.</div>
 `,
 }
-export const photoData: IPhotoReportsData = {
+export const photoData = {
   title:
     '«Это абсолютно необоснованные слова» — Шавкат Мирзиёев о введении подоходного налога мигрантов',
   created_at: new Date(),

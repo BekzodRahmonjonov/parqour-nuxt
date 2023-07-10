@@ -16,11 +16,8 @@ export interface TForm<T> {
   $v: Ref<Validation>
 }
 
-export function useForm<T extends object>(
-  ...args: TFormArguments<T>
-): TForm<T> {
+export function useForm<T extends object>(...args: TFormArguments<T>): TForm<T> {
   const [initialValues, validations, vuelidateConfig] = args
-
   const values = reactive<T>(initialValues)
   const $v = useVuelidate(validations, values, vuelidateConfig)
 

@@ -96,7 +96,7 @@ va filter chiuzilmagan qanaqa content chiqishi ?
 <script setup lang="ts">
 import img from '~/assets/images/comment.jpg'
 interface Props {
-  isChild: Boolean
+  isChild?: Boolean
 }
 const emit = defineEmits(['ItemCommnetAdd'])
 defineProps<Props>()
