@@ -1,29 +1,20 @@
 import { NitroFetchRequest } from 'nitropack'
 import { FetchOptions} from 'ofetch'
-// function errorHandling (status:number) {
-//   switch (status) {
-//     // case 401: return authStore.Logout();
-//   }
-// }
+
 export const useApi = (apiUrl?: string) => {
   const baseURL = apiUrl || (import.meta.env.VITE_API_BASE_URL as string)
   const locale = useCookie('locale')
   const loading = ref(false)
-// eslint-disable-next-line camelcase
-
-
-  // eslint-disable-next-line camelcase
-
   function $service(options?: FetchOptions) {
     const headersObj:any = {
       ...options?.headers,
     }
-    const access_token = useCookie('access_token');
-    // eslint-disable-next-line camelcase
-    if (access_token.value) {
-      // eslint-disable-next-line camelcase
-      headersObj['Authorization'] = `Bearer ${access_token.value}`
-    }
+    // const access_token = useCookie('access_token');
+    // // eslint-disable-next-line camelcase
+    // if (access_token.value) {
+    //   // eslint-disable-next-line camelcase
+    //   headersObj['Authorization'] = `Bearer ${access_token.value}`
+    // }
     return $fetch.create({
       ...options,
       baseURL,

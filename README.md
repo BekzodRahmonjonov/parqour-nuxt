@@ -7,6 +7,8 @@ Look at the [Nuxt 3 documentation](https://nuxt.com/docs/getting-started/introdu
 Make sure to install the dependencies:
 
 ```bash
+# node 
+ node -version 16.17.1
 # yarn
 yarn install
 

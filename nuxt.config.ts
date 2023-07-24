@@ -5,11 +5,11 @@ export default defineNuxtConfig({
   app: {
     head: {
       link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.svg' }],
-      title: 'UzNews.uz - Новости Узбекистана',
+      title: 'Nuxt3-and-typescript',
     },
     pageTransition: { name: 'fade', mode: 'out-in' },
   },
-  css: ['/assets/style.css', '/assets/icomoon/style.css'],
+  css: ['/assets/style.css'],
   modules: [
     '@vueuse/nuxt',
     '@nuxtjs/i18n',

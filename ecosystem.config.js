@@ -1,7 +1,7 @@
 module.exports = {
   apps: [
     {
-      name: "Uznews.uz",
+      name: "Nuxt3-and-typescript",
       port: 3001,
       exec_mode: "cluster",
       instances: "1",
