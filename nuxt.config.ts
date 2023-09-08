@@ -1,19 +1,24 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
-
+// import { i18n} from './locales/i18n.js'
+import us from './locales/us.json'
+import en from './locales/en.json'
+import ru from './locales/ru.json'
 export default defineNuxtConfig({
   ssr: true,
+  plugins: [
+    { src: './plugins/swiper.ts', mode: 'client' } // Add the Swiper plugin here
+  ],
   app: {
     head: {
       link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.svg' }],
-      title: 'Nuxt3-and-typescript',
+      title: 'Parqour',
     },
-    pageTransition: { name: 'fade', mode: 'out-in' },
+    // pageTransition: { name: 'fade', mode: 'out-in' },
   },
-  css: ['/assets/style.css'],
+  css: ['/assets/main.scss'],
   modules: [
     '@vueuse/nuxt',
     '@nuxtjs/i18n',
-    '@nuxtjs/tailwindcss',
     [
       '@pinia/nuxt',
       {
@@ -24,20 +29,24 @@ export default defineNuxtConfig({
         ],
       },
     ],
+    'nuxt-swiper',
+    '@sidebase/nuxt-session'
   ],
-
   i18n: {
-    locales: [
-      { code: 'ru', iso: 'ru-RU' },
-      { code: 'uz', iso: 'uz-UZ' },
-    ],
-    defaultLocale: 'ru',
+    locales: ['us', 'en', 'ru'],
+    defaultLocale: 'en',
     vueI18n: {
-      fallbackLocale: 'ru',
+      fallbackLocale: 'en',
       silentTranslationWarn: true,
-      missingWarn: false,
-      fallbackWarn: false,
+      missingWarn: true,
+      fallbackWarn: true,
+      messages: {
+        en,
+        us,
+        ru
+      },
     },
+    // vueI18n: './i18n.config.ts', // if you are using custom path, default
     detectBrowserLanguage: {
       useCookie: true,
       cookieKey: 'i18n_redirected',
@@ -54,5 +63,13 @@ export default defineNuxtConfig({
     public: {
       baseURL: 'localhost',
     },
+  },
+  buildModules: ['@nuxtjs/style-resources'],
+  styleResources: {
+    scss: [
+      // Add your global Sass files here, e.g., variables, mixins, etc.
+      '@/assets/styles/variables.scss',
+      '@/assets/styles/mixins.scss',
+    ],
   },
 })

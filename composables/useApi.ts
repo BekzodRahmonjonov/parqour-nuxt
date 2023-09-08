@@ -35,7 +35,7 @@ export const useApi = (apiUrl?: string) => {
       loading.value = true
       $service(options)(endpoint)
         .then((response: T | any) => {
-          resolve(response)
+          resolve(response.data)
         })
         .catch((error) => {
           reject(error.response)

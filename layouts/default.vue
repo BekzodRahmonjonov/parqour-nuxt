@@ -1,14 +1,14 @@
 <template>
   <div
-    class="dark:bg-blue-700 transition-200 min-h-screen flex flex-col justify-between"
+    class=""
   >
     <div>
-      <!-- header -->
+      <!-- <the-header /> -->
       <!-- <div class="pt-[49px] lg:pt-[125px]"> -->
         <slot />
       </div>
     </div>
-   <!-- footer -->
+  <!-- <the-footer /> -->
   <!-- </div> -->
 </template>
 <script setup lang="ts">

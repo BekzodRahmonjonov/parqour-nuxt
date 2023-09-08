@@ -1,7 +1,9 @@
 <template>
-  <div>
-   <h1>Pages</h1>
-  </div>
+  <HomePage />
 </template>
+
+
 <script setup lang="ts">
+
+
 </script>

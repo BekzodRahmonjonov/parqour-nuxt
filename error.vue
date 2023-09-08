@@ -1,6 +1,16 @@
 <template>
-  <div class="dark:bg-dark-200">
-    <h1>error</h1>
+  <div>
+    <pre>{{ error }}</pre>
   </div>
 </template>
-<script setup lang="ts"></script>
+<script setup lang="ts">
+
+
+interface Props {
+  error: object
+}
+
+
+defineProps<Props>()
+
+</script>

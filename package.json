@@ -5,24 +5,25 @@
     "dev": "nuxt dev",
     "generate": "nuxt generate",
     "preview": "nuxt preview",
+    "start": "nuxt start",
     "postinstall": "nuxt prepare",
     "lint": "eslint --ext .ts,.js,.vue"
   },
   "devDependencies": {
+    "@nuxtjs/style-resources": "^1.2.1",
+    "@sidebase/nuxt-session": "^0.2.7",
     "eslint-config-prettier": "^8.6.0",
     "nuxt": "^3.2.2",
-    "tailwind-scrollbar": "^3.0.4"
+    "sass": "^1.64.1",
+    "sass-loader": "^10.4.1"
   },
   "dependencies": {
     "@ivanv/vue-collapse-transition": "^1.0.2",
     "@nuxtjs/eslint-config-typescript": "^12.0.0",
     "@nuxtjs/i18n": "8.0.0-beta.8",
-    "@nuxtjs/tailwindcss": "^6.6.5",
     "@pinia/nuxt": "^0.4.8",
     "@typescript-eslint/eslint-plugin": "^5.52.0",
     "@typescript-eslint/parser": "^5.52.0",
-    "@vuelidate/core": "^2.0.2",
-    "@vuelidate/validators": "^2.0.2",
     "@vueuse/core": "^10.1.2",
     "@vueuse/nuxt": "^10.1.2",
     "dayjs": "^1.11.8",
@@ -33,9 +34,8 @@
     "eslint-plugin-simple-import-sort": "^10.0.0",
     "eslint-plugin-vue": "^9.9.0",
     "maska": "^1.5.0",
+    "nuxt-swiper": "^1.2.0",
     "prettier": "^2.8.4",
-    "typescript": "^4.9.5",
-    "vue-highlight-words": "^3.0.1",
-    "vue3-recaptcha-v2": "^1.0.1"
+    "typescript": "^4.9.5"
   }
 }
